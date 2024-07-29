@@ -27,7 +27,7 @@ li {
 
 @keyframes transition-scrolled {
     0% {
-        background-color: #3f0b4dc7;
+        background-color: #fadce6;
     }
 
     100% {
@@ -43,7 +43,7 @@ li {
     }
 
     100% {
-        background-color: #3f0b4dc7;
+        background-color: #fadce6;
     }
 }
 
@@ -90,12 +90,12 @@ li {
 
 .scrolled .navbar-toggler i,
 .scrolled .fa-sharp {
-    color: #490d55 !important;
-    fill: #490d55 !important;
+    color: #fadce6 !important;
+    fill: #fadce6 !important;
 }
 
 .scrolled-revert #navbar-links a {
-    color: #ffff;
+    color: #000;
 }
 
 /* Estilos para o conteúdo do modal */
@@ -308,7 +308,7 @@ li {
 }
 
 .item-1 {
-    background: url(../images/banner.jpeg) no-repeat center / cover;
+    background: url(../images/banner.png) no-repeat center / cover;
 }
 
 .item-2 {
@@ -763,7 +763,7 @@ li {
 
 @media (max-width: 1024px) {
     .item-1 {
-        background: url(../images/banner.jpeg) no-repeat center / cover;
+        background: url(../images/banner.png) no-repeat center / cover;
     }
 
     .slide-item {

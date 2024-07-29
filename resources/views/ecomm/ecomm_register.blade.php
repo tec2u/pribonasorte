@@ -71,7 +71,7 @@
       height: 40px;
       border-radius: 5px;
       color: #ffffff;
-      background: #27032f;
+      background: #d26075;
       border: 0px;
       transition: 500ms;
     }
@@ -81,7 +81,7 @@
       height: 40px;
       border-radius: 5px;
       color: #ffffff;
-      background: #490d55;
+      background: #d26075;
       border: 0px;
       transition: 500ms;
     }
@@ -195,7 +195,7 @@
       border-radius: 5px;
       font-weight: bold;
       border: 0px;
-      background: #27032f;
+      background: #d26075;
       margin-bottom: 15px;
       color: #ffffff;
       transition: 200ms;
@@ -241,7 +241,7 @@
     }
 
     p.name-product-cart {
-      color: #27032f;
+      color: #d26075;
       text-transform: uppercase;
       font-size: 13px;
       font-weight: bold;
@@ -321,7 +321,7 @@
       width: 50%;
       height: 40px;
       border: 0px;
-      background: #212121;
+      background: #d26075;
       color: #ffffff;
       border-radius: 5px;
     }
@@ -349,7 +349,7 @@
     .button-edit {
 
       border-radius: 5px;
-      background: #27032f;
+      background: #d26075;
       float: left;
       margin-left: 10px;
       color: #ffffff;
@@ -377,7 +377,7 @@
       width: 100%;
       display: inline-block;
       padding: 15px;
-      background-color: #490d55;
+      background-color: #d26075;
       border-radius: 5px;
     }
 
@@ -483,7 +483,7 @@
     }
 
     body {
-      background-image: url(../img/fundo-newhome.jpeg) !important;
+      background-image: url(../img/fundo-newhome.jpg) !important;
     }
   </style>
 
@@ -893,7 +893,7 @@
                     <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                       <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size: 15px;">
-                        I Agree with LifeProsper
+                        I Agree with
                         <a href="{{ route('general_terms_conditions') }}" style="color: #212121;"><b>Terms and
                             Agreement</b>
                         </a>

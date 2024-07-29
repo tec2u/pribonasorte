@@ -31,12 +31,12 @@
           @foreach ($methods as $id => $item)
             @if ($id == 0)
               <button class="btn btn-primary bonus-btn" id="function-{{ $id }}"
-                style="width: fit-content;background-color: #490d55;"
+                style="width: fit-content;background-color: #d26075;"
                 onclick="executeBonus({{ $id }}, '{{ $item }}')">{{ ++$id }}° - Run
                 {{ $item }}</button>
             @else
               <button class="btn btn-primary bonus-btn" id="function-{{ $id }}"
-                style="width: fit-content;background-color: #490d55;"
+                style="width: fit-content;background-color: #d26075;"
                 onclick="executeBonus({{ $id }}, '{{ $item }}')" disabled>{{ ++$id }}° - Run
                 {{ $item }}</button>
             @endif

@@ -40,17 +40,30 @@
                         <td><select class="form-select" style="padding: 0.5 1.5rem" aria-label="Default select example"
                             required name="month">
                             @php
-                                $monthsYear = array (1 => "January", 2 => "February", 3 => "March", 4 => "April", 5 => "May", 6 => "June", 7 => "July", 8 => "August", 9 => "September", 10 => "October", 11 => "November", 12 => "December",);
+                              $monthsYear = [
+                                  1 => 'January',
+                                  2 => 'February',
+                                  3 => 'March',
+                                  4 => 'April',
+                                  5 => 'May',
+                                  6 => 'June',
+                                  7 => 'July',
+                                  8 => 'August',
+                                  9 => 'September',
+                                  10 => 'October',
+                                  11 => 'November',
+                                  12 => 'December',
+                              ];
 
-                                $dataNow     = date('d-m-Y');
-                                $InfoDataNow = getdate(strtotime($dataNow));
+                              $dataNow = date('d-m-Y');
+                              $InfoDataNow = getdate(strtotime($dataNow));
                             @endphp
                             @for ($i = 1; $i < 13; $i++)
-                                @if ($InfoDataNow['mon'] == $i)
+                              @if ($InfoDataNow['mon'] == $i)
                                 <option value="{{ $i }}" selected>{{ $monthsYear[$i] }}</option>
-                                @else
+                              @else
                                 <option value="{{ $i }}">{{ $monthsYear[$i] }}</option>
-                                @endif
+                              @endif
                             @endfor
                           </select></td>
                         <td><select class="form-select" style="padding: 0.5 1.5rem" aria-label="Default select example"
@@ -66,7 +79,7 @@
                           </select></td>
                       @endif
                       <td><button
-                          style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; font-weight: bold;">Search</button>
+                          style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; font-weight: bold;">Search</button>
                       </td>
                     </tr>
                   </table>
@@ -79,8 +92,8 @@
                 </div>
                 <div class="card-header py-3">
                   <!-- <button type="button" class="btn btn-info btn-sm rounded-pill" style="width: 80px;">CSV</button>
-                                                                                                  <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
-                                                                                                  <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
+                                                                                                    <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
+                                                                                                    <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
                   <div class="card-tools">
                     <div class="input-group input-group-sm my-1" style="width: 250px;">
                       <input type="text" name="table_search" class="form-control float-right rounded-pill pl-3"
@@ -112,7 +125,9 @@
                       @forelse($scores as $score)
                         @php
                           $user_id = $score->id_user;
-                          $info_user = Illuminate\Support\Facades\DB::select("SELECT * FROM users WHERE id = '$user_id'");
+                          $info_user = Illuminate\Support\Facades\DB::select(
+                              "SELECT * FROM users WHERE id = '$user_id'",
+                          );
                         @endphp
 
                         <tr>

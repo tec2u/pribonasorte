@@ -79,7 +79,7 @@
     height: 40px;
     border-radius: 5px;
     color: #ffffff;
-    background: #27032f;
+    background: #d26075;
     border: 0px;
     transition: 500ms;
   }
@@ -89,7 +89,7 @@
     height: 40px;
     border-radius: 5px;
     color: #ffffff;
-    background: #490d55;
+    background: #d26075;
     border: 0px;
     transition: 500ms;
   }
@@ -203,7 +203,7 @@
     border-radius: 5px;
     font-weight: bold;
     border: 0px;
-    background: #27032f;
+    background: #d26075;
     margin-bottom: 15px;
     color: #ffffff;
     transition: 200ms;
@@ -249,7 +249,7 @@
   }
 
   p.name-product-cart {
-    color: #27032f;
+    color: #d26075;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: bold;
@@ -329,7 +329,7 @@
     width: 50%;
     height: 40px;
     border: 0px;
-    background: #212121;
+    background: #d26075;
     color: #ffffff;
     border-radius: 5px;
   }
@@ -358,7 +358,7 @@
     width: 30%;
     height: 40px;
     border-radius: 5px;
-    background: #27032f;
+    background: #d26075;
     float: right;
     margin-right: 10px;
     color: #ffffff;
@@ -429,7 +429,7 @@
     width: 100%;
     display: inline-block;
     padding: 15px;
-    background-color: #490d55;
+    background-color: #d26075;
     border-radius: 5px;
   }
 

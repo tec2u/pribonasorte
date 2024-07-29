@@ -46,10 +46,11 @@
             method="GET">
             @csrf
             <div class="input-group input-group-lg">
-              <input type="text" name="search" class="form-control" placeholder="Search order number, name user or login user">
+              <input type="text" name="search" class="form-control"
+                placeholder="Search order number, name user or login user">
               <span class="input-group-append">
                 <button type="submit"
-                  style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
+                  style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
               </span>
             </div>
           </form>
@@ -114,7 +115,9 @@
 
                         if (isset($id_user)) {
                             if (isset($orderpackage->number_order)) {
-                                $orderFinal = DB::select("SELECT * FROM ecomm_orders WHERE number_order=$orderpackage->number_order");
+                                $orderFinal = DB::select(
+                                    "SELECT * FROM ecomm_orders WHERE number_order=$orderpackage->number_order",
+                                );
                                 if (isset($orderFinal[0]->{'client_backoffice'})) {
                                     if (isset($orderFinal[0]->{'status_order'})) {
                                         $status_order = $orderFinal[0]->{'status_order'};
@@ -130,7 +133,9 @@
                         }
                     }
 
-                    $sendedfak = DB::select("SELECT * FROM invoices_fakturoid WHERE number_order = $orderpackage->number_order");
+                    $sendedfak = DB::select(
+                        "SELECT * FROM invoices_fakturoid WHERE number_order = $orderpackage->number_order",
+                    );
                     $SendedFakturoid = !empty($sendedfak);
 
                   @endphp

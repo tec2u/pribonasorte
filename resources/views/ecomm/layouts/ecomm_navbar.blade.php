@@ -18,7 +18,7 @@
         <a class="nav-link" href="{{ route('orders.settings.ecomm') }}">Settings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="font-weight: bold; color: #5D116D" href="{{ route('ecomm') }}">Shop Now</a>
+        <a class="nav-link" style="font-weight: bold; color: #d26075" href="{{ route('ecomm') }}">Shop Now</a>
       </li>
       <li class="nav-item">
         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#migratemodal">

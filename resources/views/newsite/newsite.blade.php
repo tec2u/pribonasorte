@@ -10,13 +10,8 @@
       </video>
     </div>
   </div>
-  <section id="background-top-2">
-    <!-- class="carousel" -->
-    <!--  -->
-    <div class="slide-item slide item-1">
-      <!-- <video autoplay muted loop class="bg_video bg-video-newsite" id="autoPlayForce">
-                                                                                              <source src="/videos/video-1.mp4" type="video/mp4">
-                                                                                            </video> -->
+  {{-- <section id="background-top-2">
+    <div class="slide-item slide item-1" style="height: 75vh !important">
       <center class="reposition-join-btn content-join-now">
         <button class="btn-join-now" onclick="hideOrHiddenOptions()">JOIN NOW</button>
         <div class="options-link">
@@ -25,170 +20,14 @@
         </div>
       </center>
     </div>
-    <!-- <div class="slide-item slide">
-                                                                                            <video autoplay muted loop class="bg_video bg-video-newsite" id="autoPlayForce">
-                                                                                              <source src="/videos/video-2.mp4" type="video/mp4">
-                                                                                            </video>
-                                                                                            <center class="reposition-join-btn">
-                                                                                              <a href="{{ route('ecomm') }}">
-                                                                                                <button class="btn-join-now">JOIN NOW</button>
-                                                                                              </a>
-                                                                                            </center>
-                                                                                          </div>
-                                                                                          <div class="slide-item slide">
-                                                                                            <video autoplay muted loop class="bg_video bg-video-newsite" id="autoPlayForce">
-                                                                                              <source src="/videos/video-3.mp4" type="video/mp4">
-                                                                                            </video>
-                                                                                            <center class="reposition-join-btn">
-                                                                                              <a href="{{ route('ecomm') }}">
-                                                                                                <button class="btn-join-now">JOIN NOW</button>
-                                                                                              </a>
-                                                                                            </center>
-                                                                                          </div>
-                                                                                          <div class="slide-item slide">
-                                                                                            <video autoplay muted loop class="bg_video bg-video-newsite" id="autoPlayForce">
-                                                                                              <source src="/videos/video-4.mp4" type="video/mp4">
-                                                                                            </video>
-                                                                                            <center class="reposition-join-btn">
-                                                                                              <a href="{{ route('ecomm') }}">
-                                                                                                <button class="btn-join-now">JOIN NOW</button>
-                                                                                              </a>
-                                                                                            </center>
-                                                                                          </div> -->
-    <!-- <div class="text-center position-absolute w-100 message_banner_bottom0">Teach, Travel, Transform</div> -->
-  </section>
-  <!--  -->
+  </section> --}}
+
   <section id="background-primary">
     <div class="container" style="padding: 0px;">
-
-      {{-- <center>
-        <button type="button" id="button-lg" class="btn btn-secondary btn-lg">Every order saves 75 trees</button>
-        <!--  -->
-        <div class="row" style="margin-top: 0px;">
-          <div class="col-5" id="wdt-l1">
-            <hr>
-          </div>
-          <div class="col-2" id="wdt-c1">
-            <p id="title-feat">Featured Brands</p>
-          </div>
-          <div class="col-5" id="wdt-r1">
-            <hr>
-          </div>
-        </div>
-      </center> --}}
-      <!--  -->
-      {{-- <div class="line-card" style="padding: 30px 0px 50px 0px;">
-        <div class="card-item">
-          <div style="background-image: url('/img/lifeprosprer_brands.png'); background-size: 100%;" class="card-img">
-          </div>
-          <div class="line-card-text">
-            <p class="text-card">Lifeproper</p>
-          </div>
-        </div>
-      </div> --}}
-      <!--  -->
-
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
-        style="margin-top: 40px; display: none;">
-        <div class="carousel-indicators" id="indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" id="line-winner">
-          <div class="carousel-item active" id="line-actve" data-bs-interval="10000">
-            <div class="line-card">
-              <div class="card-item">
-                <div style="background-image: url('/img/Biohack-brand-photo-HP-320.jpg'); background-size: 100%;"
-                  class="card-img"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Nuud edit</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Brilliant-Smile-brand-HP-320.jpg'); background-size: 100%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Brilliant Smile edit</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Coffee-lab-brand-cover-HP-320.jpg'); background-size: 100%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Foci</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <div class="line-card">
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Defendie-Brand-HP-320.jpg'); background-size: 100%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Defendie</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Foci-brand-HP-320.jpg'); background-size: 100%;">
-                </div>
-                <div class="line-card-text">
-                  <p class="text-card">ONEPan</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Hauger-brand-cover-HP-320.jpg'); background-size: 100%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Hauger</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="line-card">
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/onepan-brand-page-320.jpg'); background-size: 100%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Biohakk</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/Saint-Roches-brand-cover-HP-400-1.jpg'); background-size: 100%;">
-                </div>
-                <div class="line-card-text">
-                  <p class="text-card">Saint Rouchés</p>
-                </div>
-              </div>
-              <div class="card-item">
-                <div class="card-img"
-                  style="background-image: url('/img/nuud-brand-page-320.jpg'); background-size: 125%;"></div>
-                <div class="line-card-text">
-                  <p class="text-card">Coffee Lab Stories</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button id="btn-controll1" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true" style="margin-left: -220px;"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button id="btn-controll2" class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true" style="margin-right: -240px;"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
     </div>
   </section>
-  <!--  -->
+
+
   <section class="sections-default d-flex align-items-end container-video1" style="z-index: 0;">
     <div class="background-complete-bloco background-complete-bloco1 container-div-video">
       <div class="section-1 d-flex justify-content-between div-video1">
@@ -212,16 +51,15 @@
             </div>
           </div>
         </div>
-        <div class="w-100 d-flex flex-column justify-content-center" style="width: 90%;">
-          <video autoplay muted loop class="bg_video_player w-100" id="autoPlayForce">
-            <source src="/videos/video-section-1.mp4" type="video/mp4">
-          </video>
-          <div class="w-100 content-modal-btn d-flex justify-content-center"><button class="play-button"
-              onclick="openModal()">Play Video</button></div>
+        <div class="w-100 d-flex flex-column justify-content-center align-items-center" style="width: 90%;">
+          <img src="/images/favicon.png" alt="" class="bg_video_player w-75" id="autoPlayForce">
+          <div class="w-100 content-modal-btn d-flex justify-content-center"><a href="{{ route('ecomm') }}"
+              class="btn play-button" onclick="">CONHEÇA NOSSOS PRODUTOS</a></div>
         </div>
       </div>
     </div>
   </section>
+
   <section>
     <div class="background-complete-bloco1-2 carousel-steps">
       <div class="" style="border: none;">
@@ -332,178 +170,178 @@
                 <div data-w-id="a964f1d2-1c0f-28c3-6764-a4210c69d5d2" class="scroll-cards__inner">
                   <div class="scroll-cards__card _1 card-height card-scan">
                     <!-- <div class="scroll_cards__card__left">
-                                                                                                                      <div class="scroll-card__heading">
-                                                                                                                          <div class="scroll-card__tag-wrap">
-                                                                                                                              <h4 class="h3 m-32 linguana-ignore">1. SCAN</h4>
-                                                                                                                          </div>
-                                                                                                                          <div class="text--xl text--white-op-70 max-65">
-                                                                                                                              Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                                              ant thorough real-time analysis of all organs and systems.
-                                                                                                                              Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                                          </div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__mid">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">Verified</span> Web3 projects</div>
-                                                                                                                          <img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">Top 10</span> blockchain in the
-                                                                                                                              world</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">160,000</span> unique wallets</div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__bot"><a href="https://ultron.foundation/" target="_blank" class="button is--transparent w-inline-block">
-                                                                                                                              <div class="button-icon-wrap">
-                                                                                                                                  <img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
-                                                                                                                                  <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
-                                                                                                                              </div>
-                                                                                                                          </a>
-                                                                                                                      </div>
-                                                                                                                  </div>
-                                                                                                                  <div class="image-scroll-carosel">
-                                                                                                                      <img src="{{ asset('/images/digital.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
-                                                                                                                  </div> -->
+                                                                                                                                                                <div class="scroll-card__heading">
+                                                                                                                                                                    <div class="scroll-card__tag-wrap">
+                                                                                                                                                                        <h4 class="h3 m-32 linguana-ignore">1. SCAN</h4>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="text--xl text--white-op-70 max-65">
+                                                                                                                                                                        Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                                        ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                                        Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__mid">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">Verified</span> Web3 projects</div>
+                                                                                                                                                                    <img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">Top 10</span> blockchain in the
+                                                                                                                                                                        world</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">160,000</span> unique wallets</div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__bot"><a href="https://ultron.foundation/" target="_blank" class="button is--transparent w-inline-block">
+                                                                                                                                                                        <div class="button-icon-wrap">
+                                                                                                                                                                            <img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
+                                                                                                                                                                            <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </a>
+                                                                                                                                                                </div>
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="image-scroll-carosel">
+                                                                                                                                                                <img src="{{ asset('/images/digital.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
+                                                                                                                                                            </div> -->
                   </div>
                   <div class="scroll-cards__card _2 card-height card-recommend">
                     <!-- <div class="scroll_cards__card__left">
-                                                                                                                      <div class="scroll-card__heading">
-                                                                                                                          <div class="scroll-card__tag-wrap">
-                                                                                                                              <h4 class="h3 m-32 linguana-ignore">2. RECOMMEND</h4>
-                                                                                                                          </div>
-                                                                                                                          <div class="text--xl text--white-op-70 max-65">
-                                                                                                                              Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                                              ant thorough real-time analysis of all organs and systems.
-                                                                                                                              Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                                          </div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__mid">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">$ 50M</span> sold</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">1,000,000</span> jackpot guaranteed
-                                                                                                                          </div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">$ 430B +</span> industry</div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__bot">
-                                                                                                                          <a href="https://www.lottoday.io/" target="_blank" class="button is--transparent w-inline-block">
-                                                                                                                              <div class="button-icon-wrap">
-                                                                                                                                  <img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
-                                                                                                                                  <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
-                                                                                                                              </div>
-                                                                                                                          </a>
-                                                                                                                          <div class="scroll-card__bot-logos"><a href="#" class="scroll-card__bot-logo-link w-inline-block">
-                                                                                                                                  <img src="images/65940d710893516ae60c9c88_Group%2048097791.svg" loading="lazy" alt="" class="scroll-card__bot-logo"></a><a href="#" class="scroll-card__bot-logo-link w-inline-block"><img src="images/65940d710893516ae60c9c7b_Chainlink%20Logo%20White%201.svg" loading="lazy" alt="" class="scroll-card__bot-logo"></a></div>
-                                                                                                                      </div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
-                                                                                                                  </div>
-                                                                                                                  <div class="image-scroll-carosel">
-                                                                                                                      <img src="{{ asset('/images/icon-recommend.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
-                                                                                                                  </div> -->
+                                                                                                                                                                <div class="scroll-card__heading">
+                                                                                                                                                                    <div class="scroll-card__tag-wrap">
+                                                                                                                                                                        <h4 class="h3 m-32 linguana-ignore">2. RECOMMEND</h4>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="text--xl text--white-op-70 max-65">
+                                                                                                                                                                        Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                                        ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                                        Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__mid">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">$ 50M</span> sold</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">1,000,000</span> jackpot guaranteed
+                                                                                                                                                                    </div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">$ 430B +</span> industry</div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__bot">
+                                                                                                                                                                    <a href="https://www.lottoday.io/" target="_blank" class="button is--transparent w-inline-block">
+                                                                                                                                                                        <div class="button-icon-wrap">
+                                                                                                                                                                            <img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
+                                                                                                                                                                            <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="scroll-card__bot-logos"><a href="#" class="scroll-card__bot-logo-link w-inline-block">
+                                                                                                                                                                            <img src="images/65940d710893516ae60c9c88_Group%2048097791.svg" loading="lazy" alt="" class="scroll-card__bot-logo"></a><a href="#" class="scroll-card__bot-logo-link w-inline-block"><img src="images/65940d710893516ae60c9c7b_Chainlink%20Logo%20White%201.svg" loading="lazy" alt="" class="scroll-card__bot-logo"></a></div>
+                                                                                                                                                                </div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="image-scroll-carosel">
+                                                                                                                                                                <img src="{{ asset('/images/icon-recommend.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
+                                                                                                                                                            </div> -->
                   </div>
                   <div class="scroll-cards__card _3 card-height card-expand">
                     <!-- <div class="scroll_cards__card__left _3">
-                                                                                                                      <div class="scroll-card__heading">
-                                                                                                                          <div class="scroll-card__tag-wrap">
-                                                                                                                              <h4 class="h3 m-32 linguana-ignore">3. EXPAND</h4>
-                                                                                                                          </div>
-                                                                                                                          <div class="text--xl text--white-op-70 max-65">
-                                                                                                                              Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                                              ant thorough real-time analysis of all organs and systems.
-                                                                                                                              Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                                          </div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__mid">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">$ 25M+</span> already gone</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">TradFi</span> &amp; <span class="text--white">DeFi</span> supported</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">5B +</span> future users potential
-                                                                                                                          </div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__bot"><a href="https://flip-me.com/" target="_blank" class="button is--transparent w-inline-block">
-                                                                                                                              <div class="button-icon-wrap"><img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
-                                                                                                                                  <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
-                                                                                                                              </div>
-                                                                                                                          </a>
-                                                                                                                          <div class="scroll-card__bot-logos gap-s">
-                                                                                                                              <div class="scroll-card__bot-logo-link"><img src="images/65940ec78f3f7a64437746ca_Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917%201.svg" loading="lazy" alt="" class="scroll-card__bot-logo">
-                                                                                                                              </div>
-                                                                                                                              <div class="scroll-card__bot-logo-link"><img src="images/65940ed704d90dc84a988de9_Isolation_Mode.svg" loading="lazy" alt="" class="scroll-card__bot-logo _2"></div>
-                                                                                                                          </div>
-                                                                                                                      </div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
-                                                                                                                  </div>
-                                                                                                                  <div class="image-scroll-carosel">
-                                                                                                                      <img src="{{ asset('/images/icon-exapand.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
-                                                                                                                  </div> -->
+                                                                                                                                                                <div class="scroll-card__heading">
+                                                                                                                                                                    <div class="scroll-card__tag-wrap">
+                                                                                                                                                                        <h4 class="h3 m-32 linguana-ignore">3. EXPAND</h4>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="text--xl text--white-op-70 max-65">
+                                                                                                                                                                        Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                                        ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                                        Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__mid">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">$ 25M+</span> already gone</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">TradFi</span> &amp; <span class="text--white">DeFi</span> supported</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">5B +</span> future users potential
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__bot"><a href="https://flip-me.com/" target="_blank" class="button is--transparent w-inline-block">
+                                                                                                                                                                        <div class="button-icon-wrap"><img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle">
+                                                                                                                                                                            <img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover">
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="scroll-card__bot-logos gap-s">
+                                                                                                                                                                        <div class="scroll-card__bot-logo-link"><img src="images/65940ec78f3f7a64437746ca_Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917%201.svg" loading="lazy" alt="" class="scroll-card__bot-logo">
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <div class="scroll-card__bot-logo-link"><img src="images/65940ed704d90dc84a988de9_Isolation_Mode.svg" loading="lazy" alt="" class="scroll-card__bot-logo _2"></div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="image-scroll-carosel">
+                                                                                                                                                                <img src="{{ asset('/images/icon-exapand.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
+                                                                                                                                                            </div> -->
                   </div>
                   <div class="scroll-cards__card _4 card-height card-support">
                     <!-- <div class="scroll_cards__card__left _3">
-                                                                                                                      <div class="scroll-card__heading">
-                                                                                                                          <div class="scroll-card__tag-wrap">
-                                                                                                                              <h4 class="h3 m-32 linguana-ignore">4. SUPPORT</h4>
-                                                                                                                          </div>
-                                                                                                                          <div class="text--xl text--white-op-70 max-65">
-                                                                                                                              Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                                              ant thorough real-time analysis of all organs and systems.
-                                                                                                                              Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                                          </div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__mid">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">2.6M</span> Gigabytes of data
-                                                                                                                              analysed</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">Binance</span> Link partner</div>
-                                                                                                                          <img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
-                                                                                                                          <div class="text--28 text--white-op-70"><span class="text--white">All-in-one App</span> (education,
-                                                                                                                              trading, insights)</div>
-                                                                                                                      </div>
-                                                                                                                      <div class="scroll-card__bot"><a href="https://finup.ai/" target="_blank" class="button is--transparent w-inline-block">
-                                                                                                                              <div class="button-icon-wrap"><img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle"><img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover"></div>
-                                                                                                                          </a></div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
-                                                                                                                  </div>
-                                                                                                                  <div class="image-scroll-carosel">
-                                                                                                                      <img src="{{ asset('/images/icon-support.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
-                                                                                                                  </div> -->
+                                                                                                                                                                <div class="scroll-card__heading">
+                                                                                                                                                                    <div class="scroll-card__tag-wrap">
+                                                                                                                                                                        <h4 class="h3 m-32 linguana-ignore">4. SUPPORT</h4>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="text--xl text--white-op-70 max-65">
+                                                                                                                                                                        Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                                        ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                                        Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__mid">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">2.6M</span> Gigabytes of data
+                                                                                                                                                                        analysed</div><img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">Binance</span> Link partner</div>
+                                                                                                                                                                    <img src="images/6592ecdf764d512c26a0a120_seperator.svg" loading="lazy" alt="" class="curve-seperator">
+                                                                                                                                                                    <div class="text--28 text--white-op-70"><span class="text--white">All-in-one App</span> (education,
+                                                                                                                                                                        trading, insights)</div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="scroll-card__bot"><a href="https://finup.ai/" target="_blank" class="button is--transparent w-inline-block">
+                                                                                                                                                                        <div class="button-icon-wrap"><img src="images/658fe775560e9077a38756d4_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon idle"><img src="images/65a585d81043b74dc60935d5_Arrow%20Right.svg" loading="lazy" alt="" class="button__icon hover"></div>
+                                                                                                                                                                    </a></div><img src="images/65b172fce5ebf959ceb4cc9e_scroll-bg-1-65b172df0c62c.webp" loading="lazy" alt="" class="scroll-card__bg-img full">
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="image-scroll-carosel">
+                                                                                                                                                                <img src="{{ asset('/images/icon-support.png') }}" loading="lazy" sizes="(max-width: 991px) 100vw, (max-width: 1919px) 46vw, 758.578125px" alt="" class="scroll-card-img _1 desktop">
+                                                                                                                                                            </div> -->
                   </div>
                 </div>
               </div>
             </div>
           </section>
           <!-- <div class="card-section col-2 card-1">
-                                                                                                  <img src="{{ asset('/images/digital.png') }}" alt="">
-                                                                                                  <h5 style="color:#bd7afc;">1. SCAN</h5>
-                                                                                                  <div>
-                                                                                                    <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                      ant thorough real-time analysis of all organs and systems.
-                                                                                                      Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                    </p>
-                                                                                                  </div>
-                                                                                                </div>
+                                                                                                                                            <img src="{{ asset('/images/digital.png') }}" alt="">
+                                                                                                                                            <h5 style="color:#bd7afc;">1. SCAN</h5>
+                                                                                                                                            <div>
+                                                                                                                                              <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                              </p>
+                                                                                                                                            </div>
+                                                                                                                                          </div>
 
-                                                                                                <div class="card-section col-2 card-2">
-                                                                                                  <img src="{{ asset('/images/icon-recommend.png') }}" alt="">
-                                                                                                  <h5 style="color:#a751f7;">2. RECOMMEND</h5>
-                                                                                                  <div>
-                                                                                                    <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                      ant thorough real-time analysis of all organs and systems.
-                                                                                                      Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                    </p>
+                                                                                                                                          <div class="card-section col-2 card-2">
+                                                                                                                                            <img src="{{ asset('/images/icon-recommend.png') }}" alt="">
+                                                                                                                                            <h5 style="color:#a751f7;">2. RECOMMEND</h5>
+                                                                                                                                            <div>
+                                                                                                                                              <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                              </p>
 
-                                                                                                  </div>
-                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                          </div>
 
-                                                                                                <div class="card-section col-2 card-3">
-                                                                                                  <img src="{{ asset('/images/icon-exapand.png') }}" alt="">
-                                                                                                  <h5 style="color:#781acf;">3. EXPAND</h5>
-                                                                                                  <div>
-                                                                                                    <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                      ant thorough real-time analysis of all organs and systems.
-                                                                                                      Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                    </p>
-                                                                                                  </div>
-                                                                                                </div>
+                                                                                                                                          <div class="card-section col-2 card-3">
+                                                                                                                                            <img src="{{ asset('/images/icon-exapand.png') }}" alt="">
+                                                                                                                                            <h5 style="color:#781acf;">3. EXPAND</h5>
+                                                                                                                                            <div>
+                                                                                                                                              <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                              </p>
+                                                                                                                                            </div>
+                                                                                                                                          </div>
 
-                                                                                                <div class="card-section col-2 card-4">
-                                                                                                  <img src="{{ asset('/images/icon-support.png') }}" alt="">
-                                                                                                  <h5 style="color:#7906e6;">4. SUPPORT</h5>
-                                                                                                  <div>
-                                                                                                    <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
-                                                                                                      ant thorough real-time analysis of all organs and systems.
-                                                                                                      Goal: Provide clientes with a comprehensive view of their health status and needs
-                                                                                                    </p>
-                                                                                                  </div>
-                                                                                                </div> -->
+                                                                                                                                          <div class="card-section col-2 card-4">
+                                                                                                                                            <img src="{{ asset('/images/icon-support.png') }}" alt="">
+                                                                                                                                            <h5 style="color:#7906e6;">4. SUPPORT</h5>
+                                                                                                                                            <div>
+                                                                                                                                              <p>Our advanced technology scans 200 biomarkers in just 5 minutes. offering a swift
+                                                                                                                                                ant thorough real-time analysis of all organs and systems.
+                                                                                                                                                Goal: Provide clientes with a comprehensive view of their health status and needs
+                                                                                                                                              </p>
+                                                                                                                                            </div>
+                                                                                                                                          </div> -->
         </div>
       </div>
     </div>

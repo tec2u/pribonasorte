@@ -81,7 +81,7 @@
       height: 40px;
       font-size: 15px;
       border-radius: 5px;
-      background: #490d55;
+      background: #d26075;
       color: #ffffff;
       font-weight: bold;
       border: 0px;
@@ -93,7 +93,7 @@
       height: 40px;
       font-size: 15px;
       border-radius: 5px;
-      background: #6a147b;
+      background: #d26075;
       color: #ffffff;
       font-weight: bold;
       border: 0px;
@@ -105,7 +105,7 @@
       height: 50px;
       font-size: 15px;
       border-radius: 5px;
-      background: #490d55;
+      background: #d26075;
       color: #ffffff;
       font-weight: bold;
       border: 0px;
@@ -117,7 +117,7 @@
       height: 50px;
       font-size: 15px;
       border-radius: 5px;
-      background: #6a147b;
+      background: #d26075;
       color: #ffffff;
       font-weight: bold;
       border: 0px;

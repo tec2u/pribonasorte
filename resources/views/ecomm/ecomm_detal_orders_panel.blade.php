@@ -72,7 +72,7 @@
       height: 40px;
       border-radius: 5px;
       color: #ffffff;
-      background: #27032f;
+      background: #d26075;
       border: 0px;
       transition: 500ms;
     }
@@ -82,7 +82,7 @@
       height: 40px;
       border-radius: 5px;
       color: #ffffff;
-      background: #490d55;
+      background: #d26075;
       border: 0px;
       transition: 500ms;
     }

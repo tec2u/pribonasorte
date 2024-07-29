@@ -48,7 +48,7 @@
                 placeholder="@lang('admin.members.search')">
               <span class="input-group-append">
                 <button type="submit"
-                  style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
+                  style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
               </span>
 
             </div>

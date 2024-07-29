@@ -8,8 +8,8 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>LifeProsper</title>
-  {{-- <link rel="icon" type="image/png" href="../../../assetsWelcome/images/favicon.png" /> --}}
+  <title>Pri Bonasorte</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
 
   <!-- Fonts -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -153,7 +153,7 @@
         @if (isset($diasFaltantes))
           <li class=" pe-4">
             <h6 class="text-dark-50 joinhead" style="font-size: 1rem;"><strong
-                style="color: #490d55;">{{ $diasFaltantes }}</strong> @lang('home.days_expiration')</h6>
+                style="color: #d26075;">{{ $diasFaltantes }}</strong> @lang('home.days_expiration')</h6>
           </li>
         @endif
 
@@ -225,7 +225,7 @@
               <li style="display: inline-block;"><i class="bi bi-cart3"></i></li>
               <li style="display: inline-block;">
                 <p class="position-absolute"
-                  style="font-size: 15px; padding: 0px 10px; margin: -20px 0px 0px 0px; border-radius: 5px; background: #490d55; color: #ffffff;">
+                  style="font-size: 15px; padding: 0px 10px; margin: -20px 0px 0px 0px; border-radius: 5px; background: #d26075; color: #ffffff;">
                   {{ $count_cart }}</p>
               </li>
             </ul>

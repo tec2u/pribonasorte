@@ -85,9 +85,9 @@
       display: inline-block;
       height: 35px;
       border-radius: 100px;
-      background: #490d55;
+      background: #d26075;
       color: #ffffff;
-      border: 1px #490d55 solid;
+      border: 1px #d26075 solid;
       margin-top: 30px;
       font-size: 14px;
       transition: 200ms linear;
@@ -99,8 +99,8 @@
       height: 35px;
       border-radius: 100px;
       background: #eeeeee;
-      color: #490d55;
-      border: 1px #490d55 solid;
+      color: #d26075;
+      border: 1px #d26075 solid;
       margin-top: 30px;
       font-size: 14px;
       transition: 200ms linear;
@@ -194,12 +194,12 @@
       width: fit-content;
       height: 45px;
       border-radius: 5px;
-      background-color: #490d55;
+      background-color: #d26075;
       color: #ffffff;
       font-size: 14px;
 
       font-weight: bold;
-      border: 1px #490d55 solid;
+      border: 1px #d26075 solid;
       text-transform: uppercase;
       transition: 200ms linear;
     }
@@ -209,11 +209,11 @@
       height: 45px;
       border-radius: 5px;
       background-color: #eeeeee;
-      color: #490d55;
+      color: #d26075;
       font-size: 14px;
       /* margin-top: 30px; */
       font-weight: bold;
-      border: 1px #490d55 solid;
+      border: 1px #d26075 solid;
       text-transform: uppercase;
       transition: 200ms linear;
     }
@@ -301,7 +301,7 @@
     }
 
     .text-product a {
-      color: #490d55;
+      color: #d26075;
       font-weight: 800;
     }
 
@@ -313,7 +313,7 @@
     }
 
     .prices {
-      color: #490d55;
+      color: #d26075;
     }
 
     @media all and (max-width:820px) {
@@ -348,7 +348,7 @@
   <main id="main" style="display: none;" class="main p-0">
     <section style="backdrop-filter: blur(0px);filter: brightness(120%) grayscale(0%) saturate(120%);" id="herosection">
       <div data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="0.5"
-        style="width: 100%; height: 10vh; background: #490d55;">
+        style="width: 100%; height: 10vh; background: #d26075;">
         <div class="container h-100">
           <div class="row justify-content-center align-items-center h-100">
             {{-- <center><p class="text-title">Vitamin and Minerals</p></center> --}}

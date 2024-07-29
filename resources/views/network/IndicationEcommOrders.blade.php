@@ -21,7 +21,7 @@
                 <div class="card shadow my-3" style="margin-top: 20px; padding: 20px;">
                   <div style="width: 100%; display: inline-block;">
                     <a href="{{ route('networks.IndicationEcommFilterMonth') }}"><button
-                        style="padding: 0px 60px; margin-bottom: 20px; height: 40px; background: #490d55; color: #ffffff; border-radius: 5px; float: right;">Search
+                        style="padding: 0px 60px; margin-bottom: 20px; height: 40px; background: #d26075; color: #ffffff; border-radius: 5px; float: right;">Search
                         for orders of the month</button></a>
                   </div>
                   <table class="table table-hover text-nowrap">

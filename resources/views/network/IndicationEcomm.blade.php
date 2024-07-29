@@ -29,7 +29,7 @@
                         <input type="date" name="date_out"
                           style="width: 33%; padding: 0px 10px; height: 40px; border-radius: 5px;">
                         <button type="date"
-                          style="width: 30%; height: 40px; background: #490d55; color: #ffffff; border-radius: 5px;">@lang('network.search')</button>
+                          style="width: 30%; height: 40px; background: #d26075; color: #ffffff; border-radius: 5px;">@lang('network.search')</button>
                       </form>
                     </div>
                   </div>
@@ -40,7 +40,7 @@
                 <div class="card shadow my-3" style="margin-top: 20px; padding: 20px;">
                   <div style="width: 100%; display: inline-block;">
                     <a href="{{ route('networks.IndicationEcommFilterMonth') }}"><button
-                        style="padding: 0px 60px; margin-bottom: 20px; height: 40px; background: #490d55; color: #ffffff; border-radius: 5px; float: right;">@lang('network.search_text')</button></a>
+                        style="padding: 0px 60px; margin-bottom: 20px; height: 40px; background: #d26075; color: #ffffff; border-radius: 5px; float: right;">@lang('network.search_text')</button></a>
                   </div>
                   <table class="table table-hover text-nowrap">
                     <thead>

@@ -9,7 +9,7 @@ body {
 }
 
 a {
-    color: #111111;
+    color: #d26075;
     text-decoration: none !important;
 }
 
@@ -84,17 +84,15 @@ h6 {
     margin-right: 10px;
     font-size: 18px;
     line-height: 0;
-
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #212529;;
-    color: #FFE;
+    background-color: #212529;
+    color: #ffe;
 }
 
 .dropdown-menu .dropdown-item i:hover {
-   color: #ffa019;
-
+    color: #ffa019;
 }
 
 /*--------------------------------------------------------------
@@ -135,7 +133,7 @@ h6 {
     font-size: 32px;
     padding-left: 10px;
     cursor: pointer;
-    color: #111111;
+    color: #d26075;
 }
 
 /*--------------------------------------------------------------
@@ -145,7 +143,7 @@ h6 {
     list-style: none;
 }
 
-.header-nav>ul {
+.header-nav > ul {
     margin: 0;
     padding: 0;
 }
@@ -158,7 +156,7 @@ h6 {
 }
 
 .header-nav .nav-profile {
-    color: #111111;
+    color: #d26075;
 }
 
 .header-nav .nav-profile img {
@@ -212,17 +210,16 @@ h6 {
     color: #d8d8d8;
 }
 
-
 .btn-lang {
-    background-image: linear-gradient(to right, #490d55, #3e0c48);
+    background-image: linear-gradient(to right, #d26075, #d26075);
     color: #fff !important;
     border: solid 1px #4e4e4e !important;
 }
 
 .btn-lang:hover {
     color: #fff !important;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #d26075;
+    border-color: #d26075;
 }
 
 /*--------------------------------------------------------------
@@ -241,8 +238,8 @@ h6 {
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
     /* box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1); */
-    background-image: linear-gradient(to right, #34073d, #490d55);
-    /* background-color: #490d55; */
+    background-image: linear-gradient(to right, #eb5d77, #d26075);
+    /* background-color: #d26075; */
 }
 
 @media (max-width: 1199px) {
@@ -262,7 +259,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
     #main,
     #footer {
         margin-left: 300px;
@@ -276,7 +272,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
     .toggle-sidebar #main,
     .toggle-sidebar #footer {
         margin-left: 0;
@@ -415,7 +410,7 @@ h6 {
     display: block;
     max-height: 2.8em;
     font-size: 2.2em;
-    color: #111111;
+    color: #d26075;
     font-weight: bold;
     overflow: hidden;
     line-height: 1.4;
@@ -454,7 +449,7 @@ h6 {
     display: block;
     max-height: 2.8em;
     font-size: 2.2em;
-    color: #111111;
+    color: #d26075;
     font-weight: bold;
     overflow: hidden;
     line-height: 1.4;
@@ -468,19 +463,19 @@ h6 {
 }
 
 .btn-primary {
-    background-color: #490d55 !important;
-    border-color: #490d55 !important;
+    background-color: #d26075 !important;
+    border-color: #d26075 !important;
     padding: 6px 24px !important;
 }
 
 .btn-primary:hover {
     background-color: white !important;
-    color: #490d55 !important;
+    color: #d26075 !important;
 }
 
 .btn-primary1 {
-    background-color: #111111 !important;
-    border-color: #111111 !important;
+    background-color: #d26075 !important;
+    border-color: #d26075 !important;
     padding: 6px 24px !important;
     color: white;
 }
@@ -512,7 +507,7 @@ h6 {
 }
 
 .bi {
-    color: #111111;
+    color: #d26075;
 }
 
 .info-box-text {
@@ -538,7 +533,7 @@ h6 {
 /* STYLE #WITHDRAWREQUEST */
 
 .bbcolorp {
-    border-bottom: 2px solid #111111;
+    border-bottom: 2px solid #d26075;
 }
 
 #withdrawrequest .card-title {
@@ -694,7 +689,6 @@ h6 {
     animation-fill-mode: both;
     -webkit-animation-duration: 1s;
     -webkit-animation-fill-mode: both;
-    
 }
 
 .fade {
@@ -841,11 +835,9 @@ h6 {
 }
 
 .iconhead:hover {
-  color: #ffa019;
-
+    color: #ffa019;
 }
 
-.joinhead:hover{
-
-color: #ffa019;
+.joinhead:hover {
+    color: #ffa019;
 }

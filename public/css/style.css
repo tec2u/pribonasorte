@@ -32,7 +32,7 @@ ul.btns-header li {
     margin-left: 30px;
 }
 .carousel-steps {
-    /* background-image: url(../img/fundo-newhome.jpeg); */
+    /* background-image: url(../img/fundo-newhome.jpg); */
     height: 100vh;
     background-size: cover;
     padding: 70px 70px 0 70px;
@@ -73,8 +73,8 @@ button.btn-shop-now:hover {
 }
 
 #btn1:hover {
-    background-color: #490d55;
-    border-color: #490d55;
+    background-color: #d26075;
+    border-color: #d26075;
     color: #ffffff;
     font-size: 12px;
     text-transform: uppercase;
@@ -205,13 +205,13 @@ header,
     font-weight: bold;
     padding: 10px 18px;
     border-radius: 11px;
-    background: #470e55;
+    background: #d26075;
     color: #ffff;
-    border: 1px solid #470e55;
+    border: 1px solid #d26075;
 }
 
 .btn-home:hover {
-    color: #470e55;
+    color: #d26075;
     background: #ffff;
 }
 .bg_video_vertical {
@@ -294,7 +294,7 @@ button#button-lg {
 button#button-lg:hover {
     text-transform: uppercase;
     border: 0px;
-    background-color: #490d55;
+    background-color: #d26075;
     color: #ffffff;
     margin: 30px 0px;
     font-size: 14px;
@@ -540,7 +540,7 @@ button.btn-quickview:hover {
 }
 
 .estilize-img::before {
-    /* background-image: url(../img/fundo-newhome.jpeg); */
+    /* background-image: url(../img/fundo-newhome.jpg); */
     opacity: 0.4;
 }
 
@@ -551,12 +551,12 @@ button.btn-quickview:hover {
 }
 
 .background-complete-bloco1 {
-    /* background-image: url(../img/fundo-newhome.jpeg); */
+    /* background-image: url(../img/fundo-newhome.jpg); */
 }
 
 .background-complete-bloco1-2 {
     align-items: start;
-    /* background-image: url(../img/fundo-newhome.jpeg); */
+    /* background-image: url(../img/fundo-newhome.jpg); */
 }
 
 .content-carosel-images {
@@ -588,7 +588,7 @@ button.btn-quickview:hover {
 .bar-top {
     width: 200px;
     height: 4px;
-    background-color: #490d55;
+    background-color: #d26075;
     margin-top: 250px;
 }
 
@@ -764,7 +764,7 @@ h5 {
     top: 0;
     border-top-right-radius: 22px;
     border-bottom-right-radius: 22px;
-    background-color: #68077b;
+    background-color: #d26075;
     width: 55px;
     display: flex;
     justify-content: center;
@@ -851,12 +851,12 @@ button#btn-subscript:hover {
 }
 
 #footer-primary {
-    background-color: #27032f;
+    /* background-color: #27032f; */
     /* background: linear-gradient(180deg, rgba(64,5,77,1) 0%, rgba(204,90,230,1) 100%); */
 }
 
 .body-image {
-    background-image: url(../img/fundo-newhome.jpeg) !important;
+    background-image: url(../img/fundo-newhome.jpg) !important;
 }
 
 p.about-title {
@@ -1000,7 +1000,7 @@ p.text-card {
     display: none;
     font-weight: bold;
     font-size: 15px;
-    color: #490d55;
+    color: #d26075;
 }
 
 #btn-search-toggle-out {
@@ -1115,7 +1115,7 @@ p.text-prime-block {
 .button-panel {
     width: 90px;
     height: 40px;
-    background-color: #5d116d;
+    background-color: #d26075;
     color: #ffffff !important;
     font-weight: bold;
     border: 0px;
@@ -1128,7 +1128,7 @@ p.text-prime-block {
 .button-panel:hover {
     width: 90px;
     height: 40px;
-    background-color: #5d116d;
+    background-color: #d26075;
     color: #ffffff;
     font-weight: bold;
     border: 0px;
@@ -1141,7 +1141,7 @@ p.text-prime-block {
 .button-panel-2 {
     width: 150px;
     height: 40px;
-    background-color: #490d55;
+    background-color: #d26075;
     color: #ffffff;
     font-weight: bold;
     border: 0px;
@@ -1154,7 +1154,7 @@ p.text-prime-block {
 .button-panel-2:hover {
     width: 150px;
     height: 40px;
-    background-color: #5d116d;
+    background-color: #d26075;
     color: #ffffff;
     font-weight: bold;
     border: 0px;
@@ -1170,7 +1170,7 @@ p.text-prime-block {
     height: 40px;
     border-radius: 5px;
     background-color: #fafafa;
-    color: #490d55;
+    color: #d26075;
     font-size: 14px;
     font-weight: bold;
 }
@@ -1240,7 +1240,7 @@ button.button_popup {
     margin-top: 20px;
     font-size: 17px;
     border-radius: 100px;
-    background-color: #5d116d;
+    background-color: #d26075;
     color: #ffffff;
 }
 
@@ -1482,7 +1482,7 @@ ul.list_payment_ul li {
         display: flex;
         margin-bottom: 10px;
         font-size: 18px;
-        color: #490d55;
+        color: #d26075;
         font-weight: bold;
     }
 
@@ -1527,7 +1527,7 @@ ul.list_payment_ul li {
     .bar-top {
         width: 200px;
         height: 4px;
-        background-color: #490d55;
+        background-color: #d26075;
         margin-top: 150px;
     }
 

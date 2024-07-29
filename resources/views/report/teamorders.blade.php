@@ -16,14 +16,16 @@
                           @csrf
                           <tbody style="width: 100%;display:flex;">
                             <tr style="width: 100%;">
-                                <td>
-                                    <input type="text" class="form-control" style="padding: 0.5 1.5rem;min-width:130px;" name="name" placeholder="Name">
-                                </td>
+                              <td>
+                                <input type="text" class="form-control" style="padding: 0.5 1.5rem;min-width:130px;"
+                                  name="name" placeholder="Name">
+                              </td>
                             </tr>
                             <tr style="width: 100%;">
-                                <td>
-                                    <input type="text" class="form-control" style="padding: 0.5 1.5rem;min-width:130px;" name="lastname" placeholder="Last name">
-                                </td>
+                              <td>
+                                <input type="text" class="form-control" style="padding: 0.5 1.5rem;min-width:130px;"
+                                  name="lastname" placeholder="Last name">
+                              </td>
                             </tr>
                             <tr style="width: 100%;">
                               <td>
@@ -34,11 +36,12 @@
                                   @endforeach
                                 </select>
                               </td>
-                              <tr style="width: 100%;">
-                                <td>
-                                    <button type="submit" class="btn " style="background-color: #490d55; color: #ffffff">@lang('admin.btn.search')</button>
-                                </td>
-                              </tr>
+                            <tr style="width: 100%;">
+                              <td>
+                                <button type="submit" class="btn "
+                                  style="background-color: #d26075; color: #ffffff">@lang('admin.btn.search')</button>
+                              </td>
+                            </tr>
                             </tr>
                           </tbody>
                         </form>
@@ -72,20 +75,34 @@
                                   @endforeach
                                 </select></td>
                             @else
-                              <td><select class="form-select" style="padding: 0.5 1.5rem" aria-label="Default select example" required name="month">
-                                    @php
-                                        $monthsYear = array (1 => "January", 2 => "February", 3 => "March", 4 => "April", 5 => "May", 6 => "June", 7 => "July", 8 => "August", 9 => "September", 10 => "October", 11 => "November", 12 => "December",);
+                              <td><select class="form-select" style="padding: 0.5 1.5rem"
+                                  aria-label="Default select example" required name="month">
+                                  @php
+                                    $monthsYear = [
+                                        1 => 'January',
+                                        2 => 'February',
+                                        3 => 'March',
+                                        4 => 'April',
+                                        5 => 'May',
+                                        6 => 'June',
+                                        7 => 'July',
+                                        8 => 'August',
+                                        9 => 'September',
+                                        10 => 'October',
+                                        11 => 'November',
+                                        12 => 'December',
+                                    ];
 
-                                        $dataNow     = date('d-m-Y');
-                                        $InfoDataNow = getdate(strtotime($dataNow));
-                                    @endphp
-                                    @for ($i = 1; $i < 13; $i++)
-                                        @if ($InfoDataNow['mon'] == $i)
-                                        <option value="{{ $i }}" selected>{{ $monthsYear[$i] }}</option>
-                                        @else
-                                        <option value="{{ $i }}">{{ $monthsYear[$i] }}</option>
-                                        @endif
-                                    @endfor
+                                    $dataNow = date('d-m-Y');
+                                    $InfoDataNow = getdate(strtotime($dataNow));
+                                  @endphp
+                                  @for ($i = 1; $i < 13; $i++)
+                                    @if ($InfoDataNow['mon'] == $i)
+                                      <option value="{{ $i }}" selected>{{ $monthsYear[$i] }}</option>
+                                    @else
+                                      <option value="{{ $i }}">{{ $monthsYear[$i] }}</option>
+                                    @endif
+                                  @endfor
                                 </select></td>
                               <td><select class="form-select" style="padding: 0.5 1.5rem"
                                   aria-label="Default select example" required name="year">
@@ -100,7 +117,7 @@
                                 </select></td>
                             @endif
                             <td><button
-                                style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; font-size: 16px;">@lang('admin.btn.search')</button>
+                                style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; font-size: 16px;">@lang('admin.btn.search')</button>
                             </td>
                           </tr>
                         </table>
@@ -152,9 +169,13 @@
                           @php
                             $team_id = $team->id;
                             if (isset($month) && isset($year)) {
-                                $orders_total = Illuminate\Support\Facades\DB::select("SELECT * FROM payments_order_ecomms WHERE id_user = '$team_id' AND status = 'paid' AND MONTH(created_at) = $month AND YEAR(created_at) = $year");
+                                $orders_total = Illuminate\Support\Facades\DB::select(
+                                    "SELECT * FROM payments_order_ecomms WHERE id_user = '$team_id' AND status = 'paid' AND MONTH(created_at) = $month AND YEAR(created_at) = $year",
+                                );
                             } else {
-                                $orders_total = Illuminate\Support\Facades\DB::select("SELECT * FROM payments_order_ecomms WHERE id_user = '$team_id' AND status = 'paid'");
+                                $orders_total = Illuminate\Support\Facades\DB::select(
+                                    "SELECT * FROM payments_order_ecomms WHERE id_user = '$team_id' AND status = 'paid'",
+                                );
                             }
                             $total_values = 0;
                             $qv = 0;

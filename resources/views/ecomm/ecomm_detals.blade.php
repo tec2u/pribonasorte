@@ -83,7 +83,7 @@
       display: inline-block;
       height: 35px;
       border-radius: 100px;
-      background: #490d55;
+      background: #d26075;
       color: #ffffff;
       margin-top: 30px;
       border: 0px;
@@ -97,7 +97,7 @@
       height: 35px;
       border-radius: 100px;
       background: #eeeeee;
-      color: #490d55;
+      color: #d26075;
       margin-top: 30px;
       border: 0px;
       font-size: 14px;
@@ -143,12 +143,12 @@
       width: 100%;
       height: 45px;
       border-radius: 5px;
-      background-color: #490d55;
+      background-color: #d26075;
       color: #ffffff;
       font-size: 14px;
       margin-top: 30px;
       font-weight: bold;
-      border: 1px #490d55 solid;
+      border: 1px #d26075 solid;
       text-transform: uppercase;
       transition: 200ms linear;
     }
@@ -158,11 +158,11 @@
       height: 45px;
       border-radius: 5px;
       background-color: #eeeeee;
-      color: #490d55;
+      color: #d26075;
       font-size: 14px;
       margin-top: 30px;
       font-weight: bold;
-      border: 1px #490d55 solid;
+      border: 1px #d26075 solid;
       text-transform: uppercase;
       transition: 200ms linear;
     }
@@ -174,7 +174,7 @@
     .back-button {
       font-size: 17px;
       font-weight: bold;
-      color: #490d55;
+      color: #d26075;
     }
 
     @media all and (min-width:2px) and (max-width:820px) {
@@ -340,8 +340,8 @@
     .categories>button {
       width: fit-content !important;
       background: #ffffff;
-      border: #490d55 1px solid;
-      color: #490D55;
+      border: #d26075 1px solid;
+      color: #d26075;
     }
 
     .first-cat,
@@ -349,7 +349,7 @@
     .categories>button:focus,
     .categories>button:active {
       width: fit-content !important;
-      background: #490d55 !important;
+      background: #d26075 !important;
       border: #fff 1px solid;
       color: #fff !important;
     }
@@ -380,7 +380,7 @@
   <main id="main" style="display: none;" class="main p-0">
     <section style="backdrop-filter: blur(0px);filter: brightness(120%) grayscale(0%) saturate(120%);" id="herosection">
       <div data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="0.5"
-        style="width: 100%; height: 50vh; background: #490d55;">
+        style="width: 100%; height: 50vh; background: #d26075;">
         <div class="container h-100">
           <div class="row justify-content-center align-items-center h-100">
             {{-- <center><p class="text-title">Vitamin and Minerals</p></center> --}}
@@ -473,18 +473,18 @@
             @endif
             @switch($product->id)
               @case(9)
-                <a style="font-size: 1rem;color:#490D55;text-decoration: underline;" class="button-cart"
+                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
                   href="{{ route('true_omega') }}">See
                   more...</a>
               @break
 
               @case(10)
-                <a style="font-size: 1rem;color:#490D55;text-decoration: underline;" class="button-cart"
+                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
                   href="{{ route('melatonin') }}">See more...</a>
               @break
 
               @case(11)
-                <a style="font-size: 1rem;color:#490D55;text-decoration: underline;" class="button-cart"
+                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
                   href="{{ route('test_kit') }}">See more...</a>
               @break
 

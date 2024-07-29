@@ -35,7 +35,7 @@
                 <option value="1" @if (isset($status) && $status == 1) selected @endif>@lang('admin.members.filterUser.desactive')</option>
               </select>
               <button type="submit"
-                style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
+                style="float: left; height: 45px; margin: -3px 0px 0px 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; padding: 0px 15px;">@lang('admin.btn.search')</button>
             </div>
           </form>
         </div>
@@ -74,11 +74,16 @@
                   @endif
                   <br>{{ $user->login }}<br>{{ $user->email }}
                 </td>
-                <td>@if(isset($user->lastMonthCareerUser->career->name)) {{ $user->lastMonthCareerUser->career->name }} @endif</td>
+                <td>
+                  @if (isset($user->lastMonthCareerUser->career->name))
+                    {{ $user->lastMonthCareerUser->career->name }}
+                  @endif
+                </td>
                 <td>{{ $user->cell }}</td>
                 <td>
                   <form method="post" action="{{ route('admin.users.update_career') }}"
-                    class="d-flex align-items-center" id="formData{{ $user->id }}" name="formData"><i class="fa fa-briefcase mr-2"></i>
+                    class="d-flex align-items-center" id="formData{{ $user->id }}" name="formData"><i
+                      class="fa fa-briefcase mr-2"></i>
                     @csrf
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <select name="career_change" class="form-control" onchange="sendForm('formData{{ $user->id }}')">

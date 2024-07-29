@@ -45,7 +45,7 @@
     }
 
     body {
-      background-image: url(../img/fundo-newhome.jpeg) !important;
+      background-image: url(../img/fundo-newhome.jpg) !important;
     }
   </style>
 
@@ -515,7 +515,7 @@ autocomplete="postcode" tabindex="5">
           <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault" style="color: #fff;font-size:.8rem;">
-              I Agree with LifeProsper
+              I Agree with
               <a href="{{ route('general_terms_conditions') }}" style="color: #fff;">
                 Terms and Agreement</a>
             </label>

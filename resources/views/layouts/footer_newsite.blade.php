@@ -47,7 +47,7 @@
   }
 
   #footer-primary {
-    background-image: url(../img/fundo-newhome.jpeg);
+    background-image: url(../img/fundo-newhome.jpg);
     padding-top: 1rem;
   }
 
@@ -64,7 +64,7 @@
 <footer id="footer-primary" class="background-complete-bloco1">
   <div class="containerr row col-12 p-l-2 my-2 d-flex justify-content-start"
     style="padding: 0px 6%;margin-bottom:2rem !important">
-    <img src="{{ asset('/img/logo-2-gradient.png') }}" alt="" style="width: 250px;">
+    <img src="{{ asset('/img/logo-2-gradient.png') }}" alt="" style="width: 150px;">
   </div>
   <div class="containerr row col-12">
     <div class="col-12" style="padding: 0px 6%;">
@@ -101,8 +101,8 @@
                   style="font-size: 25px;"></i></a></li>
             <li><a href="https://www.instagram.com/lifeprosper_official/" target="blank_"><i
                   class="fa-brands fa-instagram" style="font-size: 25px;"></i></a></li>
-            <li><a href="https://wa.me/+421918142520" target="blank_"><i class="fa-brands fa-whatsapp"
-                  style="font-size: 25px;"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0"
+                target="blank_"><i class="fa-brands fa-whatsapp" style="font-size: 25px;"></i></a></li>
           </ul>
         </div>
 
@@ -146,7 +146,7 @@
           </div>
           <div class="row mt-5">
             <ul class="list_payment_ul ps-0">
-              <li><img style="width: 90px;" src="/img/comgatepay.png"></li>
+              {{-- <li><img style="width: 90px;" src="/img/comgatepay.png"></li> --}}
               <li><img style="width: 50px;" src="/img/applepay.png"></li>
               <li><img style="width: 50px;" src="/img/googlepay.png"></li>
               <li><img style="width: 50px;" src="/img/mastercardpay.png"></li>

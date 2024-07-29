@@ -113,7 +113,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#lifeprosper">About
-                      LifeProsper</a></li>
+                    </a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#vision">Our
                       vision</a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#management">Our

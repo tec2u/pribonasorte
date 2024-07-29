@@ -125,7 +125,7 @@
       border-radius: 5px;
       font-weight: bold;
       border: 0px;
-      background: #3b0547;
+      background: #d26075;
       margin-bottom: 15px;
       color: #ffffff;
       transition: 500ms;
@@ -298,14 +298,14 @@
       margin: 0 !important;
       height: 40px;
       border-radius: 5px;
-      background: #3b0547;
+      background: #d26075;
       color: #ffffff;
       font-weight: bold;
     }
 
     p.text_my_address {
       font-size: 18px;
-      color: #3b0547;
+      color: #d26075;
       margin-top: 30px;
     }
 
@@ -368,7 +368,7 @@
   {{-- <main id="main" class="main p-0">
     <section style="backdrop-filter: blur(0px);filter: brightness(120%) grayscale(0%) saturate(120%);" id="herosection">
       <div data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="0.5"
-        style="width: 100%; height: 50vh; background: #490d55;">
+        style="width: 100%; height: 50vh; background: #d26075;">
         <div class="container h-100">
           <div class="row justify-content-center align-items-center h-100">
             <!-- <center><p class="text-title">Vitamin and Minerals</p></center> -->
@@ -1008,7 +1008,7 @@
                     <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                       <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-                        I Agree with LifeProsper
+                        I Agree with
                         <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
                           Terms and Agreement</a>
                       </label>
@@ -1310,7 +1310,7 @@
           <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-              I Agree with LifeProsper
+              I Agree with
               <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
                 Terms and Agreement</a>
             </label>

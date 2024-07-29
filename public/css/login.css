@@ -246,7 +246,7 @@ iframe {
 
 .wrap-login100 {
     width: 390px;
-    background: #490d55;
+    background: #d26075;
     opacity: 0.8;
     border-radius: 10px;
     overflow: hidden;
@@ -686,15 +686,15 @@ iframe {
 
 .btn-primary {
     font-family: Poppins, sans-serif;
-    background-color: #210427 !important;
-    border-color: #210427 !important;
+    background-color: #d26075 !important;
+    border-color: #d26075 !important;
     padding: 6px 24px !important;
 }
 
 .btn-primary:hover {
     font-family: Poppins, sans-serif !important;
     background-color: white !important;
-    color: #200325 !important;
+    color: #d26075 !important;
 }
 
 .wrap-login100-form-btn:hover .login100-form-bgbtn {

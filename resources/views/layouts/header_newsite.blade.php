@@ -38,7 +38,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title')</title>
+  <title>Pri Bonasorte</title>
   <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,8 @@
 </head>
 
 <body style="overflow-x: hidden;" class="body-image">
-  <a href="https://wa.me/+421918142520" target="blank_" class="content-btn-wpp">
+  <a href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0" target="blank_"
+    class="content-btn-wpp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
   <header>
@@ -83,13 +84,13 @@
         <div id="headerBackground" class="top-complete"></div>
         <div style="width: fit-content; display: inline-block;">
           <a href="/" class="navbar-brand">
-            <img src="/img/logo-2.png" id="logo" alt="LIFEPROSPER">
+            <img src="/img/logo-2.png" id="logo" alt="Pri Bonasorte" style="width: 100px">
           </a>
         </div>
         <button class="navbar-toggler action-toggle" type="button" data-bs-toggle="modal"
           data-bs-target="#exampleModal" aria-controls="navbar-links" aria-expanded="false"
           aria-label="Toggle navegation">
-          <i class="fi fi-ss-menu-burger" style="color: #ffffff;"></i>
+          <i class="fi fi-ss-menu-burger" style="color: #000;"></i>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links" style="margin-left:0%;">
@@ -109,7 +110,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
                       href="{{ route('about') }}#lifeprosper">About
-                      LifeProsper</a></li>
+                    </a></li>
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
                       href="{{ route('about') }}#vision">Our
                       vision</a></li>
@@ -152,36 +153,33 @@
 
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                    href="https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ" target="_blank"> <i
-                      class="fa-brands fa-youtube" style="font-size: 1rem;"></i> Follow us on
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                    target="_blank"> <i class="fa-brands fa-youtube" style="font-size: 1rem;"></i> Follow us on
                     Youtube</a>
                 </li>
 
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                    href="https://t.me/+4pRjuBp4Pw1kYjY0" target="_blank">
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                    target="_blank">
                     <i class="fa-brands fa-telegram" style="font-size: 1rem;"></i> Follow us on
                     Telegram</a>
                 </li>
 
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                    href="https://www.facebook.com/profile.php?id=61557861185751" target="_blank"> <i
-                      class="fa-brands fa-facebook" style="font-size: 1rem;"></i>Follow us on
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                    target="_blank"> <i class="fa-brands fa-facebook" style="font-size: 1rem;"></i>Follow us on
                     Facebook</a>
                 </li>
 
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                    href="https://www.instagram.com/lifeprosper_official/" target="_blank"> <i
-                      class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                    target="_blank"> <i class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
                     Instagram</a>
                 </li>
 
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                    href="https://chat.whatsapp.com/JDAxBWfoeFW0eYErsFc7br" target="_blank">
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                    target="_blank">
                     <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>Follow us on
                     Whatsapp</a>
                 </li>
@@ -195,7 +193,7 @@
           </div>
           <div class="mx-2 d-flex" style="gap: .5rem; align-items: center">
             <a href="{{ route('index.cart') }}"><i class="fa-sharp fa-solid fa-bag-shopping"
-                style="color: #ffffff; font-size: 20px;"></i></a>
+                style="color: #D26075; font-size: 20px;"></i></a>
 
             @if (isset(session()->get('buyer')->name))
               <li class="nav-item dropdown" style="display: flex; align-items:center">
@@ -240,44 +238,11 @@
                   class="btn-home">Customer</button></a>
             @endif
           </div>
-          <div>
-            <a href="https://webportal.omegaquant.com/" target="_blank"><button class="btn-home">Blood
-                Test</button></a>
-          </div>
+
         </div>
       </nav>
 
-      {{-- <div class="w-[100%] inline-block">
-        <div class="model-menu">
-          <div class="box-model-menu" style="overflow-y: scroll">
-            <form action="" method="">
-              @csrf
-             
-            </form>
-            <div class="navbar-model-menu">
-              <a href="/" id="home-menu">Home</a>
-              <a href="#" id="home-menu">Shop</a>
-              <ul class="products-itens">
-                <li><a href="{{ route('detals', ['id' => 9]) }}">Omega 3</a></li>
-                <li><a href="{{ route('detals', ['id' => 10]) }}">Melatonin</a></li>
-                <li><a href="{{ route('detals', ['id' => 11]) }}">Omega</a></li>
-              
-              </ul>
-              <a href="{{ route('question') }}">LP FAQ</a>
-              <a href="{{ route('about') }}" id="time-menu">About us</a>
-              <a href="{{ route('news') }}" id="products-menu">News</a>
-              <a href="{{ route('contact') }}" id="contact-menu">Contact</a>
-              <a class="dropdown-item" href="{{ route('login') }}">Login Backoffice</a>
-              <a class="dropdown-item" href="{{ route('page.login.ecomm') }}">Customer Login</a>
-              <a href="https://webportal.omegaquant.com/" target="_blank"><button class="btn btn-primary btn-sm"
-                  id="btn1">Blood
-                  test</button></a>
 
-
-            </div>
-          </div>
-        </div>
-      </div> --}}
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -340,12 +305,6 @@
                   <a href="{{ route('page.login.ecomm') }}" target="_blank"><button
                       class="btn-home">Customer</button></a>
                 @endif
-
-                <a href="https://webportal.omegaquant.com/" target="_blank"><button class="btn btn-primary btn-sm"
-                    id="btn1">Blood
-                    test</button></a>
-
-
               </div>
             </div>
             <div class="modal-footer">

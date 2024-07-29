@@ -96,7 +96,7 @@
                         </td>
                       @endif
                       <td><button
-                          style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #490d55; color: #ffffff; border-radius: 5px; font-weight: bold;">@lang('home.search')</button>
+                          style="padding-right: 10px; width: 100%; height: 40px; padding-left: 10px; background-color: #d26075; color: #ffffff; border-radius: 5px; font-weight: bold;">@lang('home.search')</button>
                       </td>
                     </tr>
                   </table>
