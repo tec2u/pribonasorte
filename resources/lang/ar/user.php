@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'my_information' => 'معلوماتي',
+    'info' => 'معلومات',
+    'name' => 'اسم',
+    'last_name' => 'الكنية',
+    'address1' => 'العنوان 1',
+    'address2' => 'العنوان 2',
+    'postcode' => 'الرمز البريدي',
+    'state' => 'ولاية',
+    'country' => 'دولة',
+    'gender' => 'جنس تذكير أو تأنيث',
+    'female' => 'أنثى',
+    'male' => 'ذكر',
+    'email' => 'بريد إلكتروني',
+    'telephone' => 'هاتف',
+    'cell' => 'خلية',
+    'wallet' => 'محفظة نقود',
+    'profile_picture' => 'الصوره الشخصيه',
+    'change' => 'يتغيرون',
+    'change_password' => 'غير كلمة السر',
+    'password' => 'كلمة المرور',
+    'current_password' => 'كلمة المرور الحالي',
+    'new_password' => 'كلمة سر جديدة',
+    'confirm_password' => 'تأكيد كلمة المرور',
+];

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'my_information' => 'मेरी जानकारी',
+    'info' => 'जानकारी',
+    'name' => 'नाम',
+    'last_name' => 'उपनाम',
+    'address1' => 'पता 1',
+    'address2' => 'पता द्वितीय',
+    'postcode' => 'पोस्टकोड',
+    'state' => 'राज्य',
+    'country' => 'देश',
+    'gender' => 'लिंग',
+    'female' => 'मादा',
+    'male' => 'पुरुष',
+    'email' => 'ईमेल',
+    'telephone' => 'टेलीफ़ोन',
+    'cell' => 'कोशिका',
+    'wallet' => 'बटुआ',
+    'profile_picture' => 'प्रोफ़ाइल फोटो',
+    'change' => 'बदलना',
+    'change_password' => 'पासवर्ड बदलें',
+    'password' => 'पासवर्ड',
+    'current_password' => 'वर्तमान पासवर्ड',
+    'new_password' => 'नया पासवर्ड',
+    'confirm_password' => 'पासवर्ड की पुष्टि कीजिये',
+];
