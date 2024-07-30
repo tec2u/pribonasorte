@@ -1058,8 +1058,16 @@ class PackageController extends Controller
                 $nEdit->total = $value['amount'] * $value['price'];
                 $nEdit->total_vat = $value['vat'];
                 $nEdit->total_shipping = $frete;
-                $nEdit->qv = $value['amount'] * $pro->qv;
-                $nEdit->cv = $value['amount'] * $pro->cv;
+                if ($pro->qv > 0) {
+                    $nEdit->qv = $value['amount'] * $pro->qv;
+                } else {
+                    $nEdit->qv = 0;
+                }
+                if ($pro->cv > 0) {
+                    $nEdit->cv = $value['amount'] * $pro->cv;
+                } else {
+                    $nEdit->cv = 0;
+                }
                 $nEdit->client_backoffice = $ecommOrder->client_backoffice;
                 $nEdit->vat_product_percentage = $value['tax_percent'];
                 $nEdit->vat_shipping_percentage = $percentShippingVat;
@@ -1073,8 +1081,16 @@ class PackageController extends Controller
                 $nEdit->total = $value['amount'] * $value['price'];
                 $nEdit->total_vat = $value['vat'];
                 $nEdit->total_shipping = $frete;
-                $nEdit->qv = $value['amount'] * $pro->qv;
-                $nEdit->cv = $value['amount'] * $pro->cv;
+                if ($pro->qv > 0) {
+                    $nEdit->qv = $value['amount'] * $pro->qv;
+                } else {
+                    $nEdit->qv = 0;
+                }
+                if ($pro->cv > 0) {
+                    $nEdit->cv = $value['amount'] * $pro->cv;
+                } else {
+                    $nEdit->cv = 0;
+                }
                 $nEdit->client_backoffice = $ecommOrder->client_backoffice;
                 $nEdit->vat_product_percentage = $value['tax_percent'];
                 $nEdit->vat_shipping_percentage = $percentShippingVat;
@@ -1305,11 +1321,15 @@ class PackageController extends Controller
             $weightProduct = $findProduct;
 
             if (isset($findProduct->qv)) {
-                $qv += $findProduct->qv * $order->amount;
+                if ($findProduct->qv > 0) {
+                    $qv += $findProduct->qv * $order->amount;
+                }
             }
 
             if (isset($findProduct->cv)) {
-                $cv += $findProduct->cv * $order->amount;
+                if ($findProduct->cv > 0) {
+                    $cv += $findProduct->cv * $order->amount;
+                }
             }
 
             $weightProduct = $weightProduct->weight * $order->amount;
@@ -1625,11 +1645,15 @@ class PackageController extends Controller
             $weightProduct = $findProduct;
 
             if (isset($findProduct->qv)) {
-                $qv += $findProduct->qv * $order->amount;
+                if ($findProduct->qv > 0) {
+                    $qv += $findProduct->qv * $order->amount;
+                }
             }
 
             if (isset($findProduct->cv)) {
-                $cv += $findProduct->cv * $order->amount;
+                if ($findProduct->cv > 0) {
+                    $cv += $findProduct->cv * $order->amount;
+                }
             }
 
             $weightProduct = $weightProduct->weight * $order->amount;
@@ -2177,11 +2201,15 @@ class PackageController extends Controller
             $cv = 0;
 
             if (isset($price_product->qv)) {
-                $qv = $price_product->qv * $order->amount;
+                if ($price_product->qv > 0) {
+                    $qv = $price_product->qv * $order->amount;
+                }
             }
 
             if (isset($price_product->cv)) {
-                $cv = $price_product->cv * $order->amount;
+                if ($price_product->cv > 0) {
+                    $cv = $price_product->cv * $order->amount;
+                }
             }
 
             $orders = new EcommOrders;

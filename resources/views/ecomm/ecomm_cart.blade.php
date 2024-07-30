@@ -354,8 +354,8 @@
       height: 50px;
       font-size: 15px;
       border-radius: 5px;
-      background: #6a147b;
-      color: #ffffff;
+      background: #DEEFFF;
+      color: #000;
       font-weight: bold;
       border: 0px;
       transition: 200ms linear;

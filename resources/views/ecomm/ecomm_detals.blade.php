@@ -396,7 +396,7 @@
       <div class="raw">
         <div class="band-title">
           <a href="{{ route('ecomm') }}">
-            <p class="back-button"><i class="fi fi-rr-arrow-left"></i> Back to products</p>
+            <p class="back-button"><i class="fi fi-rr-arrow-left"></i> Voltar</p>
           </a>
         </div>
       </div>
@@ -404,7 +404,7 @@
       <div class="raw" style="margin-top: 20px;">
         <div class="raw">
           <div class="band-title">
-            <p class="title-ecomm">Most recently viewed</p>
+            <p class="title-ecomm">Mais vistos</p>
           </div>
           <div class="band-quantify">
             <p class="count-ecomm">

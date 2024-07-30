@@ -367,7 +367,7 @@
 
       <div class="raw">
         <div class="band-title">
-          <p class="title-ecomm">Most recently viewed</p>
+          <p class="title-ecomm">Mais vistos</p>
 
         </div>
         <div class="band-quantify">

@@ -97,46 +97,26 @@
           <div class="navbar-nav" id="menu-top-toggle" style="width: 100%;">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('ecomm') }}">Shop</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('ecomm') }}">Loja</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="{{ route('ecomm') }}" id="navbarScrollingDropdown"
                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About US
+                  Sobre
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('about') }}#lifeprosper">About
-                    </a></li>
+                      href="{{ route('general_terms_conditions') }}">Termos</a></li>
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('about') }}#vision">Our
-                      vision</a></li>
+                      href="{{ route('contact') }}">Contato</a></li>
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('about') }}#management">Our
-                      management</a></li>
+                      href="{{ route('return_policy') }}">Política de cancelamento</a></li>
                   <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('general_terms_conditions') }}">Terms & Conditions</a></li>
-                  <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('return_policy') }}">Return and
-                      Complaint</a></li>
-                  <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('gdpr_policy') }}">GDPR
-                      Policy</a></li>
-                  <li><a class="dropdown-item btn-sub-menu" style="color:#212121"
-                      href="{{ route('payment_policy') }}">Payment
-                      Policy</a></li>
-                  <li><a class="dropdown-item btn-sub-menu" style="color:#212121" href="{{ route('question') }}">LP
-                      FAQ</a></li>
+                      href="{{ route('gdpr_policy') }}">Política de privacidade</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('news') }}" tabindex="-1" aria-disabled="true">News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}" tabindex="-1" aria-disabled="true">Contact</a>
               </li>
 
             </ul>
@@ -153,32 +133,15 @@
 
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
-                    target="_blank"> <i class="fa-brands fa-youtube" style="font-size: 1rem;"></i> Follow us on
-                    Youtube</a>
-                </li>
-
-                <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
-                    target="_blank">
-                    <i class="fa-brands fa-telegram" style="font-size: 1rem;"></i> Follow us on
-                    Telegram</a>
-                </li>
-
-                <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
-                    target="_blank"> <i class="fa-brands fa-facebook" style="font-size: 1rem;"></i>Follow us on
-                    Facebook</a>
-                </li>
-
-                <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
-                    target="_blank"> <i class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
+                    href="https://www.instagram.com/pribonasortematrizes/" target="_blank"> <i
+                      class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
                     Instagram</a>
                 </li>
 
                 <li>
-                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item" href="/"
+                  <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
+                    href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0"
                     target="_blank">
                     <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>Follow us on
                     Whatsapp</a>

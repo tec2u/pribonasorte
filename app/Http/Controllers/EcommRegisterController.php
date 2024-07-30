@@ -407,9 +407,17 @@ class EcommRegisterController extends Controller
                     }
                     // dd($data);
 
+                    if ($price_product->qv > 0) {
+                        $qv = $price_product->qv * $order->amount;
+                    } else {
+                        $qv = 0;
+                    }
 
-                    $qv = $price_product->qv * $order->amount;
-                    $cv = $price_product->cv * $order->amount;
+                    if ($price_product->cv > 0) {
+                        $cv = $price_product->cv * $order->amount;
+                    } else {
+                        $cv = 0;
+                    }
 
                     $orders = new EcommOrders;
 
@@ -547,8 +555,17 @@ class EcommRegisterController extends Controller
 
             // dd($total_VAT);
 
-            $qv = $price_product->qv * $order->amount;
-            $cv = $price_product->cv * $order->amount;
+            if ($price_product->qv > 0) {
+                $qv = $price_product->qv * $order->amount;
+            } else {
+                $qv = 0;
+            }
+
+            if ($price_product->cv > 0) {
+                $cv = $price_product->cv * $order->amount;
+            } else {
+                $cv = 0;
+            }
 
             $orders = new EcommOrders;
 

@@ -746,11 +746,15 @@ class PurchaseController extends Controller
                 $order->img = asset("/img/packages/" . $order->img);
 
                 if (isset($findProduct->qv)) {
-                    $qv += $findProduct->qv * $order->amount;
+                    if ($findProduct->qv > 0) {
+                        $qv += $findProduct->qv * $order->amount;
+                    }
                 }
 
                 if (isset($findProduct->cv)) {
-                    $cv += $findProduct->cv * $order->amount;
+                    if ($findProduct->cv > 0) {
+                        $cv += $findProduct->cv * $order->amount;
+                    }
                 }
 
                 $weightProduct = $weightProduct->weight * $order->amount;

@@ -76,30 +76,31 @@
               <h5 class="fw-bold">Explore</h5>
             </div>
             <ul>
-              <li><a href="{{ route('about') }}">
-                  <p>@lang('header.about_us')</p>
+
+              <li><a href="/">
+                  <p>Inicio</p>
                 </a></li>
 
-              <li><a href="{{ route('news') }}">
+              {{-- <li><a href="{{ route('about') }}">
+                  <p>Sobre</p>
+                </a></li> --}}
+
+              {{-- <li><a href="{{ route('news') }}">
                   <p>@lang('header.news')</p>
-                </a></li>
+                </a></li> --}}
 
-              <li><a href="{{ route('blog') }}">
+              {{-- <li><a href="{{ route('blog') }}">
                   <p>@lang('header.blog')</p>
-                </a></li>
+                </a></li> --}}
 
               <li><a href="{{ route('contact') }}">
-                  <p>@lang('header.contact')</p>
+                  <p>Contato</p>
                 </a></li>
             </ul>
           </div>
 
           <ul class="footer-network d-flex ps-0">
-            <li><a href="https://www.facebook.com/profile.php?id=61557861185751"><i class="fa-brands fa-facebook"
-                  style="font-size: 25px;"></i></a></li>
-            <li><a href="https://www.tiktok.com/@lifeprosper.eu"><i class="fa-brands fa-tiktok"
-                  style="font-size: 25px;"></i></a></li>
-            <li><a href="https://www.instagram.com/lifeprosper_official/" target="blank_"><i
+            <li><a href="https://www.instagram.com/pribonasortematrizes/" target="blank_"><i
                   class="fa-brands fa-instagram" style="font-size: 25px;"></i></a></li>
             <li><a href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0"
                 target="blank_"><i class="fa-brands fa-whatsapp" style="font-size: 25px;"></i></a></li>
@@ -113,19 +114,15 @@
           <div class="navigation-footer-bar d-flex justify-content-between">
             <ul>
               <li><a href="{{ route('general_terms_conditions') }}">
-                  <p>@lang('header.general_term')</p>
+                  <p>Termos</p>
                 </a></li>
 
               <li><a href="{{ route('return_policy') }}">
-                  <p>@lang('header.retunr_and_complaint')</p>
+                  <p>Política de cancelamento</p>
                 </a></li>
 
               <li><a href="{{ route('gdpr_policy') }}">
-                  <p>@lang('header.general_regulation')</p>
-                </a></li>
-
-              <li><a href="{{ route('payment_policy') }}">
-                  <p>@lang('header.pay_policy')</p>
+                  <p>Política de privacidade</p>
                 </a></li>
             </ul>
           </div>
@@ -133,10 +130,10 @@
 
         <div class="footer-columns p-2">
           <div>
-            <h5 class="fw-bold">Subscribe</h5>
+            <h5 class="fw-bold">Noticias</h5>
           </div>
           <div class="txt-reference">
-            Stay updated with LifeProsper. Join our newsletter for news, products, and updates.
+            Se inscreva para receber novidades
           </div>
           <div class="mt-5 position-relative">
             <input type="email" placeholder="Email Address" class="form-control email-footer">
@@ -144,15 +141,14 @@
               <i class="fa fa-paper-plane btn-send-footer-icon" style="color: #ffff;"></i>
             </div>
           </div>
-          <div class="row mt-5">
-            <ul class="list_payment_ul ps-0">
-              {{-- <li><img style="width: 90px;" src="/img/comgatepay.png"></li> --}}
+          {{-- <div class="row mt-5">
+            <ul class="list_payment_ul ps-0">             
               <li><img style="width: 50px;" src="/img/applepay.png"></li>
               <li><img style="width: 50px;" src="/img/googlepay.png"></li>
               <li><img style="width: 50px;" src="/img/mastercardpay.png"></li>
               <li><img style="width: 50px;" src="/img/visapay.png"></li>
             </ul>
-          </div>
+          </div> --}}
         </div>
         <!-- <div>
                         <div class="row">

@@ -450,11 +450,15 @@ class ProductController extends Controller
             $weightProduct = $findProduct;
 
             if (isset($findProduct->qv)) {
-                $qv += $findProduct->qv * $order->amount;
+                if ($findProduct->qv > 0) {
+                    $qv += $findProduct->qv * $order->amount;
+                }
             }
 
             if (isset($findProduct->cv)) {
-                $cv += $findProduct->cv * $order->amount;
+                if ($findProduct->cv > 0) {
+                    $cv += $findProduct->cv * $order->amount;
+                }
             }
 
             $weightProduct = $weightProduct->weight * $order->amount;
@@ -950,11 +954,15 @@ class ProductController extends Controller
             $cv = 0;
 
             if (isset($price_product->qv)) {
-                $qv = $price_product->qv * $order->amount;
+                if ($price_product->qv > 0) {
+                    $qv = $price_product->qv * $order->amount;
+                }
             }
 
             if (isset($price_product->cv)) {
-                $cv = $price_product->cv * $order->amount;
+                if ($price_product->cv > 0) {
+                    $cv = $price_product->cv * $order->amount;
+                }
             }
 
             $orders = new EcommOrders;

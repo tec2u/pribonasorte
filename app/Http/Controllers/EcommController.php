@@ -271,7 +271,9 @@ class EcommController extends Controller
             $findProduct = Product::where('id', $order->id_product)->first();
             $weightProduct = $findProduct;
 
-            $qv += $findProduct->qv * $order->amount;
+            if ($findProduct->qv > 0) {
+                $qv += $findProduct->qv * $order->amount;
+            }
 
             $weightProduct = $weightProduct->weight * $order->amount;
             $totalWeight += $weightProduct;
@@ -785,7 +787,9 @@ class EcommController extends Controller
             array_push($idSprodutos, $order->id_product);
             $order->product_id = $findProduct->id;
             $weightProduct = $findProduct;
-            $qv += $findProduct->qv * $order->amount;
+            if ($findProduct->qv > 0) {
+                $qv += $findProduct->qv * $order->amount;
+            }
             $order->price_product = $findProduct->price;
             $total_order = $total_order + $order->total;
             $weightProduct = $weightProduct->weight * $order->amount;
@@ -1026,7 +1030,9 @@ class EcommController extends Controller
             array_push($idSprodutos, $order->id_product);
             $order->product_id = $findProduct->id;
             $weightProduct = $findProduct;
-            $qv += $findProduct->qv * $order->amount;
+            if ($findProduct->qv > 0) {
+                $qv += $findProduct->qv * $order->amount;
+            }
             $order->price_product = $findProduct->premium_price;
             $total_order = $total_order + $findProduct->premium_price * $order->amount;
             $weightProduct = $weightProduct->weight * $order->amount;

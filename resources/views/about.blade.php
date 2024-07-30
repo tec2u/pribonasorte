@@ -91,7 +91,7 @@
         <div class="container h-100">
           <div class="row justify-content-center align-items-center h-100">
             <center>
-              <p class="text-title">About</p>
+              <p class="text-title">Sobre</p>
             </center>
           </div>
         </div>
@@ -105,11 +105,11 @@
 
         <div class="base-id" id="lifeprosper"></div>
         <div class="line-content">
-          <p class="subtitulo-content">About LifeProsper?</p>
+          <p class="subtitulo-content">Sobre Pri Bonasorte?</p>
         </div>
 
         <div class="line-content">
-          <p class="text-content">LifeProsper is your trusted partner in the pursuit of optimal health and wellness. We
+          <p class="text-content">Pri Bonasorte is your trusted partner in the pursuit of optimal health and wellness. We
             are a leading health and wellness company dedicated to empowering individuals on their transformative journeys
             towards a vibrant and fulfilling life. With our exceptional range of supplements, minerals, vitamins, and test
             kits, we aim to provide you with the tools and resources necessary to achieve holistic well-being.</p>
