@@ -376,7 +376,7 @@
       <div class="raw">
         <div class="band-title">
           <a href="{{ route('ecomm') }}">
-            <p class="back-button"><i class="fi fi-rr-arrow-left"></i> Back to products</p>
+            <p class="back-button"><i class="fi fi-rr-arrow-left"></i> Voltar</p>
           </a>
         </div>
       </div>
@@ -387,8 +387,8 @@
           <figure style="display: flex;width:100%; justify-content: space-between">
             @if (isset($orderNumber))
               <figcaption>
-                <h4>Tracking Details</h4>
-                <h6>Order Number</h6>
+                <h4>Detalhes</h4>
+                <h6>Pedido</h6>
                 {{-- <h2>#{{ $orderNumber }}</h2> --}}
               </figcaption>
             @endif
@@ -429,11 +429,11 @@
             <div class="order-track" style="height: 250px;width:100%;">
               @if (isset($orderNumber))
                 <h5>
-                  No results
+                  Sem resultados
                 </h5>
               @else
                 <h5>
-                  fill in the field and search
+                  Preencha o campo
                 </h5>
               @endif
             </div>

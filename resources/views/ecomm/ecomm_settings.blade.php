@@ -528,7 +528,7 @@
     <section class="container-ecomm" style="margin-top: 50px;">
 
       <div class="raw">
-        <p class="title-ecomm">Hello {{ $user->name }}!</p>
+        <p class="title-ecomm">Olá {{ $user->name }}!</p>
       </div>
 
       <div class="raw">
@@ -544,13 +544,13 @@
                 <div class="box-general-form">
                   <div class="block-info-form">
                     <div class="header-block-form">
-                      <p>Update</p>
+                      <p>Atualizar</p>
                     </div>
                     {{--  --}}
                     <div class="box-form-imputs">
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">First name *</p>
+                          <p class="title-inputs">Nome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="name" value="{{ $user->name }}" required type="text">
@@ -561,7 +561,7 @@
                       </div>
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Last name *</p>
+                          <p class="title-inputs">Sobrenome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" value="{{ $user->last_name }}" name="last_name" required
@@ -576,7 +576,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Login email *</p>
+                          <p class="title-inputs">Email *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -592,7 +592,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Password *</p>
+                          <p class="title-inputs required">Senha *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -607,7 +607,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Confirm password *</p>
+                          <p class="title-inputs required">Confirmar senha *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -622,7 +622,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Phone *</p>
+                          <p class="title-inputs required">Celular *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -640,7 +640,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Username *</p>
+                          <p class="title-inputs required">Apelido *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -655,7 +655,7 @@
                       @if (isset($userReferral))
                         <div class="line-info-form">
                           <div class="column-form1">
-                            <p class="title-inputs">Referral</p>
+                            <p class="title-inputs">Patrocinador</p>
                           </div>
                           <div class="column-form2">
                             <input class="new-inputs required" type="hidden" name="recommendation_user_id"
@@ -673,14 +673,14 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Gender *</p>
+                          <p class="title-inputs">Genero *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
                           <select class="new-inputs" name="sex" required>
-                            <option value="0" @if ($user->sex == 0) selected @endif>None</option>
-                            <option value="1" @if ($user->sex == 1) selected @endif>Male</option>
-                            <option value="2" @if ($user->sex == 2) selected @endif>Female</option>
+                            <option value="0" @if ($user->sex == 0) selected @endif>Nenhum</option>
+                            <option value="1" @if ($user->sex == 1) selected @endif>Masculino</option>
+                            <option value="2" @if ($user->sex == 2) selected @endif>Feminino</option>
                           </select>
                         </div>
                         {{-- ALERT --}}
@@ -697,7 +697,7 @@
 
                     <div>
                       <div class="header-block-form">
-                        <p>Delivery Address</p>
+                        <p>Endereço de entrega</p>
                       </div>
                       {{--  --}}
                       <div class="box-form-imputs">
@@ -706,7 +706,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Address *</p>
+                            <p class="title-inputs">Endereço *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -724,7 +724,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">City *</p>
+                            <p class="title-inputs">Cidade *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -739,7 +739,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Postcode *</p>
+                            <p class="title-inputs">CEP *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -766,7 +766,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Country *</p>
+                            <p class="title-inputs">País *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -789,7 +789,7 @@
                     </div>
 
                     <div class="header-block-form">
-                      <p>Billing Address</p>
+                      <p>Endereço de faturamento</p>
                     </div>
                     {{--  --}}
                     <div class="box-form-imputs">
@@ -799,7 +799,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Address *</p>
+                          <p class="title-inputs">Endereço *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -817,7 +817,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">City *</p>
+                          <p class="title-inputs">Cidade *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -833,7 +833,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Postcode *</p>
+                          <p class="title-inputs">Cep *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -861,7 +861,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Country *</p>
+                          <p class="title-inputs">País *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -894,7 +894,7 @@
                       <div class="width: 100%; display: inline-block;">
                         <div çlass="width: 100%; display: flex; justify-content:space-between">
 
-                          <button type="submit" class="button-edit">Edit Info</button>
+                          <button type="submit" class="button-edit">Editar</button>
 
                         </div>
                       </div>
@@ -918,14 +918,14 @@
                 <div class="box-general-form">
                   <div class="block-info-form">
                     <div class="header-block-form">
-                      <p>Update 2° address</p>
+                      <p>Atualizar 2° endereço</p>
                     </div>
 
                     <div class="box-form-imputs">
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">First name *</p>
+                          <p class="title-inputs">Nome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="first_name" type="text"
@@ -938,7 +938,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Last name *</p>
+                          <p class="title-inputs">Sobrenome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="last_name" type="text"
@@ -951,7 +951,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Address *</p>
+                          <p class="title-inputs">Endereço *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs-address" value="{{ $AddressSecondary->address ?? null }}"
@@ -966,7 +966,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Area residence *</p>
+                          <p class="title-inputs">Bairro *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="neighborhood" type="text"
@@ -979,7 +979,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Phone *</p>
+                          <p class="title-inputs">Celular *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="phone" type="text"
@@ -992,7 +992,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Complement</p>
+                          <p class="title-inputs">Complemento</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="complement" type="text"
@@ -1005,7 +1005,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">City *</p>
+                          <p class="title-inputs">Cidade *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="city" type="text"
@@ -1018,7 +1018,7 @@
 
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Postcode *</p>
+                          <p class="title-inputs">Cep *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="zip" type="number"
@@ -1042,7 +1042,7 @@
                       </div> --}}
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Country *</p>
+                          <p class="title-inputs">País *</p>
                         </div>
                         <div class="column-form2">
                           <select class="new-inputs" name="country">
@@ -1074,7 +1074,7 @@
                       <div class="width: 100%; display: inline-block;">
                         <div çlass="width: 100%; display: flex; justify-content:space-between">
 
-                          <button type="submit" class="button-edit">Edit Info</button>
+                          <button type="submit" class="button-edit">Editar</button>
 
                         </div>
                       </div>

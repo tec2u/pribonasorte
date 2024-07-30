@@ -135,7 +135,7 @@
                 <li>
                   <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
                     href="https://www.instagram.com/pribonasortematrizes/" target="_blank"> <i
-                      class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
+                      class="fa-brands fa-instagram" style="font-size: 1rem;"> </i>
                     Instagram</a>
                 </li>
 
@@ -143,7 +143,7 @@
                   <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
                     href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0"
                     target="_blank">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>Follow us on
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>
                     Whatsapp</a>
                 </li>
 
@@ -169,7 +169,7 @@
 
                   <li>
                     <a class="dropdown-item" style="color:#212121"
-                      href="{{ route('orders.panel.ecomm') }}">Orders</a>
+                      href="{{ route('orders.panel.ecomm') }}">Pedidos</a>
                   </li>
 
                   <li>
@@ -183,22 +183,22 @@
 
                   <li>
                     <a class="dropdown-item" style="color:#212121"
-                      href="{{ route('orders.settings.ecomm') }}">Settings</a>
+                      href="{{ route('orders.settings.ecomm') }}">Configurações</a>
                   </li>
 
                   <li>
-                    <a class="dropdown-item" style="color:#212121" href="{{ route('ecomm') }}">Shop Now</a>
+                    <a class="dropdown-item" style="color:#212121" href="{{ route('ecomm') }}">Comprar</a>
                   </li>
 
-                  <li><a class="dropdown-item" style="color:#212121" href="{{ route('logout.user.ecomm') }}">Log
-                      Out</a>
+                  <li><a class="dropdown-item" style="color:#212121"
+                      href="{{ route('logout.user.ecomm') }}">Sair</a>
                   </li>
 
                 </ul>
               </li>
             @else
               <a href="{{ route('page.login.ecomm') }}" target="_blank"><button
-                  class="btn-home">Customer</button></a>
+                  class="btn-home">Cliente</button></a>
             @endif
           </div>
 
@@ -218,14 +218,11 @@
             <div class="modal-body">
               <div class="navbar-model-menu">
                 <a href="/" id="home-menu">Home</a>
-                <a href="{{ route('ecomm') }}" id="home-menu">Shop</a>
-
-                <a href="{{ route('question') }}">LP FAQ</a>
-                <a href="{{ route('about') }}" id="time-menu">About us</a>
-                <a href="{{ route('news') }}" id="products-menu">News</a>
-                <a href="{{ route('contact') }}" id="contact-menu">Contact</a>
-                <a class="dropdown-item" href="{{ route('login') }}">Login Backoffice</a>
-                <a class="dropdown-item" style="color:#212121" href="{{ route('index.cart') }}">Cart</a>
+                <a href="{{ route('ecomm') }}" id="home-menu">Loja</a>
+                <a href="{{ route('about') }}" id="time-menu">Sobre</a>
+                <a href="{{ route('contact') }}" id="contact-menu">Contato</a>
+                <a class="dropdown-item" href="{{ route('login') }}">Backoffice</a>
+                <a class="dropdown-item" style="color:#212121" href="{{ route('index.cart') }}">Carrinho</a>
                 @if (isset(session()->get('buyer')->name))
                   <li class="nav-item dropdown" style="display: flex; align-items:center">
                     <a class="nav-link dropdown-toggle button-panel" id="navbarScrollingDropdown" role="button"
@@ -236,7 +233,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                       <li>
                         <a class="dropdown-item" style="color:#212121"
-                          href="{{ route('orders.panel.ecomm') }}">Orders</a>
+                          href="{{ route('orders.panel.ecomm') }}">Pedidos</a>
                       </li>
 
                       <li>
@@ -251,27 +248,27 @@
 
                       <li>
                         <a class="dropdown-item" style="color:#212121"
-                          href="{{ route('orders.settings.ecomm') }}">Settings</a>
+                          href="{{ route('orders.settings.ecomm') }}">Configurações</a>
                       </li>
 
                       <li>
-                        <a class="dropdown-item" style="color:#212121" href="{{ route('ecomm') }}">Shop Now</a>
+                        <a class="dropdown-item" style="color:#212121" href="{{ route('ecomm') }}">Comprar</a>
                       </li>
 
-                      <li><a class="dropdown-item" style="color:#212121" href="{{ route('logout.user.ecomm') }}">Log
-                          Out</a>
+                      <li><a class="dropdown-item" style="color:#212121"
+                          href="{{ route('logout.user.ecomm') }}">Sair</a>
                       </li>
 
                     </ul>
                   </li>
                 @else
                   <a href="{{ route('page.login.ecomm') }}" target="_blank"><button
-                      class="btn-home">Customer</button></a>
+                      class="btn-home">Cliente</button></a>
                 @endif
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
               {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
             </div>
           </div>

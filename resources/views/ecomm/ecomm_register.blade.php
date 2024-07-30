@@ -497,7 +497,7 @@
 
           <div class="raw">
             <div>
-              <p style="font-weight: bold; font-size: 35px;width: 100%;text-align: center">CUSTOMER REGISTRATION
+              <p style="font-weight: bold; font-size: 35px;width: 100%;text-align: center">CRIAR CONTA
               </p>
 
               @if ($errors->any())
@@ -539,13 +539,13 @@
                 <div class="box-general-form">
                   <div class="block-info-form">
                     <div class="header-block-form">
-                      <p>Registration</p>
+                      <p>Registro</p>
                     </div>
                     {{--  --}}
                     <div class="box-form-imputs">
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">First name *</p>
+                          <p class="title-inputs">Nome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="name" required type="text">
@@ -556,7 +556,7 @@
                       </div>
                       <div class="line-info-form">
                         <div class="column-form1">
-                          <p class="title-inputs">Last name *</p>
+                          <p class="title-inputs">Sobrenome *</p>
                         </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="last_name" required type="text">
@@ -570,7 +570,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Login email *</p>
+                          <p class="title-inputs">Email *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -585,7 +585,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Password *</p>
+                          <p class="title-inputs required">Senha *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -600,7 +600,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Confirm password *</p>
+                          <p class="title-inputs required">Confirmar senha *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -618,7 +618,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Username *</p>
+                          <p class="title-inputs required">Apelido *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -633,7 +633,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Referral</p>
+                          <p class="title-inputs">Patrocinador</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -654,14 +654,14 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Gender *</p>
+                          <p class="title-inputs">Genero *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
                           <select class="new-inputs" name="sex" required>
                             {{-- <option value="">None</option> --}}
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
                           </select>
                         </div>
                         {{-- ALERT --}}
@@ -676,7 +676,7 @@
                   {{--  --}}
                   <div class="block-info-form" style="margin-top: 20px">
                     <div class="header-block-form">
-                      <p>Billing Address</p>
+                      <p>Endereço de faturamento</p>
                     </div>
                     {{--  --}}
                     <div class="box-form-imputs">
@@ -702,7 +702,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Address *</p>
+                          <p class="title-inputs">Endereço *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -718,7 +718,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">City *</p>
+                          <p class="title-inputs">Cidade *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -733,7 +733,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Postcode *</p>
+                          <p class="title-inputs">Cep *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -760,7 +760,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs">Country *</p>
+                          <p class="title-inputs">País *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -780,7 +780,7 @@
                       <div class="line-info-form">
                         {{-- INFO --}}
                         <div class="column-form1">
-                          <p class="title-inputs required">Phone *</p>
+                          <p class="title-inputs required">Celular *</p>
                         </div>
                         {{-- IMPUT --}}
                         <div class="column-form2">
@@ -798,7 +798,7 @@
 
                     <div style="display: none; margin-top: 20px;" id="form_address_shipping">
                       <div class="header-block-form">
-                        <p>Delivery Address</p>
+                        <p>Endereço de entrega</p>
                       </div>
                       {{--  --}}
                       <div class="box-form-imputs">
@@ -807,7 +807,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Address *</p>
+                            <p class="title-inputs">Endereço *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -823,7 +823,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">City *</p>
+                            <p class="title-inputs">Cidade *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -838,7 +838,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Postcode *</p>
+                            <p class="title-inputs">Cep *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -865,7 +865,7 @@
                         <div class="line-info-form">
                           {{-- INFO --}}
                           <div class="column-form1">
-                            <p class="title-inputs">Country *</p>
+                            <p class="title-inputs">País *</p>
                           </div>
                           {{-- IMPUT --}}
                           <div class="column-form2">
@@ -887,15 +887,13 @@
                       <input class="form-check-input" type="checkbox" checked id="select_spipping"
                         name="address_shipping">
                       <label class="form-check-label" for="select_spipping" style="color: #212121; font-size: 15px;">
-                        The billing address is the same as the delivery address
-                      </label>
+                        O endereço de faturamento é o mesmo de entrega </label>
                     </div>
                     <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                       <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size: 15px;">
-                        I Agree with
-                        <a href="{{ route('general_terms_conditions') }}" style="color: #212121;"><b>Terms and
-                            Agreement</b>
+                        Eu concordo com os
+                        <a href="{{ route('general_terms_conditions') }}" style="color: #212121;"><b>termos</b>
                         </a>
                       </label>
                     </div>
@@ -906,14 +904,14 @@
                       <div class="width: 100%; display: inline-block;">
                         <div çlass="width: 100%; display: flex; justify-content:space-between">
                           @if ($allowedRegister)
-                            <button type="submit" class="button-edit">Register Now</button>
+                            <button type="submit" class="button-edit">Registrar</button>
                           @endif
                         </div>
                       </div>
                       {{-- end form --}}
               </form>
               {{-- back button --}}
-              <button class="button-edit" id="redirectLogin">Back to Login</button>
+              <button class="button-edit" id="redirectLogin">Voltar</button>
             </div>
           </div>
         </div>

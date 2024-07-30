@@ -73,7 +73,7 @@
 
           <div class="navigation-footer-bar">
             <div style="width: 100%">
-              <h5 class="fw-bold">Explore</h5>
+              <h5 class="fw-bold">Explorar</h5>
             </div>
             <ul>
 
@@ -136,7 +136,7 @@
             Se inscreva para receber novidades
           </div>
           <div class="mt-5 position-relative">
-            <input type="email" placeholder="Email Address" class="form-control email-footer">
+            <input type="email" placeholder="Email" class="form-control email-footer">
             <div class="position-absolute btn-send-footer">
               <i class="fa fa-paper-plane btn-send-footer-icon" style="color: #ffff;"></i>
             </div>

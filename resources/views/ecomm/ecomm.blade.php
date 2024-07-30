@@ -396,12 +396,12 @@
         <div class="container-products">
           <div class="filter">
             <h2>
-              Categories
+              Categorias
             </h2>
 
             <div class="categories">
               <a href="{{ route('ecomm') }}" style="color: #000">
-                ALL PRODUCTS
+                Todos os produtos
               </a>
               @if ($categorias->count() > 0)
                 @foreach ($categorias as $cat)
@@ -456,11 +456,11 @@
                             <input name="id_product" value="{{ $product->id }}" style="display: none">
                           </div>
                         @else
-                          <p style="color: red;">No stock for this product</p>
+                          <p style="color: red;">Sem estoque</p>
                         @endif
                         <div class="raw">
                           @if ($product->stock > 0)
-                            <button class="button-cart">Add to Cart</button>
+                            <button class="button-cart">Adicionar ao carrinho</button>
                           @endif
                         </div>
                       </form>

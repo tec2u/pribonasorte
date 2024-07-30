@@ -117,7 +117,7 @@
     <section class="container-ecomm" style="margin-top: 50px;">
 
       <div class="raw">
-        <p class="title-ecomm">Hello {{ $user->name }}!</p>
+        <p class="title-ecomm">Olá {{ $user->name }}!</p>
       </div>
 
       <div class="raw">
@@ -127,42 +127,15 @@
           <div class="raw">
             <div class="band-title">
               <center>
-                <p class="title-order-panel">Your order has been successfully placed!</p>
-                <p class="title-number-panel">Your order number</p>
+                <p class="title-order-panel">Seu pedido foi feito com sucesso!</p>
+                <p class="title-number-panel">Seu pedido</p>
                 <p class="number-order">{{ $order_number }}</p>
                 <p class="title-number-panel">Total: €{{ $order[0]->total_price }}</p>
               </center>
               <div>
-                <p class="title-number-panel">Payment: <strong style="font-size: 1rem"> {{ $order[0]->payment }} </strong>
+                <p class="title-number-panel">Pagamento: <strong style="font-size: 1rem"> {{ $order[0]->payment }}
+                  </strong>
                 </p>
-                {{-- @if (strtolower($order[0]->payment) === 'expired' || strtolower($order[0]->payment) === 'cancelled')
-                  <form action="#" method="post" id="formTryPay">
-                    @csrf
-
-                    <input type="text" name="id_payment" value="{{ $order[0]->id_payment_order }}"
-                      style="display: none">
-
-                    <input type="text" name="redirect_buy" value="ecomm" style="display: none">
-
-                    <input type="text" name="order" value="{{ $order_number }}" style="display: none">
-
-                    <span>Pay with:</span>
-                    <div class="d-flex" style="width: 50%">
-                      <select name="payment" style="width: 25%; font-size: 1rem" id="selectPay" style="font-size: 1rem"
-                        class="form-control form-control-lg @error('payment') is-invalid @enderror" required>
-                        <option value=""> Choose</option>
-                        @foreach ($metodos as $item)
-                          <option value="{{ $item->id }}">{{ $item->name }}</option>
-                        @endforeach
-                        <option value="BTC">Bitcoin (BTC) </option>
-                      </select>
-
-                      <button type="submit" style="width: auto; padding: 0 2rem; opacity: .5" class="button-detal"
-                        id="bt_submit" disabled onclick="submitTryPay()">Try to pay again</button>
-
-                    </div>
-                  </form>
-                @endif --}}
               </div>
               @php
                 if (isset($order_number) && $order[0]->smartshipping == 1) {
@@ -187,25 +160,25 @@
                     <div>
                       <a type="button" target="_blank" href="{{ route('invoicePDF', $order_number) }}"
                         style="width: auto; padding: 0 2rem; opacity: 1; display:flex; justify-content:center; align-items:center; width: 2rem;"
-                        class="button-detal" id="bt_submit">Invoice</a>
+                        class="button-detal" id="bt_submit">Recibo</a>
                     </div>
                   @endif
                   <div>
                     <a type="button" class="btn button button-detal"
                       style="width: auto; padding: 0 2rem; opacity: 1; display:flex; justify-content:center; align-items:center; width: 2rem;"
                       target="_blank" href="{{ route('tracking') . "?order=$order_number" }}">
-                      Track
+                      Rastrear
                     </a>
                   </div>
                   <div style="display: flex;gap:2rem;">
                     @if (strtolower($order[0]->smartshipping) == 1)
                       <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalaaaa">Cancel smartshipping</button>
+                        data-bs-target="#exampleModalaaaa">Cancelar smartshipping</button>
 
                       <button type="button" class="btn button-detal" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalaChoose">Choose day payment</button>
+                        data-bs-target="#exampleModalaChoose">Escolher dia do pagamento</button>
 
-                      <span>Best day for payment {{ $day }}</span>
+                      <span>Melhor dia do pagamento {{ $day }}</span>
                     @endif
                   </div>
                 </div>
@@ -218,7 +191,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">cancel Smartshipping -
+                  <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">cancelar Smartshipping -
                     {{ $order[0]->number_order }}</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -226,21 +199,21 @@
                   <form action="{{ route('cancel.smartshipping') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Order</span>
+                      <span class="input-group-text" id="basic-addon1">Pedido</span>
                       <input name="order" type="text" class="form-control"
                         placeholder=" {{ $order[0]->number_order }}" aria-label="Username" aria-describedby="basic-addon1"
                         value=" {{ $order[0]->number_order }}" readonly>
                     </div>
 
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Reason</span>
+                      <span class="input-group-text" id="basic-addon1">Motivo</span>
                       <textarea name="motivo" id="" cols="60" rows="10" required style="padding:1rem"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
               </div>
             </div>
@@ -251,7 +224,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalaChooseLabel">cancel Smartshipping -
+                  <h1 class="modal-title fs-5" id="exampleModalaChooseLabel">cancelar Smartshipping -
                     {{ $order[0]->number_order }}</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -259,22 +232,22 @@
                   <form action="{{ route('choose.day.smartshipping') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Order</span>
+                      <span class="input-group-text" id="basic-addon1">Pedido</span>
                       <input name="order" type="text" class="form-control"
                         placeholder=" {{ $order[0]->number_order }}" aria-label="Username"
                         aria-describedby="basic-addon1" value=" {{ $order[0]->number_order }}" readonly>
                     </div>
 
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Day</span>
+                      <span class="input-group-text" id="basic-addon1">Dia</span>
                       <input type="number" id="day" name="day" min="1" max="30"
                         placeholder="Day" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
               </div>
             </div>
@@ -284,11 +257,11 @@
             <table class="table" style="overflow-x: scroll">
               <thead>
                 <tr>
-                  <th scope="col">Product</th>
+                  <th scope="col">Produto</th>
                   <th scope="col">QV</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col">Payment</th>
-                  <th scope="col">Invoice</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Pagamento</th>
+                  <th scope="col">Recibo</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -308,22 +281,22 @@
                         <p>{{ $item->qv ? $item->qv : '0' }}</p>
                       </td>
                       <td>
-                        <p>{{ $item->amount }} units</p>
+                        <p>{{ $item->amount }} Unidades</p>
                       </td>
                       <td>
                         {{ $item->payment }}
                       </td>
                       <td>
                         @if (isset($invoiceFak))
-                          Yes
+                          Sim
                         @else
-                          No
+                          Não
                         @endif
                       </td>
                       @if (isset($invoiceFak))
                         <td> <a type="button" target="_blank" href="{{ route('invoicePDF', $order_number) }}"
                             style="width: auto; padding: 0 2rem; opacity: 1; display:flex; justify-content:center; align-items:center; width: fit-content;"
-                            class="button-detal" id="bt_submit">Invoice order</a></td>
+                            class="button-detal" id="bt_submit">Recibo</a></td>
                     </tr>
                   @endif
                 @endforeach

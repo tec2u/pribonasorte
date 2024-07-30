@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'withdraw_bonus' => 'Saque',
+    'new_request' => 'Nova Solicitação',
+    'search' => 'Buscar',
+    'id' => 'ID',
+    'value' => 'Valor',
+    'processing_time' => 'Tempo de Processamento',
+    'status' => 'Status',
+    'date' => 'Data',
+    'days' => 'Dias',
+    'approved' => 'Aprovado',
+    'awaiting_payment' => 'Aguardando Pagamento',
+    'any_withdraw_registered' => 'Você não tem nenhum saque registrado!',
+    'withdraw_amount' => 'Valor do Saque',
+    'close' => 'Fechar',
+    'current_balance' => 'Saldo Atual',
+    'amount' => 'Valor',
+    'amount_bonus' => 'Valor',
+    'enter_amount' => 'Digite o Valor',
+    'note' => 'Nota',
+    'minimum_withdraw_amount' => 'O valor mínimo para saque é 50 USD',
+    'submit' => 'Enviar',
+    'withdraw_history' => 'Histórico de Saques',
+    'withdraw_fund' => 'Sacar Fundos',
+    'withdraw_request' => 'Solicitação de Saque',
+];

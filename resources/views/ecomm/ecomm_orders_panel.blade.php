@@ -118,7 +118,7 @@
     <section class="container-ecomm" style="margin-top: 50px;">
 
       <div class="raw">
-        <p class="title-ecomm">Hello {{ $user->name }}!</p>
+        <p class="title-ecomm">Olá {{ $user->name }}!</p>
       </div>
 
       <div class="raw">
@@ -129,21 +129,21 @@
           <div class="band-title" style="overflow-x: scroll">
             @if (count($order) < 1)
               <center>
-                <p class="title-order-panel">You haven't placed any orders yet!</p>
+                <p class="title-order-panel">Você não tem nenhum pedido!</p>
                 <br /><br />
                 <a type="button" href="{{ route('ecomm') }}"
                   style="display:flex; justify-content:center; align-items:center;padding: 0 2rem; opacity: 1; max-width: 10vw;"
-                  class="button-detal" id="bt_submit">Shop Now</a>
+                  class="button-detal" id="bt_submit">Comprar</a>
               </center>
             @else
               <table class="table" style="overflow-x: scroll">
                 <thead>
                   <tr>
-                    <th scope="col">Number Order</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Pedido</th>
+                    <th scope="col">Data</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Payment</th>
-                    <th scope="col">Total price</th>
+                    <th scope="col">Pagamento</th>
+                    <th scope="col">Preço total</th>
                     <th scope="col">Smartshipping</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -164,25 +164,25 @@
                         @if ($item->smartshipping == 1)
                           <p class="" style="color: #d26075">Smartshipping</p>
                         @else
-                          <p class="">Not Smartshipping</p>
+                          <p class="">Não é Smartshipping</p>
                         @endif
                       </td>
                       @if ($item->invoiceFak)
                         <td scope="col"><a href="{{ route('invoicePDF', $item->number_order) }}"><button
-                              class="button-detal">Invoice</button></a></td>
+                              class="button-detal">Recibo</button></a></td>
                       @else
                         <td scope="col"><a><button style="opacity: .5" disabled
-                              class="button-detal">Invoice</button></a></td>
+                              class="button-detal">Recibo</button></a></td>
                       @endif
                       <td scope="col"><a href="{{ route('orders_detal.panel.ecomm', ['id' => $item->id]) }}"><button
-                            class="button-detal">Detail</button></a></td>
+                            class="button-detal">Detalhes</button></a></td>
                       @if (isset($reportSmart) && $reportSmart)
                         @if (strtolower($item->payment) == 'paid')
                           <td scope="col"><button data-bs-toggle="modal" data-bs-target="#exampleModalaaaa"
-                              data-order="{{ $item->number_order }}" class="btn btn-danger">Cancel
+                              data-order="{{ $item->number_order }}" class="btn btn-danger">Cancelar
                             </button></td>
                         @else
-                          <td scope="col"><button disabled class="btn btn-danger">Cancel</button></td>
+                          <td scope="col"><button disabled class="btn btn-danger">Cancelar</button></td>
                         @endif
                       @endif
                     </tr>
@@ -197,7 +197,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">cancel Smartshipping -
+                    <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">Cancelar Smartshipping -
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
@@ -205,20 +205,20 @@
                     <form action="{{ route('cancel.smartshipping') }}" method="POST">
                       @csrf
                       <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Order</span>
+                        <span class="input-group-text" id="basic-addon1">Pedido</span>
                         <input name="order" type="text" class="form-control" aria-describedby="basic-addon1"
                           id="inputmodalorder" value="" readonly>
                       </div>
 
                       <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Reason</span>
+                        <span class="input-group-text" id="basic-addon1">Motivo</span>
                         <textarea name="motivo" id="" cols="60" rows="10" required style="padding:1rem"></textarea>
                       </div>
-                      <button type="submit" class="btn btn-primary">Confirm</button>
+                      <button type="submit" class="btn btn-primary">Confirmar</button>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>

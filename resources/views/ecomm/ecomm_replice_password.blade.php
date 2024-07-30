@@ -139,8 +139,8 @@
           <div class="sub-box-log">
             <center>
               <div class="form-log">
-                <p style="font-size: 17px; margin: 30px 0px; line-height: 20px;">Did you ask for access? Enter your
-                  registration email to recover your password.</p>
+                <p style="font-size: 17px; margin: 30px 0px; line-height: 20px;">Você perdeu o acesso? Insira seu e-mail de
+                  registro para recuperar sua senha.</p>
                 @if (session('message'))
                   <div class="alert alert-danger">
                     {{ session('message') }}
@@ -148,20 +148,20 @@
                 @endif
                 <form action="{{ route('alter_password.ecomm') }}" method="GET" style="margin-bottom: 30px;">
                   @csrf
-                  <input class="form-input-finalize" placeholder="New password" maxlength="16" type="password"
+                  <input class="form-input-finalize" placeholder="Nova senha" maxlength="16" type="password"
                     name="password">
                   {{--  --}}
-                  <input class="form-input-finalize" placeholder="Check password" maxlength="16" type="password"
+                  <input class="form-input-finalize" placeholder="Repetir senha" maxlength="16" type="password"
                     name="check_pass">
                   {{--  --}}
-                  <input class="form-input-finalize" style="text-align: center;" placeholder="Code" maxlength="6"
+                  <input class="form-input-finalize" style="text-align: center;" placeholder="Codigo" maxlength="10"
                     type="text" name="code_check">
                   {{--  --}}
-                  <button type="submit" class="button-log-form">Alter Password</button>
+                  <button type="submit" class="button-log-form">Alterar senha</button>
                 </form>
                 <div style="width: 100%; display: inline-block;">
                   <a href="{{ route('page.login.ecomm') }}">
-                    <p style="float: right;">Back to Login</p>
+                    <p style="float: right;">Voltar</p>
                   </a>
                 </div>
               </div>
@@ -170,7 +170,7 @@
 
           <div class="block-detal-login">
             <center>
-              <a href="{{ route('ecomm') }}"><button class="back-button">Back to products</button></a>
+              <a href="{{ route('ecomm') }}"><button class="back-button">Ir aos produtos</button></a>
             </center>
           </div>
         </div>

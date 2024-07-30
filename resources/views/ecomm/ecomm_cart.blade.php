@@ -549,7 +549,7 @@
 
       <div class="raw">
         <div class="band-title">
-          <p class="title-ecomm">Shopping cart</p>
+          <p class="title-ecomm">Carrinho</p>
           {{-- <a href="{{ route('clear.cart') }}">
             <p class="back-button"><i class="fi fi-rr-arrow-left"></i> Clear Cart</p>
           </a> --}}
@@ -562,19 +562,19 @@
             <table class="table-cart">
               <tr>
                 <td width="45%" id="product">
-                  <p class="title-column">Product</p>
+                  <p class="title-column">Produto</p>
                 </td>
                 <td width="10%" id="VAT">
-                  <p class="title-column">Price</p>
+                  <p class="title-column">Preço</p>
                 </td>
                 <td width="10%" id="unit">
                   <p class="title-column">VAT</p>
                 </td>
                 <td width="15%" id="amount">
-                  <p class="title-column">Amount</p>
+                  <p class="title-column">Quantidade</p>
                 </td>
                 <td width="10%">
-                  <p class="title-column">Total Price</p>
+                  <p class="title-column">Preço total</p>
                 </td>
                 <td width="5%"></td>
               </tr>
@@ -642,7 +642,7 @@
 
         <div class="box-cart-line2">
 
-          <h5>Resume cart</h5>
+          <h5>Resumo</h5>
 
           <div class="raw">
             <div class="total-free1">
@@ -674,7 +674,7 @@
 
           <div class="raw">
             <div class="total-column1">
-              <p class="text-column1">Total Price:</p>
+              <p class="text-column1">Preço total:</p>
               <p class="text-column1">€{{ $format_price }}</p>
             </div>
           </div>
@@ -682,9 +682,9 @@
           <div class="box-finalize-cart">
             @if ($count_order > 0 && $priceShippingHome != 0)
               @if (session()->has('buyer'))
-                <a href="{{ route('finalize.shop') }}"><button class="finalize-cart">Finalize Order</button></a>
+                <a href="{{ route('finalize.shop') }}"><button class="finalize-cart">Continuar</button></a>
               @else
-                <button id="poplog" class="finalize-cart">Finalize Order</button>
+                <button id="poplog" class="finalize-cart">Continuar</button>
               @endif
             @endif
           </div>
@@ -693,9 +693,9 @@
       </div>
       <div class="d-flex" style="margin-top: 30px; width: 100%">
         <div class="box-clear-cart">
-          <a href="{{ route('clear.cart') }}"><button class="clear-cart">Clear cart</button></a>
+          <a href="{{ route('clear.cart') }}"><button class="clear-cart">Limpar carrinho</button></a>
 
-          <a href="{{ route('ecomm') }}"><button class="clear-cart">Back to products</button></a>
+          <a href="{{ route('ecomm') }}"><button class="clear-cart">Voltar aos produtos</button></a>
         </div>
       </div>
       </div>
@@ -706,10 +706,10 @@
   <div class="modal_popup">
     <div class="pop_up_log">
       <center>
-        <p class="text_pop_up">You have a registered account?</p>
+        <p class="text_pop_up">Você possui conta?</p>
         <ul class="list_btn_logs">
-          <li><a href="{{ route('page.login.ecomm') }}"><button class="button_log_option">Yes</button></a></li>
-          <li><a href="{{ route('register.user.ecomm') }}"><button class="button_log_option">No</button></a></li>
+          <li><a href="{{ route('page.login.ecomm') }}"><button class="button_log_option">Sim</button></a></li>
+          <li><a href="{{ route('register.user.ecomm') }}"><button class="button_log_option">Não</button></a></li>
         </ul>
       </center>
     </div>

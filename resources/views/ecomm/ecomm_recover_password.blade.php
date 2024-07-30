@@ -139,17 +139,17 @@
           <div class="sub-box-log">
             <center>
               <div class="form-log">
-                <p style="font-size: 17px; margin: 30px 0px; line-height: 20px;">Did you ask for access? Enter your
-                  registration email to recover your password.</p>
+                <p style="font-size: 17px; margin: 30px 0px; line-height: 20px;">Você perdeu o acesso? Insira seu e-mail de
+                  registro para recuperar sua senha.</p>
                 <form action="{{ route('recover_validade.ecomm') }}" method="POST" style="margin-bottom: 30px;">
                   @csrf
-                  <input class="form-input-finalize" placeholder="Registration e-mail" type="text" name="email">
+                  <input class="form-input-finalize" placeholder="E-mail" type="text" name="email">
                   {{--  --}}
-                  <button type="submit" class="button-log-form">Recover</button>
+                  <button type="submit" class="button-log-form">Recuperar</button>
                 </form>
                 <div style="width: 100%; display: inline-block;">
                   <a href="{{ route('page.login.ecomm') }}">
-                    <p style="float: right;">Back to Login</p>
+                    <p style="float: right;">Voltar</p>
                   </a>
                 </div>
               </div>

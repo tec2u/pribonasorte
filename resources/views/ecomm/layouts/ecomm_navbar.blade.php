@@ -2,27 +2,28 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{{ route('orders.panel.ecomm') }}">All Orders<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ route('orders.panel.ecomm') }}">Todos os pedidos<span
+            class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('orders.smartshipReport.ecomm') }}">Smartship<span
             class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('orders.invoicesReport.ecomm') }}">Invoices</a>
+        <a class="nav-link" href="{{ route('orders.invoicesReport.ecomm') }}">Recibos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('orders.qvReport.ecomm') }}">QV</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('orders.settings.ecomm') }}">Settings</a>
+        <a class="nav-link" href="{{ route('orders.settings.ecomm') }}">Configurações</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="font-weight: bold; color: #d26075" href="{{ route('ecomm') }}">Shop Now</a>
+        <a class="nav-link" style="font-weight: bold; color: #d26075" href="{{ route('ecomm') }}">Comprar</a>
       </li>
       <li class="nav-item">
         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#migratemodal">
-          Migrate to intern system
+          Migrar para o backoffice
         </button>
       </li>
     </ul>

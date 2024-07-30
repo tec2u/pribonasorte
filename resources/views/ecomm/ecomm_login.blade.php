@@ -166,27 +166,26 @@
                     {{ session('error') }}
                   </div>
                 @endif
-                <p class="title-ecomm">Enter</p>
+                <p class="title-ecomm">Entrar</p>
                 <form action="{{ route('log.user.ecomm') }}" method="POST" style="margin-bottom: 30px;">
                   @csrf
                   <input class="form-input-finalize" placeholder="E-mail" type="text" name="email">
                   {{--  --}}
-                  <input class="form-input-finalize" placeholder="Password" type="password" maxlength="16"
-                    name="password">
+                  <input class="form-input-finalize" placeholder="Senha" type="password" maxlength="16" name="password">
                   {{--  --}}
                   <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                     <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-                      I Agree with
+                      Eu concordo com os
                       <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
-                        Terms and Agreement</a>
+                        termos</a>
                     </label>
                   </div>
-                  <button type="submit" class="button-log-form">Login</button>
+                  <button type="submit" class="button-log-form">Entrar</button>
                 </form>
                 <div style="width: 100%; display: inline-block;">
                   <a href="{{ route('recover.ecomm') }}">
-                    <p style="float: right;">Recover Password</p>
+                    <p style="float: right;">Recuperar senha</p>
                   </a>
                 </div>
               </div>
@@ -194,8 +193,8 @@
           </div>
 
           <div class="block-detal-login">
-            <a href="{{ route('register.user.ecomm') }}"><button class="back-button">Create New Account</button></a>
-            <a href="{{ route('ecomm') }}"><button class="back-button">Back to products</button></a>
+            <a href="{{ route('register.user.ecomm') }}"><button class="back-button">Criar conta</button></a>
+            <a href="{{ route('ecomm') }}"><button class="back-button">Ir aos produtos</button></a>
           </div>
         </div>
       </div>

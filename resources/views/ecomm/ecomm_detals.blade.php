@@ -469,27 +469,9 @@
             @if (!empty($product->description))
               <p class="">{!! $product->description !!}</p>
             @else
-              <p class="">Product without description</p>
+              <p class="">Sem descrição</p>
             @endif
-            @switch($product->id)
-              @case(9)
-                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
-                  href="{{ route('true_omega') }}">See
-                  more...</a>
-              @break
 
-              @case(10)
-                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
-                  href="{{ route('melatonin') }}">See more...</a>
-              @break
-
-              @case(11)
-                <a style="font-size: 1rem;color:#d26075;text-decoration: underline;" class="button-cart"
-                  href="{{ route('test_kit') }}">See more...</a>
-              @break
-
-              @default
-            @endswitch
           </div>
           <div class="buy-product">
             <div class="price-2" style="display: none;">
@@ -497,7 +479,7 @@
               <h3 class="text-price">€ {{ $product->price }}</h3>
               <h6 style="color: #51185D; font-size:1ren;">QV {{ $qv_format }}</h6>
               @if (isset($product->premium_price))
-                <h6 class="text-price" style="font-size: 15px">Smartship Price: €{{ $product->premium_price }}</h6>
+                <h6 class="text-price" style="font-size: 15px">Smartship preço: €{{ $product->premium_price }}</h6>
               @endif
             </div>
 
@@ -506,18 +488,18 @@
               <div class="raw">
 
                 @if ($product->stock > 0)
-                  <p style="color: rgb(0, 202, 84);">Stock available</p>
+                  <p style="color: rgb(0, 202, 84);">Estoque disponivel</p>
                   <input class="quantify-buttom" name="quant_product" value="1" type="number"
                     max="{{ $product->stock }}" maxlength="{{ $product->stock }}" id="quant_product"
                     style="width: 100%">
                   <input name="id_product" value="{{ $product->id }}" style="display: none">
                 @else
-                  <p style="color: red;">No stock for this product</p>
+                  <p style="color: red;">Sem estoque</p>
                 @endif
               </div>
               @if ($product->stock > 0)
                 <div class="raw">
-                  <button class="button-cart">Add to Cart</button>
+                  <button class="button-cart">Adicionar ao carrinho</button>
                 </div>
               @endif
             </form>
