@@ -742,10 +742,10 @@
             @endforeach
             {{-- <option value="USDT">Buy Now (USDT ERC20) </option> --}}
           </select>
-          @if ($qv >= 50)
+          {{-- @if ($qv >= 50)
             <button class="btn_address" style="margin: 0;width:100%;opacity: .5" onclick="submitSmart()"
               id="bt_submit_smart" disabled>Smartshipping</button>
-          @endif
+          @endif --}}
           <br>
           <button class="btn-finalize-pay" onclick="submitMethod()" disabled style="opacity: .5"
             id="bt_submit">Pagar</button>
