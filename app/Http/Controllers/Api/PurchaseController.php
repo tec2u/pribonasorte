@@ -873,32 +873,6 @@ class PurchaseController extends Controller
 
             $metodos = [];
 
-            $client = new \GuzzleHttp\Client();
-
-            $url = 'https://payments.comgate.cz/v1.0/methods';
-            $data = [
-                'merchant' => '475067',
-                'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-                "type" => "json",
-                'lang' => 'en',
-            ];
-
-            $headers = [
-                'Content-Type' => 'application/x-www-form-urlencoded',
-                'Accept' => 'application/json'
-            ];
-
-            $response = $client->post($url, [
-                'form_params' => $data,
-                'headers' => $headers,
-
-            ]);
-
-            $statusCode = $response->getStatusCode();
-            $metodos = $response->getBody()->getContents();
-
-            $metodos = json_decode($metodos)->methods;
-
             $countryes = ShippingPrice::orderBy('country', 'ASC')->get();
             $shippingPickup = PickupPoint::all();
             $todosFreteCasa = [];

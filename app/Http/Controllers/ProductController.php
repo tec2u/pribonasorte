@@ -575,32 +575,7 @@ class ProductController extends Controller
 
         $priceShippingHome += $total_tax_add;
 
-
-        $client = new \GuzzleHttp\Client();
-
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
-
-        $metodos = json_decode($metodos)->methods;
+        $metodos = [];
 
         $countryes = ShippingPrice::orderBy('country', 'ASC')->get();
         $shippingPickup = PickupPoint::all();
@@ -1210,7 +1185,7 @@ class ProductController extends Controller
 
         $paymentConfig = [
             "api_url" => "https://crypto.binfinitybank.com/packages/wallets/notify",
-            "email" => 'lifeprosper@tec2u.com.br',
+            "email" => 'master@tec2u.com.br',
             "password" => "password",
         ];
 
@@ -1282,7 +1257,7 @@ class ProductController extends Controller
             $test = 'false';
         }
 
-        $url = 'https://payments.comgate.cz/v1.0/create';
+        $url = '';
         $data = [
             'merchant' => '475067',
             'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',

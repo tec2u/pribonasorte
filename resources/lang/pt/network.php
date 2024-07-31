@@ -58,9 +58,9 @@ return [
     'level' => 'Nível',
 
     'birthday' => 'Aniversário',
-    'area_residence' => 'Área de Residência',
+    'area_residence' => 'Bairro',
     'complement' => 'Complemento',
-    'number_resident' => 'Número do Residente',
+    'number_resident' => 'Número da Residência',
     'address' => 'Endereço',
     'select_country' => 'Selecionar País',
     'update' => 'Atualizar Dados Pessoais',

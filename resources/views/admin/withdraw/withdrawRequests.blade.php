@@ -171,7 +171,7 @@
                     <td>{{ $withdraw->id }}</td>
                   </tr>
                   <tr>
-                    <th><b>Login:</th>
+                    <th><b>Apelido:</th>
                     <td>{{ $withdraw->user->login }}</td>
                   </tr>
                   <tr>
@@ -193,7 +193,7 @@
                     <td><b>{{ $withdraw->user->wallet()->orderBy('id', 'desc')->first()->wallet }}</td>
                   </tr>
                   <tr>
-                    <th><b>Method</th>
+                    <th><b>Metodo</th>
                     @if (isset($withdraw->method) and !empty($withdraw->method))
                       <td>{{ $withdraw->method }}</td>
                     @else
@@ -202,54 +202,54 @@
                   </tr>
                   <tr>
                     <th><b>@lang('admin.withdrawrequest.status.col8')</th>
-                    <td>5-7 Days</td>
+                    <td>5-7 Dias</td>
                   </tr>
                   <!-- <tr>
-                    <th><b>@lang('admin.withdrawrequest.status.col9')</th>
-                    <td>{{ date('h:i:s A , l jS \of F Y ') }}</td>
-                  </tr>
-                  <tr>
-                    <th><b>Bank Name</th>
-                    @if (isset($withdraw->bank_name) and !empty($withdraw->bank_name))
-                      <td>{{ $withdraw->bank_name }}</td>
-                    @else
-                      <td>-</td>
-                    @endif
-                  </tr>
-                  <tr>
-                    <th><b>IBAN</th>
-                    @if (isset($withdraw->iban) and !empty($withdraw->iban))
-                      <td>{{ $withdraw->iban }}</td>
-                    @else
-                      <td>-</td>
-                    @endif
-                  </tr>
-                  <tr>
-                    <th><b>SWIFT</th>
-                    @if (isset($withdraw->swift) and !empty($withdraw->swift))
-                      <td>{{ $withdraw->swift }}</td>
-                    @else
-                      <td>-</td>
-                    @endif
-                  </tr>
-                  <tr>
-                    <th><b>VATID</th>
-                    @if (isset($withdraw->vatid) and !empty($withdraw->vatid))
-                      <td>{{ $withdraw->vatid }}</td>
-                    @else
-                      <td>-</td>
-                    @endif
-                  </tr> -->
+                        <th><b>@lang('admin.withdrawrequest.status.col9')</th>
+                        <td>{{ date('h:i:s A , l jS \of F Y ') }}</td>
+                      </tr>
+                      <tr>
+                        <th><b>Bank Name</th>
+                        @if (isset($withdraw->bank_name) and !empty($withdraw->bank_name))
+  <td>{{ $withdraw->bank_name }}</td>
+@else
+  <td>-</td>
+  @endif
+                      </tr>
+                      <tr>
+                        <th><b>IBAN</th>
+                        @if (isset($withdraw->iban) and !empty($withdraw->iban))
+  <td>{{ $withdraw->iban }}</td>
+@else
+  <td>-</td>
+  @endif
+                      </tr>
+                      <tr>
+                        <th><b>SWIFT</th>
+                        @if (isset($withdraw->swift) and !empty($withdraw->swift))
+  <td>{{ $withdraw->swift }}</td>
+@else
+  <td>-</td>
+  @endif
+                      </tr>
+                      <tr>
+                        <th><b>VATID</th>
+                        @if (isset($withdraw->vatid) and !empty($withdraw->vatid))
+  <td>{{ $withdraw->vatid }}</td>
+@else
+  <td>-</td>
+  @endif
+                      </tr> -->
                 </tbody>
               </table>
               <div class="col-md-6">
-                <h4>Receipt Link</h4>
+                <h4>Link</h4>
                 <hr class="dropdown-divider">
                 <input id="message" name="message" type="text" class="form-control"
                   value="{{ $withdraw->message }}" />
                 <label for="status">@lang('admin.withdrawrequest.status.status')</label>
                 <select id="status" name="status" class="form-control">
-                  <option value="0">Not Processed</option>
+                  <option value="0">Não Processado</option>
                   <option value="1">@lang('admin.btn.pending')</option>
                   <option value="2">@lang('admin.btn.paid')</option>
                 </select>

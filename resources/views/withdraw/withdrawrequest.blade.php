@@ -35,8 +35,8 @@
                 </div>
                 <div class="card-header py-3">
                   <!-- <button type="button" class="btn btn-info btn-sm rounded-pill" style="width: 80px;">CSV</button>
-                                                                                <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
-                                                                                <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
+                                                                                      <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
+                                                                                      <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
                   <div class="card-tools">
                     <div class="input-group input-group-sm my-1" style="width: 250px;">
                       <input type="text" name="table_search" class="form-control float-right rounded-pill pl-3"
@@ -58,7 +58,7 @@
                         <th>@lang('withdraw.value')</th>
                         {{-- <th>@lang('withdraw.processing_time')</th> --}}
                         <th>@lang('withdraw.status')</th>
-                        <th>Receipt Link</th>
+                        <th>Link</th>
                         <th>@lang('withdraw.date')</th>
                       </tr>
                     </thead>
@@ -74,11 +74,11 @@
                             <td><a class="btn btn-primary rounded-pill bg-success px-4 py-1"
                                 href="{{ $withdraw->message }}" target="_blank" rel="noopener noreferrer">Link</a></td>
                           @elseif ($withdraw->status == 0)
-                            <td class="text-danger">Not Processed</td>
-                            <td>None</td>
+                            <td class="text-danger">Não Processado</td>
+                            <td>nenhum</td>
                           @else
                             <td class="text-warning">@lang('withdraw.awaiting_payment')</td>
-                            <td>None</td>
+                            <td>nenhum</td>
                           @endif
                           <td>{{ date('H:i d/m/Y ', strtotime($withdraw->created_at)) }}</td>
                         </tr>
@@ -117,11 +117,11 @@
                 @csrf
                 <div class="my-5">
                   <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupSelect01">Method</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Metodo</label>
                     <select class="form-select" name="method" id="inputGroupSelect01" required>
-                      <option selected value="">Choose...</option>
-                      {{-- <option value="wallet">Wallet</option> --}}
-                      <option value="ipayout">IPayout</option>
+                      <option selected value="">Escolher...</option>
+                      <option value="wallet">Carteira</option>
+                      {{-- <option value="ipayout">IPayout</option> --}}
                     </select>
                   </div>
 
@@ -135,43 +135,43 @@
                   </div>
 
                   <!-- <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-top: 20px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="Account Name" type="text" name="account_name">
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-top: 20px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="Account Name" type="text" name="account_name">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="Address" type="text"
-                                value="{{ $user->address1 }}, {{ $user->city }}, {{ $user->state }}, {{ $user->country }}"
-                                name="address">
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="Address" type="text"
+                                      value="{{ $user->address1 }}, {{ $user->city }}, {{ $user->state }}, {{ $user->country }}"
+                                      name="address">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="Account Number" type="text" name="account_number">
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="Account Number" type="text" name="account_number">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="Bank Name" type="text" name="bank_name">
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="Bank Name" type="text" name="bank_name">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="IBAN" type="text" name="iban">
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="IBAN" type="text" name="iban">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="SWIFT" type="text" name="swift">
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="SWIFT" type="text" name="swift">
 
-                              <input
-                                style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                                placeholder="VAT ID" type="text" name="vatid"> -->
+                                    <input
+                                      style="width: 100%; padding-left: 10px; outline: none; height: 35px; margin-bottom: 20px; border-radius: 5px; border: solid 1px #cdcdcd;"
+                                      placeholder="VAT ID" type="text" name="vatid"> -->
 
 
                 </div>
                 <div class="note">
                   <h5>@lang('withdraw.note')</h5>
-                  <p>The Minimum withdrawal is 25EUR</p>
-                  <p>You can also use your commissions to purchase products</p>
-                  <p>The processing fee is 3,5 EUR of the requested amount and will be deducted from the amount
-                    paid!</p>
+                  <p>O minimo é 25EUR</p>
+                  <p>Você também pode usar suas comissões para comprar produtos</p>
+                  <p>A taxa de processamento é de 3,5 EUR do valor solicitado e será deduzida do valor
+                    pago!</p>
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary rounded-pill">@lang('withdraw.submit')</button>

@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-  <video autoplay muted loop class="bg_video">
+  {{-- <video autoplay muted loop class="bg_video">
     <source src="/videos/fitnessAuraWay.mp4" type="video/mp4">
-  </video>
+  </video> --}}
+
+  <style>
+    body {
+      background-image: url(../img/fundo-newhome.jpg) !important;
+    }
+  </style>
 
   <div class="container">
     <div class="row justify-content-center">

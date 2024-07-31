@@ -10,8 +10,10 @@ return [
     'acquisition_date' => 'Acquisition date',
     'previous' => 'Previous',
     'search' => 'Search',
-
-    'total_commission' => 'E-wallet (Total)',
+    'available' => 'Available',
+    'not_available' => 'Not Available',
+    'last_month' => 'Last month',
+    'total_commission' => 'Total Commissions',
     'available_comission' => 'E-wallet (Available)',
     'downline_volume' => 'DOWNLINE VOLUME',
     'indirect_distributors' => 'INDIRECT DISTRIBUTORS',
@@ -78,6 +80,23 @@ return [
     'pool_commission' => 'Poll Commission',
     'bonus_referral' => 'Referral',
     'score_poll' => 'Shares',
+
+    'my_directs' => 'My directs',
+    'directs' => 'Directs',
+    'directs_with_qv' => 'Directs with QV',
+
+    'my_orders_smartshipping' => 'My orders smartshipping',
+    'orders' => 'Orders',
+    'order' => 'Order',
+    'created' => 'Created',
+    'next_payment' => 'Next payment',
+    'price' => 'Price',
+
+    'new_enrollments' => 'New enrollments',
+    'directs_qv' => 'Directs QV',
+
+    'new_rank_advancement' => 'New Rank Advancement',
+    'ranking' => 'Ranking',
 
     'txt' => 'Our referral programme gives you unlimited rewards,
     with money deposited directly into your account when you refer friends and family and use Infinity Club Cards as your

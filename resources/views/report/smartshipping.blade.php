@@ -49,7 +49,7 @@
               <h1>SMARTSHIPPING</h1>
               <div class="card shadow my-3">
                 <div class="card-header bbcolorp">
-                  <h3 class="card-title">All orders smartishipping</h3>
+                  <h3 class="card-title">Pedidos smartishipping</h3>
                 </div>
                 <div class="card-header py-3">
 
@@ -69,7 +69,7 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th><b>ID Order</b></th>
+                      <th><b>ID Pedido</b></th>
                       <th><b>Total</b></th>
                       <th><b>Total QV</b></th>
                       <th></th>
@@ -82,10 +82,10 @@
                         <th>€ {{ number_format($recruits['total'], 2, ',', '.') }}</th>
                         <th>€ {{ number_format($recruits['qv'], 2, ',', '.') }}</th>
                         <th><a href="{{ route('packages.ecommOrdersDetail', ['id' => $recruits['order']]) }}"><button
-                              type="button" style="float: right;" class="btn btn-primary">Details</button></a></th>
+                              type="button" style="float: right;" class="btn btn-primary">Detalhe</button></a></th>
                         <th><a
                             href="{{ route('reports.smartshipping.check.cancel', ['id' => $recruits['order']]) }}"><button
-                              type="button" style="float: right;" class="btn btn-primary">Cancel</button></a></th>
+                              type="button" style="float: right;" class="btn btn-primary">Cancelar</button></a></th>
                       </tr>
                     @empty
                       <p class="m-4 fst-italic">@lang('network.no_record_smart')</p>
@@ -110,13 +110,13 @@
     <div class="modal_action">
       <div class="action_box">
         <center>
-          <p class="text-smart">Are you sure you want to remove your smartshipping?</p>
+          <p class="text-smart">Tem certeza de que deseja remover seu smartshipping?</p>
           <br>
           <ul class="list_button">
             <li><a href="{{ route('reports.smartshipping_report') }}"><button type="button"
-                  class="btn btn-primary">Back</button></a></li>
+                  class="btn btn-primary">Voltar</button></a></li>
             <li><a href="{{ route('reports.smartshipping.cancel', ['id' => $action_box]) }}"><button type="button"
-                  class="btn btn-primary">Cancel</button></a></li>
+                  class="btn btn-primary">Sim, cancelar</button></a></li>
           </ul>
         </center>
       </div>

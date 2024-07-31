@@ -15,8 +15,8 @@
                 </div>
                 <div class="card-header py-3">
                   <!-- <button type="button" class="btn btn-info btn-sm rounded-pill" style="width: 80px;">CSV</button>
-                                                                                                                                                                                              <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
-                                                                                                                                                                                              <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
+                                                                                                                                                                                                        <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
+                                                                                                                                                                                                        <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
                   <div class="card-tools">
                     <div class="input-group input-group-sm my-1" style="width: 250px;">
                       <input type="text" name="table_search" class="form-control float-right rounded-pill pl-3"
@@ -47,7 +47,7 @@
                         <th>CV</th>
                         <th>@lang('package.date')</th>
                         <th>@lang('package.payment_status')</th>
-                        <th>Shipping</th>
+                        <th>Entrega</th>
                         <th></th>
                         <th></th>
                       </tr>
@@ -110,16 +110,16 @@
                           <td><span>{{ $orderpackage->method_shipping }}</span></td>
                           <td>
                             <button class="btn rounded-pill bg-success px-4 py-1"><a
-                                href="{{ route('packages.ecommOrdersDetail', $orderpackage->number_order) }}">Details</a></button>
+                                href="{{ route('packages.ecommOrdersDetail', $orderpackage->number_order) }}">Detalhe</a></button>
                           </td>
                           <td>
                             @if ($recorrente == true)
-                              <span class="px-4 py-1">Created by Smartshipping</span>
+                              <span class="px-4 py-1">Criado pelo Smartshipping</span>
                             @else
                               @if ($orderpackage->smartshipping == 1)
                                 <span class="px-4 py-1">Smartshipping</span>
                               @else
-                                <span class="px-4 py-1">Not
+                                <span class="px-4 py-1">Não é
                                   Smartshipping</span>
                               @endif
                             @endif
@@ -129,7 +129,7 @@
                             <td>
                               <a type="button" class="btn rounded-pill bg-success px-4 py-1" target="_blank"
                                 href="{{ route('packages.tracking') . "?order=$orderpackage->number_order" }}">
-                                Track
+                                Rastrear
                               </a>
                             </td>
                           @endif
@@ -157,15 +157,15 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <h1>My packages history</h1>
+              <h1>Historico de compra de pacotes</h1>
               <div class="card shadow my-3">
                 <div class="card-header bbcolorp">
                   <h3 class="card-title">@lang('package.info')</h3>
                 </div>
                 <div class="card-header py-3">
                   <!-- <button type="button" class="btn btn-info btn-sm rounded-pill" style="width: 80px;">CSV</button>
-                                                                                                                                                                                              <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
-                                                                                                                                                                                              <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
+                                                                                                                                                                                                        <button type="button" class="btn btn-success btn-sm rounded-pill" style="width: 80px;">Excel</button>
+                                                                                                                                                                                                        <button type="button" class="btn btn-danger btn-sm rounded-pill" style="width: 80px;">PDF</button> -->
                   <div class="card-tools">
                     <div class="input-group input-group-sm my-1" style="width: 250px;">
                       <input type="text" name="table_search" class="form-control float-right rounded-pill pl-3"
@@ -184,7 +184,8 @@
                       <tr>
                         {{-- <th>@lang('package.name')</th>
                         <th>Amount</th> --}}
-                        <th>Reference</th>
+                        <th>Id</th>
+                        <th>Referencia</th>
                         <th>@lang('package.package_price')</th>
                         {{-- <th>@lang('package.daily_return')</th>
                                             <th>@lang('package.yearly_return_coin')</th>
@@ -202,6 +203,7 @@
                         <tr>
                           {{-- <th>{{ $orderpackage->name_product }}</th>
                           <th>{{ $orderpackage->amount }}</th> --}}
+                          <td>{{ $orderpackage->id }}</td>
                           <td>{{ $orderpackage->reference }}</td>
                           <td> <span class="rounded-pill bg-success px-4 py-1">€
                               {{ number_format($orderpackage->price, 2, '.', '') }}</span>
@@ -218,8 +220,8 @@
                               <span class="rounded-pill bg-success px-4 py-1">@lang('package.paid')</span>
                             @elseif($orderpackage->payment_status == 2)
                               <span class="rounded-pill bg-warning px-4 py-1">@lang('package.cancelled')</button>
-                            @else
-                              <span class="rounded-pill bg-primary px-4 py-1">@lang('package.waiting')</span>
+                              @else
+                                <span class="rounded-pill bg-primary px-4 py-1">@lang('package.waiting')</span>
                             @endif
                           </td>
                           <td>

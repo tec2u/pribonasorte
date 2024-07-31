@@ -199,21 +199,21 @@
       <div class="fade">
         <div class="container-fluid">
           <div class="row justify-content-evenly" style="margin-bottom: 10px;">
-            <p class="new-title">Cart Shop</p>
+            <p class="new-title">Carrinho</p>
           </div>
           <div class="col-3">
             <a href="{{ route('packages.index_products') }}"><button class="btn btn-primary btn-lg"
-                style="width: 100%; font-size: 13px;" type="button">Back to products</button></a>
+                style="width: 100%; font-size: 13px;" type="button">Voltar aos produtos</button></a>
           </div>
           <div class="justify-content-evenly card-product-list" style="margin-bottom: 20px;">
             <div class="head-table-list">
               <table style="width: 100%;">
                 <thead>
                   <tr>
-                    <th style="color: #ffffff; font-size: 13px;">Product</th>
-                    <th style="color: #ffffff; font-size: 13px;">Price</th>
+                    <th style="color: #ffffff; font-size: 13px;">Produto</th>
+                    <th style="color: #ffffff; font-size: 13px;">Preço</th>
                     <th style="color: #ffffff; font-size: 13px;">VAT</th>
-                    <th style="color: #ffffff; font-size: 13px;">Quant</th>
+                    <th style="color: #ffffff; font-size: 13px;">Quantidade</th>
                     <th style="color: #ffffff; font-size: 13px;">Total</th>
                     <th style="color: #ffffff; font-size: 13px;"></th>
                     <th style="color: #ffffff; font-size: 13px;"></th>
@@ -266,7 +266,7 @@
                   <tbody>
                     <tr></tr>
                     <th style="border: 1px solid silver; padding: 10px;" width="100%">
-                      <p class="text-center mt-2">no items in cart!</p>
+                      <p class="text-center mt-2">Carrinho vazio!</p>
                     </th>
                     </tr>
                   </tbody>
@@ -314,9 +314,9 @@
                 <div class="modal-box" style="background-color: #f0f0f0;">
                   <div id="ppl-parcelshop-map"></div>
                   <h5 id="name_ppl_selected"
-                    style="display: none; background-color: #f0f0f0; font-size:2rem; color:green;">Selected
+                    style="display: none; background-color: #f0f0f0; font-size:2rem; color:green;">Selecionado
                   </h5>
-                  <button id="close-modal-button" class="btn btn-primary btn_address">Close Modal</button>
+                  <button id="close-modal-button" class="btn btn-primary btn_address">fechar</button>
                 </div>
 
 
@@ -350,19 +350,18 @@
                     <div class="card shadow p-md-8" id="formHome2"
                       style="width: 100%; padding:1rem;height: auto; display: flex; flex-wrap: wrap; display: none">
 
-                      <p class="card-title-new text-start">Address:</p>
+                      <p class="card-title-new text-start">Endereço:</p>
 
                       <div class="row-form endereco2">
 
                         <div class="col-sm-12">
                           <input style="width: 100%; height: 30px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                            placeholder="First name" type="text" name="first_name"
-                            class="form-control form-register">
+                            placeholder="Nome" type="text" name="first_name" class="form-control form-register">
                         </div>
 
                         <div class="col-sm-12">
                           <input style="width: 100%; height: 30px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                            class="form-control form-register" placeholder="Last name" type="text"
+                            class="form-control form-register" placeholder="Sobrenome" type="text"
                             name="last_name">
                         </div>
 
@@ -373,7 +372,7 @@
                             name="phone"> --}}
 
                           <input id="cell" onkeypress="allowNumeric(event)" type="cell"
-                            class="form-control form-register" placeholder="Cell" name="phone"
+                            class="form-control form-register" placeholder="Celular" name="phone"
                             value="{{ old('phone') }}" autocomplete="cell" tabindex="10">
                           <span for="cell" class="focus-input50"></span>
                           <input type="hidden" name="countryCodeCell" id="countryCodeCell" value="1">
@@ -381,28 +380,28 @@
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="City"
+                          <input class="form-input-finalize form-control form-register" placeholder="Cidade"
                             id="campo_cidade" type="text" name="city">
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="Address"
+                          <input class="form-input-finalize form-control form-register" placeholder="Endereço"
                             id="campo_endereco" type="text" name="address">
                         </div>
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="N° of residence"
+                          <input class="form-input-finalize form-control form-register" placeholder="N° da residencia"
                             type="number" name="number" id="n_residence">
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register cep" placeholder="ZIP code"
+                          <input class="form-input-finalize form-control form-register cep" placeholder="Cep"
                             aria-label="CEP" id="campo_cep" type="number" name="zip">
                         </div>
 
                         <div class="col-sm-12">
                           <select class="form-input-finalize form-control form-register" name="country"
                             id="selectCountry" onchange="atualizaPreco()">
-                            <option value="">Choose</option>
+                            <option value="">Escolher</option>
                             @foreach ($countryes as $item)
                               <option class="country-{{ $item->country_code }}" value="{{ $item->country }}">
                                 {{ $item->country }}
@@ -412,7 +411,7 @@
                         </div>
                         <div class="col-sm-12">
                           <a class="btn btn-primary btn-sm" id="calcularfrete2" onclick="atualizaPreco()">
-                            Confirm</a>
+                            Confirmar</a>
                         </div>
                         <span id="lognPrice" style="display: none"></span>
                       </div>
@@ -422,44 +421,44 @@
                     <div class="card shadow p-md-8" id="formHome1"
                       style="width: 100%; padding:1rem;height: auto; display: flex; flex-wrap: wrap;">
 
-                      <p class="card-title-new text-start">Your Address:</p>
+                      <p class="card-title-new text-start">Seu endereço:</p>
 
                       <div class="row-form endereco2">
 
                         <div class="col-sm-12">
                           <input style="width: 100%; height: 30px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                            placeholder="First name" type="text" readonly value="{{ $user->name }}"
+                            placeholder="Nome" type="text" readonly value="{{ $user->name }}"
                             class="form-control form-register">
                         </div>
 
                         <div class="col-sm-12">
                           <input style="width: 100%; height: 30px; border-radius: 5px; border: solid 1px #cdcdcd;"
-                            class="form-control form-register" placeholder="Last name" type="text"
+                            class="form-control form-register" placeholder="Sobrenome" type="text"
                             value="{{ $user->last_name }}" readonly>
                         </div>
 
                         <div class="col-sm-12">
                           <input id="cell" onkeypress="allowNumeric(event)" type="cell"
-                            class="form-control form-register" placeholder="Cell" value="{{ $user->cell }}"
+                            class="form-control form-register" placeholder="Celular" value="{{ $user->cell }}"
                             autocomplete="cell" tabindex="10" readonly>
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="City"
+                          <input class="form-input-finalize form-control form-register" placeholder="Cidade"
                             id="campo_cidade" type="text" value="{{ $user->city }}" readonly>
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="Address"
+                          <input class="form-input-finalize form-control form-register" placeholder="Endereço"
                             id="campo_endereco" type="text" value="{{ $user->address1 }}" readonly>
                         </div>
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register" placeholder="N° of residence"
+                          <input class="form-input-finalize form-control form-register" placeholder="N° da residencia"
                             type="number" id="n_residence" value="{{ $user->number_residence }}" readonly>
                         </div>
 
                         <div class="col-sm-12">
-                          <input class="form-input-finalize form-control form-register cep" placeholder="ZIP code"
+                          <input class="form-input-finalize form-control form-register cep" placeholder="Cep"
                             aria-label="CEP" id="campo_cep" type="number" value="{{ $user->postcode }}" readonly>
                         </div>
 
@@ -472,7 +471,7 @@
                         </div>
                         <div class="col-sm-12">
                           <a class="btn btn-primary btn-sm" href="{{ route('users.index') }}">
-                            Edit</a>
+                            Editar</a>
                         </div>
                       </div>
 
@@ -490,13 +489,13 @@
 
                     <div class="card shadow p-md-2" style="width: 100%; height: fit-content;">
 
-                      <p class="card-title-new text-start">Choose Shipping</p>
+                      <p class="card-title-new text-start">Escolher entrega</p>
                       {{-- <p class="text-start">€{{ $priceShippingHome }}</p> --}}
                       <div class="form-check" style="font-size: 1rem;">
                         <input class="form-check-input" type="radio" value="home1" name="method_shipping"
                           id="flexRadioDefault1" onclick="alterarValor('home')" required>
                         <label class="form-check-label" for="flexRadioDefault1">
-                          Deliver At Your Address
+                          Entregar em seu endereço
                         </label>
                       </div>
 
@@ -505,7 +504,7 @@
                         <input class="form-check-input" type="radio" value="pickup" name="method_shipping"
                           id="flexRadioDefault2" onclick="alterarValor('pickup')" required>
                         <label class="form-check-label" for="flexRadioDefault2">
-                          Pick Up <span id="logpickup" style="display: none"></span>
+                          Retirar <span id="logpickup" style="display: none"></span>
                         </label>
                       </div>
                       {{-- @endif --}}
@@ -514,12 +513,12 @@
                         <input class="form-check-input" type="radio" value="home2" name="method_shipping"
                           id="flexRadioDefault3" onclick="alterarValor('home2')" required>
                         <label class="form-check-label" for="flexRadioDefault3">
-                          Other address
+                          Outro endereço
                         </label>
                       </div>
                       <br>
                       <p id="address1" style="display: none; margin-top: 20px;">
-                        Address Shipping:
+                        Endereço:
                         {{ Auth::user()->address1 }}
                       </p>
                       {{-- <p class="card-title-new text-start">Total: €<span id="value_order">{{ $new_sub_total }}</span>
@@ -527,7 +526,7 @@
                       <table style="margin-top: 10px;">
                         <thead>
                           <tr>
-                            <th style="border: 1px solid silver; padding: 10px;" width="75%">My E-Wallet Balance</th>
+                            <th style="border: 1px solid silver; padding: 10px;" width="75%"> @lang('home.available_comission')</th>
                             <th style="border: 1px solid silver; padding: 10px;" width="25%">
                               €{{ number_format($availableComission, 2, ',', '.') }}</th>
                           </tr>
@@ -558,7 +557,7 @@
                             </th>
                           </tr>
                           <tr>
-                            <th style="border: 1px solid silver; padding: 10px;" width="75%">Shipping</th>
+                            <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
                             <th style="border: 1px solid silver; padding: 10px;" width="25%">€<span
                                 id="shipping_table">{{ number_format($priceShippingHome, 2, '.', ',') }}</span>
                             </th>
@@ -584,28 +583,24 @@
 
 
 
-                      <p>Pay with:</p>
+                      <p>Pagar com:</p>
                       <select name="methodPayment" id="selectMethod" onchange="changeMetodo(event)"
                         style="font-size: 1rem"
                         class="form-control form-control-lg @error('payment') is-invalid @enderror" required>
-                        <option value="">Choose a method</option>
+                        <option value="">Escolher metodo</option>
                         {{-- @if (isset($userCorporate) && $userCorporate)
                           <option value="admin">Pay</option>
                         @else --}}
                         @foreach ($metodos as $item)
                           <option value="{{ $item->id }}">
-                            @if ($item->id == 'BANK_SK_OTHER')
-                              Bank Wire
-                            @else
-                              {{ $item->name }}
-                            @endif
+                            {{ $item->name }}
                           </option>
                         @endforeach
                         <option value="BTC">BTC</option>
                         <option value="ETH">ETH</option>
 
                         {{-- @if ($availableComission > 0) --}}
-                        <option style="display: none" value="comission" id="paycomission">E-wallet</option>
+                        <option style="display: none" value="comission" id="paycomission">Comissão</option>
                         {{-- @endif --}}
                         {{-- <option value="USDT">Buy Now (USDT ERC20) </option> --}}
                         {{-- @endif --}}
@@ -622,15 +617,16 @@
                       <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-                          I Agree with
+                          Eu concordo com os
                           <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
-                            Terms and Agreement</a>
+                            termos</a>
                         </label>
 
                       </div>
                       {{-- @if ($qv >= 100) --}}
-                      </br>Click here to place a smartship from this order. Smartship is a convenient, automatic monthly
-                      shipment of your favorite Lifeprosper Products.</br>
+                      </br>Clique aqui para fazer um smartship deste pedido. O Smartship é um envio mensal conveniente e
+                      automático
+                      dos seus produtos favoritos.</br>
 
                       {{-- @if (isset($userCorporate) && $userCorporate)
                         <button @if (isset($btnSmart) && $btnSmart == 'smart') disabled @endif class="btn btn-primary btn-lg"
@@ -641,13 +637,12 @@
                           id="button-buy-smartshipping" disabled>Place Smartshipping (card only)</button>
                       @else --}}
                       <button @if (!isset($btnSmart) && $btnSmart != 'smart') disabled @endif class="btn btn-primary btn-sm"
-                        style="margin-top: 10px; display: none;" id="button-buy-smartshipping">Place Smartshipping
-                        (card only)</button>
+                        style="margin-top: 10px; display: none;" id="button-buy-smartshipping">Fazer Smartshipping
+                        (Somente cartão)</button>
 
                       {{--  @endif --}}
                       <button @if (isset($btnSmart) && $btnSmart == 'smart') disabled @endif class="btn btn-primary btn-lg"
-                        style="display: none;" id="button-buy">Buy as Regular
-                        Order</button>
+                        style="display: none;" id="button-buy">Fazer pedido normal</button>
                       {{-- @endif --}}
 
                     </div>
@@ -662,12 +657,12 @@
           <div class="row">
             <div class="col-4">
               <a href="{{ route('packages.index_products') }}"><button class="btn btn-primary btn-lg"
-                  style="width: 100%; font-size: 13px;" type="button">Keep shopping</button></a>
+                  style="width: 100%; font-size: 13px;" type="button">Continuar comprando</button></a>
             </div>
             @if ($count_itens > 0)
               <div class="col-4">
                 <a href="{{ route('packages.clear_cart_buy') }}"><button class="btn btn-primary btn-lg"
-                    style="width: 100%; font-size: 13px;" type="button">Clear cart</button></a>
+                    style="width: 100%; font-size: 13px;" type="button">Limpar carrinho</button></a>
               </div>
             @endif
           </div>

@@ -1948,37 +1948,8 @@ class ProductAdminController extends Controller
 
     public function metodosHabilitadosComgate($metodo)
     {
-        $client = new \GuzzleHttp\Client();
 
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
-
-        $metodos = json_decode($metodos)->methods;
-        foreach ($metodos as $mt) {
-            if ($metodo == $mt->id) {
-                return $mt->name;
-            }
-        }
-        return false;
+        return [];
     }
 
     public function trazerPorcentProduto($id_p, $pais, $order)
@@ -2127,33 +2098,8 @@ class ProductAdminController extends Controller
 
     public function metodosComgate()
     {
-        $client = new \GuzzleHttp\Client();
 
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
-
-        $metodos = json_decode($metodos)->methods;
-
-        return $metodos;
+        return [];
     }
 
     public function sendPostBonificacao($number_order, $prod)

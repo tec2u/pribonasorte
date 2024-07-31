@@ -10,8 +10,10 @@ return [
     'acquisition_date' => 'Data de Aquisição',
     'previous' => 'Anterior',
     'search' => 'Buscar',
-
-    'total_commission' => 'Carteira Eletrônica (Total)',
+    'available' => 'Disponivel',
+    'not_available' => 'Não disponivel',
+    'last_month' => 'Ultimo mês',
+    'total_commission' => 'Comissões totais',
     'available_comission' => 'Carteira Eletrônica (Disponível)',
     'downline_volume' => 'VOLUME DA LINHA DESCENDENTE',
     'indirect_distributors' => 'DISTRIBUIDORES INDIRETOS',
@@ -57,6 +59,24 @@ return [
     'paid' => 'Pago',
     'cancelled' => 'Cancelado',
     'waiting' => 'Aguardando',
+
+    'my_directs' => 'Meus diretos',
+    'directs' => 'Diretos',
+    'directs_with_qv' => 'Diretos com QV',
+
+    'my_orders_smartshipping' => 'Meus pedidos smartshipping',
+    'orders' => 'Pedidos',
+    'order' => 'Pedido',
+    'created' => 'Criado',
+    'next_payment' => 'Proximo pagamento',
+    'price' => 'Preço',
+    'qv' => 'QV',
+
+    'new_enrollments' => 'Novas matrículas',
+    'directs_qv' => 'Diretos QV',
+
+    'new_rank_advancement' => 'Novo avanço de classificação',
+    'ranking' => 'Classificação',
 
     'you_dont_have_any_packages_registered' => 'Você não tem nenhum pacote registrado!',
     'movement_in_the_last_30_days' => 'Movimentação nos últimos 30 dias',

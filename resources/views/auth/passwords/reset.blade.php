@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-  <video autoplay muted loop class="bg_video">
+  {{-- <video autoplay muted loop class="bg_video">
     <source src="/videos/fitnessAuraWay.mp4" type="video/mp4">
-  </video>
+  </video> --}}
+
+  <style>
+    body {
+      background-image: url(../img/fundo-newhome.jpg) !important;
+    }
+  </style>
+
+
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -22,8 +30,8 @@
 
           <div class="mb-3">
             <label for="email" class="form-label teste1234">Code</label>
-            <input id="email" type="text" class="form-control form-register"
-              name="code" value="" required autofocus>
+            <input id="email" type="text" class="form-control form-register" name="code" value="" required
+              autofocus>
             @error('email')
               <span class="invalid-feedback" role="alert">
                 <strong></strong>
@@ -51,8 +59,8 @@
             <span class="btn-show-password" style="height: 140%;">
               <i class="fa fa-eye"></i>
             </span>
-            <input id="password-confirm" type="password" class="form-control form-register" name="checkpass"
-              required autocomplete="new-password">
+            <input id="password-confirm" type="password" class="form-control form-register" name="checkpass" required
+              autocomplete="new-password">
           </div>
 
 
@@ -91,5 +99,3 @@
     })(jQuery);
   </script>
 @endsection
-
-

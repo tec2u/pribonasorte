@@ -899,33 +899,9 @@ class EcommController extends Controller
         $total_VAT = number_format($total_VAT, 2, ",", ".");
         $format_price = number_format($total_finish, 2, ",", ".");
 
-        $client = new \GuzzleHttp\Client();
-
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
+        $metodos = [];
         $todosFreteCasa = [];
         $todosFretePickup = [];
-
-        $metodos = json_decode($metodos)->methods;
 
         $allCountry = ShippingPrice::orderBy('country', 'ASC')->get();
         foreach ($allCountry as $value) {
@@ -1143,33 +1119,11 @@ class EcommController extends Controller
         $total_VAT = number_format($total_VAT, 2, ",", ".");
         $format_price = number_format($total_finish, 2, ",", ".");
 
-        $client = new \GuzzleHttp\Client();
+        $url = '';
 
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
+        $metodos = [];
         $todosFreteCasa = [];
         $todosFretePickup = [];
-
-        $metodos = json_decode($metodos)->methods;
 
         $allCountry = ShippingPrice::orderBy('country', 'ASC')->get();
         foreach ($allCountry as $value) {
@@ -1258,29 +1212,9 @@ class EcommController extends Controller
 
                 $client = new \GuzzleHttp\Client();
 
-                $url = 'https://payments.comgate.cz/v1.0/methods';
-                $data = [
-                    'merchant' => '475067',
-                    'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-                    "type" => "json",
-                    'lang' => 'en',
-                ];
+                $url = '';
 
-                $headers = [
-                    'Content-Type' => 'application/x-www-form-urlencoded',
-                    'Accept' => 'application/json'
-                ];
-
-                $response = $client->post($url, [
-                    'form_params' => $data,
-                    'headers' => $headers,
-
-                ]);
-
-                $statusCode = $response->getStatusCode();
-                $metodos = $response->getBody()->getContents();
-
-                $metodos = json_decode($metodos)->methods;
+                $metodos = [];
 
                 return view('ecomm.ecomm_panel', compact('invoiceFak', 'user', 'order', 'order_number', 'count_order', 'metodos'));
             }
@@ -1350,29 +1284,9 @@ class EcommController extends Controller
 
             $client = new \GuzzleHttp\Client();
 
-            $url = 'https://payments.comgate.cz/v1.0/methods';
-            $data = [
-                'merchant' => '475067',
-                'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-                "type" => "json",
-                'lang' => 'en',
-            ];
+            $url = '';
 
-            $headers = [
-                'Content-Type' => 'application/x-www-form-urlencoded',
-                'Accept' => 'application/json'
-            ];
-
-            $response = $client->post($url, [
-                'form_params' => $data,
-                'headers' => $headers,
-
-            ]);
-
-            $statusCode = $response->getStatusCode();
-            $metodos = $response->getBody()->getContents();
-
-            $metodos = json_decode($metodos)->methods;
+            $metodos = [];
             $invoiceFak = InvoicesFakturoid::where('number_order', $order_number)->first();
 
             return view('ecomm.ecomm_detal_orders_panel', compact('invoiceFak', 'user', 'order', 'count_order', 'order_number', 'metodos'));
@@ -1478,37 +1392,8 @@ class EcommController extends Controller
 
     public function metodosHabilitadosComgate($metodo)
     {
-        $client = new \GuzzleHttp\Client();
 
-        $url = 'https://payments.comgate.cz/v1.0/methods';
-        $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            "type" => "json",
-            'lang' => 'en',
-        ];
-
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
-        ];
-
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
-
-        ]);
-
-        $statusCode = $response->getStatusCode();
-        $metodos = $response->getBody()->getContents();
-
-        $metodos = json_decode($metodos)->methods;
-        foreach ($metodos as $mt) {
-            if ($metodo == $mt->id) {
-                return $mt->name;
-            }
-        }
-        return false;
+        return [];
     }
 
     public function getInvoiceInFakturoid($order)

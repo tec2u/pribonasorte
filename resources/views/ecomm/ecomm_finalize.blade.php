@@ -383,7 +383,7 @@
 
       <div class="raw">
         <div class="band-title">
-          <p class="title-ecomm">Finalize Order</p>
+          <p class="title-ecomm">Finalizar</p>
         </div>
       </div>
 
@@ -398,9 +398,10 @@
       <!-- Modal box -->
       <div class="modal-box" id="modal-box" style="background-color: #f0f0f0;">
         <div id="ppl-parcelshop-map"></div>
-        <h5 id="name_ppl_selected" style="display: none; background-color: #f0f0f0; font-size:2rem; color:green;">Selected
+        <h5 id="name_ppl_selected" style="display: none; background-color: #f0f0f0; font-size:2rem; color:green;">
+          Selecionar
         </h5>
-        <button id="close-modal-button" class="btn_address">Close Modal</button>
+        <button id="close-modal-button" class="btn_address">Fechar</button>
       </div>
 
 
@@ -426,10 +427,9 @@
               @if (!isset($user->address2) and empty($user->address2))
                 <div class="band-registration">
                   <p class="subtitle_form">
-                    Your package will be shipped to this address: <strong id="address_delivery">{{ $user->address }},
+                    Seu pedido será enviado para <strong id="address_delivery">{{ $user->address }},
                       {{ $user->neighborhood }} -
-                      {{ $user->number }} {{ $user->zip }}</strong></p>. If you want to change destination you can
-                  choose below
+                      {{ $user->number }} {{ $user->zip }}</strong></p>
 
                 </div>
               @endif
@@ -437,7 +437,7 @@
                 <p class="link-loginn">
                   <a href="{{ route('orders.settings.ecomm') }}" style="color: white" class="btn_address">
                     {{-- <button class="btn_address"> --}}
-                    Change delivery point
+                    Editar endereço
                     {{-- </button> --}}
                   </a>
                 </p>
@@ -447,12 +447,12 @@
             <div class="line_row">
               {{-- <center> --}}
               <ul class="line_bts_address">
-                <li><button id="another_address" onclick="alterarValor('home1')" class="btn_address">My Address</button>
+                <li><button id="another_address" onclick="alterarValor('home1')" class="btn_address">Meu endereço</button>
                 </li>
-                <li><button id="my_address" onclick="alterarValor('home2')" class="btn_address">Another Address</button>
+                <li><button id="my_address" onclick="alterarValor('home2')" class="btn_address">Outro endereço</button>
                 </li>
                 @if (isset($priceShippingPickup) && $priceShippingPickup > 0)
-                  <li onclick="alterarValor('pickup')"><button id="pickup" class="btn_address">Pickup</button></li>
+                  <li onclick="alterarValor('pickup')"><button id="pickup" class="btn_address">Retirar</button></li>
                 @endif
               </ul>
               {{-- </center> --}}
@@ -469,45 +469,43 @@
               {{-- <form action="{{ route('registered.address.secondary') }}" method="POST" id="form_new_address"> --}}
               @csrf
               <div class="small-form">
-                <input class="form-input-finalize" form="formCheckout" placeholder="first name" id=""
-                  type="text" name="first_name">
+                <input class="form-input-finalize" form="formCheckout" placeholder="Nome" id="" type="text"
+                  name="first_name">
               </div>
               <div class="small-form">
-                <input class="form-input-finalize" form="formCheckout" placeholder="last name" id=""
+                <input class="form-input-finalize" form="formCheckout" placeholder="Sobrenome" id=""
                   type="text" name="last_name">
               </div>
               <div class="row-form">
                 <div class="small-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="Phone +000 00000000" id="tel"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Celular" id="tel"
                     type="number" name="phone">
                 </div>
                 <div class="min-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="ZIP code" oninput="cepValidate()"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Cep" oninput="cepValidate()"
                     aria-label="CEP" id="campo_cep" type="number" name="zip">
                 </div>
                 <div class="lowm-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="Address" id="campo_endereco"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Endereço" id="campo_endereco"
                     type="text" name="address">
                 </div>
                 <div class="min-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="N° residence" type="number"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="N° da residencia" type="number"
                     name="number">
                 </div>
               </div>
 
-
-
               <div class="row-form">
                 <div class="small-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="Complement" type="text"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Complemento" type="text"
                     name="complement">
                 </div>
                 <div class="min-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="Area" id="campo_bairro"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Bairro" id="campo_bairro"
                     type="text" name="neighborhood">
                 </div>
                 <div class="small-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="City" id="campo_cidade"
+                  <input class="form-input-finalize" form="formCheckout" placeholder="Cidade" id="campo_cidade"
                     type="text" name="city">
                 </div>
                 {{-- <div class="mic-form">
@@ -528,46 +526,8 @@
 
             <div id="box_another_address">
               <center>
-                <p class="text_my_address">Your order will be sent to the address registered above!</p>
+                <p class="text_my_address">Seu pedido será enviado para o endereço registrado acima!</p>
               </center>
-            </div>
-          @else
-            <div class="line-title-registration registers">
-              <div class="band-registration">
-                <p class="subtitle_form">Registration</p>
-              </div>
-              <div class="band-registration">
-                <p class="link-login">I have an account</p>
-              </div>
-            </div>
-
-            <div class="line-title-registration enter" style="display: none;">
-              <div class="band-registration">
-                <p class="subtitle_form">Enter</p>
-              </div>
-              <div class="band-registration">
-              </div>
-            </div>
-
-            <div class="box-form-form">
-              <div class="box-form-log">
-                <form action="{{ route('log.user.ecomm') }}" method="POST" style="margin-bottom: 30px;">
-                  @csrf
-                  <input class="form-input-finalize" placeholder="E-mail" type="text" name="email" required>
-                  {{--  --}}
-                  <input class="form-input-finalize" placeholder="Senha" type="password" maxlength="16"
-                    name="password" required>
-                  {{--  --}}
-                  <button type="submit" class="button-log-form">Login</button>
-                </form>
-              </div>
-              <div class="box-form-log-info">
-                {{-- <center> --}}
-                <p class="title-block-log">Create an account</p>
-                <p>If you don't have an account yet, register now</p>
-                <button class="button-return-register link-register">New account</button>
-                {{-- </center> --}}
-              </div>
             </div>
           @endif
           <div class="box-register-form">
@@ -596,7 +556,7 @@
 
                 @if (!$allowedRegister)
                   <div class="alert alert-danger">
-                    Unfortunately, we do not ship to your country yet.
+                    Infelizmente, ainda não enviamos para seu país.
                   </div>
                 @endif
 
@@ -615,559 +575,14 @@
                   </div>
                 @endif
 
-                <div class="box-general-form">
-                  <div class="block-info-form">
-                    <div class="header-block-form">
-                      <p>Registration</p>
-                    </div>
-                    {{--  --}}
-                    <div class="box-form-imputs">
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Login email *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs required" type="email" name="email" required>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
 
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs required">Password *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs"type="password" maxlength="16" name="password" id="pass1"
-                            required>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
 
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs required">Confirm password *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" maxlength="16" name="checkpass" id="pass2" type="text"
-                            required>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs required">Phone *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input id="cell" onkeypress="allowNumeric(event)" type="cell"
-                            class="form-control form-register @error('cell') is-invalid @enderror" placeholder="Cell"
-                            name="phone" required autocomplete="cell" tabindex="10">
-                          <input type="hidden" name="countryCodeCell" id="countryCodeCell" value="1">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs required">Username *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="username" type="text" required>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Referral</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          @if (isset($userBack))
-                            <input class="new-inputs required" type="text" name="recommendation_user_id"
-                              value="{{ $userBack }}" style="background-color: #5918683a; font-weight: bold;"
-                              required>
-                          @else
-                            <input class="new-inputs required" type="text" name="recommendation_user_id" required>
-                          @endif
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {{--  --}}
-                  <div class="block-info-form" style="margin-top: 20px">
-                    <div class="header-block-form">
-                      <p>Billing Information</p>
-                    </div>
-                    {{--  --}}
-                    <div class="box-form-imputs">
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">First name *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="name" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Last name *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="last_name" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form" style="display: none;">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Birth *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Male/Famale *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <select class="new-inputs" name="sex" required>
-                            <option value="1">Male</option>
-                            <option value="2">Famale</option>
-                          </select>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Address *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs-address" name="address" type="text">
-                          <input class="new-inputs-number" placeholder="N°" name="number" type="number">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">City *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="city" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Postcode *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="zip" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">State *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <input class="new-inputs" name="state" type="text">
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                      {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">Country *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <select class="new-inputs" name="country" required>
-                            @foreach ($allCountry as $item)
-                              <option value="{{ $item->country }}">{{ $item->country }}</option>
-                            @endforeach
-                          </select>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
-                    </div>
-
-                    <div style="display: none; margin-top: 20px;" id="form_address_shipping">
-                      <div class="header-block-form">
-                        <p>Address shipping</p>
-                      </div>
-                      {{--  --}}
-                      <div class="box-form-imputs">
-                        {{-- LINE --}}
-                        <div class="line-info-form" style="display: none;">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">First name *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs" name="first_name" type="text">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form" style="display: none;">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">Last name *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs" name="last_name" type="text">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">Address *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs-address" name="address2" type="text">
-                            <input class="new-inputs-number" placeholder="N°" name="number2" type="number">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">City *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs" name="city2" type="text">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">Postcode *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs" name="zip2" type="text">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">State *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <input class="new-inputs" name="state2" type="text">
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                        {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">Country *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <select class="new-inputs" name="country2" required>
-                              @foreach ($allCountry as $item)
-                                <option value="{{ $item->country }}">{{ $item->country }}</option>
-                              @endforeach
-                            </select>
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
-                      <input class="form-check-input" type="checkbox" checked id="select_spipping"
-                        name="address_shipping">
-                      <label class="form-check-label" for="select_spipping" style="color: #212121; font-size: 15px;">
-                        this will be my delivery address
-                      </label>
-                    </div>
-
-                    <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                      <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-                        I Agree with
-                        <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
-                          Terms and Agreement</a>
-                      </label>
-                    </div>
-                  </div>
-                  {{--  --}}
-                  <div class="line-info-form" style="margin-top: 40px;">
-                    <div style="width: 70%; display: inline-block;">
-                      <div class="width: 100%; display: inline-block;">
-                        <div çlass="width: 100%; display: flex; justify-content:space-between">
-                          @if ($allowedRegister)
-                            <button type="submit" class="button-edit">Register Now</button>
-                          @endif
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {{-- out form --}}
-
-                <div style="display: none;">
-                  <div class="row-form">
-                    <div class="mid-form">
-                      <input class="form-input-finalize required" placeholder="Name" aria-label="Name"
-                        oninput="nomeValidate()" type="text" name="name" required>
-                    </div>
-                    <div class="mid-form">
-                      <input class="form-input-finalize required" placeholder="E-mail" aria-label="Sobrenome"
-                        oninput="sobrenomeValidate()" type="text" name="email" required>
-                    </div>
-                  </div>
-
-                  <div class="row-form">
-                    <div class="mid-form" style="width: 30%">
-                      <input class="form-input-finalize required" placeholder="Alter Password" type="password"
-                        maxlength="16" name="password" id="pass1" required>
-                    </div>
-                    <div class="mid-form" style="width: 30%">
-                      <input class="form-input-finalize required" type="password" maxlength="16"
-                        placeholder="Confirm your password" name="checkpass" id="pass2" required>
-                    </div>
-                    <div class="mid-form" style="width: 34%">
-                      <input class="form-input-finalize required" placeholder="Recommendation Username" type="text"
-                        name="recommendation_user_id" required>
-                    </div>
-                  </div>
-
-                  <div class="row-form" style="display: none;">
-                    <div class="mid-form">
-                      <input class="form-input-finalize required" placeholder="Alter Password" type="password"
-                        maxlength="16" name="password" id="pass1" required>
-                    </div>
-                    <div class="mid-form">
-                      <input class="form-input-finalize required" type="password" maxlength="16"
-                        placeholder="Confirm your password" name="checkpass" id="pass2" required>
-                    </div>
-                  </div>
-
-                  <div class="row-form">
-                    <div class="mid-form">
-                      <button type="button" id="btn-actv1" class="button-type-user">Physical Person</button>
-                    </div>
-                    <div class="mid-form">
-                      <button type="button" id="btn-actv2" class="button-type-user">Legal Person</button>
-                    </div>
-                  </div>
-
-                  <div class="row-form" style="display: none;" id="legal_person">
-                    <div class="mid-form">
-                      <input class="form-input-finalize" placeholder="Corporate Reason" type="text"
-                        name="corporate_reason">
-                    </div>
-                    <div class="mid-form">
-                      <input class="form-input-finalize" placeholder="Fantasy Name" type="text"
-                        name="fantasy_name">
-                    </div>
-                  </div>
-
-                  <div class="row-form">
-                    <div class="band-registration">
-
-                      <p class="subtitle_form">{{ $user->address }}, {{ $user->neighborhood }} - {{ $user->number }}
-                        <br />
-                        {{ $user->zip }}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="row-form">
-
-                    <div class="low-form" id="cpf_persona">
-                      <input class="form-input-finalize required" placeholder="identity card" id="cpf"
-                        type="text" name="identity_card">
-                    </div>
-
-                    <div class="low-form" style="display: none;" id="cnpj_legal">
-                      <input class="form-input-finalize" placeholder="Id corporate" id="cnpj" type="text"
-                        name="id_corporate">
-                    </div>
-
-                    {{-- <div class="low-form">
-                            <input class="form-input-finalize" placeholder="Birth" id="data" type="date"
-                            name="birth" required>
-                        </div> --}}
-                    <div class="low-form">
-                      <select class="form-input-finalize" name="sex" required>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row-form">
-                    <div class="small-form">
-                      <input class="form-input-finalize" placeholder="Phone" id="tel" type="text"
-                        name="phone" required>
-                    </div>
-                    <div class="min-form">
-                      <input class="form-input-finalize cep" placeholder="ZIP code" oninput="cepValidate()"
-                        aria-label="CEP" id="campo_cep" type="text" name="zip" required>
-                    </div>
-                    <div class="lowm-form">
-                      <input class="form-input-finalize" placeholder="Address" id="campo_endereco" type="text"
-                        name="address" required>
-                    </div>
-                    <div class="min-form">
-                      <input class="form-input-finalize" placeholder="N°" type="text" name="number" required>
-                    </div>
-                  </div>
-                  <div class="row-form">
-                    {{-- <div class="small-form">
-                            <input class="form-input-finalize" placeholder="Complement" type="text" name="complement">
-                        </div> --}}
-                    {{-- <div class="min-form">
-                            <input class="form-input-finalize" placeholder="Neighborhood" id="campo_bairro" type="text"
-                            name="neighborhood" required>
-                        </div> --}}
-                    <div class="small-form">
-                      <input class="form-input-finalize" placeholder="City" id="campo_cidade" type="text"
-                        name="city" required>
-                    </div>
-                    <div class="mic-form">
-                      <input class="form-input-finalize" placeholder="UF" id="campo_estado" type="text"
-                        name="state" required>
-                    </div>
-                    <div class="small-form">
-                      <select class="form-input-finalize" name=country required>
-                        @foreach ($allCountry as $item)
-                          <option value="{{ $item->country }}">{{ $item->country }}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
-                </div>
               @endif
               <!-- CONTINUE FORM -->
           </div>
 
           <div style="width: 100%; display: inline-block;">
-            <p class="subtitle_form" style="margin-top: 30px;">Payment methods</p>
+            <p class="subtitle_form" style="margin-top: 30px;">Metodos de pagamento</p>
             <div class="">
               {{-- <ul class="brands">
                 <li><img style="width: 50px;" src="/images/mastercard-logo.png"></li>
@@ -1189,16 +604,16 @@
               </ul>
 
               <a href="{{ route('ecomm') }}" style="float: right; color: white" class="btn_address">
-                Back to products
+                Voltar aos produtos
               </a>
             </div>
           </div>
         </div>
 
         <div class="box-resume">
-          <p class="subtitle_form" style="text-align: center">Your shoppings</p>
+          <p class="subtitle_form" style="text-align: center">Seu pedido</p>
           <div class="box-products">
-            <p class="name-product-cart">{{ $count_order }} products in the bag</p>
+            <p class="name-product-cart">{{ $count_order }} produtos</p>
 
             {{-- PRODUCTS --}}
             @if (isset($list_product) and !empty($list_product))
@@ -1229,7 +644,7 @@
 
             <div class="raw">
               <div class="camp-text-total">
-                <p class="text-total">Products:</p>
+                <p class="text-total">Produtos:</p>
               </div>
 
               <div class="camp-value-total">
@@ -1238,7 +653,7 @@
             </div>
             <div class="raw">
               <div class="camp-text-total">
-                <p class="text-total">Shipping:</p>
+                <p class="text-total">Entrega:</p>
               </div>
 
               <div class="camp-value-total">
@@ -1261,7 +676,7 @@
             </div>
             <div class="raw">
               <div class="camp-text-total">
-                <p class="text-total">Total Price:</p>
+                <p class="text-total">Preço total:</p>
               </div>
 
               <div class="camp-value-total">
@@ -1310,23 +725,19 @@
           <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-              I Agree with
+              Eu concordo com os
               <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
-                Terms and Agreement</a>
+                termos</a>
             </label>
           </div>
           {{-- @if (isset($user)) --}}
-          <span>Choose method</span>
+          <span>Escoher metodo</span>
           <select name="methodPayment" id="selectMethod" onchange="changeMetodo(event)" style="font-size: 1rem"
             class="form-control form-control-lg @error('payment') is-invalid @enderror">
-            <option value="">Choose a method</option>
+            <option value="">escolher</option>
             @foreach ($metodos as $item)
               <option value="{{ $item->id }}">
-                @if ($item->id == 'BANK_SK_OTHER')
-                  Bank Wire
-                @else
-                  {{ $item->name }}
-                @endif
+                {{ $item->name }}
               </option>
             @endforeach
             {{-- <option value="USDT">Buy Now (USDT ERC20) </option> --}}
@@ -1337,18 +748,17 @@
           @endif
           <br>
           <button class="btn-finalize-pay" onclick="submitMethod()" disabled style="opacity: .5"
-            id="bt_submit">Pay</button>
+            id="bt_submit">Pagar</button>
           <br>
-          <span>Pay with crypto</span>
+          <span>Pagar com cripto</span>
           <select name="payment" id="selectCrypto" style="font-size: 1rem"
             class="form-control form-control-lg @error('payment') is-invalid @enderror">
-            <option value=""> Choose a coin</option>
-            <option value="BTC">Buy Now (BTC) </option>
-            <option value="ETH">Buy Now (ETH) </option>
-            {{-- <option value="USDT">Buy Now (USDT ERC20) </option> --}}
+            <option value="">Escolher moeda</option>
+            <option value="BTC">comprar com (BTC) </option>
+            <option value="ETH">comprar com (ETH) </option>
           </select>
-          <button class="btn-finalize-pay" id="bt_submit_crypt" disabled onclick="submitCrypto()">Pay with
-            crypto</button>
+          <button class="btn-finalize-pay" id="bt_submit_crypt" disabled onclick="submitCrypto()">Pagar com
+            cripto</button>
           <!-- FINAL FORM -->
           {{-- @else
             <button class="btn-finalize-pay" style="opacity: .5" disabled>Please login</button>

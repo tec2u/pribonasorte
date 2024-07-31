@@ -104,18 +104,18 @@
                 <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                   <label class="form-check-label" for="flexCheckDefault" style="color: #212121;font-size:.8rem;">
-                    I Agree with
+                    Eu concordo com os
                     <a href="{{ route('general_terms_conditions') }}" style="color: #212121;">
-                      Terms and Agreement</a>
+                      termos</a>
                   </label>
                 </div>
 
                 <div id="btn-falso" style="opacity: .5">
 
 
-                  <a id="button-space-btc" class="btn btn-primary rounded-pill" disabled>Buy BTC</a>
-                  <a id="button-space-eth" class="btn btn-primary rounded-pill" disabled>Buy ETH</a>
-                  <a id="button-space-card" class="btn btn-primary rounded-pill" disabled>Buy Card</a>
+                  <a id="button-space-btc" class="btn btn-primary rounded-pill" disabled>Pagar com BTC</a>
+                  <a id="button-space-eth" class="btn btn-primary rounded-pill" disabled>Pagar com ETH</a>
+                  <a id="button-space-card" class="btn btn-primary rounded-pill" disabled>Pagar com Cartão</a>
 
                 </div>
 
@@ -124,15 +124,15 @@
 
                   <a id="button-space-btc"
                     href="{{ route('packages.buy_package', ['id' => $package->id, 'method' => 'BTC']) }}"
-                    class="btn btn-primary rounded-pill" disabled>Buy BTC</a>
+                    class="btn btn-primary rounded-pill" disabled>Pagar com BTC</a>
 
                   <a id="button-space-eth"
                     href="{{ route('packages.buy_package', ['id' => $package->id, 'method' => 'ETH']) }}"
-                    class="btn btn-primary rounded-pill" disabled>Buy ETH</a>
+                    class="btn btn-primary rounded-pill" disabled>Pagar com ETH</a>
 
                   <a id="button-space-card"
                     href="{{ route('packages.buy_package', ['id' => $package->id, 'method' => 'CARD_CZ_CSOB_2']) }}"
-                    class="btn btn-primary rounded-pill" disabled>Buy Card</a>
+                    class="btn btn-primary rounded-pill" disabled>Pagar com Cartão</a>
 
                 </div>
 

@@ -122,7 +122,7 @@
                           <th scope="col">@lang('network.coutry')</th>
                           <th scope="col">@lang('network.email')</th>
                           <th scope="col">Volume</th>
-                          <th scope="col">QV External</th>
+                          <th scope="col">QV Externo</th>
                           <th scope="col">@lang('network.level')</th>
                         </tr>
                       </thead>

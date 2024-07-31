@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <div class="row justify-content-evenly" style="margin-bottom: 30px;">
             <ul class="list-group list-group-horizontal" style="margin-left: 20px;">
-              <li class="list-group-item"><a href="{{ route('packages.index_products') }}">Products</a></li>
+              <li class="list-group-item"><a href="{{ route('packages.index_products') }}">Produtos</a></li>
               <li class="list-group-item fw-bold">{{ $product->name }}</li>
             </ul>
           </div>
@@ -56,7 +56,7 @@
                   </div>
                   <div class="row">
                     <button type="submit" class="btn btn-secondary btn-lg"
-                      style="width: 60%; margin-left: 10px; margin-top: 20px;">Add to Cart</button>
+                      style="width: 60%; margin-left: 10px; margin-top: 20px;">Adicionar ao carrinho</button>
                   </div>
                 </form>
               @endif

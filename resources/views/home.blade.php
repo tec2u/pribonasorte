@@ -688,11 +688,11 @@
 
     $active = $active[0]->{'total'};
 
-    if ($active >= 100) {
-        $active = 'Active';
-    } else {
-        $active = 'Inactive';
-    }
+    // if ($active >= 100) {
+    //     $active = 'Active';
+    // } else {
+    //     $active = 'Inactive';
+    // }
 
     $firstDayOfMonth = now()->firstOfMonth()->toDateString();
     $lastDayOfMonth = now()->lastOfMonth()->toDateString();
@@ -751,24 +751,24 @@
 
             {{-- @if (auth()->user()->isAllowed()) --}}
             <!-- <div class="col-12 col-sm-6 col-md-6">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="info-box mb-4 shadow elevation c1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <span class="info-box-icon">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="bi bi-people-fill"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="info-box mb-4 shadow elevation c1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <span class="info-box-icon">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <i class="bi bi-people-fill"></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </span>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="info-box-content">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="info-box-text">@lang('home.people_for_next_levels')</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="info-box-number">150</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="progress">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="progress-bar" style="width: 70%; background-color: #111111;"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="progress-description">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    70% @lang('home.people_next_levels_in') 200
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="info-box-content">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="info-box-text">@lang('home.people_for_next_levels')</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="info-box-number">150</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="progress">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div class="progress-bar" style="width: 70%; background-color: #111111;"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="progress-description">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          70% @lang('home.people_next_levels_in') 200
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div> -->
 
 
 
@@ -794,8 +794,8 @@
                   <span class="info-box-icon"><i class="bi bi-arrow-down-up"></i></span>
                   <div class="info-box-content" style="color: #000;">
                     <span class="info-box-text">
-                      {{--   @lang('home.total_commission') --}}
-                      Total Commissions
+                      @lang('home.total_commission')
+                      {{-- Total Commissions --}}
                     </span>
                     <span class="info-box-number">{{ number_format($totalComission, 2, ',', '.') }} €</span>
                   </div>
@@ -811,11 +811,12 @@
                   </span>
                   <div style="font-size: .8rem">
                     @if ($cardAvailable)
-                      <span class="info-box-number" style="color: green">Available - {{ $mesAnterior }}</span>
-                      <span class="info-box-number" style="color: red">Not Available - {{ $nomeMesAtual }}</span>
+                      <span class="info-box-number" style="color: green">@lang('home.available') - {{ $mesAnterior }}</span>
+                      <span class="info-box-number" style="color: red">@lang('home.not_available') - {{ $nomeMesAtual }}</span>
                     @else
-                      <span class="info-box-number" style="color: green">Available - {{ $mesAntesDoAnterior }}</span>
-                      <span class="info-box-number" style="color: red">Not Available - {{ $nomeMesAtual }},
+                      <span class="info-box-number" style="color: green">@lang('home.available') -
+                        {{ $mesAntesDoAnterior }}</span>
+                      <span class="info-box-number" style="color: red">@lang('home.not_available') - {{ $nomeMesAtual }},
                         {{ $mesAnterior }}</span>
                     @endif
                   </div>
@@ -880,7 +881,7 @@
               <div class="info-box mb-4 shadow c1 box-info">
                 <span class="info-box-icon"><i class="bi bi-star-fill"></i></span>
                 <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.downline_volume') (last month)</span>
+                  <span class="info-box-text">@lang('home.downline_volume') (@lang('home.last_month'))</span>
                   <span class="info-box-number">{{ number_format($totalVolumelast, 2, ',', '.') }} QV</span>
                 </div>
               </div>
@@ -890,7 +891,7 @@
               <div class="info-box mb-4 shadow c1 box-info">
                 <span class="info-box-icon"><i class="bi bi-star-fill"></i></span>
                 <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.personal_volume') (last month)</span>
+                  <span class="info-box-text">@lang('home.personal_volume') (@lang('home.last_month'))</span>
                   <span class="info-box-number">{{ number_format($personalVolumelast, 2, ',', '.') }} QV</span>
                 </div>
               </div>
@@ -918,7 +919,13 @@
                     class="bi bi-credit-card-2-back-fill"></i></span>
                 <div class="info-box-content" style="color: #000;">
                   <span class="info-box-text">@lang('home.your_status')</span>
-                  <span class="info-box-number">{{ $active }}</span>
+                  <span class="info-box-number">
+                    @if ($active >= 100)
+                      @lang('home.smartship_active')
+                    @else
+                      @lang('home.smartship_no_active')
+                    @endif
+                  </span>
                 </div>
               </div>
             </div>
@@ -1018,7 +1025,7 @@
                     alt="{{ $greatest_career_user->name }}">
                 </div>
                 <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-number">GREATEST CAREER ACHEIVED</span>
+                  <span class="info-box-number">@lang('home.greatest_career_acheived')</span>
                   @if (isset($greatest_career_user->name))
                     <span class="info-box-text">{{ $greatest_career_user->name }}</span>
                     @if ($greatest_career_user->created_at)
@@ -1040,7 +1047,7 @@
                     <img src="/images/Badges/{{ $career_user->id }}.png" alt="{{ $career_user->name }}">
                 </div>
                 <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-number">CAREER PERFORMANCE</span>
+                  <span class="info-box-number">@lang('home.career_performance')</span>
                   @if (isset($career_user->name))
                     <span class="info-box-text">{{ $career_user->name }}</span>
                     @if ($career_user->created_at)
@@ -1135,16 +1142,16 @@
 
           <div class="col-12">
             <div class="info-box shadow  d-flex column" style="flex-direction: column">
-              <h5 class="info-box-text col-12">My directs</h5>
+              <h5 class="info-box-text col-12">@lang('home.my_directs')</h5>
               <div class="info-box-content">
                 <div class="info-box" style="height: fit-content;">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Directs: {{ count($usersDirects) }}</th>
+                        <th scope="col">@lang('home.directs'): {{ count($usersDirects) }}</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
-                        <th scope="col">Directs with QV: {{ $quantQv }}</th>
+                        <th scope="col">@lang('home.directs_with_qv'): {{ $quantQv }}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1176,13 +1183,13 @@
 
           <div class="col-12">
             <div class="info-box shadow  d-flex column" style="flex-direction: column">
-              <h5 class="info-box-text col-12">My orders smartshipping</h5>
+              <h5 class="info-box-text col-12">@lang('home.my_orders_smartshipping')</h5>
               <div class="info-box-content">
                 <div class="info-box" style="height: fit-content;">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Orders: {{ count($pedidosSmart) }}</th>
+                        <th scope="col">@lang('home.orders'): {{ count($pedidosSmart) }}</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -1190,10 +1197,10 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Order</td>
-                        <td>Created</td>
-                        <td>Next payment</td>
-                        <td>Price</td>
+                        <td>@lang('home.order')</td>
+                        <td>@lang('home.created')</td>
+                        <td>@lang('home.next_payment')</td>
+                        <td>@lang('home.price')</td>
                         <td>QV</td>
                       </tr>
 
@@ -1215,16 +1222,16 @@
           </div>
           <div class="col-12">
             <div class="info-box shadow  d-flex column" style="flex-direction: column;height: 50vh;overflow-y: scroll">
-              <h5 class="info-box-text col-12">New enrollments</h5>
+              <h5 class="info-box-text col-12">@lang('home.new_enrollments')</h5>
               <div class="info-box-content">
                 <div class="info-box" style="height: max-content;overflow-y: scroll">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Directs</th>
+                        <th scope="col">@lang('home.directs')</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
-                        <th scope="col">Directs QV</th>
+                        <th scope="col">@lang('home.directs_qv')</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1249,16 +1256,16 @@
           </div>
           <div class="col-12">
             <div class="info-box shadow  d-flex column" style="flex-direction: column">
-              <h5 class="info-box-text col-12">New Rank Advancement</h5>
+              <h5 class="info-box-text col-12">@lang('home.new_rank_advancement')</h5>
               <div class="info-box-content">
                 <div class="info-box" style="height: fit-content;">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">@lang('home.name')</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
-                        <th scope="col">Ranking</th>
+                        <th scope="col">@lang('home.ranking')</th>
                       </tr>
                     </thead>
                     <tbody>

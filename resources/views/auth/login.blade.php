@@ -26,7 +26,7 @@
           <span class="login100-form-title p-b-48">
             <img class="imagetest" src="{{ asset('/img/logo-2-gradient.png') }}" alt="">
           </span>
-          <h4 class="title-login">{{ __('Login') }}</h4>
+          <h4 class="title-login">Entrar</h4>
           <div class="wrap-input100 validate-input">
 
             <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email"
@@ -45,7 +45,7 @@
             </span>
             <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password"
               required autocomplete="current-password">
-            <span class="focus-input100" data-placeholder="Password"></span>
+            <span class="focus-input100" data-placeholder="Senha"></span>
 
             @error('password')
               <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
 
 
 
-          <div class="contact100-form-checkbox">
+          {{-- <div class="contact100-form-checkbox">
             <div class="input100">
               <input class="form-check-input checkcheck" type="checkbox" name="remember" id="remember"
                 {{ old('remember') ? 'checked' : '' }}>
@@ -65,14 +65,14 @@
                 {{ __('Remember Me') }}
               </label>
             </div>
-          </div>
+          </div> --}}
 
           <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault" style="color: #fff;font-size:.8rem;">
-              I Agree with
+              Eu concordo com os
               <a href="{{ route('general_terms_conditions') }}" style="color: #fff;">
-                Terms and Agreement</a>
+                termos</a>
             </label>
           </div>
 
@@ -80,17 +80,17 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn "></div>
               <button type="submit" class="login100-form-btn btn btn-primary rounded-pill">
-                {{ __('Login') }}
+                Entrar
               </button>
             </div>
             <div class="text-center p-t-115 mt-40">
               <a class="txt2" href="{{ route('page.login.ecomm') }}">
-                Customer Login
+                Painel do cliente
               </a>
               <br>
               @if (Route::has('password.request'))
                 <a class="txt2" href="{{ route('password.request') }}">
-                  {{ __('Forgot Your Password?') }}
+                  Esqueceu a senha?
                 </a>
               @endif
 
@@ -98,11 +98,11 @@
           </div>
           <div class="text-center p-t-115">
             <span class="txt1">
-              Don’t have an account?
+              Não tem uma conta?
             </span>
 
             <a class="txt2" href="{{ route('register') }}">
-              Sign Up
+              Criar
             </a>
           </div>
         </form>

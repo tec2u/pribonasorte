@@ -379,7 +379,7 @@ class SmartshippingPaymentsRecurringController extends Controller
 
 
 
-        $url = 'https://payments.comgate.cz/v1.0/recurring';
+        $url = '';
         $data = [
             'merchant' => '475067',
             'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',

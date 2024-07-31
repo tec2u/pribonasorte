@@ -173,6 +173,10 @@
                     style="width: 18px;margin-right:10px" alt="...">@lang('header.english')</a>
               </li>
               <li>
+                <a class="dropdown-item" href="/setlocale/pt"><img src="../assetsWelcome/images/flagbr.png"
+                    style="width: 18px;margin-right:10px" alt="...">@lang('header.portuguese')</a>
+              </li>
+              {{-- <li>
                 <a class="dropdown-item" href="/setlocale/es"><img src="../assetsWelcome/images/flagspa.png"
                     style="width: 18px;margin-right:10px" alt="...">@lang('header.spanish')</a>
               </li>
@@ -187,7 +191,7 @@
               <li>
                 <a class="dropdown-item" href="/setlocale/sl"><img src="../assetsWelcome/images/flagsl.png"
                     style="width: 18px;margin-right:10px" alt="...">@lang('header.slovak')</a>
-              </li>
+              </li> --}}
               {{-- <li>
                 <a class="dropdown-item" href="/setlocale/fr"><img src="../assetsWelcome/images/flagfr.png"
                     style="width: 18px;margin-right:10px" alt="...">@lang('header.french')</a>
@@ -380,7 +384,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{ route('reports.smartshipping_report') }}">
             <i class="bi bi-bar-chart"></i>
-            <span>MY ACTIVE SMARTSHIP</span>
+            <span>@lang('header.mt_active_smartship') </span>
           </a>
         </li>
 
@@ -388,7 +392,7 @@
           <li class="nav-item">
             <a class="nav-link " href="{{ route('reports.newsmartshipping') }}">
               <i class="bi bi-bar-chart"></i>
-              <span>NEW SMARTSHIPPING</span>
+              <span>@lang('header.new_smartship')</span>
             </a>
           </li>
         @endif

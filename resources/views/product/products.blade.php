@@ -82,17 +82,17 @@
             <p class="title-product">@lang('package.products')</p>
             <p class="number-products">
               @php $prosucts_number = count($products); @endphp
-              {{ $prosucts_number }} Products
+              {{ $prosucts_number }} Produtos
             </p>
 
             @if (count($categorias) > 0)
               <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  Categories
+                  Categorias
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('packages.index_products') }}">All</a></li>
+                  <li><a class="dropdown-item" href="{{ route('packages.index_products') }}">Todos</a></li>
                   @foreach ($categorias as $cat)
                     <li><a class="dropdown-item"
                         href="{{ route('packages.index_categoria', $cat->id) }}">{{ $cat->nome }}</a></li>
@@ -137,10 +137,10 @@
                           <div style="height: 90px; overflow: hidden;">
                             {!! $product->description !!}
                           </div>
-                          <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">see more...</a>
+                          <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">Ver mais...</a>
                         </h6>
                       @else
-                        <h6 class="text-description">No description at the moment!</h6>
+                        <h6 class="text-description">Sem descrição!</h6>
                       @endif
                     </div>
 
@@ -150,7 +150,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                              <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                             </div>
@@ -158,8 +158,8 @@
                               ...
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                              <button type="button" class="btn btn-primary">Salvar</button>
                             </div>
                           </div>
                         </div>
@@ -171,8 +171,7 @@
                         <input name="quant_product" class="quant_cart" value="1" max="{{ $product->stock }}"
                           min="0" type="number">
                         <button type="submit" style="padding: 6px 1rem !important"
-                          class="btn btn-primary m-4 rounded-pill">Add to
-                          Cart</button>
+                          class="btn btn-primary m-4 rounded-pill">Adicionar ao carrinho</button>
                       </form>
 
 
@@ -209,18 +208,18 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addToCartModalLabel">Product Added to Cart</h5>
+          <h5 class="modal-title" id="addToCartModalLabel">Produto adicionado ao carrinho</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Do you want to go to cart or continue shopping?
+          Deseja ir ao carrinho ou continuar comprando?
         </div>
         <div class="modal-footer">
           {{-- <a href="{{ route('packages.index_products') }}" class="btn btn-secondary">Back to products</a> --}}
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue</button>
-          <a href="{{ route('packages.cart_buy') }}" class="btn btn-primary">Go to cart</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar</button>
+          <a href="{{ route('packages.cart_buy') }}" class="btn btn-primary">ir ao carrinho</a>
         </div>
       </div>
     </div>

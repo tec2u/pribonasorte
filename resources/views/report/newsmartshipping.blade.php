@@ -74,7 +74,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <h1>NEW SMARTSHIPPING</h1>
+              <h1>NOVO SMARTSHIPPING</h1>
               <div class="card shadow my-3">
 
                 {{-- @php
@@ -88,9 +88,9 @@
                       <tr>
                         <th></th>
                         <th><b>ID</b></th>
-                        <th><b>Product</b></th>
-                        <th><b>Price</b></th>
-                        <th><b>Amount</b></th>
+                        <th><b>Produto</b></th>
+                        <th><b>Preço</b></th>
+                        <th><b>Quantidade</b></th>
                         <th><b>VAT</b></th>
                         <th><b>Subtotal</b></th>
                         <th></th>
@@ -172,7 +172,7 @@
                         </th>
 
                         <th><a style="font-weight: bold; color: green;"
-                            href="{{ route('reports.smartshippingOrderDetail', ['id' => $product->id]) }}">Detail</button>
+                            href="{{ route('reports.smartshippingOrderDetail', ['id' => $product->id]) }}">Detalhe</button>
                         </th>
                         </tr>
                         @endforeach
@@ -180,18 +180,18 @@
                   </table>
 
                   <button
-                    style="padding: 0px 40px; background: green; color: #ffffff; height: 40px; margin: 10px 0px 10px 20px;">Add
-                    orders</button>
+                    style="padding: 0px 40px; background: green; color: #ffffff; height: 40px; margin: 10px 0px 10px 20px;">Adicionar
+                    pedido</button>
                   </form>
 
                   @if (!empty(session('new_order')) and isset($total))
                     <a href="{{ route('reports.smartshippingOrder') }}"><button
-                        style="padding: 0px 40px; background: orange; color: #ffffff; height: 40px; margin: 10px 0px 10px 20px;">Finish
-                        orders</button></a>
+                        style="padding: 0px 40px; background: orange; color: #ffffff; height: 40px; margin: 10px 0px 10px 20px;">Finalizar
+                        pedido</button></a>
 
                     <a href="{{ route('reports.newsmartshipping') }}"><button
-                        style="padding: 0px 40px; background: silver; color: #212121; height: 40px; margin: 10px 0px 10px 20px;">Clear
-                        orders</button></a>
+                        style="padding: 0px 40px; background: silver; color: #212121; height: 40px; margin: 10px 0px 10px 20px;">Limpar
+                        pedido</button></a>
                   @endif
 
                   @if (isset($total) and !empty($total))
@@ -225,7 +225,7 @@
         <div class="header_box">
           <div style="width: 100%; display: inline-block;">
             <div class="block1">
-              <p style="font-weight: bold; font-size: 20px;">Detail Product</p>
+              <p style="font-weight: bold; font-size: 20px;">Detalhe </p>
             </div>
             <div class="block1"><a href="javascript:history.back()">
                 <p style="float: right; font-size: 15px;">✕</p>
@@ -240,11 +240,11 @@
               <td style="width: 60%;">
                 <div class="row g-3 px-2">
                   <div class="col-md-12">
-                    <label for="inputname" class="form-label">Name</label>
+                    <label for="inputname" class="form-label">Nome</label>
                     <input type="text" class="form-control" disabled value="{{ $product_box->name }}">
                   </div>
                   <div class="col-md-12">
-                    <label for="inputname" class="form-label">Price</label>
+                    <label for="inputname" class="form-label">Preço</label>
                     <input type="text" class="form-control" disabled value="{{ $product_box->price }}">
                   </div>
                 </div>

@@ -48,10 +48,10 @@
                 }
               @endphp
 
-              <h1>Order {{ $orderDetails[0]->number_order }} - {{ $orderDetails[0]->payment }}</h1>
+              <h1>Pedido {{ $orderDetails[0]->number_order }} - {{ $orderDetails[0]->payment }}</h1>
               @if (isset($day))
                 <br>
-                <h6>Best day for payment: {{ $day }}</h6>
+                <h6>Melhor dia de pagamento: {{ $day }}</h6>
               @endif
 
               {{-- @if (strtolower($orderDetails[0]->payment) === 'expired' || strtolower($orderDetails[0]->payment) === 'cancelled')
@@ -86,23 +86,23 @@
               @if (strtolower($orderDetails[0]->payment) === 'paid')
                 <div style="display: flex;gap:2rem;justify-content:space-between">
                   <a href="{{ route('invoicePDF', $orderDetails[0]->number_order) }}" target="_blank">
-                    <button type="button" class="btn btn-primary">Invoice</button>
+                    <button type="button" class="btn btn-primary">Recibo</button>
                   </a>
 
                   <div style="display: flex;gap:2rem;">
                     @if (strtolower($orderDetails[0]->smartshipping) == 1)
                       <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalaaaa">Cancel smartshipping</button>
+                        data-bs-target="#exampleModalaaaa">Cancelar smartshipping</button>
 
                       <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalaChoose">Choose day payment</button>
+                        data-bs-target="#exampleModalaChoose">Escolher dia de pagamento</button>
                     @endif
                   </div>
 
                   @if (strtolower($orderDetails[0]->smartshipping) == 1 && strtolower($orderDetails[0]->payment) === 'paid')
                     <div style="display: flex;gap:2rem;">
                       <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalaaaaedit">Edit smartshipping</button>
+                        data-bs-target="#exampleModalaaaaedit">Editar smartshipping</button>
                     </div>
                   @endif
 
@@ -115,7 +115,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">cancel Smartshipping -
+                      <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">cancelar Smartshipping -
                         {{ $orderDetails[0]->number_order }}</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -123,21 +123,21 @@
                       <form action="{{ route('cancel.smartshipping') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon1">Order</span>
+                          <span class="input-group-text" id="basic-addon1">Pedido</span>
                           <input name="order" type="text" class="form-control"
                             placeholder=" {{ $orderDetails[0]->number_order }}" aria-label="Username"
                             aria-describedby="basic-addon1" value=" {{ $orderDetails[0]->number_order }}" readonly>
                         </div>
 
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon1">Reason</span>
+                          <span class="input-group-text" id="basic-addon1">Motivo</span>
                           <textarea name="motivo" id="" cols="60" rows="10" required style="padding:1rem"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                   </div>
                 </div>
@@ -148,18 +148,18 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalaaaaeditLabel">Edit Smartshipping -
+                      <h1 class="modal-title fs-5" id="exampleModalaaaaeditLabel">Editar Smartshipping -
                         {{ $orderDetails[0]->number_order }}</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       {{-- <a href="">Edit products</a> --}}
-                      <p style="font-size: 14px;">*The changes will take effect on the next billing</p>
+                      <p style="font-size: 14px;">*A mudança fará efeito na proxima cobrança</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                       <a href="{{ route('packages.ecommOrdersDetailEdit', $orderDetails[0]->number_order) }}">
-                        <button type="button" class="btn btn-primary">Go to edit</button>
+                        <button type="button" class="btn btn-primary">Editar</button>
                       </a>
                     </div>
                   </div>
@@ -172,7 +172,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalaChooseLabel">cancel Smartshipping -
+                      <h1 class="modal-title fs-5" id="exampleModalaChooseLabel">cancelar Smartshipping -
                         {{ $orderDetails[0]->number_order }}</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -180,22 +180,22 @@
                       <form action="{{ route('choose.day.smartshipping') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon1">Order</span>
+                          <span class="input-group-text" id="basic-addon1">Motivo</span>
                           <input name="order" type="text" class="form-control"
                             placeholder=" {{ $orderDetails[0]->number_order }}" aria-label="Username"
                             aria-describedby="basic-addon1" value=" {{ $orderDetails[0]->number_order }}" readonly>
                         </div>
 
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon1">Day</span>
+                          <span class="input-group-text" id="basic-addon1">Dia</span>
                           <input type="number" id="day" name="day" min="1" max="30"
                             placeholder="Day" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                   </div>
                 </div>
@@ -208,10 +208,10 @@
                     <thead>
                       <tr
                         style="display: flex; align-items: center; width: 100%;justify-content: space-around; text-align: center">
-                        <th>Image</th>
-                        <th>Product</th>
+                        <th>Imagem</th>
+                        <th>Produto</th>
                         <th>QV</th>
-                        <th>Amount</th>
+                        <th>Quantidade</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -228,7 +228,7 @@
                           <th>{{ $item->amount }}</th>
                           <th>
                             <a href="{{ route('packages.detail_products', $item->id_product) }}">
-                              <button type="button" class="btn btn-primary">Product</button>
+                              <button type="button" class="btn btn-primary">Produto</button>
                             </a>
                           </th>
                         </tr>
@@ -237,7 +237,7 @@
                   </table>
                 </div>
               @else
-                <p>no orders found</p>
+                <p>Não encontrado</p>
               @endif
             </div>
           </div>

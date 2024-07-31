@@ -70,9 +70,9 @@
             <img class="imagetest2" src="{{ asset('/img/logo-2-gradient.png') }}" alt="">
           </span>
           @if (isset($id))
-            <h4 class="title-login mb-5">{{ __('Register with ') . $user->login }}</h4>
+            <h4 class="title-login mb-5">{{ __('Registrar com ') . $user->login }}</h4>
           @else
-            <h4 class="title-login mb-5">{{ __('Register') }}</h4>
+            <h4 class="title-login mb-5">{{ __('Registrar') }}</h4>
           @endif
 
           @if ($errors->has('error'))
@@ -81,7 +81,7 @@
             </div>
           @endif
 
-          <div class="row g-3 px-2" style="display: ;">
+          <div class="row g-3 px-2" style="display: none;">
             <div class="col-lg-6">
               <input id="individual" type="radio" checked value="1" name="type_account">
               <p> Personal Registration</p>
@@ -155,9 +155,9 @@
           <div class="row g-3 px-2">
 
             <div class="col-lg-6">
-              <label for="name" class="form-label teste1234">First Name<span style="color: brown">*</span></label>
+              <label for="name" class="form-label teste1234">Nome<span style="color: brown">*</span></label>
               <input id="name" type="text"
-                class="form-control form-register @error('name') is-invalid @enderror" placeholder="First Name"
+                class="form-control form-register @error('name') is-invalid @enderror" placeholder="Nome"
                 name="name" value="{{ old('name') }}" required autocomplete="name" autofocus tabindex="1">
               <span for="name" class="focus-input100"></span>
               @error('name')
@@ -168,9 +168,9 @@
             </div>
 
             <div class="col-lg-6">
-              <label for="last_name" class="form-label teste1234">Last Name<span style="color: brown">*</span></label>
+              <label for="last_name" class="form-label teste1234">Sobrenome<span style="color: brown">*</span></label>
               <input id="last_name" type="text"
-                class="form-control form-register @error('last_name') is-invalid @enderror" placeholder="Last Name"
+                class="form-control form-register @error('last_name') is-invalid @enderror" placeholder="Sobrenome"
                 name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus
                 tabindex="2">
               <span for="last_name" class="focus-input100"></span>
@@ -209,21 +209,22 @@ autocomplete="postcode" tabindex="5">
 @enderror
 </div> --}}
             <div class="col-lg-6">
-              <label class="form-label teste1234">Country <span style="color: brown">*</span></label>
+              <label class="form-label teste1234">País <span style="color: brown">*</span></label>
               <select class="teste1234 form-register form-control" required name="country" tabindex="7"
                 onchange="chooseCountryCellByCountryInput(event)">
                 @foreach ($allCountry as $item)
-                  <option class="country-{{ $item->country_code }}" value="{{ $item->country }}">{{ $item->country }}
+                  <option class="country-{{ $item->country_code }}" value="{{ $item->country }}">
+                    {{ $item->country }}
                   </option>
                 @endforeach
 
               </select>
             </div>
             <div class="col-lg-6">
-              <label for="city" class="form-label teste1234">City<span style="color: brown">*
+              <label for="city" class="form-label teste1234">Cidade<span style="color: brown">*
                 </span></label>
               <input id="city" type="text"
-                class="form-control form-register @error('city') is-invalid @enderror" placeholder="City"
+                class="form-control form-register @error('city') is-invalid @enderror" placeholder="Cidade"
                 name="city" value="{{ old('city') }}" required autocomplete="city" tabindex="8">
               <span for="city" class="focus-input100"></span>
               @error('city')
@@ -234,10 +235,10 @@ autocomplete="postcode" tabindex="5">
             </div>
 
             <div class="col-lg-6">
-              <label for="zip" class="form-label teste1234">zip<span style="color: brown">*
+              <label for="zip" class="form-label teste1234">Cep<span style="color: brown">*
                 </span></label>
               <input id="zip" type="number"
-                class="form-control form-register @error('zip') is-invalid @enderror" placeholder="zip" name="zip"
+                class="form-control form-register @error('zip') is-invalid @enderror" placeholder="Cep" name="zip"
                 value="{{ old('zip') }}" required autocomplete="zip" tabindex="8">
               <span for="zip" class="focus-input100"></span>
               @error('zip')
@@ -248,11 +249,11 @@ autocomplete="postcode" tabindex="5">
             </div>
 
             <div class="col-lg-6">
-              <label for="number_residence" class="form-label teste1234">Number residence<span style="color: brown">*
+              <label for="number_residence" class="form-label teste1234">N° da residencia<span style="color: brown">*
                 </span></label>
               <input id="number_residence" type="number"
                 class="form-control form-register @error('number_residence') is-invalid @enderror"
-                placeholder="number residence" name="number_residence" value="{{ old('number_residence') }}" required
+                placeholder="N° da residencia" name="number_residence" value="{{ old('number_residence') }}" required
                 autocomplete="Number residence" tabindex="8">
               <span for="number_residence" class="focus-input100"></span>
               @error('number_residence')
@@ -277,10 +278,10 @@ autocomplete="postcode" tabindex="5">
             </div> --}}
 
             <div class="col-lg-12">
-              <label for="address" class="form-label teste1234">address<span style="color: brown">*
+              <label for="address" class="form-label teste1234">Endereço<span style="color: brown">*
                 </span></label>
               <input id="address" type="text"
-                class="form-control form-register @error('address') is-invalid @enderror" placeholder="address"
+                class="form-control form-register @error('address') is-invalid @enderror" placeholder="Endereço"
                 name="address" value="{{ old('address') }}" required autocomplete="address" tabindex="8">
               <span for="address" class="focus-input100"></span>
               @error('address')
@@ -321,10 +322,10 @@ autocomplete="postcode" tabindex="5">
 
 
             <div class="col-lg-6">
-              <label for="login" class="form-label teste1234">Username<span style="color: brown">*
+              <label for="login" class="form-label teste1234">Apelido<span style="color: brown">*
                 </span></label>
               <input id="login" type="text"
-                class="form-control form-register login @error('login') is-invalid @enderror" placeholder="Username"
+                class="form-control form-register login @error('login') is-invalid @enderror" placeholder="Apelido"
                 name="login" value="{{ old('login') }}" required autocomplete="login" autofocus tabindex="13"
                 onkeypress="allowAlphaNumeric(event)">
               <span for="login" class="focus-input100"></span>
@@ -336,10 +337,10 @@ autocomplete="postcode" tabindex="5">
             </div>
 
             <div class="col-lg-6">
-              <label for="cell" class="form-label teste1234">Cell<span style="color: brown">* </span>
-                (Just Numbers)</label>
+              <label for="cell" class="form-label teste1234">Celular<span style="color: brown">* </span>
+                (Somente numeros)</label>
               <input id="cell" onkeypress="allowNumeric(event)" type="cell"
-                class="form-control form-register @error('cell') is-invalid @enderror" placeholder="Cell"
+                class="form-control form-register @error('cell') is-invalid @enderror" placeholder="Celular"
                 name="cell" value="{{ old('cell') }}" required autocomplete="cell" tabindex="10">
               <span for="cell" class="focus-input100"></span>
               @error('cell')
@@ -359,11 +360,10 @@ autocomplete="postcode" tabindex="5">
               </div>
             @else
               <div class="col-lg-6">
-                <label for="recommendation_user_id" class="form-label teste1234">Referral Username</label>
+                <label for="recommendation_user_id" class="form-label teste1234">Patrocinador</label>
                 <input id="recommendation_user_id" type="text" class="form-control form-register"
-                  name="recommendation_user_id" placeholder="Referral Username"
-                  value="{{ old('recommendation_user_id') }}" autofocus tabindex="18"
-                  onkeypress="allowAlphaNumeric(event)">
+                  name="recommendation_user_id" placeholder="Patrocinador" value="{{ old('recommendation_user_id') }}"
+                  autofocus tabindex="18" onkeypress="allowAlphaNumeric(event)">
                 <span for="recommendation_user_id" class="focus-input100"></span>
               </div>
             @endif
@@ -382,13 +382,13 @@ autocomplete="postcode" tabindex="5">
             </div>
 
             <div class="col-lg-6">
-              <label for="password" class="form-label teste1234">Password<span style="color: brown">*</span></label>
+              <label for="password" class="form-label teste1234">Senha<span style="color: brown">*</span></label>
               <span class="btn-show-pass d-inline-flex ps-2">
                 <i class="fa fa-eye" onclick="showPassrWord('password')"></i>
               </span>
               <input id="password" type="password"
-                class="form-control form-register @error('password') iconreg is-invalid  @enderror"
-                placeholder="Password" name="password" required autocomplete="new-password" tabindex="15">
+                class="form-control form-register @error('password') iconreg is-invalid  @enderror" placeholder="Senha"
+                name="password" required autocomplete="new-password" tabindex="15">
 
               <span for="password" class="focus-input100"></span>
               @error('password')
@@ -399,19 +399,19 @@ autocomplete="postcode" tabindex="5">
             </div>
 
             <div class="col-lg-6">
-              <label for=" password-confirm" class="form-label teste1234">Confirm Password<span
+              <label for=" password-confirm" class="form-label teste1234">Confirmar senha<span
                   style="color: brown">*</span></label>
               <span class="btn-show-pass d-inline-flex ps-2">
                 <i class="fa fa-eye" onclick="showPassrWord('password-confirm')"></i>
               </span>
               <input id="password-confirm" type="password" class="form-control form-register"
-                placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password"
+                placeholder="Confirmar senha" name="password_confirmation" required autocomplete="new-password"
                 tabindex="16">
               <span for="password-confirm" class="focus-input100"></span>
             </div>
 
             <div class="mb-3 mt-3">
-              <label for="birthday" class="form-label teste1234">Date of birth <span style="color: brown">
+              <label for="birthday" class="form-label teste1234">Data de nascimento <span style="color: brown">
                   *</span>:</label>
               <input id="birthday" type="text"
                 class="form-control form-register @error('birthday') is-invalid @enderror" name="birthday"
@@ -430,10 +430,10 @@ autocomplete="postcode" tabindex="5">
 
 
             <div id="address_billing" class="row g-3 px-2" style="display: none">
-              <h5 class="title-login mb-1">Address Billing</h5>
+              <h5 class="title-login mb-1">Endereço de faturamento</h5>
 
               <div class="col-lg-6">
-                <label class="form-label teste1234">Country <span style="color: brown">*</span></label>
+                <label class="form-label teste1234">País <span style="color: brown">*</span></label>
                 <select class="teste1234 form-register form-control" name="faturing_country" tabindex="7">
                   @foreach ($allCountry as $item)
                     <option value="{{ $item->country }}">{{ $item->country }}</option>
@@ -442,10 +442,10 @@ autocomplete="postcode" tabindex="5">
                 </select>
               </div>
               <div class="col-lg-6">
-                <label for="city" class="form-label teste1234">City<span style="color: brown">*
+                <label for="city" class="form-label teste1234">Cidade<span style="color: brown">*
                   </span></label>
                 <input id="faturing_city" type="text"
-                  class="form-control form-register @error('city') is-invalid @enderror" placeholder="City"
+                  class="form-control form-register @error('city') is-invalid @enderror" placeholder="Cidade"
                   name="faturing_city" value="{{ old('city') }}" autocomplete="city" tabindex="8">
                 <span for="city" class="focus-input100"></span>
                 @error('city')
@@ -456,10 +456,10 @@ autocomplete="postcode" tabindex="5">
               </div>
 
               <div class="col-lg-6">
-                <label for="zip" class="form-label teste1234">zip<span style="color: brown">*
+                <label for="zip" class="form-label teste1234">Cep<span style="color: brown">*
                   </span></label>
                 <input id="faturing_zip" type="number"
-                  class="form-control form-register @error('zip') is-invalid @enderror" placeholder="zip"
+                  class="form-control form-register @error('zip') is-invalid @enderror" placeholder="Cep"
                   name="faturing_zip" value="{{ old('zip') }}" autocomplete="zip" tabindex="8">
                 <span for="zip" class="focus-input100"></span>
                 @error('zip')
@@ -471,12 +471,12 @@ autocomplete="postcode" tabindex="5">
 
 
               <div class="col-lg-6">
-                <label for="faturing_number_residence" class="form-label teste1234">Number residence<span
+                <label for="faturing_number_residence" class="form-label teste1234">N° da residencia<span
                     style="color: brown">*
                   </span></label>
                 <input id="faturing_number_residence" type="number"
                   class="form-control form-register @error('faturing_number_residence') is-invalid @enderror"
-                  placeholder="number residence" name="faturing_number_residence"
+                  placeholder="N° da residencia" name="faturing_number_residence"
                   value="{{ old('faturing_number_residence') }}" autocomplete="Number residence" tabindex="8">
                 <span for="faturing_number_residence" class="focus-input100"></span>
                 @error('faturing_number_residence')
@@ -487,10 +487,10 @@ autocomplete="postcode" tabindex="5">
               </div>
 
               <div class="col-lg-12">
-                <label for="address" class="form-label teste1234">address<span style="color: brown">*
+                <label for="address" class="form-label teste1234">Endereço<span style="color: brown">*
                   </span></label>
                 <input id="faturing_address" type="text"
-                  class="form-control form-register @error('address') is-invalid @enderror" placeholder="address"
+                  class="form-control form-register @error('address') is-invalid @enderror" placeholder="Endereço"
                   name="faturing_address" value="{{ old('address') }}" autocomplete="address" tabindex="8">
                 <span for="address" class="focus-input100"></span>
                 @error('address')
@@ -508,16 +508,16 @@ autocomplete="postcode" tabindex="5">
             <input class="form-check-input" name="addressBillingSameDelivery" type="checkbox"
               id="flexCheckAddressBilling" checked>
             <label class="form-check-label" for="flexCheckDefault" style="color: #fff;font-size:.8rem;">
-              The billing address is the same as the delivery address.
+              O endereço de faturamento é o mesmo da entrega
             </label>
           </div>
 
           <div class="form-check" style="display:flex;justify-content:start; gap:.5rem; align-items:center">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault" style="color: #fff;font-size:.8rem;">
-              I Agree with
+              Eu concordo com os
               <a href="{{ route('general_terms_conditions') }}" style="color: #fff;">
-                Terms and Agreement</a>
+                termos</a>
             </label>
           </div>
 
@@ -525,7 +525,7 @@ autocomplete="postcode" tabindex="5">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
               <button type="submit" class="login100-form-btn btn btn-primary rounded-pill">
-                {{ __('Register') }}
+                Registrar
               </button>
             </div>
           </div>

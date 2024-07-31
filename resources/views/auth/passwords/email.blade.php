@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-  <video autoplay muted loop class="bg_video">
+  {{-- <video autoplay muted loop class="bg_video">
     <source src="/videos/fitnessAuraWay.mp4" type="video/mp4">
-  </video>
+  </video> --}}
+
+  <style>
+    body {
+      background-image: url(../img/fundo-newhome.jpg) !important;
+    }
+  </style>
 
   <div class="limiter">
     <div class="container-login100">
@@ -11,7 +17,7 @@
         <span class="login100-form-title p-b-48 mt-3">
           <img class="imagetest" src="{{ asset('images/nolimitslogo.png') }}" alt="">
         </span>
-        <h4 class="title-login">{{ __('Reset Password') }}</h4>
+        <h4 class="title-login" style="color: black">Resetar senha</h4>
         @if (session('status'))
           <div class="alert alert-success" role="alert">
             {{ session('status') }}
@@ -36,7 +42,7 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
               <button type="submit" class="login100-form-btn">
-                {{ __('Send Password Reset Link') }}
+                Resetar
               </button>
             </div>
           </div>

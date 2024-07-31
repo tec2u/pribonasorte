@@ -728,7 +728,7 @@ class EcommRegisterController extends Controller
 
             $paymentConfig = [
                 "api_url" => "https://crypto.binfinitybank.com/packages/wallets/notify",
-                "email" => 'lifeprosper@tec2u.com.br',
+                "email" => 'master@tec2u.com.br',
                 "password" => "password",
             ];
             $method = $request->payment;
@@ -865,7 +865,7 @@ class EcommRegisterController extends Controller
 
                 $paymentConfig = [
                     "api_url" => "https://crypto.binfinitybank.com/packages/wallets/notify",
-                    "email" => 'lifeprosper@tec2u.com.br',
+                    "email" => 'master@tec2u.com.br',
                     "password" => "password",
                 ];
 
@@ -999,7 +999,7 @@ class EcommRegisterController extends Controller
             $testComgate = 'false';
         }
 
-        $url = 'https://payments.comgate.cz/v1.0/create';
+        $url = '';
         $data = [
             'merchant' => '475067',
             'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
@@ -1119,7 +1119,7 @@ class EcommRegisterController extends Controller
             $testComgate = 'false';
         }
 
-        $url = 'https://payments.comgate.cz/v1.0/create';
+        $url = '';
         $data = [
             'merchant' => '475067',
             'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
@@ -2200,7 +2200,7 @@ class EcommRegisterController extends Controller
 
         $mt_pay = 'CARD_CZ_CSOB_2';
 
-        $url = 'https://payments.comgate.cz/v1.0/create';
+        $url = '';
         $data = [
             'merchant' => '475067',
             'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',

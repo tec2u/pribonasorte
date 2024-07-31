@@ -159,7 +159,7 @@
                     @enderror
                   </div>
                   <div class="col-md-6">
-                    <label for="inputname" class="form-label">number_residence<span
+                    <label for="inputname" class="form-label">@lang('network.number_resident')<span
                         style="color: brown">*</span></label>
                     <input type="text" class="form-control" id="number_residence" required name="number_residence"
                       value="@if (old('number_residence') !== null) {{ old('number_residence') }}@else{{ $user->number_residence }} @endif">
@@ -456,8 +456,8 @@
                       <div class="input-group-append" style="width: 900px">
                         <div class="btn-group me-2">
                           <button type="submit" class="btn btn-primary rounded-pill" name="btn_user"
-                            id="confirm_password" style="display: none"; onclick="setValueUpdate(this)">Update Personal
-                            Data</button>
+                            id="confirm_password" style="display: none";
+                            onclick="setValueUpdate(this)">@lang('network.update')</button>
                         </div>
 
                         {{-- <div class="btn-group me-2">
@@ -476,7 +476,7 @@
               </div>
               <div class="card shadow my-3">
                 <div class="card-header bbcolorp">
-                  <h3 class="card-title">2° address</h3>
+                  <h3 class="card-title">2° Endereço</h3>
                 </div>
 
                 <form class="row g-3 p-5" action="{{ route('users.update.address2', ['id' => $user->id]) }}"
@@ -487,12 +487,14 @@
                   <input type="hidden" value="{{ $address2->id ?? '' }}" name="id_address">
 
                   <div class="col-md-6">
-                    <label for="inputname" class="form-label">First Name<span style="color: brown">*</span></label>
+                    <label for="inputname" class="form-label">@lang('user.name')<span
+                        style="color: brown">*</span></label>
                     <input type="text" class="form-control" id="first_name" required name="first_name"
                       value="{{ $address2->first_name ?? '' }}">
                   </div>
                   <div class="col-md-6">
-                    <label for="inputname" class="form-label">Last Name<span style="color: brown">*</span></label>
+                    <label for="inputname" class="form-label">@lang('user.last_name') <span
+                        style="color: brown">*</span></label>
                     <input type="text" class="form-control" id="last_name" required name="last_name"
                       value="{{ $address2->last_name ?? '' }}">
                   </div>
@@ -566,7 +568,7 @@
 
                   <div class="btn-group mb-2" style="max-width: 250px">
                     <button type="submit" class="btn btn-primary rounded-pill"
-                      name="btn_user">@lang('netword.update')</button>
+                      name="btn_user">@lang('network.update')</button>
                   </div>
 
                 </form>
@@ -575,7 +577,7 @@
               @if (isset($user->corporate_nome) && isset($user->id_corporate))
                 <div class="card shadow my-3">
                   <div class="card-header bbcolorp">
-                    <h3 class="card-title">Billing address</h3>
+                    <h3 class="card-title">Endereço de faturamento</h3>
                   </div>
 
                   <form class="row g-3 p-5" action="{{ route('users.update.billing', ['id' => $user->id]) }}"
@@ -592,7 +594,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <label for="inputname" class="form-label">number_residence<span
+                      <label for="inputname" class="form-label">@lang('network.number_resident')<span
                           style="color: brown">*</span></label>
                       <input type="text" class="form-control" id="number_residence" required name="number"
                         value="{{ $billing->number_residence ?? '' }}">
