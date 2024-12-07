@@ -1,0 +1,101 @@
+<?xml version='1.0'>
+<element name="client_corporate" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation></documentation>
+</annotation>
+</element>
+<element name="client_name" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Vaclav Holub</documentation>
+</annotation>
+</element>
+<element name="client_id" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>116033</documentation>
+</annotation>
+</element>
+<element name="client_email" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>vajdaholub@seznam.cz</documentation>
+</annotation>
+</element>
+<element name="client_cell" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>420776896308</documentation>
+</annotation>
+</element>
+<element name="client_address" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Za Krejcárkem 1</documentation>
+</annotation>
+</element>
+<element name="client_postcode" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>10900 Praha 9</documentation>
+</annotation>
+</element>
+<element name="client_country" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Czech Republic</documentation>
+</annotation>
+</element>
+<element name="metodo_pay" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Credit Card</documentation>
+</annotation>
+</element>
+<element name="order" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>139</documentation>
+</annotation>
+</element>
+<element name="total_order" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>60.49</documentation>
+</annotation>
+</element>
+<element name="total_vat" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>0</documentation>
+</annotation>
+</element>
+<element name="total_shipping" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>0</documentation>
+</annotation>
+</element>
+<element name="address" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Za Krejcárkem 1</documentation>
+</annotation>
+</element>
+<element name="zip" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>10900</documentation>
+</annotation>
+</element>
+<element name="neighborhood" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation></documentation>
+</annotation>
+</element>
+<element name="number" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>1</documentation>
+</annotation>
+</element>
+<element name="complement" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation></documentation>
+</annotation>
+</element>
+<element name="country" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Czech Republic</documentation>
+</annotation>
+</element>
+<element name="product_name" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>Distributor Fee</documentation>
+</annotation>
+</element>
+<element name="product_amount" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>1</documentation>
+</annotation>
+</element>
+<element name="product_unit" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>49,99</documentation>
+</annotation>
+</element>
+<element name="product_total" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>60,49</documentation>
+</annotation>
+</element>
+<element name="product_porcentVat" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>21.00</documentation>
+</annotation>
+</element>
+<element name="product_vat" type="invoiceRetentionsType" minOccurs="0">
+<annotation><documentation>10,50</documentation>
+</annotation>
+</element>

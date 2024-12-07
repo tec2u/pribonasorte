@@ -631,13 +631,15 @@ Route::prefix('users')->middleware('auth')->name('users')->group(function () {
 });
 
 Route::prefix('payment')->middleware('auth')->name('payment')->group(function () {
-    Route::controller(PaymentController::class)->group(function () {
-        Route::post('/payment', 'indexPost')->name('.paymentPost');
-        Route::post('/payment/notity', 'notity')->name('.notity');
-        Route::get('/payment/{package}/{value}', 'index')->name('.payment');
-        Route::get('/paymentUSDTERC/{package}/{value}', 'indexUSDTERC')->name('.paymentUSDTERC');
-        Route::get('/paymentBTC/{package}/{value}', 'indexBTC')->name('.paymentBTC');
-        Route::get('/subscriptionClub/{package}', 'subscriptionClub')->name('.subscriptionClub');
+    Route::controller(ProductController::class)->group(function () {
+        // Route::post('/payment', 'indexPost')->name('.paymentPost');
+        Route::get('/payment-test', 'checkClientExistsAPI')->name('.payment_test');
+        Route::get('/payment-order-test', 'createNewPaymentOrderAPI')->name('.payment_order_test');
+        // Route::post('/payment/notity', 'notity')->name('.notity');
+        // Route::get('/payment/{package}/{value}', 'index')->name('.payment');
+        // Route::get('/paymentUSDTERC/{package}/{value}', 'indexUSDTERC')->name('.paymentUSDTERC');
+        // Route::get('/paymentBTC/{package}/{value}', 'indexBTC')->name('.paymentBTC');
+        // Route::get('/subscriptionClub/{package}', 'subscriptionClub')->name('.subscriptionClub');
     });
 });
 

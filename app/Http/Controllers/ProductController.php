@@ -26,6 +26,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Package;
+use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
@@ -47,7 +48,6 @@ class ProductController extends Controller
                         ->orWhere('availability', 'both');
                 })
                 ->get();
-
         } else {
             $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
                 ->where(function ($query) {
@@ -79,9 +79,7 @@ class ProductController extends Controller
                         $stock = 0;
                         break;
                     }
-
                 }
-
             } else {
 
                 $stock = DB::table('stock')
@@ -151,7 +149,6 @@ class ProductController extends Controller
                     break;
                 }
             }
-
         } else {
 
             $stock = DB::table('stock')
@@ -367,18 +364,13 @@ class ProductController extends Controller
     public function clearCartBuy($user_id = null)
     {
 
-        if (!isset($user_id)) {
-            $user_id = Auth::id();
-        }
-
-        $user = User::find($user_id)->id;
-        $user_cart = CartOrder::where('id_user', '=', $user)->get();
+        $user_cart = CartOrder::where('id_user', $user_id)->get();
 
         foreach ($user_cart as $product_item) {
             CartOrder::find($product_item->id)->delete();
         }
 
-        return redirect()->route('packages.cart_buy');
+        return true;
     }
 
 
@@ -488,7 +480,6 @@ class ProductController extends Controller
             } else {
                 $order->priceTax = 0;
             }
-
         }
 
         $paisesAceitos = ShippingPrice::all();
@@ -502,7 +493,6 @@ class ProductController extends Controller
                 if (isset($taxVv) && $taxVv->value > 0 && $user->pay_vat == 1) {
                     $tt += number_format(($taxVv->value / 100) * $order->price, 2, '.', '') * $order->amount;
                 }
-
             }
             $todosVats[$vat->country] = $tt;
         }
@@ -516,28 +506,24 @@ class ProductController extends Controller
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg2;
-
         } else if ($totalWeight > 2 && $totalWeight <= 5) {
             $priceShippingHome = $shippingHome->kg5;
             $typeWeight = 'kg5';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg5;
-
         } else if ($totalWeight > 5 && $totalWeight <= 10) {
             $priceShippingHome = $shippingHome->kg10;
             $typeWeight = 'kg10';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg10;
-
         } else if ($totalWeight > 10 && $totalWeight <= 20) {
             $priceShippingHome = $shippingHome->kg20;
             $typeWeight = 'kg20';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg20;
-
         } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
             $priceShippingHome = $shippingHome->kg31_5;
             $typeWeight = 'kg31_5';
@@ -566,7 +552,6 @@ class ProductController extends Controller
                 if ($taxValue > 0 && $user->pay_vat == 1) {
 
                     $total_tax_add += floatval($priceShippingHome) * floatval($taxValue);
-
                 }
             }
         }
@@ -590,7 +575,6 @@ class ProductController extends Controller
                     if ($valor > 0 && $user->pay_vat == 1) {
 
                         $n = $value->{"$typeWeight"} * $valor + $value->{"$typeWeight"};
-
                     } else {
                         $n = $value->{"$typeWeight"};
                     }
@@ -614,7 +598,6 @@ class ProductController extends Controller
                         if ($valor > 0 && $user->pay_vat == 1) {
 
                             $n = $value->{"$typeWeight"} * $valor + $value->{"$typeWeight"};
-
                         } else {
                             $n = $value->{"$typeWeight"};
                         }
@@ -664,373 +647,79 @@ class ProductController extends Controller
         $newChosenPickup->save();
 
         return $newChosenPickup;
-
     }
 
     public function cartFinalize(Request $request)
     {
-        // dd($request);
-
         $cart = CartOrder::where('id_user', User::find(Auth::id())->id)->get();
         if (count($cart) < 1) {
             return redirect()->route('packages.cart_buy');
         }
 
-        $userCorporate = User::where('id', User::find(Auth::id())->id)
-            ->whereNotNull('id_corporate')
-            ->whereNotNull('corporate_nome')
-            ->first();
-
-        $userCorporate = isset($userCorporate);
-
-        // dd($request);
-        // if ($userCorporate) {
-        //     $request_methodPayment = 'admin';
-        //     $request->methodPayment = 'admin';
-        // } else {
-        //     $request_methodPayment = null;
-
-        // }
-
         $n_order = $this->genNumberOrder();
 
-        try {
-            $total_shipping = number_format($request->total_shipping, 2, ",", ".");
-        } catch (\Throwable $th) {
-            if (strlen($request->total_vat) < 7) {
-                $total_shipping = floatval(str_replace(',', '.', $request->total_shipping));
-            } else {
-                $valorSemSeparadorMilhar_total_shipping = str_replace('.', '', $request->total_shipping);
-                $total_shipping = str_replace(',', '.', $valorSemSeparadorMilhar_total_shipping);
-            }
-        }
-        $total_shipping = str_replace(',', '.', $total_shipping);
-
-
-        if (strlen($request->price) < 7) {
-            $price = floatval(str_replace(',', '.', $request->price));
-        } else {
-            $valorSemSeparadorMilhar = str_replace('.', '', $request->price);
-            $price = str_replace(',', '.', $valorSemSeparadorMilhar);
-        }
-
-        if (strlen($request->total_vat) < 7) {
-            $total_vat = floatval(str_replace(',', '.', $request->total_vat));
-        } else {
-            $valorSemSeparadorMilhar = str_replace('.', '', $request->total_vat);
-            $total_vat = str_replace(',', '.', $valorSemSeparadorMilhar);
-        }
-
-        $numeroString = strval($price);
-        $posicaoPonto = strpos($numeroString, '.');
-
-        $newPrice = $price;
-
-        if ($posicaoPonto) {
-            $quant = strlen($numeroString) - $posicaoPonto - 1;
-            if ($quant === 1) {
-                $newPrice = $newPrice . '0';
-            }
-        } else {
-            $newPrice = $newPrice . '00';
-        }
-
-        if ($request->method_shipping == 'home2') {
-            if (
-                empty($request->phone) ||
-                empty($request->zip) ||
-                empty($request->address) ||
-                empty($request->number) ||
-                // empty($request->state) ||
-                empty($request->city) ||
-                empty($request->country)
-            ) {
-                return redirect()->back()->with('error', 'Fill in all fields');
-            }
-
-            $nAdress = $this->RegisteredAddressSecondary($request);
-        } else if ($request->method_shipping == 'pickup') {
-
-            if (
-                empty($request->id_ppl) ||
-                empty($request->accessPointType) ||
-                empty($total_shipping) ||
-                empty($request->dhlPsId)
-            ) {
-                return redirect()->back()->with('error', 'Select pickup address');
-            }
-            $nPickup = $this->registerChosenPickup($request, $n_order);
-            $paisNome = ShippingPrice::where('country_code', $request->country_ppl)->first()->country;
-        }
-
-        if ($request->methodPayment == 'BTC' || $request->methodPayment == 'ETH') {
-
-
-            $responseData = $this->payCrypto($request, $price, $request->methodPayment);
-
-            if (!isset($responseData->invoice_id)) {
-                return redirect()->back();
-            }
-
-            $data = [
-                "country" => $request->country ?? $paisNome ?? null,
-                "smartshipping" => 0,
-                "total_vat" => $total_vat,
-                "id_invoice_trans" => $responseData->invoice_id,
-                "url" => $responseData->url,
-                "id_payment" => $responseData->id,
-                "status" => 'Pending',
-                "total_price" => $price,
-                'method_shipping' => $request->method_shipping,
-                'total_shipping' => $total_shipping,
-                "method" => $request->methodPayment,
-                'order' => $n_order
-            ];
-
-        } else if ($request->methodPayment == 'admin' || isset($request_methodPayment) && $request_methodPayment == 'admin') {
-            $responseData = [
-                "url" => route('packages.packagelog'),
-            ];
-
-            $data = [
-                "country" => $request->country ?? $paisNome ?? null,
-                "smartshipping" => 0,
-                "total_vat" => $total_vat,
-                "id_invoice_trans" => 'admin',
-                "url" => $responseData['url'],
-                "id_payment" => $n_order,
-                "status" => 'pending',
-                "total_price" => $price,
-                'method_shipping' => $request->method_shipping,
-                'total_shipping' => $total_shipping,
-                "method" => 'admin',
-                'order' => $n_order
-            ];
-
-
-
-        } else if ($request->methodPayment == 'comission') {
-            $responseData = $this->payComission($request, $price, $n_order);
-
-            if ($responseData == false) {
-                return redirect()->back()->with('error', 'insufficient comission ');
-            }
-            $data = [
-                "country" => $request->country ?? $paisNome ?? null,
-                "smartshipping" => 0,
-                "total_vat" => $total_vat,
-                "id_invoice_trans" => 'Comission',
-                "url" => $responseData['url'],
-                "id_payment" => $n_order,
-                "status" => $responseData['status'],
-                "total_price" => $price,
-                'method_shipping' => $request->method_shipping,
-                'total_shipping' => $total_shipping,
-                "method" => $request->methodPayment,
-                'order' => $n_order
-            ];
-
-        } else {
-            $responseData = $this->payComgate($request, $newPrice, $n_order, $request->methodPayment, Auth::id());
-
-            $jsonResponse = [
-                'code' => $responseData['code'],
-                'message' => $responseData['message'],
-                'transId' => $responseData['transId'],
-                'redirect' => urldecode($responseData['redirect']),
-            ];
-
-            $data = [
-                "country" => $request->country ?? $paisNome ?? null,
-                "smartshipping" => 0,
-                "total_vat" => $total_vat,
-                "id_invoice_trans" => $jsonResponse['transId'],
-                "url" => $jsonResponse['redirect'],
-                "id_payment" => $n_order,
-                'total_shipping' => $total_shipping,
-                "status" => 'Pending',
-                "total_price" => $price,
-                'method_shipping' => $request->method_shipping,
-                "method" => $request->methodPayment,
-                'order' => $n_order
-            ];
-        }
-
-        // dd($data);
+        $responseData = $this->payment($request, 0, $n_order, $request->methodPayment);
 
         if (isset($responseData)) {
-            $payment = $this->createRegisterPayment($data);
-            $data['newPayment'] = $payment->id;
-            $this->createRegisterEcommOrder($data);
+            $payment = $this->createRegisterPayment($responseData, $n_order);
 
-            session()->put('redirect_buy', 'admin');
+            $this->createRegisterEcommOrder($responseData, $n_order, $payment);
 
-            if ($request->methodPayment == 'comission') {
-                $this->sendPostBonificacao($data["order"], 1);
-            }
-
-            return redirect()->away($data['url']);
-
+            return redirect()->away($responseData['url']);
         } else {
             return redirect()->back();
         }
     }
 
-    public function createRegisterEcommOrder($data, $user_id = null)
+    public function createRegisterEcommOrder($data, $n_order = null, $payment)
     {
-        // dd($data);
-        if (!isset($user_id)) {
-            $user_id = Auth::id();
-            $userApp = 0;
-        } else {
-            $userApp = 1;
-        }
 
-        $user = User::find($user_id)->id;
-        $user_country = User::find($user_id)->country;
-        $order_cart = CartOrder::where('id_user', '=', $user)->get();
-        $usuario = User::find($user_id);
+        $user_id = Auth::id();
+        $order_cart = CartOrder::where('id_user', $user_id)->get();
 
-        $maiorVat = 0;
-
-        if (count($order_cart) < 1 && $userApp == 0) {
+        if (count($order_cart) < 1) {
             return redirect()->route('packages.packagelog');
         }
 
         foreach ($order_cart as $order) {
-            $countryOrder = $data["country"] ?? $user_country;
-            $taxValue = Tax::where('product_id', $order->id_product)->where('country', $countryOrder)->first();
-
-            if (isset($taxValue)) {
-                $tax = $taxValue->value;
-                if ($tax > $maiorVat) {
-                    $maiorVat = $tax;
-                }
-            }
-        }
-
-        foreach ($order_cart as $order) {
-            $countryOrder = $data["country"] ?? $user_country;
-            $taxValue = Tax::where('product_id', $order->id_product)->where('country', $countryOrder)->first();
-            $price_product = Product::where('id', $order->id_product)->first();
-
-            $total_VAT = 0;
-
-            if (isset($taxValue)) {
-                $tax = $taxValue->value;
-                if ($tax > 0) {
-                    $total_VAT += (($tax / 100) * $price_product->backoffice_price) * $order->amount;
-                } else {
-                    $total_VAT += 0;
-                }
-            }
-
             $qv = 0;
             $cv = 0;
 
-            if (isset($price_product->qv)) {
-                if ($price_product->qv > 0) {
-                    $qv = $price_product->qv * $order->amount;
-                }
-            }
-
-            if (isset($price_product->cv)) {
-                if ($price_product->cv > 0) {
-                    $cv = $price_product->cv * $order->amount;
-                }
-            }
-
             $orders = new EcommOrders;
 
-            $orders->number_order = $data["order"];
-            $orders->id_user = $user;
+            $orders->number_order = $n_order;
+            $orders->id_user = $user_id;
             $orders->id_product = $order->id_product;
             $orders->amount = $order->amount;
             $orders->total = $order->total;
-            if ($usuario->pay_vat == 1) {
-                $orders->total_vat = $total_VAT;
-            } else {
-                $orders->total_vat = 0;
-            }
             $orders->status_order = "order placed";
-            $orders->total_shipping = $data['total_shipping'];
+            $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
             $orders->client_backoffice = 1;
-            $orders->method_shipping = $data['method_shipping'];
-            $orders->id_payment_order = $data['newPayment'];
-            $orders->smartshipping = $data['smartshipping'];
-            if ($usuario->pay_vat == 1) {
-                $orders->vat_product_percentage = $taxValue->value;
-                $orders->vat_shipping_percentage = $maiorVat;
-            } else {
-                $orders->vat_product_percentage = 0;
-                $orders->vat_shipping_percentage = 0;
-            }
+            $orders->id_payment_order = $data['id'];
             $orders->qv = $qv;
             $orders->cv = $cv;
 
             $orders->save();
-            $separado = [];
-
-            if ($price_product->kit == 2) {
-                $parts = explode('|', $price_product->kit_produtos); // Divide a string pelo caractere "|"
-
-                foreach ($parts as $part) {
-                    list($id_produto, $quantidade) = explode('-', $part); // Divide cada parte pelo caractere "-"
-                    $separado[$id_produto] = $quantidade;
-
-                    $stock = new Stock;
-                    $stock->user_id = $user;
-                    $stock->product_id = $id_produto;
-                    $stock->amount = -$order->amount * $quantidade;
-                    $stock->number_order = $data["order"];
-                    $stock->ecommerce_externo = 0;
-                    $stock->save();
-                }
-
-            } else if ($price_product->kit == 0 || $price_product->kit == 1) {
-                $stock = new Stock;
-                $stock->user_id = $user;
-                $stock->product_id = $order->id_product;
-                $stock->amount = -$order->amount;
-                $stock->number_order = $data["order"];
-                $stock->ecommerce_externo = 0;
-                $stock->save();
-            }
-
+            $stock = new Stock;
+            $stock->user_id = $user_id;
+            $stock->product_id = $order->id_product;
+            $stock->amount = -$order->amount;
+            $stock->number_order = $n_order;
+            $stock->save();
         }
-        // dd($order_cart);
-        // clear cart
-        $this->clearCartBuy($user_id);
 
+        $this->clearCartBuy($user_id);
     }
 
-    public function createRegisterPayment($data, $user_id = null)
+    public function createRegisterPayment($data, $orderID)
     {
-
-        if (!isset($user_id)) {
-            $user_id = Auth::id();
-        }
-
-        $user = User::find($user_id)->id;
-        $order_cart = CartOrder::where('id_user', '=', $user)->get();
-
-        if (count($order_cart) < 1) {
-            // $this->clearCartBuy();
-            return redirect()->route('packages.packagelog');
-        }
-
         $newPayment = new PaymentOrderEcomm;
-        $newPayment->id_user = User::find($user_id)->id;
-        $newPayment->id_payment_gateway = $data["id_payment"];
-        $newPayment->id_invoice_trans = $data["id_invoice_trans"];
+        $newPayment->id_user = auth()->user()->id;
+        $newPayment->id_payment_gateway = $data["id"];
+        $newPayment->id_invoice_trans = $data["id"];
         $newPayment->status = $data["status"];
-        $newPayment->total_price = $data["total_price"];
-        $newPayment->number_order = $data['order'];
-        $newPayment->payment_method = $data["method"];
-
-        if ($data["method"] == 'Admin' || $data["method"] == 'admin') {
-            $newPayment->order_corporate = 1;
-        }
+        $newPayment->total_price = $data["cart_settings"]["items_total_cost"];
+        $newPayment->number_order = $orderID;
 
         $newPayment->save();
 
@@ -1084,7 +773,6 @@ class ProductController extends Controller
             $log->route = "packages.cartFinalize";
             $log->status = "SUCCESS";
             $log->save();
-
         } catch (\Throwable $th) {
             return;
         }
@@ -1244,54 +932,141 @@ class ProductController extends Controller
         }
     }
 
-    public function payComgate(Request $request, $newPrice, $n_order, $methodPayment, $user_id = null, $recorrente = false)
+    public function createClientPaymentAPI()
     {
-        if (!isset($user_id)) {
-            $user_id = Auth::id();
-        }
+        $user = auth()->user();
+        $url = 'https://api.pagar.me/core/v5/customers/';
 
-        $dominio = $request->getHost();
-        if (strtolower($dominio) == 'lifeprosper.eu') {
-            $test = 'false';
-        } else {
-            $test = 'false';
-        }
-
-        $url = '';
         $data = [
-            'merchant' => '475067',
-            'secret' => '4PREBqiKpnBSmQf3VH6RRJ9ZB8pi7YnF',
-            'price' => str_replace('.', '', $newPrice),
-            'curr' => 'EUR',
-            'label' => "Order $n_order",
-            'email' => User::find($user_id)->email,
-            'refId' => $n_order,
-            'method' => "$methodPayment",
-            'prepareOnly' => 'true',
-            'test' => "$test",
-            'lang' => 'en',
-            'initRecurring' => "$recorrente"
+            'name' => $user->name,
+            'email' => $user->email,
+            'code' => $user->id,
+            'document' => $user->cpf,
+            'document_type' => "CPF",
+            'type' => "individual",
+            'gender' => "male",
+            'address' => [
+                "country" => "BR",
+                "state" => "SP",
+                "city" => "Paulinía",
+                "zip_code" => "13142146",
+                "line_1" => "154, Rua Eunice Leoni Butignon, Parque Bom Retiro",
+            ],
+            'phones' => [
+                "mobile_phone" => [
+                    "country_code" => "55",
+                    "area_code" => "19",
+                    "number" => "981545315",
+                ]
+            ],
+            'birthdate' => "2000-12-03",
         ];
 
-        $client = new \GuzzleHttp\Client();
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Accept' => 'application/json'
+        $data = $response->json();
+        User::where('id', auth()->user()->id)->update(['code_api' => $data['id']]);
+        if ($response->successful()) {
+            return $data['id'];
+        } else {
+            return $response->body(); // Retorna o corpo da resposta para análise
+        }
+    }
+
+    public function checkClientExistsAPI()
+    {
+        $code = auth()->user()->code_api;
+        $url = 'https://api.pagar.me/core/v5/customers/';
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $code);
+
+        if ($response->successful() && isset($response->json()["id"])) {
+            return $response->json()["id"];
+        } else {
+            return $this->createClientPaymentAPI();
+        }
+    }
+
+    public function createNewPaymentOrderAPI($customerID, $orderID)
+    {
+        $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
+        $cartItems = CartOrder::with('package')->where('id_user', User::find(Auth::id())->id)->get();
+
+        $items = [];
+        $total = 0;
+        foreach ($cartItems as $item) {
+            $obj = [
+                "name" => $item->package->name,
+                "amount" => $item->price * 10,
+                "default_quantity" => $item->amount,
+                "description" => $item->package->description_fees,
+                "shipping_cost" => 0,
+            ];
+            $total += $item->price * 10;
+            $items[] = $obj;
+            unset($obj);
+        }
+
+        $expiresAt = Carbon::now()->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z');
+
+        $data = [
+            "is_building" => false,
+            "name" => 'Pedido de compra',
+            "type" => "order",
+            "expires_at" => $expiresAt,
+            "payment_settings" => [
+                "accepted_payment_methods" => ["boleto", "pix"],
+                "statement_descriptor" => "Pagamento",
+                "boleto_settings" => [
+                    "due_at" =>  Carbon::parse($expiresAt)->addDays(3)->format('Y-m-d')
+                ],
+                "pix_settings" => [
+                    "expires_in" => 24,
+                    "discount_percentage" => 5.0,
+                    "additional_information" => [
+                        [
+                            "Name" => "Pedido",
+                            "Value" => "Pagamaento de pedido para pribonasorte.com"
+                        ],
+                    ]
+                ]
+            ],
+            "customer_settings" => [
+                "customer_id" => $customerID
+            ],
+            "cart_settings" => [
+                "shipping_cost" => 10000,
+                "items" => $items
+            ],
+            "layout_settings" => [
+                "image_url" => "https://pribonasorte.tecnologia2u.com.br/img/logo-2.png",
+                "primary_color" => "#FADCE6",
+                "secondary_color" => "#F0A2FF"
+            ]
         ];
 
-        $response = $client->post($url, [
-            'form_params' => $data,
-            'headers' => $headers,
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
-        ]);
+        if ($response->successful()) {
+            return $response->json();
+        } else {
+            return response()->json($response->body());
+        }
+    }
 
-        $statusCode = $response->getStatusCode();
-        $body = $response->getBody()->getContents();
+    public function payment(Request $request, $newPrice, $n_order, $methodPayment)
+    {
+        $customerID = $this->checkClientExistsAPI();
 
-        parse_str($body, $responseData);
+        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $n_order);
 
-        return $responseData;
+        return $paymentResponse;
     }
 
     public function RegisteredAddressSecondary(Request $request)
@@ -1316,7 +1091,6 @@ class ProductController extends Controller
                 'state' => $request->state ?? '',
                 'country' => $request->country,
             ]);
-
         } else {
 
             $address = new AddressSecondary;
@@ -1424,7 +1198,7 @@ class ProductController extends Controller
         }
 
 
-        $responseData = $this->payComgate($request, $newPrice, $n_order, 'CARD_CZ_CSOB_2', Auth::id(), true);
+        $responseData = $this->payment($request, $newPrice, $n_order, 'CARD_CZ_CSOB_2', Auth::id(), true);
 
         $jsonResponse = [
             'code' => $responseData['code'],
@@ -1457,11 +1231,9 @@ class ProductController extends Controller
             session()->put('redirect_buy', 'admin');
 
             return redirect()->away($data['url']);
-
         } else {
             return redirect()->back();
         }
-
     }
 
     public function tracking(Request $request)
@@ -1489,7 +1261,6 @@ class ProductController extends Controller
         }
 
         return view('product.tracking', compact('orderNumber'));
-
     }
 
 
@@ -1587,7 +1358,6 @@ class ProductController extends Controller
                         ->orWhere('availability', 'both');
                 })
                 ->get();
-
         } else {
             $products = Product::orderBy('sequence', 'asc')
                 ->where('activated', 1)
@@ -1621,9 +1391,7 @@ class ProductController extends Controller
                         $stock = 0;
                         break;
                     }
-
                 }
-
             } else {
 
                 $stock = DB::table('stock')

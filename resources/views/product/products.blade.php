@@ -225,29 +225,4 @@
     </div>
   </div>
 
-  <script>
-    $(document).ready(function() {
-      $('.buyProductForm').on('submit', function(e) {
-        e.preventDefault(); // Prevenir o comportamento padrão de submissão do formulário
-
-        var form = $(this); // Referência ao formulário que disparou o evento
-
-        $.ajax({
-          url: form.attr('action'), // Pega a URL do atributo 'action' do formulário
-          type: 'GET', // Método HTTP definido no formulário
-          data: form.serialize(), // Serializa os dados do formulário
-          success: function(response) {
-            $('#addToCartModal').modal('show');
-            // Trata a resposta. Aqui você pode, por exemplo, mostrar um modal ou uma mensagem
-            // console.log('Produto adicionado ao carrinho!');
-            // Manipule o DOM conforme necessário, talvez fechar o modal atual e abrir um novo, etc.
-          },
-          error: function() {
-            // alert('Erro ao adicionar produto ao carrinho.');
-          }
-        });
-      });
-    });
-  </script>
-
 @endsection

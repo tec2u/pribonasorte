@@ -60,7 +60,8 @@ class User extends Authenticatable
       'contact_id',
       'validate_code',
       'tax_id',
-      'vat_reg_no'
+      'vat_reg_no',
+      'code_api'
    ];
 
    /**
