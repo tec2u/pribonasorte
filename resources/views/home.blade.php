@@ -1066,7 +1066,7 @@
                     style="display: flex;flex-direction:column; justify-content: center; font-weight: 700; margin-left:1rem;text-align: center">
                     <span>{{ $soma }}</span>
                     <span>----</span>
-                    <span>{{ isset($proximaCarreira->volumeRequired) ? $proximaCarreira->volumeRequired : ''}}</span>
+                    <span></span>
                   </div>
                 </div>
               @else
