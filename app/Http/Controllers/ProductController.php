@@ -649,6 +649,12 @@ class ProductController extends Controller
         return $newChosenPickup;
     }
 
+    public function paymentLinkRender($orderID) {
+        $order = EcommOrders::where('number_order', $orderID)->first();
+
+        return view('package.payment', compact('order'));
+    }
+
     public function cartFinalize(Request $request)
     {
         $cart = CartOrder::where('id_user', User::find(Auth::id())->id)->get();
@@ -665,7 +671,7 @@ class ProductController extends Controller
 
             $this->createRegisterEcommOrder($responseData, $n_order, $payment);
 
-            return redirect()->away($responseData['url']);
+            return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
         } else {
             return redirect()->back();
         }
@@ -696,6 +702,7 @@ class ProductController extends Controller
             $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
             $orders->client_backoffice = 1;
             $orders->id_payment_order = $data['id'];
+            $orders->payment_link = $data['url'];
             $orders->qv = $qv;
             $orders->cv = $cv;
 
@@ -718,7 +725,7 @@ class ProductController extends Controller
         $newPayment->id_payment_gateway = $data["id"];
         $newPayment->id_invoice_trans = $data["id"];
         $newPayment->status = $data["status"];
-        $newPayment->total_price = $data["cart_settings"]["items_total_cost"];
+        $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
         $newPayment->number_order = $orderID;
 
         $newPayment->save();
@@ -997,16 +1004,14 @@ class ProductController extends Controller
         $cartItems = CartOrder::with('package')->where('id_user', User::find(Auth::id())->id)->get();
 
         $items = [];
-        $total = 0;
         foreach ($cartItems as $item) {
             $obj = [
                 "name" => $item->package->name,
-                "amount" => $item->price * 10,
+                "amount" => $item->price * 100,
                 "default_quantity" => $item->amount,
                 "description" => $item->package->description_fees,
                 "shipping_cost" => 0,
             ];
-            $total += $item->price * 10;
             $items[] = $obj;
             unset($obj);
         }
@@ -1026,7 +1031,7 @@ class ProductController extends Controller
                 ],
                 "pix_settings" => [
                     "expires_in" => 24,
-                    "discount_percentage" => 5.0,
+                    "discount_percentage" => 0,
                     "additional_information" => [
                         [
                             "Name" => "Pedido",
@@ -1039,7 +1044,7 @@ class ProductController extends Controller
                 "customer_id" => $customerID
             ],
             "cart_settings" => [
-                "shipping_cost" => 10000,
+                "shipping_cost" => 0,
                 "items" => $items
             ],
             "layout_settings" => [

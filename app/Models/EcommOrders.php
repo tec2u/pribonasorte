@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EcommOrders extends Model
 {
-    protected $fillable = ['number_order', 'id_user', 'id_product', 'amount', 'total', 'status_order', 'id_payment_order', 'smartshipping'];
+    protected $fillable = ['number_order', 'id_user', 'id_product', 'amount', 'total', 'status_order', 'id_payment_order', 'smartshipping','payment_link'];
 
     public function user()
     {

@@ -33,20 +33,11 @@
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
-                        {{-- <th>@lang('package.name')</th>
-                        <th>Amount</th> --}}
                         <th>@lang('package.order_id')</th>
                         <th>@lang('package.package_price')</th>
-                        {{-- <th>@lang('package.daily_return')</th>
-                                            <th>@lang('package.yearly_return_coin')</th>
-                                            <th>@lang('package.total_return_coin')</th>
-                                            <th>@lang('package.steaking_period')</th>
-                                            <th>@lang('package.capping_coin')</th>
-                                            <th>@lang('package.expected_total_return')</th> --}}
-                        <th>QV</th>
-                        <th>CV</th>
                         <th>@lang('package.date')</th>
                         <th>@lang('package.payment_status')</th>
+                        <th>Pagamento</th>
                         <th>Entrega</th>
                         <th></th>
                         <th></th>
@@ -54,40 +45,10 @@
                     </thead>
                     <tbody>
                       @forelse($orderProducts as $orderpackage)
-                        @php
-                          $qv = DB::table('ecomm_orders')
-                              ->where('number_order', $orderpackage->number_order)
-                              ->sum('qv');
-
-                          $cv = DB::table('ecomm_orders')
-                              ->where('number_order', $orderpackage->number_order)
-                              ->sum('cv');
-
-                          $pedido = DB::table('ecomm_orders')
-                              ->where('number_order', $orderpackage->number_order)
-                              ->first();
-
-                          $recorrente = false;
-
-                          if (isset($pedido) && $pedido->id_payment_recurring) {
-                              $recorrente = true;
-                          }
-
-                        @endphp
                         <tr>
-                          {{-- <th>{{ $orderpackage->name_product }}</th>
-                          <th>{{ $orderpackage->amount }}</th> --}}
                           <td>{{ $orderpackage->number_order }}</td>
                           <td> <span class="rounded-pill bg-success px-4 py-1">€ {{ $orderpackage->total_price }}</span>
                           </td>
-                          {{-- <td>{{$orderpackage->package->daily_returns}}</td>
-                                            <td>{{$orderpackage->package->yaerly_returns}}</td>
-                                            <td>{{$orderpackage->package->total_returns}}</td>
-                                            <td>{{$orderpackage->package->period_days}} @lang('package.months')</td>
-                                            <td>{{$orderpackage->package->capping_coin}}</td>
-                                            <td>{{number_format($orderpackage->package->packageTotal($orderpackage->package->id),2, ',', '.')}} </td> --}}
-                          <td>{{ $qv }}</td>
-                          <td>{{ $cv }}</td>
                           <td>{{ date('d/m/Y', strtotime($orderpackage->created_at)) }}</td>
                           <td>
                             @if ($orderpackage->payment_status == 'paid')
@@ -98,32 +59,16 @@
                                 <span class="rounded-pill bg-primary px-4 py-1">@lang('package.waiting')</span>
                             @endif
                           </td>
-                          {{-- <td>
-                            @if ($orderpackage->payment_status != 'paid')
+                          <td>
+                            @if ($orderpackage->payment_status != 'paid' && $orderpackage->payment_status != 'cancelled')
                               <button class="btn rounded-pill bg-info px-4 py-1"><a
-                                  href="{{ route('packages.hide', ['id' => $orderpackage->id]) }}">@lang('package.btn_hide')</a></button>
-                            @else
-                              <button class="btn rounded-pill bg-info px-4 py-1" disabled><a
-                                  href="{{ route('packages.hide', ['id' => $orderpackage->id]) }}">@lang('package.btn_hide')</a></button>
+                                  href="{{ route('packages.payment_link_render', ['orderID' => $orderpackage->number_order]) }}">Pagar</a></button>
                             @endif
-                          </td> --}}
+                          </td>
                           <td><span>{{ $orderpackage->method_shipping }}</span></td>
                           <td>
                             <button class="btn rounded-pill bg-success px-4 py-1"><a
                                 href="{{ route('packages.ecommOrdersDetail', $orderpackage->number_order) }}">Detalhe</a></button>
-                          </td>
-                          <td>
-                            @if ($recorrente == true)
-                              <span class="px-4 py-1">Criado pelo Smartshipping</span>
-                            @else
-                              @if ($orderpackage->smartshipping == 1)
-                                <span class="px-4 py-1">Smartshipping</span>
-                              @else
-                                <span class="px-4 py-1">Não é
-                                  Smartshipping</span>
-                              @endif
-                            @endif
-
                           </td>
                           @if ($orderpackage->payment_status == 'paid')
                             <td>

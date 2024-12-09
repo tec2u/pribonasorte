@@ -125,22 +125,19 @@ class PackageController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate(9);
 
-        // $orderProducts = EcommOrders::orderBy('id', 'DESC')
-        // ->where('id_user', $id_user)
-
         foreach ($orderProducts as $item) {
             $product = Product::where('id', $item->id_product)->first();
             $payment = PaymentOrderEcomm::where('id', $item->id_payment_order)->first();
 
             if (isset($payment)) {
-                $item['payment_status'] = strtolower($payment->status);
+                $item->payment_status = strtolower($payment->status);
             } else {
-                $item['payment_status'] = '';
+                $item->payment_status = '';
             }
 
-            $item['total_price'] = $payment->total_price ?? '';
-            $item['name_product'] = $product->name ?? '';
-            $item['img_product'] = $product->img_1 ?? '';
+            $item->total_price = $payment->total_price ?? '';
+            $item->name_product = $product->name ?? '';
+            $item->img_product = $product->img_1 ?? '';
         }
 
         $orderPackages = OrderPackage::orderBy('id', 'DESC')
@@ -506,13 +503,13 @@ class PackageController extends Controller
                 "notify_url" : "' . $url . '",
                 "custom_data1" : null,
                 "custom_data2" : "package"
-                
+
                 }',
                 CURLOPT_HTTPHEADER => array(
                     'Content-Type: application/json'
                 ),
             )
-            // "price_crypto": "' . $order->price_crypto . '",    
+            // "price_crypto": "' . $order->price_crypto . '",
         );
 
         $raw = json_decode(curl_exec($curl));

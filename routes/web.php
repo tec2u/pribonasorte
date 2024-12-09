@@ -497,6 +497,7 @@ Route::prefix('packages')->middleware('auth')->name('packages')->group(function 
     Route::controller(ProductController::class)->group(function () {
         Route::get('/tracking', "tracking")->name(".tracking");
         Route::get('/products', 'index')->name('.index_products');
+        Route::get('/payment-link-render/{orderID}', 'paymentLinkRender')->name('.payment_link_render');
         Route::get('/products/type/{categoria}', 'categoria')->name('.index_categoria');
         Route::get('/product/{id}', 'detail')->name('.detail_products');
         Route::get('/product/buy/{id}', 'buyProduct')->name('.buy_products');
