@@ -190,23 +190,23 @@ class HomeController extends Controller
             ->get();
 
         $rankAdvancement = DB::select("
-            SELECT 
-                subquery.name, 
-                subquery.last_name, 
-                subquery.created_at, 
-                subquery.career, 
+            SELECT
+                subquery.name,
+                subquery.last_name,
+                subquery.created_at,
+                subquery.career,
                 subquery.id,
-                (SELECT COUNT(*) 
-                 FROM career_users C2 
-                 WHERE C2.user_id = subquery.user_id 
+                (SELECT COUNT(*)
+                 FROM career_users C2
+                 WHERE C2.user_id = subquery.user_id
                  AND C2.career_id = subquery.career_id) AS count_career_id
             FROM (
-                SELECT 
-                    U.id AS user_id, 
-                    U.name, 
-                    U.last_name, 
-                    C.created_at, 
-                    C1.name AS career, 
+                SELECT
+                    U.id AS user_id,
+                    U.name,
+                    U.last_name,
+                    C.created_at,
+                    C1.name AS career,
                     C1.id,
                     ROW_NUMBER() OVER (PARTITION BY U.id ORDER BY C.career_id DESC) AS row_num,
                     C.career_id
@@ -630,11 +630,8 @@ class HomeController extends Controller
             $atual = 1;
         }
 
-        if ($proximaCarreira->volumeRequired > 0) {
-            $obj = $proximaCarreira->volumeRequired;
-        } else {
-            $obj = 1;
-        }
+        $obj = 1;
+
 
         $porcentagemCompleta = ($atual / $obj) * 100;
 
