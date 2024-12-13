@@ -399,8 +399,7 @@ class EcommController extends Controller
 
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
-            return response()->json($payment);
-            return redirect()->awpay($payment['url']);
+            return redirect()->away($payment['url']);
         } else {
             return redirect()->back();
         }
