@@ -262,10 +262,19 @@ class EcommController extends Controller
         return $paymentResponse;
     }
 
-
-    public function RegisterOrder(Request $request, $data = [])
+    public function genNumberOrder()
     {
+        $numb_order = random_int(10000000, 99999999);
+        $exists = EcommOrders::where('number_order', $numb_order)->first();
+        if (isset($exists)) {
+            return $this->genNumberOrder();
+        } else {
+            return $numb_order;
+        }
+    }
 
+    public function registerOrder(Request $request, $data = [])
+    {
         $ip_order = $_SERVER['REMOTE_ADDR'];
 
         $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();
@@ -280,11 +289,9 @@ class EcommController extends Controller
 
             if ($verific_register) {
 
-                if (isset($data['order_code'])) {
-                    $numb_order = $data['order_code'];
-                } else {
-                    $numb_order = $this->genNumberOrder();
-                }
+
+                $numb_order = $this->genNumberOrder();
+
 
                 $newPayment = new PaymentOrderEcomm;
                 $newPayment->id_user = $verific_register->id;
@@ -324,10 +331,6 @@ class EcommController extends Controller
                 foreach ($order_cart as $order_del) {
                     OrderEcomm::findOrFail($order_del->id)->delete();
                 }
-
-                session()->put('redirect_buy', 'ecomm');
-                $url = $data['url'];
-                return redirect()->away($url);
             }
         } else {
             $user_new = $this->RegisterUser($request);
@@ -355,7 +358,7 @@ class EcommController extends Controller
                 $orders->id_user = $user_new->id;
                 $orders->id_product = $order->id_product;
                 $orders->amount = $order->amount;
-                $orders->total = $order_total;
+                $orders->total = $data["total_price"];
                 $orders->total_vat = 0;
                 $orders->total_shipping = 0;
                 $orders->status_order = 0;
@@ -376,13 +379,10 @@ class EcommController extends Controller
                 foreach ($order_cart as $order_del) {
                     OrderEcomm::findOrFail($order_del->id)->delete();
                 }
-
-                session()->put('redirect_buy', 'ecomm');
-                $url = $data['url'];
-
-                return redirect()->away($url);
             }
         }
+
+        return $data;
     }
 
     public function finalizeEcomm(Request $request)
@@ -398,8 +398,7 @@ class EcommController extends Controller
         $responseData = $this->payment($request, $order_cart);
 
         if (isset($responseData)) {
-            $payment = $this->RegisterOrder($request, $responseData);
-
+            $payment = $this->registerOrder($request, $responseData);
             return redirect()->away($payment['url']);
         } else {
             return redirect()->back();
