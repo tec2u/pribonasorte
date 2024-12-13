@@ -508,17 +508,8 @@
                   <input class="form-input-finalize" form="formCheckout" placeholder="Cidade" id="campo_cidade"
                     type="text" name="city">
                 </div>
-                {{-- <div class="mic-form">
-                  <input class="form-input-finalize" form="formCheckout" placeholder="State" id="campo_estado"
-                    type="text" name="state">
-                </div> --}}
                 <div class="small-form">
-                  <select class="form-input-finalize" form="formCheckout" name="country" id="selectCountry"
-                    onchange="atualizaPreco()">
-                    @foreach ($allCountry as $item)
-                      <option value="{{ $item->country }}">{{ $item->country }}</option>
-                    @endforeach
-                  </select>
+                    <input type="text" name="country" value="BR" readonly class="form-input-finalize" form="formCheckout" placeholder="State">
                 </div>
               </div>
               {{-- </form> --}}
@@ -531,7 +522,7 @@
             </div>
           @endif
           <div class="box-register-form">
-            <form action="{{ route('finalize.register.order.comgate') }}" style="mt-[30px];" method="POST"
+            <form action="{{ route('api.finalizeEcomm') }}" style="mt-[30px];" method="POST"
               id="formCheckout">
               @csrf
               @if (isset($user))
@@ -730,39 +721,10 @@
                 termos</a>
             </label>
           </div>
-          {{-- @if (isset($user)) --}}
-          <span>Escoher metodo</span>
-          <select name="methodPayment" id="selectMethod" onchange="changeMetodo(event)" style="font-size: 1rem"
-            class="form-control form-control-lg @error('payment') is-invalid @enderror">
-            <option value="">escolher</option>
-            @foreach ($metodos as $item)
-              <option value="{{ $item->id }}">
-                {{ $item->name }}
-              </option>
-            @endforeach
-            {{-- <option value="USDT">Buy Now (USDT ERC20) </option> --}}
-          </select>
-          {{-- @if ($qv >= 50)
-            <button class="btn_address" style="margin: 0;width:100%;opacity: .5" onclick="submitSmart()"
-              id="bt_submit_smart" disabled>Smartshipping</button>
-          @endif --}}
-          <br>
-          <button class="btn-finalize-pay" onclick="submitMethod()" disabled style="opacity: .5"
+          <button class="btn-finalize-pay" onclick="submitMethod()"
             id="bt_submit">Pagar</button>
-          <br>
-          <span>Pagar com cripto</span>
-          <select name="payment" id="selectCrypto" style="font-size: 1rem"
-            class="form-control form-control-lg @error('payment') is-invalid @enderror">
-            <option value="">Escolher moeda</option>
-            <option value="BTC">comprar com (BTC) </option>
-            <option value="ETH">comprar com (ETH) </option>
-          </select>
-          <button class="btn-finalize-pay" id="bt_submit_crypt" disabled onclick="submitCrypto()">Pagar com
-            cripto</button>
-          <!-- FINAL FORM -->
-          {{-- @else
-            <button class="btn-finalize-pay" style="opacity: .5" disabled>Please login</button>
-          @endif --}}
+
+
           </form>
         </div>
       </div>
@@ -1165,7 +1127,7 @@
         bt_submit.style.opacity = .5;
         bt_submit.disabled = true;
       } else {
-        let url = "{!! route('finalize.register.order.comgate') !!}"
+    let url = "{!! route('api.finalizeEcomm') !!}"
         document.getElementById('formCheckout').action = url;
       }
     }
@@ -1245,44 +1207,6 @@
       document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
     }
 
-
-    function atualizaPreco() {
-      select = document.getElementById('selectCountry').value;
-      paises = @json($allCountry);
-      let frete = 0;
-
-      paises.forEach(element => {
-        if (element.country == select) {
-          newtax_add = addNewTax(select)
-          frete = parseFloat(newtax_add) + parseFloat(<?php echo $withoutVAT; ?>);
-          new_vat = calcularVAT(select);
-
-          document.getElementById('total_shipping').value = parseFloat(newtax_add)
-          document.getElementById('input_vat').value = parseFloat(new_vat)
-
-          // newtax_add = newtax_add.toLocaleString('pt-BR', {
-          //   minimumFractionDigits: 2,
-          //   maximumFractionDigits: 2,
-          //   useGrouping: true,
-          // });
-
-          document.getElementById('span_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('p_shipping').innerHTML = "€" + parseFloat(newtax_add);
-
-        }
-      });
-
-      let tt = frete + new_vat;
-
-      const numeroFormatado = tt.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-        useGrouping: true,
-      });
-
-      document.getElementById('request_price').value = numeroFormatado;
-      document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
-    }
   </script>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"

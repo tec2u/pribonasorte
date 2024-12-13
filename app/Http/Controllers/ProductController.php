@@ -1081,7 +1081,7 @@ class ProductController extends Controller
             ];
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
-            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->delete($url . $customerID . "/addresses"."/".$addressID);
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $customerID . "/addresses"."/".$addressID);
         }
 
 

@@ -24,13 +24,14 @@ use App\Models\EcommOrders;
 use App\Models\Tax;
 use App\Models\ShippingPrice;
 use App\Models\PickupPoint;
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use SoapClient;
 use Fakturoid\Client as FakturoidClient;
-
+use Illuminate\Support\Facades\Http;
 
 class EcommController extends Controller
 {
@@ -83,6 +84,326 @@ class EcommController extends Controller
         $allprod = $this->productsRandom();
 
         return view('ecomm.ecomm', compact('products', 'count_order', 'allprod'));
+    }
+
+    public function createClientPaymentAPI($request)
+    {
+        $user = EcommRegister::where('id', $request->id_user_login)->first();
+        $url = 'https://api.pagar.me/core/v5/customers/';
+
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'code' => $user->id,
+            'document' => "50101401445",
+            'document_type' => "CPF",
+            'type' => "individual",
+            'gender' => $user->sex == 1 ? "male" : "female",
+            'address' => [
+                "country" => "BR",
+                "state" => 'SP',
+                "city" => 'Paulinia',
+                "zip_code" => '13000000',
+                "line_1" => "100, Rua Teste, Parque Teste"
+            ],
+            'phones' => [
+                "mobile_phone" => [
+                    "country_code" => '55',
+                    "area_code" => '19',
+                    "number" => '979744515',
+                ]
+            ],
+            'birthdate' => "01-01-2001",
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
+
+        $data = $response->json();
+        EcommRegister::where('id', $user->id)->update(['code_api' => $data['id']]);
+        if ($response->successful()) {
+            return $data['id'];
+        } else {
+            return $response->body(); // Retorna o corpo da resposta para análise
+        }
+    }
+
+    public function checkClientExistsAPI($request)
+    {
+        $code = EcommRegister::where('id', $request->id_user_login)->first()->code_api;
+        $url = 'https://api.pagar.me/core/v5/customers/';
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $code);
+
+        if ($response->successful() && isset($response->json()["id"])) {
+            return $response->json()["id"];
+        } else {
+            return $this->createClientPaymentAPI($request);
+        }
+    }
+
+    public function createNewPaymentOrderAPI($customerID, $request, $cartOrder)
+    {
+        $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
+
+        $items = [];
+        foreach ($cartOrder as $item) {
+            $obj = [
+                "name" => $item->package->name,
+                "amount" => $item->price * 100,
+                "default_quantity" => $item->amount,
+                "description" => $item->package->description_fees,
+                "shipping_cost" => 0,
+            ];
+            $items[] = $obj;
+            unset($obj);
+        }
+
+        $expiresAt = Carbon::now()->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z');
+
+        $data = [
+            "is_building" => false,
+            "name" => 'Pedido de compra',
+            "type" => "order",
+            "expires_at" => $expiresAt,
+            "payment_settings" => [
+                "accepted_payment_methods" => ["boleto", "pix"],
+                "statement_descriptor" => "Pagamento",
+                "boleto_settings" => [
+                    "due_at" =>  Carbon::parse($expiresAt)->addDays(3)->format('Y-m-d')
+                ],
+                "pix_settings" => [
+                    "expires_in" => 24,
+                    "discount_percentage" => 0,
+                    "additional_information" => [
+                        [
+                            "Name" => "Pedido",
+                            "Value" => "Pagamaento de pedido para pribonasorte.com"
+                        ],
+                    ]
+                ]
+            ],
+            "customer_settings" => [
+                "customer_id" => $customerID
+            ],
+            "cart_settings" => [
+                "shipping_cost" => 0,
+                "items" => $items
+            ],
+            "layout_settings" => [
+                "image_url" => "https://pribonasorte.tecnologia2u.com.br/img/logo-2.png",
+                "primary_color" => "#FADCE6",
+                "secondary_color" => "#F0A2FF"
+            ]
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
+
+        if ($response->successful()) {
+            return $response->json();
+        } else {
+            return response()->json($response->body());
+        }
+    }
+
+    public function updateOrCreateClientAddress($customerID, $request)
+    {
+        $url = 'https://api.pagar.me/core/v5/customers/';
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $customerID . "/addresses");
+
+        if (count($response->json()["data"]) > 0) {
+            $addressID = $response->json()["data"][0]["id"];
+            $data = [
+                "country" => "BR",
+                "state" => $request->state_ppl,
+                "city" => $request->city_ppl,
+                "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
+                "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl,
+                "line_2" => ""
+            ];
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->delete($url . $customerID . "/addresses" . "/" . $addressID);
+        }
+
+
+        $data = [
+            "country" => "BR",
+            "state" => $request->state_ppl,
+            "city" => $request->city_ppl,
+            "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
+            "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl,
+            "line_2" => ""
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url . $customerID . "/addresses", $data);
+
+        return response()->json($response->json());
+    }
+
+    public function payment($request, $order)
+    {
+        $customerID = $this->checkClientExistsAPI($request);
+
+        $this->updateOrCreateClientAddress($customerID, $request);
+
+        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request, $order);
+
+        return $paymentResponse;
+    }
+
+
+    public function RegisterOrder(Request $request, $data = [])
+    {
+
+        $ip_order = $_SERVER['REMOTE_ADDR'];
+
+        $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();
+
+        if (!empty($request->email) || !empty($request->id_user_login)) {
+
+            if (!empty($request->email)) {
+                $verific_register = EcommRegister::where('email', $request->email)->first();
+            } else {
+                $verific_register = EcommRegister::where('id', $request->id_user_login)->first();
+            }
+
+            if ($verific_register) {
+
+                if (isset($data['order_code'])) {
+                    $numb_order = $data['order_code'];
+                } else {
+                    $numb_order = $this->genNumberOrder();
+                }
+
+                $newPayment = new PaymentOrderEcomm;
+                $newPayment->id_user = $verific_register->id;
+                $newPayment->id_payment_gateway = $data["id"];
+                $newPayment->id_invoice_trans = $data["id"];
+                $newPayment->status = strtolower($data["status"]);
+                $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100;
+                $newPayment->number_order = $numb_order;
+                $newPayment->payment_method = 'api';
+                $newPayment->save();
+
+                foreach ($order_cart as $order) {
+                    $order_total = 0;
+
+                    $orders = new EcommOrders;
+
+                    $orders->number_order = $numb_order;
+                    $orders->id_user = $verific_register->id;
+                    $orders->id_product = $order->id_product;
+                    $orders->amount = $order->amount;
+                    $orders->total = $order_total;
+                    $orders->total_vat = 0;
+                    $orders->total_shipping = 0;
+                    $orders->status_order = "order placed";
+                    $orders->client_backoffice = 0;
+                    $orders->vat_product_percentage = 0;
+                    $orders->vat_shipping_percentage = 0;
+                    $orders->qv = 0;
+                    $orders->cv = 0;
+                    $orders->id_payment_order = $newPayment->id;
+                    $orders->method_shipping = 0;
+                    $orders->smartshipping = 0;
+                    $orders->save();
+                }
+
+                // clear cart
+                foreach ($order_cart as $order_del) {
+                    OrderEcomm::findOrFail($order_del->id)->delete();
+                }
+
+                session()->put('redirect_buy', 'ecomm');
+                $url = $data['url'];
+                return redirect()->away($url);
+            }
+        } else {
+            $user_new = $this->RegisterUser($request);
+
+            if (isset($data['order'])) {
+                $numb_order = $data['order'];
+            } else {
+                $numb_order = $this->genNumberOrder();
+            }
+
+            $newPayment = new PaymentOrderEcomm;
+            $newPayment->id_user = $user_new->id;
+            $newPayment->id_payment_gateway = $data["id_payment"];
+            $newPayment->id_invoice_trans = $data["id_invoice_trans"];
+            $newPayment->status = strtolower($data["status"]);
+            $newPayment->total_price = $data["total_price"];
+            $newPayment->number_order = $numb_order;
+            $newPayment->payment_method = $data["method"];
+            $newPayment->save();
+
+            foreach ($order_cart as $order) {
+                $orders = new EcommOrders;
+
+                $orders->number_order = $numb_order;
+                $orders->id_user = $user_new->id;
+                $orders->id_product = $order->id_product;
+                $orders->amount = $order->amount;
+                $orders->total = $order_total;
+                $orders->total_vat = 0;
+                $orders->total_shipping = 0;
+                $orders->status_order = 0;
+                $orders->id_payment_order = $newPayment->id;
+                $orders->vat_product_percentage = 0;
+                $orders->vat_shipping_percentage = 0;
+                $orders->qv = 0;
+                $orders->cv = 0;
+                $orders->client_backoffice = 0;
+                if (isset($data["smartshipping"]) and !empty($data["smartshipping"])) {
+                    $orders->smartshipping = $data["smartshipping"];
+                } else {
+                    $orders->smartshipping = 0;
+                }
+                $orders->save();
+
+                // clear cart
+                foreach ($order_cart as $order_del) {
+                    OrderEcomm::findOrFail($order_del->id)->delete();
+                }
+
+                session()->put('redirect_buy', 'ecomm');
+                $url = $data['url'];
+
+                return redirect()->away($url);
+            }
+        }
+    }
+
+    public function finalizeEcomm(Request $request)
+    {
+
+
+        $ip_order = $_SERVER['REMOTE_ADDR'];
+        $order_cart = OrderEcomm::with('product')->where('ip_order', $ip_order)->get();
+        if (count($order_cart) < 1) {
+            return redirect()->route('ecomm');
+        }
+
+        $responseData = $this->payment($request, $order_cart);
+
+        if (isset($responseData)) {
+            $payment = $this->RegisterOrder($request, $responseData);
+
+            return redirect()->away($payment['url']);
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function categoria($cat)
@@ -208,56 +529,13 @@ class EcommController extends Controller
             }
         }
 
-        $price_shipping = ShippingPrice::where('country', $countryIpOrder)->first();
-        $shippingPickup = PickupPoint::where('country', $countryIpOrder)->first();
-
-        $typeWeight = '';
-
-
-        if ($totalWeight <= 2 && $totalWeight > 0) {
-            $priceShippingHome = $price_shipping->kg2;
-            $typeWeight = 'kg2';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg2;
-        } else if ($totalWeight > 2 && $totalWeight <= 5) {
-            $priceShippingHome = $price_shipping->kg5;
-            $typeWeight = 'kg5';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg5;
-        } else if ($totalWeight > 5 && $totalWeight <= 10) {
-            $priceShippingHome = $price_shipping->kg10;
-            $typeWeight = 'kg10';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg10;
-        } else if ($totalWeight > 10 && $totalWeight <= 20) {
-            $priceShippingHome = $price_shipping->kg20;
-            $typeWeight = 'kg20';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg20;
-        } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
-            $priceShippingHome = $price_shipping->kg31_5;
-            $typeWeight = 'kg31_5';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg31_5;
-        }
-
-
         $total_finish = $total_order;
-
-        $format_shipping = number_format($priceShippingHome, 2, ",", ".");
-
-        $format_pickup = number_format($priceShippingPickup, 2, ",", ".");
 
         $total_VAT = number_format($total_VAT, 2, ",", ".");
 
         $format_price = number_format($total_finish, 2, ",", ".");
 
-        return view('ecomm.ecomm_cart', compact('qv', 'order_cart', 'count_order', 'format_price', 'total_VAT', 'countryIpOrder', 'priceShippingHome', 'format_shipping', 'format_pickup', 'priceShippingPickup', 'shippingPickup'));
+        return view('ecomm.ecomm_cart', compact('qv', 'order_cart', 'count_order', 'format_price', 'total_VAT', 'countryIpOrder', 'priceShippingHome'));
     }
 
     function getProductsByCategory($categoria)
@@ -682,74 +960,8 @@ class EcommController extends Controller
         }
 
 
-        foreach ($paisesAceitos as $vat) {
-            $tt = 0;
-            foreach ($order_cart as $order) {
-                $taxVv = Tax::where('product_id', $order->id_product)->where('country', $vat->country)->first();
-                if (isset($taxVv) && $taxVv->value > 0) {
-                    $tt += number_format(($taxVv->value / 100) * $order->price, 2, '.', '') * $order->amount;
-                }
-            }
-            $todosVats[$vat->country] = $tt;
-        }
 
-
-        if ($totalWeight <= 2 && $totalWeight > 0) {
-            $priceShippingHome = $price_shipping->kg2;
-            $typeWeight = 'kg2';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg2;
-        } else if ($totalWeight > 2 && $totalWeight <= 5) {
-            $priceShippingHome = $price_shipping->kg5;
-            $typeWeight = 'kg5';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg5;
-        } else if ($totalWeight > 5 && $totalWeight <= 10) {
-            $priceShippingHome = $price_shipping->kg10;
-            $typeWeight = 'kg10';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg10;
-        } else if ($totalWeight > 10 && $totalWeight <= 20) {
-            $priceShippingHome = $price_shipping->kg20;
-            $typeWeight = 'kg20';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg20;
-        } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
-            $priceShippingHome = $price_shipping->kg31_5;
-            $typeWeight = 'kg31_5';
-
-            if (isset($shippingPickup))
-                $priceShippingPickup = $shippingPickup->kg31_5;
-        }
-
-        $MaxtaxValuesByCountry = Tax::selectRaw('country, MAX(value)/100 as max_value')
-            ->whereIn('product_id', array_values($idSprodutos))
-            ->groupBy('country')
-            ->get()
-            ->pluck('max_value', 'country')
-            ->toArray();
-
-        // dd($MaxtaxValuesByCountry);
-
-        // $tax1add = Tax::where('country', $countryIp['country'])->max('value');
-        $tax1add = $MaxtaxValuesByCountry[$countryIp['country']];
-        // dd($tax1add);
-
-
-        if (isset($tax1add)) {
-            # code...
-            if ($priceShippingHome > 0) {
-                if ($tax1add > 0) {
-                    # code...
-                    $total_tax_add += floatval($priceShippingHome) * floatval($tax1add);
-                }
-                // $total_tax_add += 0;
-            }
-        }
+        $total_tax_add = 0;
 
         $total_tax_add = number_format($total_tax_add, 2, '.', '');
 
@@ -770,41 +982,7 @@ class EcommController extends Controller
         $todosFreteCasa = [];
         $todosFretePickup = [];
 
-        $allCountry = ShippingPrice::orderBy('country', 'ASC')->get();
-        foreach ($allCountry as $value) {
-            $value['priceShipping'] = $value->{"$typeWeight"};
-
-            foreach ($MaxtaxValuesByCountry as $key => $valor) {
-                if ($key == $value->country) {
-                    if ($valor > 0) {
-                        # code...
-                        $n = $value->{"$typeWeight"} * $valor + $value->{"$typeWeight"};
-                    } else {
-                        $n = $value->{"$typeWeight"};
-                    }
-                    $n = number_format($n, 2, '.', '');
-                    $todosFreteCasa[$key] = $n;
-                }
-            }
-        }
-
         $allPickup = PickupPoint::all();
-        foreach ($allPickup as $value) {
-            $value['priceShipping'] = $value->{"$typeWeight"};
-
-            foreach ($MaxtaxValuesByCountry as $key => $valor) {
-                if ($key == $value->country) {
-                    if ($valor > 0) {
-                        $n = $value->{"$typeWeight"} * $valor + $value->{"$typeWeight"};
-                    } else {
-                        $n = $value->{"$typeWeight"};
-                    }
-                    $n = number_format($n, 2, '.', '');
-                    $todosFretePickup[$value->country_code] = $n;
-                }
-            }
-        }
-
         $list_product = array();
 
         foreach ($order_cart as $prodcts) {
@@ -816,7 +994,7 @@ class EcommController extends Controller
 
 
         if ($count_order > 0) {
-            return view('ecomm.ecomm_finalize', compact('todosFreteCasa', 'todosFretePickup', 'todosVats', 'MaxtaxValuesByCountry', 'allSavedTax', 'order_cart', 'qv', 'allPickup', 'subtotal', 'withoutVAT', 'ip_order', 'count_order', 'format_price', 'user', 'total_VAT', 'metodos', 'countryIpOrder', 'priceShippingHome', 'priceShippingPickup', 'format_shipping', 'allCountry', 'list_product'));
+            return view('ecomm.ecomm_finalize', compact('todosFreteCasa', 'todosFretePickup', 'todosVats', 'allSavedTax', 'order_cart', 'qv', 'allPickup', 'subtotal', 'withoutVAT', 'ip_order', 'count_order', 'format_price', 'user', 'total_VAT', 'metodos', 'countryIpOrder', 'priceShippingHome', 'priceShippingPickup', 'format_shipping', 'list_product'));
         } else {
             return redirect()->route('ecomm');
         }

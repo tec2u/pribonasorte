@@ -680,7 +680,7 @@
           </div>
 
           <div class="box-finalize-cart">
-            @if ($count_order > 0 && $priceShippingHome != 0)
+            @if ($count_order > 0)
               @if (session()->has('buyer'))
                 <a href="{{ route('finalize.shop') }}"><button class="finalize-cart">Continuar</button></a>
               @else
@@ -702,7 +702,6 @@
     </section>
   </main>
 
-  {{-- MODAL POP-UP LOG --}}
   <div class="modal_popup">
     <div class="pop_up_log">
       <center>
