@@ -751,25 +751,6 @@
                         </div>
                       </div> --}}
                       {{-- LINE --}}
-                      <div class="line-info-form">
-                        {{-- INFO --}}
-                        <div class="column-form1">
-                          <p class="title-inputs">País *</p>
-                        </div>
-                        {{-- IMPUT --}}
-                        <div class="column-form2">
-                          <select class="new-inputs" name="country" required onchange="chooseCountryBilling(event)">
-                            @foreach ($allCountry as $item)
-                              <option value="{{ $item->country }}" class="country-{{ $item->country_code }}">
-                                {{ $item->country }} </option>
-                            @endforeach
-                          </select>
-                        </div>
-                        {{-- ALERT --}}
-                        <div class="column-form3">
-
-                        </div>
-                      </div>
 
                       <div class="line-info-form">
                         <div class="column-form1">
@@ -929,19 +910,6 @@
   <script src="/js/script.js"></script>
 
   <script>
-    var inputCell = document.querySelector("#cell");
-    let codeCell = window.intlTelInput(inputCell, {
-      separateDialCode: true
-    });
-
-
-    function chooseCountryBilling(e) {
-      const selectedOption = event.target.selectedOptions[0];
-      const selectedClass = selectedOption.className;
-      const cleanedClass = selectedClass.replace("country-", "");
-      // console.log("Cleaned class:", cleanedClass);
-      codeCell.setCountry(cleanedClass);
-    }
 
     function allowNumeric(e) {
       var code = ('charCode' in e) ? e.charCode : e.keyCode;
