@@ -98,7 +98,7 @@ class EcommController extends Controller
             'document' => "50101401445",
             'document_type' => "CPF",
             'type' => "individual",
-            'gender' => $user->sex == 1 ? "male" : "female",
+            'gender' => "male",
             'address' => [
                 "country" => "BR",
                 "state" => 'SP',
@@ -399,7 +399,7 @@ class EcommController extends Controller
 
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
-            return redirect()->away($payment['url']);
+            return redirect()->awpay($payment['url']);
         } else {
             return redirect()->back();
         }
