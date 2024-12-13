@@ -207,7 +207,7 @@ class EcommController extends Controller
         if ($response->successful()) {
             return $response->json();
         } else {
-            return response()->json($response->body());
+            return $response->json();
         }
     }
 
