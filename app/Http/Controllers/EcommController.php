@@ -1348,9 +1348,9 @@ class EcommController extends Controller
 
         if ($request->hasCookie('referral_ecomm')) {
             $userBack = $request->cookie('referral_ecomm');
-            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry', 'userBack'));
+            return view('ecomm.ecomm_register', compact('count_order', 'allCountry', 'userBack'));
         } else {
-            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry'));
+            return view('ecomm.ecomm_register', compact('count_order', 'allCountry'));
         }
 
     }

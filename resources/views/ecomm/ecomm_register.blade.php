@@ -514,12 +514,6 @@
                 </div>
               @endif
 
-              @if (!$allowedRegister)
-                <div class="alert alert-danger">
-                  Unfortunately, we do not ship to your country yet.
-                </div>
-              @endif
-
               @if (session('message'))
                 <div class="alert alert-success">
                   {{ session('message') }}
@@ -903,9 +897,7 @@
                     <div style="width: 100%; display: flex;justify-content: center;gap:1rem;">
                       <div class="width: 100%; display: inline-block;">
                         <div çlass="width: 100%; display: flex; justify-content:space-between">
-                          @if ($allowedRegister)
                             <button type="submit" class="button-edit">Registrar</button>
-                          @endif
                         </div>
                       </div>
                       {{-- end form --}}
