@@ -396,6 +396,7 @@ class EcommController extends Controller
         }
 
         $responseData = $this->payment($request, $order_cart);
+        return response()->json($responseData);
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
             return redirect()->away($payment['url']);
