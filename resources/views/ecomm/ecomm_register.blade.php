@@ -745,13 +745,13 @@
                         </div>
                       </div>
                       {{-- LINE --}}
-                      {{-- <div class="line-info-form">                        
+                      {{-- <div class="line-info-form">
                         <div class="column-form1">
                           <p class="title-inputs">State *</p>
-                        </div>                        
+                        </div>
                         <div class="column-form2">
                           <input class="new-inputs" name="state" type="text">
-                        </div>                        
+                        </div>
                         <div class="column-form3">
 
                         </div>
@@ -850,13 +850,13 @@
                           </div>
                         </div>
                         {{-- LINE --}}
-                        {{-- <div class="line-info-form">                          
+                        {{-- <div class="line-info-form">
                           <div class="column-form1">
                             <p class="title-inputs">State *</p>
-                          </div>                          
+                          </div>
                           <div class="column-form2">
                             <input class="new-inputs" name="state2" type="text">
-                          </div>                          
+                          </div>
                           <div class="column-form3">
 
                           </div>
@@ -1152,3 +1152,4 @@
     });
   </script>
 @endsection
+

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PurchaseController;
 use App\Http\Controllers\Api\ReportsController;
 use App\Http\Controllers\Api\WithdrawController;
+use App\Http\Controllers\ShippingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PaymentController::class)->group(function () {
     Route::post('/notity', 'notity')->name('notity');//autentica login de usuarios
+});
+
+Route::controller(ShippingController::class)->group(function () {
+    Route::post('/calculate/{userID}', 'calculateShippingPrice')->name('calculate');
 });
 
 Route::get('/verify-corporation-authenticity/{idCorporate}', [CorporateController::class, "verify"])->name("verify_corporation_authenticity");

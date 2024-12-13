@@ -128,6 +128,17 @@
                     @enderror
                   </div>
                   <div class="col-md-6">
+                    <label for="state" class="form-label">Estado<span
+                        style="color: brown">*</span></label>
+                    <input type="text" class="form-control" id="state" required name="state" placeholder="exemplo: SP"
+                      value="@if (old('state') !== null) {{ old('state') }}@else{{ $user->state }} @endif">
+                    @error('state')
+                      <span class="invalid-feedback " style="display:block" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                  <div class="col-md-6">
                     <label for="inputname" class="form-label">@lang('network.city')<span
                         style="color: brown">*</span></label>
                     <input type="text" class="form-control" id="city" required name="city"

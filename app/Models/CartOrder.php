@@ -13,4 +13,8 @@ class CartOrder extends Model
         return $this->belongsTo(Package::class, 'id_product', 'id');
     }
 
+    public function product(){
+        return $this->belongsTo(Product::class, 'id_product', 'id');
+    }
+
 }

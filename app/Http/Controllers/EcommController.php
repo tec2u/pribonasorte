@@ -1344,39 +1344,13 @@ class EcommController extends Controller
         $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();
         $count_order = count($order_cart);
 
-        $ip_order = '194.156.125.61';
-
-        $url = "http://ip-api.com/json/{$ip_order}?fields=country";
-
-        $response = file_get_contents($url);
-        $countryIpOrder = json_decode($response, true);
-        $countryIpOrder = $countryIpOrder['country'] ?? "Czech Republic";
-        $countryIp = ["country" => $countryIpOrder];
-
-        if (isset($countryIpOrder)) {
-            $shipping = ShippingPrice::where('country', $countryIpOrder)->first();
-            if (!isset($shipping)) {
-                $shipping = ShippingPrice::where('country', 'Czech Republic')->first();
-            }
-        } else {
-            $shipping = ShippingPrice::where('country', 'Czech Republic')->first();
-        }
-
-        $code_tel = $shipping->code;
-
         $allCountry = ShippingPrice::orderBy('country', 'ASC')->get();
-
-        if (isset($shipping)) {
-            $allowedRegister = true;
-        } else {
-            $allowedRegister = false;
-        }
 
         if ($request->hasCookie('referral_ecomm')) {
             $userBack = $request->cookie('referral_ecomm');
-            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry', 'code_tel', 'userBack'));
+            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry', 'userBack'));
         } else {
-            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry', 'code_tel'));
+            return view('ecomm.ecomm_register', compact('count_order', 'allowedRegister', 'allCountry'));
         }
 
     }

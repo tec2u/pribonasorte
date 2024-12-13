@@ -636,6 +636,7 @@ Route::prefix('payment')->middleware('auth')->name('payment')->group(function ()
         // Route::post('/payment', 'indexPost')->name('.paymentPost');
         Route::get('/payment-test', 'checkClientExistsAPI')->name('.payment_test');
         Route::get('/payment-order-test', 'createNewPaymentOrderAPI')->name('.payment_order_test');
+        Route::get('/update-address-test', 'updateOrCreateClientAddress')->name('.update_address_test');
         // Route::post('/payment/notity', 'notity')->name('.notity');
         // Route::get('/payment/{package}/{value}', 'index')->name('.payment');
         // Route::get('/paymentUSDTERC/{package}/{value}', 'indexUSDTERC')->name('.paymentUSDTERC');

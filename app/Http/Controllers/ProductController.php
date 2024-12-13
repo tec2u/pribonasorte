@@ -39,23 +39,14 @@ class ProductController extends Controller
         $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
         $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
 
-        if (count($productsByCountry) > 0) {
 
-            $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-                ->whereIn('id', $productsByCountry)
-                ->where(function ($query) {
-                    $query->where('availability', 'internal')
-                        ->orWhere('availability', 'both');
-                })
-                ->get();
-        } else {
-            $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-                ->where(function ($query) {
-                    $query->where('availability', 'internal')
-                        ->orWhere('availability', 'both');
-                })
-                ->get();
-        }
+        $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
+            ->where(function ($query) {
+                $query->where('availability', 'internal')
+                    ->orWhere('availability', 'both');
+            })
+            ->get();
+
 
 
 
@@ -649,7 +640,8 @@ class ProductController extends Controller
         return $newChosenPickup;
     }
 
-    public function paymentLinkRender($orderID) {
+    public function paymentLinkRender($orderID)
+    {
         $order = EcommOrders::where('number_order', $orderID)->first();
 
         return view('package.payment', compact('order'));
@@ -664,7 +656,8 @@ class ProductController extends Controller
 
         $n_order = $this->genNumberOrder();
 
-        $responseData = $this->payment($request, 0, $n_order, $request->methodPayment);
+        // return response()->json($request);
+        $responseData = $this->payment($request, 0, $n_order);
 
         if (isset($responseData)) {
             $payment = $this->createRegisterPayment($responseData, $n_order);
@@ -715,7 +708,7 @@ class ProductController extends Controller
             $stock->save();
         }
 
-        $this->clearCartBuy($user_id);
+        // $this->clearCartBuy($user_id);
     }
 
     public function createRegisterPayment($data, $orderID)
@@ -939,11 +932,14 @@ class ProductController extends Controller
         }
     }
 
-    public function createClientPaymentAPI()
+    public function createClientPaymentAPI($request)
     {
         $user = auth()->user();
         $url = 'https://api.pagar.me/core/v5/customers/';
 
+        $countryCode = substr($request->cell_ppl, 0, 2); // Os 2 primeiros dígitos
+        $areaCode = substr($request->cell_ppl, 2, 2);   // Os 2 dígitos seguintes
+        $number = substr($request->cell_ppl, 4);
         $data = [
             'name' => $user->name,
             'email' => $user->email,
@@ -951,22 +947,22 @@ class ProductController extends Controller
             'document' => $user->cpf,
             'document_type' => "CPF",
             'type' => "individual",
-            'gender' => "male",
+            'gender' => $user->gender == "M" ? "male" : "female",
             'address' => [
                 "country" => "BR",
-                "state" => "SP",
-                "city" => "Paulinía",
-                "zip_code" => "13142146",
-                "line_1" => "154, Rua Eunice Leoni Butignon, Parque Bom Retiro",
+                "state" => $request->state_ppl,
+                "city" => $request->city_ppl,
+                "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
+                "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl //"154, Rua Eunice Leoni Butignon, Parque Bom Retiro",
             ],
             'phones' => [
                 "mobile_phone" => [
-                    "country_code" => "55",
-                    "area_code" => "19",
-                    "number" => "981545315",
+                    "country_code" => $countryCode,
+                    "area_code" => $areaCode,
+                    "number" => $number,
                 ]
             ],
-            'birthdate' => "2000-12-03",
+            'birthdate' => $user->birthday,
         ];
 
         $response = Http::withHeaders([
@@ -998,7 +994,7 @@ class ProductController extends Controller
         }
     }
 
-    public function createNewPaymentOrderAPI($customerID, $orderID)
+    public function createNewPaymentOrderAPI($customerID, $request)
     {
         $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
         $cartItems = CartOrder::with('package')->where('id_user', User::find(Auth::id())->id)->get();
@@ -1044,7 +1040,7 @@ class ProductController extends Controller
                 "customer_id" => $customerID
             ],
             "cart_settings" => [
-                "shipping_cost" => 0,
+                "shipping_cost" => floatval($request->send_value) * 100,
                 "items" => $items
             ],
             "layout_settings" => [
@@ -1065,11 +1061,53 @@ class ProductController extends Controller
         }
     }
 
-    public function payment(Request $request, $newPrice, $n_order, $methodPayment)
+    public function updateOrCreateClientAddress($customerID, $request)
+    {
+        $url = 'https://api.pagar.me/core/v5/customers/';
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $customerID . "/addresses");
+
+        if (count($response->json()["data"]) > 0) {
+            $addressID = $response->json()["data"][0]["id"];
+            $data = [
+                "country" => "BR",
+                "state" => $request->state_ppl,
+                "city" => $request->city_ppl,
+                "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
+                "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl,
+                "line_2" => ""
+            ];
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->delete($url . $customerID . "/addresses"."/".$addressID);
+        }
+
+
+        $data = [
+            "country" => "BR",
+            "state" => $request->state_ppl,
+            "city" => $request->city_ppl,
+            "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
+            "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl,
+            "line_2" => ""
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url . $customerID . "/addresses", $data);
+
+        return response()->json($response->json());
+    }
+
+    public function payment(Request $request)
     {
         $customerID = $this->checkClientExistsAPI();
 
-        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $n_order);
+        $this->updateOrCreateClientAddress($customerID, $request);
+
+        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
 
         return $paymentResponse;
     }
