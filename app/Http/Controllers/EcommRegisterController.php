@@ -186,7 +186,7 @@ class EcommRegisterController extends Controller
         // $register->birth = $request->birth;
 
         $register->sex = $request->sex;
-        $register->phone = "+55" . " " . $request->phone;
+        $register->phone = "+55 " . $request->phone;
         $register->zip = $request->zip;
         $register->address = $request->address;
         $register->number = $request->number;
