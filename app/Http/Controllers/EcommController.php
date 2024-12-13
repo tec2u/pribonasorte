@@ -152,10 +152,10 @@ class EcommController extends Controller
         $items = [];
         foreach ($cartOrder as $item) {
             $obj = [
-                "name" => $item->package->name,
+                "name" => $item->product->name,
                 "amount" => $item->price * 100,
                 "default_quantity" => $item->amount,
-                "description" => $item->package->description_fees,
+                "description" => $item->product->description_fees,
                 "shipping_cost" => 0,
             ];
             $items[] = $obj;
