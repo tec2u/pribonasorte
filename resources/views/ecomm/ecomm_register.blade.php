@@ -772,16 +772,14 @@
                       </div>
 
                       <div class="line-info-form">
-                        {{-- INFO --}}
                         <div class="column-form1">
                           <p class="title-inputs required">Celular *</p>
                         </div>
-                        {{-- IMPUT --}}
+
                         <div class="column-form2">
                           <input id="cell" onkeypress="allowNumeric(event)" type="cell"
-                            class="form-control form-register @error('cell') is-invalid @enderror" placeholder="Cell"
+                            class="form-control form-register @error('cell') is-invalid @enderror" placeholder="Cell (00) 000000000"
                             name="phone" required autocomplete="cell" tabindex="10">
-                          <input type="hidden" name="countryCodeCell" id="countryCodeCell" value="1">
                         </div>
                         {{-- ALERT --}}
                         <div class="column-form3">
@@ -951,13 +949,6 @@
         e.preventDefault();
       }
     }
-
-
-    inputCell.addEventListener("countrychange", function() {
-      // console.log(inputCell.value);
-      // console.log(codeCell.getSelectedCountryData());
-      document.querySelector("#countryCodeCell").value = codeCell.getSelectedCountryData().dialCode;
-    });
 
     document.getElementById('redirectLogin').addEventListener('click', function() {
       window.location.href = "{{ route('page.login.ecomm') }}";

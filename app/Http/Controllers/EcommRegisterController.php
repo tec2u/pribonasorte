@@ -100,7 +100,7 @@ class EcommRegisterController extends Controller
                                         JURAJ MOJZIS<br>
                                         CEO of LifeProsper<br>
                                         Support- +420234688024<br>
-                                        WHATSAPP number- +420 721 530 732 
+                                        WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
@@ -186,7 +186,7 @@ class EcommRegisterController extends Controller
         // $register->birth = $request->birth;
 
         $register->sex = $request->sex;
-        $register->phone = "+" . $request->countryCodeCell . " " . $request->phone;
+        $register->phone = "+55" . " " . $request->phone;
         $register->zip = $request->zip;
         $register->address = $request->address;
         $register->number = $request->number;
@@ -195,7 +195,7 @@ class EcommRegisterController extends Controller
         $register->city = $data_names[2]; //$request->city;
         $register->state = $data_names[3];
         // $register->state = '';
-        $register->country = $request->country; //$request->country;
+        $register->country = "BR"; //$request->country;
 
 
 
@@ -895,7 +895,7 @@ class EcommRegisterController extends Controller
                         "password": "' . $paymentConfig['password'] . '",
                         "id_order": "' . $name . '",
                         "price": "' . $priceInDol . '",
-                        "coin": "' . $method . '",              
+                        "coin": "' . $method . '",
                         "notify_url" : "' . $url . '",
                         "custom_data1" : "' . $request->id_payment . '"
                 }',
@@ -1405,11 +1405,11 @@ class EcommRegisterController extends Controller
                                     Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp:
                                     </strong>
                                     <br>
-                                    <br>                                                            
+                                    <br>
                                     <ul>
-                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>                                                                      
-                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>                                                                      
-                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>                                                                      
+                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>
+                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>
+                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -1417,9 +1417,9 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>                                                                      
-                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
-                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
+                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -1429,7 +1429,7 @@ class EcommRegisterController extends Controller
                                         JURAJ MOJZIS<br>
                                         CEO of LifeProsper<br>
                                         Support- +420234688024<br>
-                                        WHATSAPP number- +420 721 530 732 
+                                        WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
@@ -2358,12 +2358,12 @@ class EcommRegisterController extends Controller
                                     If they decide to activate SMARTSHIP, our automatic monthly orders, they'll enjoy a 10% discount on their regular orders, allowing them to regularly use our products and maintain a stock of our products
                                     <br>
                                     <br>
-                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp: 
-                                    <br>                                                           
+                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp:
+                                    <br>
                                     <ul>
-                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>                                                                      
-                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>                                                                      
-                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>                                                                      
+                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>
+                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>
+                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -2371,9 +2371,9 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>                                                                      
-                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
-                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
+                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -2383,7 +2383,7 @@ class EcommRegisterController extends Controller
                                         JURAJ MOJZIS<br>
                                         CEO of LifeProsper<br>
                                         Support- +420234688024<br>
-                                        WHATSAPP number- +420 721 530 732 
+                                        WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
@@ -2537,12 +2537,12 @@ class EcommRegisterController extends Controller
                                     You will soon receive an email with a tracking number, allowing you to monitor the status and location of your shipment. Additionally, you can also find the tracking number in your purchase history. Simply go to your DASHBOARD and navigate to the 'Purchase - Order History' section.
                                     <br>
                                     <br>
-                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp: 
-                                    <br>                                                           
+                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp:
+                                    <br>
                                     <ul>
-                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>                                                                      
-                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>                                                                      
-                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>                                                                      
+                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>
+                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>
+                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -2550,9 +2550,9 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>                                                                      
-                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
-                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
+                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -2562,7 +2562,7 @@ class EcommRegisterController extends Controller
                                         JURAJ MOJZIS<br>
                                         CEO of LifeProsper<br>
                                         Support- +420234688024<br>
-                                        WHATSAPP number- +420 721 530 732 
+                                        WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
