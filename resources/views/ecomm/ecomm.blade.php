@@ -365,24 +365,6 @@
         $categorias = Illuminate\Support\Facades\DB::table('categorias')->get();
       @endphp
 
-      <div class="raw">
-        <div class="band-title">
-          <p class="title-ecomm">Mais vistos</p>
-
-        </div>
-        <div class="band-quantify">
-          <p class="count-ecomm">
-            @php
-              $prosucts_number = count($products);
-              $country = $countryIp['country'];
-            @endphp
-
-          </p>
-        </div>
-      </div>
-
-
-
       <div class="raw" style="margin-top: 20px;">
         <div class="autoplay" style="margin: 1rem auto;">
           @foreach ($allprod as $product)
