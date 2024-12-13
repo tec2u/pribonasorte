@@ -121,12 +121,13 @@ class EcommController extends Controller
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         $data = $response->json();
-        EcommRegister::where('id', $user->id)->update(['code_api' => $data['id']]);
-        if ($response->successful()) {
-            return $data['id'];
-        } else {
-            return $response->body(); // Retorna o corpo da resposta para análise
-        }
+        return $response->json();
+        // EcommRegister::where('id', $user->id)->update(['code_api' => $data['id']]);
+        // if ($response->successful()) {
+        //     return $data['id'];
+        // } else {
+        //     return $response->body(); // Retorna o corpo da resposta para análise
+        // }
     }
 
     public function checkClientExistsAPI($request)
@@ -253,7 +254,7 @@ class EcommController extends Controller
 
     public function payment($request, $order)
     {
-        $customerID = $this->checkClientExistsAPI($request);
+    return $this->checkClientExistsAPI($request);
 
         $this->updateOrCreateClientAddress($customerID, $request);
 
