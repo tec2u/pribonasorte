@@ -41,10 +41,10 @@ class EcommController extends Controller
         $count_order = count($order_cart);
 
         $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-        ->where(function ($query) {
-            $query->where('availability', 'external')
-                ->orWhere('availability', 'both');
-        })->get();
+            ->where(function ($query) {
+                $query->where('availability', 'external')
+                    ->orWhere('availability', 'both');
+            })->get();
 
         foreach ($products as $product) {
             $totalAmount = null;
@@ -69,14 +69,12 @@ class EcommController extends Controller
                     } else {
                         $totalAmount = $temStock;
                     }
-
                 }
             } else {
 
                 $totalAmount = DB::table('stock')
                     ->where('product_id', $product->id)
                     ->sum('amount');
-
             }
 
             $product->stock = $totalAmount;
@@ -91,61 +89,14 @@ class EcommController extends Controller
     {
         $categoria = Categoria::where('id', $cat)->first();
 
-        if (!isset($categoria)) {
-            abort(404);
-        }
 
-        $ip_order = $_SERVER['REMOTE_ADDR'];
-        $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();
-        $count_order = count($order_cart);
-
-        $ip_order = '194.156.125.61';
-        $url = "http://ip-api.com/json/{$ip_order}?fields=country";
-
-        $response = file_get_contents($url);
-        $countryIpOrder = json_decode($response, true);
-        $countryIpOrder = $countryIpOrder['country'] ?? "Czech Republic";
-        $countryIp = ["country" => $countryIpOrder];
-
-        if (session()->has('buyer')) {
-            $user = session()->get('buyer');
-            $countryIp = ["country" => $user->country];
-
-            $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-            $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-            if (count($productsByCountry) > 0) {
-
-                $products = Product::orderBy('sequence', 'asc')
-                    ->where('activated', 1)
-                    ->whereIn('id', $productsByCountry)
-                    ->where('id_categoria', 'LIKE', "%$categoria->id%")
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->get();
-
-            } else {
-                $products = Product::orderBy('sequence', 'asc')
-                    ->where('activated', 1)
-                    ->where('id_categoria', 'LIKE', "%$categoria->id%")
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->get();
-            }
-        } else {
-            $products = Product::orderBy('sequence', 'asc')
-                ->where('activated', 1)
-                ->where('id_categoria', 'LIKE', "%$categoria->id%")
-                ->where(function ($query) {
-                    $query->where('availability', 'external')
-                        ->orWhere('availability', 'both');
-                })
-                ->get();
-        }
+        $products = Product::orderBy('sequence', 'asc')
+            ->where('activated', 1)
+            ->where('id_categoria', 'LIKE', "%$categoria->id%")
+            ->where(function ($query) {
+                $query->where('availability', 'external')
+                    ->orWhere('availability', 'both');
+            })->get();
 
 
         foreach ($products as $product) {
@@ -171,14 +122,12 @@ class EcommController extends Controller
                     } else {
                         $totalAmount = $temStock;
                     }
-
                 }
             } else {
 
                 $totalAmount = DB::table('stock')
                     ->where('product_id', $product->id)
                     ->sum('amount');
-
             }
 
             $product->stock = $totalAmount;
@@ -271,28 +220,24 @@ class EcommController extends Controller
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg2;
-
         } else if ($totalWeight > 2 && $totalWeight <= 5) {
             $priceShippingHome = $price_shipping->kg5;
             $typeWeight = 'kg5';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg5;
-
         } else if ($totalWeight > 5 && $totalWeight <= 10) {
             $priceShippingHome = $price_shipping->kg10;
             $typeWeight = 'kg10';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg10;
-
         } else if ($totalWeight > 10 && $totalWeight <= 20) {
             $priceShippingHome = $price_shipping->kg20;
             $typeWeight = 'kg20';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg20;
-
         } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
             $priceShippingHome = $price_shipping->kg31_5;
             $typeWeight = 'kg31_5';
@@ -335,7 +280,6 @@ class EcommController extends Controller
                             ->orWhere('availability', 'both');
                     })
                     ->get();
-
             } else {
                 $products = Product::orderBy('sequence', 'asc')
                     ->where('activated', 1)
@@ -384,7 +328,6 @@ class EcommController extends Controller
 
                 $product = Product::where('id', '=', $id)->first();
             }
-
         } else {
             $product = Product::find($id);
         }
@@ -412,14 +355,12 @@ class EcommController extends Controller
                 } else {
                     $totalAmount = $temStock;
                 }
-
             }
         } else {
 
             $totalAmount = DB::table('stock')
                 ->where('product_id', $product->id)
                 ->sum('amount');
-
         }
 
 
@@ -452,42 +393,14 @@ class EcommController extends Controller
 
     public function productsRandom()
     {
-        if (session()->has('buyer')) {
-            $user = session()->get('buyer');
-            $countryIp = ["country" => $user->country];
 
-            $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-            $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-            if (count($productsByCountry) > 0) {
-
-                $allprod = Product::where('activated', 1)
-                    ->whereIn('id', $productsByCountry)
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->inRandomOrder()
-                    ->get();
-
-            } else {
-                $allprod = Product::where('activated', 1)
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->inRandomOrder()
-                    ->get();
-            }
-        } else {
-            $allprod = Product::where('activated', 1)
-                ->where(function ($query) {
-                    $query->where('availability', 'external')
-                        ->orWhere('availability', 'both');
-                })
-                ->inRandomOrder()
-                ->get();
-        }
+        $allprod = Product::where('activated', 1)
+            ->where(function ($query) {
+                $query->where('availability', 'external')
+                    ->orWhere('availability', 'both');
+            })
+            ->inRandomOrder()
+            ->get();
 
         return $allprod;
     }
@@ -525,7 +438,6 @@ class EcommController extends Controller
             $order_new->total = $total_product_price;
 
             $order_new->save();
-
         } else {
             OrderEcomm::find($replice->id)->update([
                 'amount' => $replice->amount + $quantify_products,
@@ -604,7 +516,6 @@ class EcommController extends Controller
             $order_new->total = $total_product_price;
 
             $order_new->save();
-
         } else {
             OrderEcomm::find($replice->id)->update([
                 'amount' => $replice->amount + $quantify_products,
@@ -645,7 +556,6 @@ class EcommController extends Controller
                     $stock = $temStock;
                 }
             }
-
         } else {
 
             $stock = DB::table('stock')
@@ -769,8 +679,6 @@ class EcommController extends Controller
             } else {
                 $order->priceTax = 0;
             }
-
-
         }
 
 
@@ -792,28 +700,24 @@ class EcommController extends Controller
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg2;
-
         } else if ($totalWeight > 2 && $totalWeight <= 5) {
             $priceShippingHome = $price_shipping->kg5;
             $typeWeight = 'kg5';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg5;
-
         } else if ($totalWeight > 5 && $totalWeight <= 10) {
             $priceShippingHome = $price_shipping->kg10;
             $typeWeight = 'kg10';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg10;
-
         } else if ($totalWeight > 10 && $totalWeight <= 20) {
             $priceShippingHome = $price_shipping->kg20;
             $typeWeight = 'kg20';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg20;
-
         } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
             $priceShippingHome = $price_shipping->kg31_5;
             $typeWeight = 'kg31_5';
@@ -916,7 +820,6 @@ class EcommController extends Controller
         } else {
             return redirect()->route('ecomm');
         }
-
     }
 
     public function FinalizeShopSmart()
@@ -988,8 +891,6 @@ class EcommController extends Controller
             } else {
                 $order->priceTax = 0;
             }
-
-
         }
 
 
@@ -1012,28 +913,24 @@ class EcommController extends Controller
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg2;
-
         } else if ($totalWeight > 2 && $totalWeight <= 5) {
             $priceShippingHome = $price_shipping->kg5;
             $typeWeight = 'kg5';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg5;
-
         } else if ($totalWeight > 5 && $totalWeight <= 10) {
             $priceShippingHome = $price_shipping->kg10;
             $typeWeight = 'kg10';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg10;
-
         } else if ($totalWeight > 10 && $totalWeight <= 20) {
             $priceShippingHome = $price_shipping->kg20;
             $typeWeight = 'kg20';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg20;
-
         } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
             $priceShippingHome = $price_shipping->kg31_5;
             $typeWeight = 'kg31_5';
@@ -1127,7 +1024,6 @@ class EcommController extends Controller
         } else {
             return redirect()->route('ecomm');
         }
-
     }
 
     public function deleteCart($id)
@@ -1315,7 +1211,6 @@ class EcommController extends Controller
         } else {
             return view('ecomm.ecomm_register', compact('count_order', 'allCountry'));
         }
-
     }
 
     public function pageReplicePass()
@@ -1353,7 +1248,6 @@ class EcommController extends Controller
         $data = $response->getBody();
 
         return $data;
-
     }
 
     public function invoicePDF($id)
@@ -1379,13 +1273,11 @@ class EcommController extends Controller
             $client_corporate = $client->id_corporate ?? null;
             $client_address = $client->address;
             $client_postcode = $client->zip . ' ' . ($client->city ?? '');
-
         } else {
             $client = User::where('id', $ecomm_order[0]->id_user)->first();
             $cell = $client->cell ?? '';
             $client_address = $client->address1;
             $client_postcode = $client->postcode . ' ' . ($client->city ?? '');
-
         }
 
         $client_name = $client->name . ' ' . ($client->last_name ?? '');
@@ -1439,11 +1331,9 @@ class EcommController extends Controller
                 } else {
                     $data['method_shipping'] = 'pickup';
                 }
-
             } else {
                 $data['method_shipping'] = 'Delivery in Home';
             }
-
         } else if ($ecomm_order[0]->method_shipping == 'home2') {
             $address2 = AddressSecondary::where('id_user', $ecomm_order[0]->id_user)->where('backoffice', $ecomm_order[0]->client_backoffice)->first();
             $data['address'] = $address2->address;
@@ -1525,7 +1415,6 @@ class EcommController extends Controller
         $response->header('Content-Disposition', 'attachment; filename=seu-arquivo.xml');
 
         return $response;
-
     }
 
     public function trazerPorcentProduto($id_p, $pais, $order)
@@ -1602,11 +1491,9 @@ class EcommController extends Controller
                 } else {
                     $data['method_shipping'] = 'pickup';
                 }
-
             } else {
                 $data['method_shipping'] = 'Delivery in Home';
             }
-
         } else if ($ecomm_order[0]->method_shipping == 'home2') {
             $address2 = AddressSecondary::where('id_user', $ecomm_order[0]->id_user)->where('backoffice', $ecomm_order[0]->client_backoffice)->first();
             $data['address'] = $address2->address;
@@ -1668,28 +1555,24 @@ class EcommController extends Controller
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg2;
-
         } else if ($totalWeight > 2 && $totalWeight <= 5) {
             $priceShippingHome = $price_shipping->kg5;
             $typeWeight = 'kg5';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg5;
-
         } else if ($totalWeight > 5 && $totalWeight <= 10) {
             $priceShippingHome = $price_shipping->kg10;
             $typeWeight = 'kg10';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg10;
-
         } else if ($totalWeight > 10 && $totalWeight <= 20) {
             $priceShippingHome = $price_shipping->kg20;
             $typeWeight = 'kg20';
 
             if (isset($shippingPickup))
                 $priceShippingPickup = $shippingPickup->kg20;
-
         } else if ($totalWeight > 20 && $totalWeight <= 31.5) {
             $priceShippingHome = $price_shipping->kg31_5;
             $typeWeight = 'kg31_5';
@@ -1759,11 +1642,9 @@ class EcommController extends Controller
                 } else {
                     $data['method_shipping'] = 'pickup';
                 }
-
             } else {
                 $data['method_shipping'] = 'Delivery in Home';
             }
-
         } else if ($ecomm_order[0]->method_shipping == 'home2') {
             $address2 = AddressSecondary::where('id_user', $ecomm_order[0]->id_user)->where('backoffice', $ecomm_order[0]->client_backoffice)->first();
             $data['address'] = $address2->address;
@@ -1847,7 +1728,6 @@ class EcommController extends Controller
         }
 
         return view('ecomm.tracking', compact('orderNumber'));
-
     }
 
 
@@ -1964,11 +1844,9 @@ class EcommController extends Controller
             $log->route = "cancel.smartshipping";
             $log->status = "success";
             $log->save();
-
         } catch (\Throwable $th) {
 
             return redirect()->back();
-
         }
         return redirect()->back();
     }
@@ -2017,7 +1895,6 @@ class EcommController extends Controller
             $log->route = "cancel.smartshipping";
             $log->status = "success";
             $log->save();
-
         } catch (\Throwable $th) {
             return redirect()->back();
             // dd($th);
@@ -2135,4 +2012,3 @@ class EcommController extends Controller
         }
     }
 }
-
