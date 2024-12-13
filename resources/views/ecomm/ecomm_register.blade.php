@@ -835,24 +835,6 @@
                           </div>
                         </div> --}}
                         {{-- LINE --}}
-                        <div class="line-info-form">
-                          {{-- INFO --}}
-                          <div class="column-form1">
-                            <p class="title-inputs">País *</p>
-                          </div>
-                          {{-- IMPUT --}}
-                          <div class="column-form2">
-                            <select class="new-inputs" name="country2" required>
-                              @foreach ($allCountry as $item)
-                                <option value="{{ $item->country }}">{{ $item->country }}</option>
-                              @endforeach
-                            </select>
-                          </div>
-                          {{-- ALERT --}}
-                          <div class="column-form3">
-
-                          </div>
-                        </div>
                       </div>
                     </div>
 
