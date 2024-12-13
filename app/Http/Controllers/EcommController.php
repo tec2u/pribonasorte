@@ -147,7 +147,7 @@ class EcommController extends Controller
 
     public function createNewPaymentOrderAPI($customerID, $request, $cartOrder)
     {
-        $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
+        $url = 'https://api.pagar.me/core/v5/paymentlinks';
 
         $items = [];
         foreach ($cartOrder as $item) {
