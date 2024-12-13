@@ -40,48 +40,11 @@ class EcommController extends Controller
         $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();
         $count_order = count($order_cart);
 
-        $ip_order = '194.156.125.61';
-        $url = "http://ip-api.com/json/{$ip_order}?fields=country";
-
-        $response = file_get_contents($url);
-        $countryIpOrder = json_decode($response, true);
-        $countryIpOrder = $countryIpOrder['country'] ?? "Czech Republic";
-        $countryIp = ["country" => $countryIpOrder];
-
-        if (session()->has('buyer')) {
-            $user = session()->get('buyer');
-            $countryIp = ["country" => $user->country];
-
-            $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-            $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-            if (count($productsByCountry) > 0) {
-
-                $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-                    ->whereIn('id', $productsByCountry)
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->get();
-
-            } else {
-                $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-                    ->where(function ($query) {
-                        $query->where('availability', 'external')
-                            ->orWhere('availability', 'both');
-                    })
-                    ->get();
-            }
-        } else {
-            $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
-                ->where(function ($query) {
-                    $query->where('availability', 'external')
-                        ->orWhere('availability', 'both');
-                })
-                ->get();
-        }
-
+        $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
+        ->where(function ($query) {
+            $query->where('availability', 'external')
+                ->orWhere('availability', 'both');
+        })->get();
 
         foreach ($products as $product) {
             $totalAmount = null;
@@ -121,7 +84,7 @@ class EcommController extends Controller
 
         $allprod = $this->productsRandom();
 
-        return view('ecomm.ecomm', compact('products', 'count_order', 'countryIp', 'allprod'));
+        return view('ecomm.ecomm', compact('products', 'count_order', 'allprod'));
     }
 
     public function categoria($cat)
