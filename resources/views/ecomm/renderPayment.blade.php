@@ -361,7 +361,7 @@
 <main id="background-primary" style="margin-top: 30px;">
 
     <section class="container-ecomm">
-        <div class="container-fluid">
+        <div class="h-100 container-fluid">
             <div class="row h-100">
                 <div class="col-12">
                     <h1>Pagamento</h1>
