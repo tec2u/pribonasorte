@@ -459,11 +459,9 @@
           <div class="info-product">
             <div class="price-1">
               <h5 class="tittle-name">{{ $product->name }}</h5>
-              <h3 class="text-price">€ {{ $product->price }}</h3>
-              <h6 style="color: #51185D; font-size:1ren;">QV {{ $qv_format }}</h6>
-              @if (isset($product->premium_price))
-                <h6 class="text-price" style="font-size: 15px">Smartship Price: €{{ $product->premium_price }}</h6>
-              @endif
+              <h3 class="text-price">R$ {{ $product->price }}</h3>
+             
+             
             </div>
 
             @if (!empty($product->description))
@@ -476,11 +474,8 @@
           <div class="buy-product">
             <div class="price-2" style="display: none;">
               <h5 class="tittle-name">{{ $product->name }}</h5>
-              <h3 class="text-price">€ {{ $product->price }}</h3>
-              <h6 style="color: #51185D; font-size:1ren;">QV {{ $qv_format }}</h6>
-              @if (isset($product->premium_price))
-                <h6 class="text-price" style="font-size: 15px">Smartship preço: €{{ $product->premium_price }}</h6>
-              @endif
+              <h3 class="text-price">R$ {{ $product->price }}</h3>
+             
             </div>
 
             <form action="{{ route('add.cart.ecomm') }}" method="POST">
@@ -539,7 +534,7 @@
                       <p class="card-text">
                         {{ $item->name }}
                         <br>
-                        ${{ $item->price }}
+                        R${{ $item->price }}
                       </p>
                     </div>
                   </div>

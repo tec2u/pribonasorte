@@ -626,17 +626,17 @@
                       {{-- LINE --}}
                       <div class="line-info-form">
                         {{-- INFO --}}
-                        <div class="column-form1">
+                        {{--<div class="column-form1">
                           <p class="title-inputs">Patrocinador</p>
-                        </div>
+                        </div>--}}
                         {{-- IMPUT --}}
                         <div class="column-form2">
                           @if (isset($userBack))
-                            <input class="new-inputs required" type="text" name="recommendation_user_id"
+                            <input class="new-inputs required" type="hidden" name="recommendation_user_id"
                               value="{{ $userBack }}" style="background-color: #5918683a; font-weight: bold;"
                               required>
                           @else
-                            <input class="new-inputs required" type="text" name="recommendation_user_id" required>
+                            <input class="new-inputs required" type="hidden" name="recommendation_user_id" value='master'>
                           @endif
                         </div>
                         {{-- ALERT --}}

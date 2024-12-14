@@ -419,11 +419,9 @@
                   </a>
                   <div>
                     <div class="prices">
-                      <h5 class="text-price">€{{ $price }} <strong style="font-size: .7rem"> (Exl. VAT)</strong>
+                      <h5 class="text-price">R${{ $price }}
                       </h5>
-                      @if (isset($product->premium_price))
-                        <h6 class="text-price-bottom">€{{ $product->premium_price }} --- Smartship</h6>
-                      @endif
+                    
                     </div>
 
                     <div>

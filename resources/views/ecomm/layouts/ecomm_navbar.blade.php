@@ -14,11 +14,11 @@
       <li class="nav-item">
         <a class="nav-link" style="font-weight: bold; color: #d26075" href="{{ route('ecomm') }}">Comprar</a>
       </li>
-      <li class="nav-item">
+     {{-- <li class="nav-item">
         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#migratemodal">
           Migrar para o backoffice
         </button>
-      </li>
+      </li>--}}
     </ul>
   </div>
 </nav>

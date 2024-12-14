@@ -151,9 +151,9 @@
             </li>
           </div>
 
-          <div class="ms-2">
+        {{--  <div class="ms-2">
             <a href="{{ route('login') }}" target="_blank"><button class="btn-home">Backoffice</button></a>
-          </div>
+          </div>--}}
           <div class="mx-2 d-flex" style="gap: .5rem; align-items: center">
             <a href="{{ route('index.cart') }}"><i class="fa-sharp fa-solid fa-bag-shopping"
                 style="color: #D26075; font-size: 20px;"></i></a>
@@ -216,7 +216,7 @@
                 <a href="{{ route('ecomm') }}" id="home-menu">Loja</a>
                 <a href="{{ route('about') }}" id="time-menu">Sobre</a>
                 <a href="{{ route('contact') }}" id="contact-menu">Contato</a>
-                <a class="dropdown-item" href="{{ route('login') }}">Backoffice</a>
+               {{-- <a class="dropdown-item" href="{{ route('login') }}">Backoffice</a>--}}
                 <a class="dropdown-item" style="color:#212121" href="{{ route('index.cart') }}">Carrinho</a>
                 @if (isset(session()->get('buyer')->name))
                   <li class="nav-item dropdown" style="display: flex; align-items:center">
@@ -236,10 +236,10 @@
                           href="{{ route('page.panel.ecomm') }}">Menu</a>
                       </li>
 
-                      <li>
+                     {{-- <li>
                         <a class="dropdown-item" style="color:#212121"
                           href="{{ route('orders.smartshipReport.ecomm') }}">Smartship</a>
-                      </li>
+                      </li>--}}
 
                       <li>
                         <a class="dropdown-item" style="color:#212121"
