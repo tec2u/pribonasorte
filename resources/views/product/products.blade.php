@@ -165,7 +165,7 @@ $categorias = \App\Models\Categoria::get();
                                     <input name="quant_product" class="quant_cart" value="1" max="{{ $product->stock }}"
                                         min="0" type="number">
                                     <button type="submit" style="padding: 6px 1rem !important"
-                                        class="btn btn-primary m-4 rounded-pill">Adicionar ao carrinho</button>
+                                        class="btn btn-primary m-4 rounded-pill" {{ {{ $product->stock <= 0 ? 'disabled': ''}} }}>Adicionar ao carrinho</button>
                                 </form>
 
                             </div>
