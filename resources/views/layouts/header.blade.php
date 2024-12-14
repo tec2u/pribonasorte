@@ -363,11 +363,6 @@
             <!-- End Components Nav -->
             {{-- @endif --}}
 
-            <li>
-                <a href="{{ route('packages.index_products') }}">
-                    <i class="bi bi-circle"></i><span>@lang('header.smartship_products')</span>
-                </a>
-            </li>
             {{-- @endif --}}
             @endif
             {{-- <li>
@@ -384,22 +379,6 @@
             @endif
             </ul>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('reports.smartshipping_report') }}">
-                    <i class="bi bi-bar-chart"></i>
-                    <span>@lang('header.mt_active_smartship') </span>
-                </a>
-            </li>
-
-            @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('reports.newsmartshipping') }}">
-                    <i class="bi bi-bar-chart"></i>
-                    <span>@lang('header.new_smartship')</span>
-                </a>
-            </li>
-            @endif
 
             <!-- End Components Nav -->
 
@@ -564,16 +543,8 @@
                         <i class="bi bi-circle"></i><span>@lang('header.news_customer')</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('reports.smartshippeople') }}">
-                        <i class="bi bi-circle"></i><span>@lang('header.smartship_report')</span>
-                    </a>
-                </li>
-                {{-- <li>
-                        <a href="/reports/smartshipping">
-                        <i class="bi bi-circle"></i><span>SMARTSHIPPING</span>
-                        </a>
-                    </li> --}}
+
+
                 <li>
                     <a href="{{ route('reports.teamorders') }}">
                         <i class="bi bi-circle"></i><span>@lang('header.team_orders')</span>

@@ -36,10 +36,6 @@ class ProductController extends Controller
         $adesao = !$user->getAdessao($user->id); //verifica se ja tem adesão para liberar os outros produtos
         //$adesao = true;
 
-        $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-        $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-
         $products = Product::orderBy('sequence', 'asc')->where('activated', 1)
             ->where(function ($query) {
                 $query->where('availability', 'internal')
@@ -86,15 +82,6 @@ class ProductController extends Controller
         $countPackages = count($openProduct);
 
         if ($user->contact_id == NULL) {
-            // $complete_registration = "Please complete your registration to purchase:<br>";
-            // $array_att = array('last_name' => 'Last Name', 'address1' => 'Address 1', 'address2' => 'Address 2', 'postcode' => 'Postcode', 'state' => 'State', 'wallet' => 'Wallet');
-            // foreach ($user->getAttributes() as $key => $value) {
-            //     if ($value == NULL && array_search($key, array('last_name', 'address1', 'address2', 'postcode', 'state', 'wallet'))) {
-            //         $complete_registration .= "&nbsp;&nbsp;&bull;" . $array_att[$key] . "<br>";
-            //     }
-            // }
-            // $complete_registration .= "<span style='color:#000'><a href='/users/users'>Click here to go to Your Info Page</a></span><br>";
-            // flash($complete_registration)->error();
             return view('product.products', compact('products', 'adesao', 'user', 'countPackages'));
         } else {
             return view('product.products', compact('products', 'adesao', 'user', 'countPackages'));
