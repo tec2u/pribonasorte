@@ -144,12 +144,8 @@
                     <th scope="col">Status</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Preço total</th>
-                    <th scope="col">Smartshipping</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    @if (isset($reportSmart) && $reportSmart)
-                      <th scope="col"></th>
-                    @endif
                   </tr>
                 </thead>
                 <tbody style="overflow-x: scroll">
@@ -160,13 +156,6 @@
                       <td scope="col">{{ $item->status_order }}</td>
                       <td scope="col">{{ $item->payment }}</td>
                       <td scope="col">€{{ $item->total }}</td>
-                      <td scope="col">
-                        @if ($item->smartshipping == 1)
-                          <p class="" style="color: #d26075">Smartshipping</p>
-                        @else
-                          <p class="">Não é Smartshipping</p>
-                        @endif
-                      </td>
                       @if ($item->invoiceFak)
                         <td scope="col"><a href="{{ route('invoicePDF', $item->number_order) }}"><button
                               class="button-detal">Recibo</button></a></td>
@@ -176,15 +165,6 @@
                       @endif
                       <td scope="col"><a href="{{ route('orders_detal.panel.ecomm', ['id' => $item->id]) }}"><button
                             class="button-detal">Detalhes</button></a></td>
-                      @if (isset($reportSmart) && $reportSmart)
-                        @if (strtolower($item->payment) == 'paid')
-                          <td scope="col"><button data-bs-toggle="modal" data-bs-target="#exampleModalaaaa"
-                              data-order="{{ $item->number_order }}" class="btn btn-danger">Cancelar
-                            </button></td>
-                        @else
-                          <td scope="col"><button disabled class="btn btn-danger">Cancelar</button></td>
-                        @endif
-                      @endif
                     </tr>
                   @endforeach
                 </tbody>
@@ -192,37 +172,6 @@
               {{ $order->links() }}
             @endif
 
-            <div class="modal fade" id="exampleModalaaaa" tabindex="-1" aria-labelledby="exampleModalaaaaLabel"
-              aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalaaaaLabel">Cancelar Smartshipping -
-                    </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="{{ route('cancel.smartshipping') }}" method="POST">
-                      @csrf
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Pedido</span>
-                        <input name="order" type="text" class="form-control" aria-describedby="basic-addon1"
-                          id="inputmodalorder" value="" readonly>
-                      </div>
-
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Motivo</span>
-                        <textarea name="motivo" id="" cols="60" rows="10" required style="padding:1rem"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Confirmar</button>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
     </section>
@@ -233,17 +182,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/script.js"></script>
 
-  <script>
-    $('#exampleModalaaaa').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget); // Botão que acionou o modal
-      var order = button.data('order'); // Extrai informação do data-* atributo
-      // Atualiza o conteúdo do modal.
-      // console.log(order);
-      var modal = $(this);
-      modal.find('#exampleModalaaaaLabel').text('Cancel smartshipping - ' + order);
-      modal.find('#inputmodalorder').val(order);
-    });
-  </script>
   <script>
     $(document).ready(function() {
       $("#btn-actv1").click(function(event) {

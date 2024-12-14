@@ -178,11 +178,6 @@
 
                   <li>
                     <a class="dropdown-item" style="color:#212121"
-                      href="{{ route('orders.smartshipReport.ecomm') }}">Smartship</a>
-                  </li>
-
-                  <li>
-                    <a class="dropdown-item" style="color:#212121"
                       href="{{ route('orders.settings.ecomm') }}">Configurações</a>
                   </li>
 
