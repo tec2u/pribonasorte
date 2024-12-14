@@ -92,16 +92,10 @@
               style="margin-bottom: 20px !important; margin-top: 40px !important;">
               <span style="font-weight: 400; color: #1a1a1a;">POR QUE </span><span>PRI BONASORTE?</span>
             </h3>
-            <p class="emphasis-text-2 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate
-              dolores aperiam magni assumenda maxime quod corrupti dolorum nisi dolor nostrum. Optio, amet assumenda natus
-              quis soluta qui pariatur repellat reprehenderit?mend nutritional supplement solutions with our proprietary
-              epigenetic
-              nutraceuticals/dietary supplements.</p>
-            <p class="emphasis-text-2 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate
-              dolores aperiam magni assumenda maxime quod corrupti dolorum nisi dolor nostrum. Optio, amet assumenda natus
-              quis soluta qui pariatur repellat reprehenderit?mend nutritional supplement solutions with our proprietary
-              epigenetic
-              nutraceuticals/dietary supplements.</p>
+            <p class="emphasis-text-2 text-center">Escolher a Pri Bonasorte é optar por exclusividade, qualidade e um atendimento feito com dedicação. Nosso compromisso é oferecer produtos únicos, sejam eles matrizes para projetos criativos, brindes personalizados ou itens prontos que encantam. Cada detalhe é pensado para atender aos mais altos padrões e superar expectativas.
+
+</p>
+            <p class="emphasis-text-2 text-center">Além disso, valorizamos a relação com nossos clientes, proporcionando uma experiência de compra fácil e prazerosa, sempre com suporte e atenção às suas necessidades. Escolher Pri Bonasorte é escolher excelência e estilo.</p>
           </div>
           {{-- <div class="mt-5 ms-4 d-flex align-items-center why-life-div-img"> --}}
           <div class="content-img-why" style="max-width: 100%">
@@ -123,7 +117,10 @@
         </div>
         <div class="d-flex w-100 justify-content-center founders-content">
           <div class="mt-5 d-flex me-4 justify-content-center align-items-center" style="width: 60%">
-            <p class="subtitle-section-size text-center">"------------- ----------- ----------- ------------ ----------"
+            <p class="subtitle-section-size text-center">
+                  </br>Eu sou Priscila, a fundadora da Pri Bonasorte, e é com muita alegria que compartilho a minha paixão por oferecer produtos de alta qualidade e bom gosto. No nosso site, você encontra desde matrizes e projetos exclusivos até produtos prontos e brindes personalizados, tudo pensado com carinho e atenção aos detalhes.
+                  </br>
+                  </br>O meu maior objetivo é proporcionar uma experiência única para nossos clientes, sempre priorizando excelência e estilo. É muito gratificante ver as pessoas valorizando o que criamos com tanto amor.
             </p>
           </div>
         </div>
@@ -143,13 +140,14 @@
         <div class="mt-5">
           <div class="d-flex justify-content-between videos">
             <div>
-              <img src="{{ asset('/images/video-empty.png') }}" class="midia-people-say" alt="">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zXEEOtQyol4?si=1wfJLTTIWaatDWIZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         
             </div>
             <div>
-              <img src="{{ asset('/images/video-empty.png') }}" class="midia-people-say" alt="">
-            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wQabRf_Ju30?si=4TyCqY6Ols4h0Doo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
             <div>
-              <img src="{{ asset('/images/video-empty.png') }}" class="midia-people-say" alt="">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/B_F2LYnXhts?si=g2c7cICerc4vjzqR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -157,12 +155,13 @@
       <div class="mt-5 section-1 container-carosel-images">
         <div class="d-flex justify-content-center content-carosel-images">
           <div>
-            <img src="{{ asset('/images/last-section-newsite/img-1.png') }}" class="img-item-carosel" alt="">
+          <img src="{{ asset('/images/last-section-newsite/img-1.png') }}" class="img-item-carosel ms-2"
+          alt="">
           </div>
           <div>
-            <img src="{{ asset('/images/last-section-newsite/img-2.png') }}" class="img-item-carosel ms-2"
-              alt="">
-          </div>
+          <img src="{{ asset('/images/last-section-newsite/img-2.png') }}" class="img-item-carosel ms-2"
+          alt="">
+         </div>
           <div>
             <img src="{{ asset('/images/last-section-newsite/img-3.png') }}" class="img-item-carosel ms-2"
               alt="">
