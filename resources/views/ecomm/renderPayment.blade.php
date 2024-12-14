@@ -361,13 +361,23 @@
   <main id="background-primary" style="margin-top: 30px;">
 
     <section class="container-ecomm">
-      <div class="raw" style="margin-top: 20px;">
-        <div class="container-products">
-          <div class="products">
-                prontoo
-          </div>
+    <div class="fade">
+            <div class="container-fluid">
+                <div class="row h-100">
+                    <div class="col-12">
+                        <h1>Pagamento</h1>
+                        <div class="card shadow my-3 h-100">
+                            <div class="card-header bbcolorp">
+                                <h3 class="card-title">Pagamento ordem N {{ $order->number_order }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <iframe src="{{ $order->payment_link }}" frameborder="0" class="h-100 w-100"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
 
     </section>
