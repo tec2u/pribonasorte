@@ -607,11 +607,11 @@
                   </td>
                   <td width="10%" id="value_VAT">
                     <p class="text-column" style="margin-top: 30px;">
-                      €{{ number_format($product_cart->total, 2, ',', '.') }} </p>
+                      R${{ number_format($product_cart->total, 2, ',', '.') }} </p>
                   </td>
                   <td width="10%" id="value_unit">
                     <p class="text-column" style="margin-top: 30px;">
-                      €{{ number_format($product_cart->priceTax * $product_cart->amount, 2, ',', '.') }}</p>
+                      R${{ number_format($product_cart->priceTax * $product_cart->amount, 2, ',', '.') }}</p>
                   </td>
                   <td width="15%" id="value_amount">
                     <div class="box-amount">
@@ -626,7 +626,7 @@
                   </td>
                   <td width="10%">
                     <p class="text-column" style="margin-top: 30px;">
-                      €{{ number_format($product_cart->priceTax * $product_cart->amount + $product_cart->total, 2, ',', '.') }}
+                      R${{ number_format($product_cart->priceTax * $product_cart->amount + $product_cart->total, 2, ',', '.') }}
                     </p>
                   </td>
                   <td width="5%">
@@ -668,14 +668,14 @@
           <div class="raw">
             <div class="total-column1">
               <p class="text-column1">Total VAT:</p>
-              <p class="text-column1">€{{ $total_VAT }}</p>
+              <p class="text-column1">R${{ $total_VAT }}</p>
             </div>
           </div>
 
           <div class="raw">
             <div class="total-column1">
               <p class="text-column1">Preço total:</p>
-              <p class="text-column1">€{{ $format_price }}</p>
+              <p class="text-column1">R${{ $format_price }}</p>
             </div>
           </div>
 

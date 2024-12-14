@@ -797,7 +797,7 @@
                       @lang('home.total_commission')
                       {{-- Total Commissions --}}
                     </span>
-                    <span class="info-box-number">{{ number_format($totalComission, 2, ',', '.') }} €</span>
+                    <span class="info-box-number">{{ number_format($totalComission, 2, ',', '.') }} R$</span>
                   </div>
                 </div>
               </a>
@@ -820,7 +820,7 @@
                         {{ $mesAnterior }}</span>
                     @endif
                   </div>
-                  <span class="info-box-number">{{ number_format($availableComission, 2, ',', '.') }} €</span>
+                  <span class="info-box-number">{{ number_format($availableComission, 2, ',', '.') }} R$</span>
                 </div>
 
               </div>

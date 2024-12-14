@@ -211,7 +211,7 @@
                             <th>{{ $team->country }}</th>
                             <!-- <th>{{ $team->state }}</th> -->
                             <th>{{ $team->city }}</th>
-                            <th>€{{ number_format($total_values, 2, ',', '.') }}</th>
+                            <th>R${{ number_format($total_values, 2, ',', '.') }}</th>
                             <th>{{ number_format($qv, 2, ',', '.') }}</th>
                             <th>{{ number_format($cv, 2, ',', '.') }}</th>
                             @if (isset($team->date))

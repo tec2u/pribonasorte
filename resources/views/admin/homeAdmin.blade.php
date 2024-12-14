@@ -133,7 +133,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($commissionSum, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($commissionSum, 2, ',', '.') }} R$</h3>
           <p>@lang('admin.dashboard.commission')</p>
         </div>
         <div class="icon">
@@ -146,7 +146,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($ecommOrders, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($ecommOrders, 2, ',', '.') }} R$</h3>
           <p>@lang('admin.dashboard.sales_comission')</p>
         </div>
         <div class="icon">
@@ -159,7 +159,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($ecommOrdersThisMonth, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($ecommOrdersThisMonth, 2, ',', '.') }} R$</h3>
           <p>@lang('admin.dashboard.sales_month')</p>
         </div>
         <div class="icon">

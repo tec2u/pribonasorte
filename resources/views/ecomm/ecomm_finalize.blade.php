@@ -648,7 +648,7 @@
               </div>
 
               <div class="camp-value-total">
-                <p class="text-value" id="p_shipping">€{{ $format_shipping }}</p>
+                <p class="text-value" id="p_shipping">R${{ $format_shipping }}</p>
                 <input class="text-value" name="total_shipping" value="{{ $format_shipping }}" id="total_shipping"
                   style="display: none" />
               </div>
@@ -660,7 +660,7 @@
               </div>
 
               <div class="camp-value-total">
-                <p class="text-value">€<span id="span_vat">{{ $total_VAT }}</span></p>
+                <p class="text-value">R$<span id="span_vat">{{ $total_VAT }}</span></p>
                 <input class="text-value" id="input_vat" name="total_vat" value="{{ $total_VAT }}"
                   style="display: none" />
               </div>
@@ -671,7 +671,7 @@
               </div>
 
               <div class="camp-value-total">
-                <p class="text-value" id="value_order">€{{ $format_price }}</p>
+                <p class="text-value" id="value_order">R${{ $format_price }}</p>
                 <input class="text-value" id="request_price" name="price" value="{{ $format_price }}"
                   style="display: none" />
               </div>
@@ -1137,7 +1137,7 @@
       if (valor == 'home1') {
         document.getElementById('radio_method_payment').value = 'home1';
         frete = {{ $priceShippingHome + $subtotal }}
-        document.getElementById('p_shipping').innerHTML = "€" + {{ $priceShippingHome }};
+        document.getElementById('p_shipping').innerHTML = "R$" + {{ $priceShippingHome }};
         document.getElementById('total_shipping').value = {{ $priceShippingHome }};
         document.getElementById('text_my_address_pickup').style.display = 'none';
         document.getElementById('input_vat').value = "<?php echo $total_VAT; ?>"
@@ -1147,13 +1147,13 @@
 
         document.getElementById('radio_method_payment').value = 'home2';
         document.getElementById('request_price').value = {{ $subtotal }};
-        document.getElementById('value_order').innerHTML = "€" + {{ $subtotal }};
+        document.getElementById('value_order').innerHTML = "R$" + {{ $subtotal }};
         document.getElementById('text_my_address_pickup').style.display = 'none';
-        document.getElementById('p_shipping').innerHTML = "€" + {{ 0 }};
+        document.getElementById('p_shipping').innerHTML = "R$" + {{ 0 }};
         return;
       } else if (valor == 'pickup') {
         document.getElementById('radio_method_payment').value = 'pickup';
-        document.getElementById('p_shipping').innerHTML = "€" + {{ 0 }};
+        document.getElementById('p_shipping').innerHTML = "R$" + {{ 0 }};
         document.getElementById('total_shipping').value = {{ 0 }};
         frete = {{ 0 + $subtotal }}
       }
@@ -1165,7 +1165,7 @@
       });
 
       document.getElementById('request_price').value = numeroFormatado;
-      document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
+      document.getElementById('value_order').innerHTML = "R$" + numeroFormatado;
     }
 
     function atualizaPrecoPickup(pais) {
@@ -1190,7 +1190,7 @@
 
 
           document.getElementById('span_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('p_shipping').innerHTML = "€" + parseFloat(newtax_add);
+          document.getElementById('p_shipping').innerHTML = "R$" + parseFloat(newtax_add);
 
         }
       });
@@ -1204,7 +1204,7 @@
       });
 
       document.getElementById('request_price').value = numeroFormatado;
-      document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
+      document.getElementById('value_order').innerHTML = "R$" + numeroFormatado;
     }
 
   </script>

@@ -47,7 +47,7 @@
                       @forelse($orderProducts as $orderpackage)
                         <tr>
                           <td>{{ $orderpackage->number_order }}</td>
-                          <td> <span class="rounded-pill bg-success px-4 py-1">€ {{ $orderpackage->total_price }}</span>
+                          <td> <span class="rounded-pill bg-success px-4 py-1">R$ {{ $orderpackage->total_price }}</span>
                           </td>
                           <td>{{ date('d/m/Y', strtotime($orderpackage->created_at)) }}</td>
                           <td>
@@ -150,7 +150,7 @@
                           <th>{{ $orderpackage->amount }}</th> --}}
                           <td>{{ $orderpackage->id }}</td>
                           <td>{{ $orderpackage->reference }}</td>
-                          <td> <span class="rounded-pill bg-success px-4 py-1">€
+                          <td> <span class="rounded-pill bg-success px-4 py-1">R$
                               {{ number_format($orderpackage->price, 2, '.', '') }}</span>
                           </td>
                           {{-- <td>{{$orderpackage->package->daily_returns}}</td>

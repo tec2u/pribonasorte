@@ -116,20 +116,10 @@ $categorias = \App\Models\Categoria::get();
                                     </div>
                                 </div>
 
-                                @php
-                                $new_price = $product->backoffice_price;
-
-                                $qv = $product->qv;
-                                $qv_format = number_format($qv, 2, ',', '.');
-                                @endphp
-
                                 <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">
                                     <h5 class="tittle-name">{{ $product->name }}</h5>
                                 </a>
-                                <h6 class="text-price">€ {{ $new_price }} (exl.VAT)</h6>
-                                <h6 class="text-price" style="color: #51185D; font-size:12px;">QV {{ $qv_format }} | CV
-                                    {{ $product->cv }}
-                                </h6>
+                                <h6 class="text-price">R$ {{ $new_price }} (exl.VAT)</h6>
 
 
                                 <div class="container-description">

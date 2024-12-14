@@ -46,7 +46,7 @@
                         <tr>
                         <td>
                         <details class="details_bonus">
-                            <summary><strong>{{ $config->description }}:</strong> <span class="italic">total - </span> {{ isset($bonusTotal[$config->id]['total']) ? $bonusTotal[$config->id]['total'] : 0}} € | <span class="italic">amount -</span> {{ isset($bonusTotal[$config->id]) ? count($bonusTotal[$config->id]['bonus_list']) : 0}}</summary>
+                            <summary><strong>{{ $config->description }}:</strong> <span class="italic">total - </span> {{ isset($bonusTotal[$config->id]['total']) ? $bonusTotal[$config->id]['total'] : 0}} R$ | <span class="italic">amount -</span> {{ isset($bonusTotal[$config->id]) ? count($bonusTotal[$config->id]['bonus_list']) : 0}}</summary>
                             <table class="w-100">
                                 <thead>
                                     <tr>
@@ -77,7 +77,7 @@
                                                         {{ $users_11[$bonus->order_id][1] }}
                                                     @endif
                                                 </td>
-                                                <td>{{isset($bonus->price) ? $bonus->price.' €' : ''}}</td>
+                                                <td>{{isset($bonus->price) ? $bonus->price.' R$' : ''}}</td>
                                                 <td>{{isset($bonus->level_from) ? $bonus->level_from : ''}}</td>
                                                 <td>{{isset($bonus->created_at) ? $bonus->created_at : ''}}</td>
                                             </tr>

@@ -79,8 +79,8 @@
                     @forelse ($smarts as $recruits)
                       <tr>
                         <th>{{ $recruits['order'] }}</th>
-                        <th>€ {{ number_format($recruits['total'], 2, ',', '.') }}</th>
-                        <th>€ {{ number_format($recruits['qv'], 2, ',', '.') }}</th>
+                        <th>R$ {{ number_format($recruits['total'], 2, ',', '.') }}</th>
+                        <th>R$ {{ number_format($recruits['qv'], 2, ',', '.') }}</th>
                         <th><a href="{{ route('packages.ecommOrdersDetail', ['id' => $recruits['order']]) }}"><button
                               type="button" style="float: right;" class="btn btn-primary">Detalhe</button></a></th>
                         <th><a

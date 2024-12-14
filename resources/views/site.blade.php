@@ -213,7 +213,7 @@
               id="item_resume">
             </p>
 
-            <p class="price-product">€{{ $item->price }}</p>
+            <p class="price-product">R${{ $item->price }}</p>
           </div>
           <div style="margin-top: 20px;height: 90px; overflow: hidden;" class="description{{ $item->id }}">
           </div>
