@@ -198,7 +198,7 @@ Route::get('/ecomm/panel/qv/report', [EcommController::class, "PageQVReport"])->
 
 Route::get('/ecomm/panel/invoices/report', [EcommController::class, "PageInvoicesReport"])->name("orders.invoicesReport.ecomm");
 
-Route::get('/payment-render', [EcommController::class, "renderPayment"])->name("payment_render.ecomm");
+Route::get('/payment-render/{id}', [EcommController::class, "renderPayment"])->name("payment_render.ecomm");
 
 Route::get('/ecomm/user/logout', [EcommRegisterController::class, "logOutUser"])->name("logout.user.ecomm");
 
