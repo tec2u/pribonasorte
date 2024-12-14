@@ -331,25 +331,25 @@ li {
 .card-scan {
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("https://pribonasorte.nyc3.digitaloceanspaces.com/3fe3471812f771425f831713278491556.png");
+    background-image: url("/images/1.png");
 }
 
 .card-recommend {
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("https://pribonasorte.nyc3.digitaloceanspaces.com/45c46df595d60a26f4dd1713278500213.png");
+    background-image: url("/images/2.png");
 }
 
 .card-support {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../images/banner-support.jpg);
+    background-image: url("/images/1.png");
 }
 
 .card-expand {
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("https://pribonasorte.nyc3.digitaloceanspaces.com/390639b716d6e6cbf2b51713280956083.png");
+    background-image: url("/images/2.png");
 }
 
 .item-4 {
