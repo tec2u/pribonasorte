@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'infinity_clubcards' => 'Lifeprosper',
+    'infinity_clubcards' => 'Pribonasorte',
     'language' => strtoupper('Language'),
     'english' => strtoupper('English'),
     'spanish' => strtoupper('Spanish'),

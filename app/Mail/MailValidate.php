@@ -24,6 +24,6 @@ class MailValidate extends Mailable
     public function build()
     {
         ;
-        return $this->subject('Lifeprosper | Replice Password')->view('ecomm.layouts.ecomm_body_mail');
+        return $this->subject('Pribonasorte | Replice Password')->view('ecomm.layouts.ecomm_body_mail');
     }
 }

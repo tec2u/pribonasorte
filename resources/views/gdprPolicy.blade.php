@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | GDPR')
+@section('title', 'Pribonasorte | GDPR')
 @section('content')
 
   <style>
@@ -142,7 +142,7 @@
                   <br><br>
                   IRENA MOJZISOVA <br>
                   Address: Pod nouzovem 17 <br>
-                  e-mail: info@lifeprosper.eu <br>
+                  e-mail: info@Pribonasorte.eu <br>
                   phone number: +420739228110
                   <p></p>
                 </li>

@@ -20,7 +20,7 @@
                 style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
                 <tr>
                   <td align="center" style="padding:40px 0 30px 0;background:#480D54;">
-                    <img src="https://lifeprosper.eu/img/Logo_AuraWay.png" alt="Lifeprosper Logo" width="300"
+                    <img src="https://Pribonasorte.eu/img/Logo_AuraWay.png" alt="Pribonasorte Logo" width="300"
                       style="height:auto;display:block;" />
                   </td>
                 </tr>
@@ -67,7 +67,7 @@
                       <tr>
                         <td style="padding:0;width:50%;" align="left">
                           <p style="margin:0;font-size:16px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
-                            &reg; Lifeprosper<br /><a style="color:#ffffff;font-size:12px;">Email sent in
+                            &reg; Pribonasorte<br /><a style="color:#ffffff;font-size:12px;">Email sent in
                               {{ date('d/m/Y H:i:s') }}.</a>
                           </p>
                         </td>

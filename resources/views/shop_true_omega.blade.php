@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | True Omega')
+@section('title', 'Pribonasorte | True Omega')
 @section('content')
 
 <style>

@@ -749,7 +749,7 @@ class ProductController extends Controller
 
 
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         try {
             $resposta = $client->post($url, [
@@ -869,7 +869,7 @@ class ProductController extends Controller
 
     public function payCrypto(Request $request, $price, $method = "btc")
     {
-        $name = "Lifeprosper";
+        $name = "Pribonasorte";
 
         $paymentConfig = [
             "api_url" => "https://crypto.binfinitybank.com/packages/wallets/notify",
@@ -885,7 +885,7 @@ class ProductController extends Controller
 
         // $urlRedirect = $request->getScheme() . '://' . $request->getHost() . '/ecomm';
         // $url = $request->getScheme() . '://' . $request->getHost() . '/ecomm/finalize/notify';
-        $url = "https://lifeprosper.eu/ecomm/finalize/notify";
+        $url = "https://Pribonasorte.eu/ecomm/finalize/notify";
 
         $priceDol = PriceCoin::where('name', 'eur')->first();
         $priceInDol = $price * $priceDol->one_in_usd;

@@ -398,14 +398,18 @@ class EcommController extends Controller
         }
 
         $responseData = $this->payment($request, $order_cart);
-        // return response()->json($responseData);
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
-            return response()->json($payment);
-            return redirect()->route($payment['url']);
+            return redirect()->route("payment_render.ecomm", ["id" => $payment->number_order]);
         } else {
             return redirect()->back();
         }
+    }
+
+    public function renderPayment($id)
+    {
+        $order = OrderEcomm::find($id);
+        return view('ecomm.renderPayment', compact('order'));
     }
 
     public function categoria($cat)
@@ -1410,7 +1414,7 @@ class EcommController extends Controller
 
     public function getInvoiceInFakturoid($order)
     {
-        $f = new FakturoidClient('intermodels', 'juraj@lifeprosper.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@lifeprosper.eu>');
+        $f = new FakturoidClient('intermodels', 'juraj@Pribonasorte.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@Pribonasorte.eu>');
 
         $existisOrder = EcommOrders::where('number_order', $order)->first();
         if (!isset($existisOrder)) {

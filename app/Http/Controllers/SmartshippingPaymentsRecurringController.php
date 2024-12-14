@@ -587,7 +587,7 @@ class SmartshippingPaymentsRecurringController extends Controller
             ];
         }
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         $resposta = $client->post($url, [
             'form_params' => $data,
@@ -638,8 +638,8 @@ class SmartshippingPaymentsRecurringController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -648,23 +648,23 @@ class SmartshippingPaymentsRecurringController extends Controller
                     'name' => "$distributor->name",
                 ],
             ],
-            'subject' => "Subject- Your LIFEPROSPER Smartship will process in $diff days ($date)",
+            'subject' => "Subject- Your Pribonasorte Smartship will process in $diff days ($date)",
             'htmlContent' => "<html>
                               <head>
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
                                     Dear, $distributor->name
                                     <br>
                                     <br>
-                                    Your LIFEPROSPER SmartShip order will be processed in 5 days or on $date.
+                                    Your Pribonasorte SmartShip order will be processed in 5 days or on $date.
                                     <br>
                                     <br>
-                                    If you wish to make changes to your SmartShip order, please log in to your LIFEPROSPER back office, click on 'My SmartShip,' and follow the provided prompts.
+                                    If you wish to make changes to your SmartShip order, please log in to your Pribonasorte back office, click on 'My SmartShip,' and follow the provided prompts.
                                     <br>
                                     <br>
                                     Thank you!
@@ -674,13 +674,13 @@ class SmartshippingPaymentsRecurringController extends Controller
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732 
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>

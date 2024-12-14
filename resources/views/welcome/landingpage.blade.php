@@ -122,7 +122,7 @@
                 <p class="pheroland" style="margin-top: 5rem">To inspire and enable individuals to take charge of their
                   health and unlock their
                   full potential.</p>
-                <h3 class=" hheroland fw-bold">Lifeprosper</h3>
+                <h3 class=" hheroland fw-bold">Pribonasorte</h3>
               </div>
 
               <div class="my-5">

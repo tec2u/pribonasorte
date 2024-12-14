@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Report Lifeprosper</title>
+  <title>Report Pribonasorte</title>
 
   <style>
     * {

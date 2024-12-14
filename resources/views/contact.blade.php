@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | Contact')
+@section('title', 'Pribonasorte | Contact')
 @section('content')
 
   <style>
@@ -61,14 +61,14 @@
     style="background-image: url('/images/fundo_master2.png'); background-size: 100%; background-repeat: no-repeat;">
     <div class="container" style="padding: 50px 15%;">
       <div class="line-content" style="margin-top: 50px;">
-        <p class="subtitulo-content">Get in Touch with LifeProsper: Empower Your Well-being Today!
+        <p class="subtitulo-content">Get in Touch with Pribonasorte: Empower Your Well-being Today!
         </p>
       </div>
 
       <div class="line-content" style="margin-bottom: 50px;">
         <p class="text-content">Contact us to embark on your transformative health and wellness journey. Our dedicated
           team is here to answer your questions, provide expert guidance, and assist you in selecting the perfect products
-          for your needs. Experience the LifeProsper difference and take charge of your well-being today.
+          for your needs. Experience the Pribonasorte difference and take charge of your well-being today.
         </p>
       </div>
 
@@ -76,7 +76,7 @@
         <div class="block-contact-prime">
 
           <div class="line-content">
-            <p class="subtitulo-content">LifeProsper</p>
+            <p class="subtitulo-content">Pribonasorte</p>
           </div>
           <p class="text-contact">Intermodels s.r.o.</p>
           <p class="text-contact">Pod Nouzovem 971/17</p>
@@ -88,7 +88,7 @@
             <p class="subtitulo-content">Support:</p>
           </div>
           <p class="text-contact">Phone: +420234688024</p>
-          <p class="text-contact">E-mail: support@lifeprosper.eu</p>
+          <p class="text-contact">E-mail: support@Pribonasorte.eu</p>
 
           <p class="text-contact">Our opening hours are Monday – Friday</p>
           <p class="text-contact">9 a.m – 2 p.m CEST</p>
@@ -97,9 +97,9 @@
           <div class="line-content">
             <p class="subtitulo-content">Return address:</p>
           </div>
-          <p class="text-contact">LifeProsper</p>
+          <p class="text-contact">Pribonasorte</p>
           <p class="text-contact">Ležnická 170, 35731 Horní Slavkov</p>
-          <p class="text-contact">Email: return@lifeprosper.eu</p>
+          <p class="text-contact">Email: return@Pribonasorte.eu</p>
         </div> --}}
       </div>
 

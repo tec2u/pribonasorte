@@ -1,5 +1,5 @@
 @extends('layouts.header_newsite')
-@section('title', 'Lifeprosper | Payment')
+@section('title', 'Pribonasorte | Payment')
 @section('content')
 
   <style>
@@ -198,7 +198,7 @@
         <p class="text-content" style="font-weight: bold;">12. Contact</p>
         <p style="margin-top: 5px; font-size: 16px;">
           If you have any questions or concerns about our Payment Policy, please feel free to contact us at
-          support@lifeprosper.eu
+          support@Pribonasorte.eu
         </p>
       </div>
 

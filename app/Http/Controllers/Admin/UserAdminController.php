@@ -1109,7 +1109,7 @@ class UserAdminController extends Controller
             "idusuario" => "$id_user"
         ];
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         try {
             //code...

@@ -48,8 +48,8 @@ class EcommRegisterController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -63,14 +63,14 @@ class EcommRegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
                                     Hello, $nome
                                     <br>
                                     <br>
-                                    Welcome to LifeProsper!
+                                    Welcome to Pribonasorte!
                                     <br>
                                     <br>
                                     As a new customer, you've made a great choice by joining us. Our mission is to support your journey to optimal health and wellness with high-quality products.
@@ -86,25 +86,25 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                     Also, be sure to follow us on social media to stay connected:<br>
-                                    Instagram: <a href='https://www.instagram.com/lifeprosper.eu/'>https://www.instagram.com/lifeprosper.eu//</a> <br>
-                                    Facebook: <a href='https://www.facebook.com/lifeprosper.eu'>https://www.facebook.com/lifeprosper.eu</a><br>
-                                    TikTok: <a href='https://www.tiktok.com/@lifeprosper.eu'>https://www.tiktok.com/@lifeprosper.eu</a>
+                                    Instagram: <a href='https://www.instagram.com/Pribonasorte.eu/'>https://www.instagram.com/Pribonasorte.eu//</a> <br>
+                                    Facebook: <a href='https://www.facebook.com/Pribonasorte.eu'>https://www.facebook.com/Pribonasorte.eu</a><br>
+                                    TikTok: <a href='https://www.tiktok.com/@Pribonasorte.eu'>https://www.tiktok.com/@Pribonasorte.eu</a>
                                     <br>
                                     <br>
-                                    Your health and well-being are important to us. Thank you for choosing Lifeprosper
+                                    Your health and well-being are important to us. Thank you for choosing Pribonasorte
                                     <br>
                                     <br>
                                     <div style='display:flex;justify-content: space-between;width:100%;gap:2rem;'>
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>
@@ -696,7 +696,7 @@ class EcommRegisterController extends Controller
         }
 
         $n_order = $this->genNumberOrder();
-        $name = "Lifeprosper";
+        $name = "Pribonasorte";
         try {
             $total_shipping = number_format($request->total_shipping, 2, ",", ".");
         } catch (\Throwable $th) {
@@ -743,7 +743,7 @@ class EcommRegisterController extends Controller
 
             // $urlRedirect = $request->getScheme() . '://' . $request->getHost() . '/ecomm';
             // $url = $request->getScheme() . '://' . $request->getHost() . '/ecomm/finalize/notify';
-            $url = "https://lifeprosper.eu/ecomm/finalize/notify";
+            $url = "https://Pribonasorte.eu/ecomm/finalize/notify";
 
             $priceDol = PriceCoin::where('name', 'eur')->first();
             $priceInDol = $price * $priceDol->one_in_usd;
@@ -857,7 +857,7 @@ class EcommRegisterController extends Controller
         $message_status = strtolower($payment->status);
         if ($message_status === 'expired' || $message_status === 'cancelled') {
 
-            $name = "Lifeprosper";
+            $name = "Pribonasorte";
             // $price = floatval(str_replace(',', '.', $payment->total_price));
             $price = $payment->total_price;
 
@@ -872,7 +872,7 @@ class EcommRegisterController extends Controller
                 $curl = curl_init();
                 // $urlRedirect = $request->getScheme() . '://' . $request->getHost() . '/ecomm';
                 // $url = $request->getScheme() . '://' . $request->getHost() . '/ecomm/finalize/notify';
-                $url = "https://lifeprosper.eu/ecomm/finalize/notify";
+                $url = "https://Pribonasorte.eu/ecomm/finalize/notify";
 
                 $method = "BITCOIN";
 
@@ -993,7 +993,7 @@ class EcommRegisterController extends Controller
         }
 
         $dominio = $request->getHost();
-        if (strtolower($dominio) == 'lifeprosper.eu') {
+        if (strtolower($dominio) == 'Pribonasorte.eu') {
             $testComgate = 'false';
         } else {
             $testComgate = 'false';
@@ -1113,7 +1113,7 @@ class EcommRegisterController extends Controller
         $payment = PaymentOrderEcomm::where('id', $request->id_payment)->first();
 
         $dominio = $request->getHost();
-        if (strtolower($dominio) == 'lifeprosper.eu') {
+        if (strtolower($dominio) == 'Pribonasorte.eu') {
             $testComgate = 'false';
         } else {
             $testComgate = 'false';
@@ -1361,8 +1361,8 @@ class EcommRegisterController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -1376,17 +1376,17 @@ class EcommRegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
                                     Hello, $user->name
                                     <br>
                                     <br>
-                                    Welcome to LifeProsper!
+                                    Welcome to Pribonasorte!
                                     <br>
                                     <br>
-                                    We're thrilled to have you on board as a LifeProsper Distributor! Congratulations on making the decision to join our community. You're now an active distributor, and you can start registering new distributors and customers.
+                                    We're thrilled to have you on board as a Pribonasorte Distributor! Congratulations on making the decision to join our community. You're now an active distributor, and you can start registering new distributors and customers.
                                     <br>
                                     <br>
                                     To get started, simply go to your DASHBOARD and find the registration link at the bottom. This is your opportunity to expand your network and make a positive impact on the health and prosperity of others.
@@ -1417,7 +1417,7 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>
                                        <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
                                        <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
@@ -1427,13 +1427,13 @@ class EcommRegisterController extends Controller
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>
@@ -1745,7 +1745,7 @@ class EcommRegisterController extends Controller
             ];
         }
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         $resposta = $client->post($url, [
             'form_params' => $data,
@@ -1984,8 +1984,8 @@ class EcommRegisterController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -1999,7 +1999,7 @@ class EcommRegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
@@ -2192,7 +2192,7 @@ class EcommRegisterController extends Controller
         }
 
         $dominio = $request->getHost();
-        if (strtolower($dominio) == 'lifeprosper.eu') {
+        if (strtolower($dominio) == 'Pribonasorte.eu') {
             $testComgate = 'false';
         } else {
             $testComgate = 'false';
@@ -2321,8 +2321,8 @@ class EcommRegisterController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -2336,7 +2336,7 @@ class EcommRegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
@@ -2371,7 +2371,7 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>
                                        <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
                                        <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
@@ -2381,13 +2381,13 @@ class EcommRegisterController extends Controller
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>
@@ -2484,8 +2484,8 @@ class EcommRegisterController extends Controller
 
         $data = [
             'sender' => [
-                'name' => 'Lifeprosper',
-                'email' => 'info@lifeprosper.eu',
+                'name' => 'Pribonasorte',
+                'email' => 'info@Pribonasorte.eu',
             ],
             'to' => [
                 [
@@ -2499,7 +2499,7 @@ class EcommRegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
@@ -2531,7 +2531,7 @@ class EcommRegisterController extends Controller
                                     Order Status: paid <br>
                                     <br>
                                     <br>
-                                    We appreciate your purchase with LifeProsper. Your selected products will be shipped to your specified location as soon as possible.
+                                    We appreciate your purchase with Pribonasorte. Your selected products will be shipped to your specified location as soon as possible.
                                     <br>
                                     <br>
                                     You will soon receive an email with a tracking number, allowing you to monitor the status and location of your shipment. Additionally, you can also find the tracking number in your purchase history. Simply go to your DASHBOARD and navigate to the 'Purchase - Order History' section.
@@ -2550,7 +2550,7 @@ class EcommRegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>
                                        <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
                                        <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
@@ -2560,13 +2560,13 @@ class EcommRegisterController extends Controller
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>

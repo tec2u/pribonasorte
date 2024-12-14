@@ -9,7 +9,7 @@
         <p style="margin-top: 20px;font-weight: bold; font-size: 20px;">Hello {{ $info_user->name }}!</p>
         <!--  -->
 
-        <p style="margin-top: 20px;">Use the code below to change your password on the Lifeprosper website.</p>
+        <p style="margin-top: 20px;">Use the code below to change your password on the Pribonasorte website.</p>
         <div style="width: 90%; padding: 30px 5% 30px 5%; border-radius: 20px; border: solid #cdcdcd 1px;">
           <!--  -->
           <p style="font-weight: bold; color: #333333; font-size: 30px;">{{ $info_user->replice_code }}</p>

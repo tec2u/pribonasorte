@@ -652,7 +652,7 @@
                     class="phero">@lang('leadpage.home.txt')</p>
                   <h2 class="text-uppercase fw-bold mb-3 hhero hherosm" data-aos="fade-up" data-aos-duration="1400"
                     data-aos-delay="800" data-aos-once="true">
-                    LIFEPROSPER</h2> --}}
+                    Pribonasorte</h2> --}}
                                 </div>
                             </div>
                         </div>

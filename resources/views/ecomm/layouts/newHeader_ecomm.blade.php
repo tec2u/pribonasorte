@@ -84,7 +84,7 @@
         <div id="headerBackground" class="top-complete"></div>
         <div style="width: fit-content; display: inline-block;">
           <a href="/" class="navbar-brand">
-            <img src="/img/logo-2.png" id="logo" alt="LIFEPROSPER">
+            <img src="/img/logo-2.png" id="logo" alt="Pribonasorte">
           </a>
         </div>
 
@@ -132,8 +132,8 @@
                   About US
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#lifeprosper">About
-                      LifeProsper</a></li>
+                  <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#Pribonasorte">About
+                      Pribonasorte</a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#vision">Our
                       vision</a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#management">Our
@@ -205,7 +205,7 @@
 
                   <li>
                     <a style="display: flex; align-items: center; gap:.5rem" class="dropdown-item"
-                      href="https://www.instagram.com/lifeprosper_official/" target="_blank"> <i
+                      href="https://www.instagram.com/Pribonasorte_official/" target="_blank"> <i
                         class="fa-brands fa-instagram" style="font-size: 1rem;"> </i> Follow us on
                       Instagram</a>
                   </li>

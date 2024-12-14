@@ -621,7 +621,7 @@ class ProductAdminController extends Controller
         $dados = [
             "returnChannel" => [
                 "type" => "Email",
-                "address" => "support@lifeprosper.eu"
+                "address" => "support@Pribonasorte.eu"
             ],
             "labelSettings" => [
                 "format" => "Pdf",
@@ -646,13 +646,13 @@ class ProductAdminController extends Controller
                         ],
                     ],
                     "sender" => [
-                        "name" => "LIFEPROSPER - INTERMODELS s.r.o.",
+                        "name" => "Pribonasorte - INTERMODELS s.r.o.",
                         "street" => "Pod Nouzovem 971/17",
                         "city" => "Praha - Kbely",
                         "zipCode" => "19700",
                         "country" => "CZ",
-                        "contact" => "LIFEPROSPER - INTERMODELS s.r.o.",
-                        "email" => "support@lifeprosper.eu",
+                        "contact" => "Pribonasorte - INTERMODELS s.r.o.",
+                        "email" => "support@Pribonasorte.eu",
                         "phone" => "+420234688024"
                     ],
                     "recipient" => [
@@ -726,7 +726,7 @@ class ProductAdminController extends Controller
         $dados = [
             "returnChannel" => [
                 "type" => "Email",
-                "address" => "support@lifeprosper.eu"
+                "address" => "support@Pribonasorte.eu"
             ],
             "labelSettings" => [
                 "format" => "Pdf",
@@ -751,13 +751,13 @@ class ProductAdminController extends Controller
                         ],
                     ],
                     "sender" => [
-                        "name" => "LIFEPROSPER - INTERMODELS s.r.o.",
+                        "name" => "Pribonasorte - INTERMODELS s.r.o.",
                         "street" => "Pod Nouzovem 971/17",
                         "city" => "Praha - Kbely",
                         "zipCode" => "19700",
                         "country" => "CZ",
-                        "contact" => "LIFEPROSPER - INTERMODELS s.r.o.",
-                        "email" => "support@lifeprosper.eu",
+                        "contact" => "Pribonasorte - INTERMODELS s.r.o.",
+                        "email" => "support@Pribonasorte.eu",
                         "phone" => "+420234688024"
                     ],
                     "recipient" => [
@@ -1580,7 +1580,7 @@ class ProductAdminController extends Controller
         $data = $this->getDataForFakturoid($order);
         $countryCodeClient = ShippingPrice::where('country_code', $data['client_country'])->orWhere('country', $data['client_country'])->first();
 
-        $f = new FakturoidClient('intermodels', 'juraj@lifeprosper.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@lifeprosper.eu>');
+        $f = new FakturoidClient('intermodels', 'juraj@Pribonasorte.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@Pribonasorte.eu>');
         // dd($f);
 
         $existisSubject = SubjectsFakturoid::where('user_id', $data['client_id'])->first();
@@ -2130,7 +2130,7 @@ class ProductAdminController extends Controller
             ];
         }
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         $resposta = $client->post($url, [
             'form_params' => $data,

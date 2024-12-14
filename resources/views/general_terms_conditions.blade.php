@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | Terms')
+@section('title', 'Pribonasorte | Terms')
 @section('content')
 
   <style>
@@ -114,7 +114,7 @@
 
         <div class="line-content">
           <p class="text-content">Join us on this incredible journey of health and wellness. Together, let's unlock your
-            potential and thrive with LifeProsper.</p>
+            potential and thrive with Pribonasorte.</p>
         </div>
       </div>
     </section>

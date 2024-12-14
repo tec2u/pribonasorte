@@ -25,7 +25,7 @@ class IsAdmin
             $user = User::find(auth()->user()->id);
 
             $dominio = $request->getHost();
-            if (strtolower($dominio) == 'lifeprosper.eu') {
+            if (strtolower($dominio) == 'Pribonasorte.eu') {
                 $prod = 1;
             } else {
                 // $prod = 0;
@@ -70,7 +70,7 @@ class IsAdmin
             "idusuario" => "$id_user"
         ];
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         try {
             //code...

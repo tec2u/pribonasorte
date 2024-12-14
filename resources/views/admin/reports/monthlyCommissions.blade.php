@@ -165,7 +165,7 @@
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'commission_lifeprosper.xlsx'; // Nome do arquivo Excel
+            a.download = 'commission_Pribonasorte.xlsx'; // Nome do arquivo Excel
             a.click();
             window.URL.revokeObjectURL(url);
         });

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'infinity_clubcards' => 'Lifeprosper',
+    'infinity_clubcards' => 'Pribonasorte',
     'language' => strtoupper('Language'),
     'english' => strtoupper('English'),
     'portuguese' => strtoupper('Portuguese'),
@@ -76,7 +76,7 @@ return [
     'news' => 'News',
     'blog' => 'Blog',
     'contact' => 'Contact',
-    'all_rights' => 'All rights reserved Lifeprosper',
+    'all_rights' => 'All rights reserved Pribonasorte',
     'all_trademarks' => 'All trademarks and product images displayed on this site are the property of Intermodels s.r.o.',
     'bonus_list' => 'BONUS LIST'
 ];

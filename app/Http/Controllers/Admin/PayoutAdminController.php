@@ -55,7 +55,7 @@ class PayoutAdminController extends Controller
 
             $data = [
                 "fn" => "eWallet_RegisterUser",
-                // "Merchant" => 'Lifeprosper',
+                // "Merchant" => 'Pribonasorte',
                 "MerchantGUID" => str_replace(' ', '', $this->MerchantGUID),
                 "MerchantPassword" => $this->MerchantPassword,
                 // "UserName" => "testando",

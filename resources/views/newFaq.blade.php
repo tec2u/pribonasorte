@@ -1,5 +1,5 @@
 @extends('layouts.header_newsite')
-@section('title', 'Lifeprosper | LP Faq')
+@section('title', 'Pribonasorte | LP Faq')
 @section('content')
 
   <style>

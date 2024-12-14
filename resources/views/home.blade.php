@@ -1092,7 +1092,7 @@
                     <div class="col-10">
                       <div class="input-group mb-3">
                         <input type="text" class="form-control" id="landing"
-                          value="https://landingpage.lifeprosper.eu/{{ auth()->user()->login }}">
+                          value="https://landingpage.Pribonasorte.eu/{{ auth()->user()->login }}">
                         <button class=" btn btn-dark orderbtn linkcopy px-4" type="button"
                           onclick="FunctionCopy1()">Copy</button>
                       </div>
@@ -1111,7 +1111,7 @@
                   <div class="col-10">
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" id="referral"
-                        value="https://register.lifeprosper.eu/{{ auth()->user()->login }}">
+                        value="https://register.Pribonasorte.eu/{{ auth()->user()->login }}">
                       <button class=" btn btn-dark orderbtn linkcopy px-4" type="button"
                         onclick=" FunctionCopy2()">Copy</button>
                     </div>

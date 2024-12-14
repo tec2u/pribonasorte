@@ -1,5 +1,5 @@
 @extends('layouts.header_newsite')
-@section('title', 'Pribonasorte | E-commerce')
+@section('title', 'Pribonasorte - Pagamento')
 @section('content')
 
   <style>
@@ -361,96 +361,10 @@
   <main id="background-primary" style="margin-top: 30px;">
 
     <section class="container-ecomm">
-      @php
-        $categorias = Illuminate\Support\Facades\DB::table('categorias')->get();
-      @endphp
-
       <div class="raw" style="margin-top: 20px;">
-        <div class="autoplay" style="margin: 1rem auto;">
-          @foreach ($allprod as $product)
-            <a href="{{ route('detals', ['id' => $product->id]) }}">
-              <img style="width:350px;height:250px;" class='imagem_zoon' src='/img/products/{{ $product->img_1 }}'>
-
-            </a>
-          @endforeach
-        </div>
-
         <div class="container-products">
-          <div class="filter">
-            <h2>
-              Categorias
-            </h2>
-
-            <div class="categories">
-              <a href="{{ route('ecomm') }}" style="color: #000">
-                Todos os produtos
-              </a>
-              @if ($categorias->count() > 0)
-                @foreach ($categorias as $cat)
-                  <a href="{{ route('ecomm.categoria', $cat->id) }}" style="color: #000">
-                    <span style="text-transform: uppercase">{{ $cat->nome }}</span>
-                  </a>
-                @endforeach
-              @endif
-            </div>
-          </div>
           <div class="products">
-
-
-            @foreach ($products as $product)
-              @php
-                $price = $product->price;
-                $priceTax = 0;
-
-                $qv = $product->qv;
-                $qv_format = number_format($qv, 2, ',', '.');
-              @endphp
-
-
-              <div class="product">
-                <div class="">
-                  <a href="{{ route('detals', ['id' => $product->id]) }}">
-                    <img class='imagem_zoon' src='/img/products/{{ $product->img_1 }}'>
-                  </a>
-                </div>
-                <div class="text-product">
-                  <a href="{{ route('detals', ['id' => $product->id]) }}">
-                    <h4>{{ $product->name }}</h4>
-                  </a>
-                  <div>
-                    <div class="prices">
-                      <h5 class="text-price">€{{ $price }} <strong style="font-size: .7rem"> (Exl. VAT)</strong>
-                      </h5>
-                      @if (isset($product->premium_price))
-                        <h6 class="text-price-bottom">€{{ $product->premium_price }} --- Smartship</h6>
-                      @endif
-                    </div>
-
-                    <div>
-                      <form action="{{ route('add.cart.ecomm') }}" method="POST"
-                        style="display: flex;flex-direction: row">
-                        @csrf
-                        @if ($product->stock > 0)
-                          <div class="raw" style="display: none">
-                            <input class="quantify-buttom" name="quant_product" value="1" type="number"
-                              value="1" max="{{ $product->stock }}" maxlength="{{ $product->stock }}"
-                              id="quant_product">
-                            <input name="id_product" value="{{ $product->id }}" style="display: none">
-                          </div>
-                        @else
-                          <p style="color: red;">Sem estoque</p>
-                        @endif
-                        <div class="raw">
-                          @if ($product->stock > 0)
-                            <button class="button-cart">Adicionar ao carrinho</button>
-                          @endif
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            @endforeach
+                prontoo
           </div>
         </div>
       </div>
@@ -458,41 +372,4 @@
 
     </section>
   </main>
-
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
-    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="/js/script.js"></script>
-
-  <script>
-    $('.autoplay').slick({
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-    })
-  </script>
-
-  <script>
-    $(document).ready(function() {
-      $("#description-pro").click(function(event) {
-        event.preventDefault();
-        $(".block-description").fadeIn();
-        $(".block-downloads").hide();
-      });
-    });
-
-    $(document).ready(function() {
-      $("#downloads-pro").click(function(event) {
-        event.preventDefault();
-        $(".block-downloads").fadeIn();
-        $(".block-description").hide();
-      });
-    });
-  </script>
-
 @endsection

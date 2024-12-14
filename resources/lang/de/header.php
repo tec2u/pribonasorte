@@ -53,7 +53,7 @@ return [
     'news'                 => 'Nachricht',
     'blog'                 => 'Blog',
     'contact'              => 'Kontakt',
-    'all_rights'           => 'Alle Rechte vorbehalten. Lifeprosper',
+    'all_rights'           => 'Alle Rechte vorbehalten. Pribonasorte',
     'all_trademarks'       => 'Alle auf dieser Website angezeigten Marken und Produktbilder sind Eigentum von Intermodels s.r.o.',
     'bonus_list' => 'BONUSLISTEw'
 ];

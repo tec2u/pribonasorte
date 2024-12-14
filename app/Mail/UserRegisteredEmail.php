@@ -32,7 +32,7 @@ class UserRegisteredEmail extends Mailable
     public function build()
     {
 
-        return $this->from(env('MAIL_FROM_ADDRESS'), 'Lifeprosper')
+        return $this->from(env('MAIL_FROM_ADDRESS'), 'Pribonasorte')
             ->to($this->user->email, $this->user->name)
             ->subject('Account Created Successfully')
             ->replyTo(env('MAIL_FROM_ADDRESS'))

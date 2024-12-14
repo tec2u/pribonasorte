@@ -478,7 +478,7 @@ class PackageController extends Controller
 
         // $urlRedirect = $request->getScheme() . '://' . $request->getHost() . '/ecomm';
         // $url = $request->getScheme() . '://' . $request->getHost() . '/ecomm/finalize/notify';
-        $url = "https://lifeprosper.eu/ecomm/finalize/notify";
+        $url = "https://Pribonasorte.eu/ecomm/finalize/notify";
 
         $priceDol = PriceCoin::where('name', 'eur')->first();
         $priceInDol = $price * $priceDol->one_in_usd;
@@ -531,7 +531,7 @@ class PackageController extends Controller
     public function payComgate(Request $request, $newPrice, $name, $method, $package_id, $user = null)
     {
         $dominio = $request->getHost();
-        if (strtolower($dominio) == 'lifeprosper.eu') {
+        if (strtolower($dominio) == 'Pribonasorte.eu') {
             $test = 'false';
         } else {
             $test = 'false';
@@ -640,7 +640,7 @@ class PackageController extends Controller
 
     public function getInvoiceInFakturoid($order)
     {
-        $f = new FakturoidClient('intermodels', 'juraj@lifeprosper.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@lifeprosper.eu>');
+        $f = new FakturoidClient('intermodels', 'juraj@Pribonasorte.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@Pribonasorte.eu>');
 
         $existisOrder = OrderPackage::where('id', $order)->first();
         if (!isset($existisOrder)) {

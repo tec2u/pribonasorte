@@ -1,5 +1,5 @@
 @extends('layouts.header_newsite')
-@section('title', 'Lifeprosper | About')
+@section('title', 'Pribonasorte | About')
 @section('content')
 
   <style>
@@ -102,17 +102,17 @@
     <section>
       <div class="container" style="padding: 50px 10%;">
 
-        <div class="base-id" id="lifeprosper"></div>
+        <div class="base-id" id="Pribonasorte"></div>
         <div class="line-content">
-          <p class="subtitulo-content">Why LifeProsper?</p>
+          <p class="subtitulo-content">Why Pribonasorte?</p>
         </div>
 
         <div class="line-content">
-          <p class="text-content">LifeProsper and its employees change lives by using individually measured metabolic values to recommend nutritional supplement solutions with our proprietary epigenetic nutraceuticals/dietary supplements.</p>
+          <p class="text-content">Pribonasorte and its employees change lives by using individually measured metabolic values to recommend nutritional supplement solutions with our proprietary epigenetic nutraceuticals/dietary supplements.</p>
           <p class="text-content">In a crowded nutritional supplement market, we stand out because our development team recommends solutions that address the causes of your current health situation, not just its symptoms.</p>
-          <p class="text-content">LifeProsper's state-of-the-art scanner technology evaluates up to 200 biomarkers within 5 minutes across four areas: digestion, detox, hormonal balance, and immunity. This gives you insight into the causes of your current health situation and how these can be improved with LifeProsper products, as demonstrated through the scan report system.</p>
-          <p class="text-content">Based on the immediate evaluation of the scan report in all four areas, LifeProsper offers you solutions with our products. The uncompromising quality of ingredients in LifeProsper products ensures you get the most effective ingredients you need.</p>
-          <p class="text-content">LifeProsper offers solutions for your health, improves the quality of life, and increases the standard of living. Now is your chance to join us on this journey of life.</p>
+          <p class="text-content">Pribonasorte's state-of-the-art scanner technology evaluates up to 200 biomarkers within 5 minutes across four areas: digestion, detox, hormonal balance, and immunity. This gives you insight into the causes of your current health situation and how these can be improved with Pribonasorte products, as demonstrated through the scan report system.</p>
+          <p class="text-content">Based on the immediate evaluation of the scan report in all four areas, Pribonasorte offers you solutions with our products. The uncompromising quality of ingredients in Pribonasorte products ensures you get the most effective ingredients you need.</p>
+          <p class="text-content">Pribonasorte offers solutions for your health, improves the quality of life, and increases the standard of living. Now is your chance to join us on this journey of life.</p>
           <p class="text-content">Our slogan: MY HEALTH, MY BUSINESS</p>
         </div>
 
@@ -139,7 +139,7 @@
         </div>
 
         <div class="line-content">
-          <p class="text-content">Behind LifeProsper stands a team of visionary leaders who are passionate about promoting
+          <p class="text-content">Behind Pribonasorte stands a team of visionary leaders who are passionate about promoting
             wellness and making a difference. Our management team combines expertise from diverse fields, including
             nutrition, medicine, research, and business. With their wealth of knowledge and experience, they guide the
             company towards delivering exceptional products and services that meet the evolving needs of our valued
@@ -155,7 +155,7 @@
 
         <div class="line-content">
           <p class="text-content">Join us on this incredible journey of health and wellness. Together, let's unlock your
-            potential and thrive with LifeProsper.</p>
+            potential and thrive with Pribonasorte.</p>
         </div>
 
 
@@ -188,8 +188,8 @@
           </div>
 
           <div class="box_float2">
-            <img class="image_ceo" src="/img/ceo_lifeprosper.jpeg" alt="ceo">
-            <p style="margin-top: 10px;"><b>JURAJ MOJZIS</b>, CEO LIFEPROSPER</p>
+            <img class="image_ceo" src="/img/ceo_Pribonasorte.jpeg" alt="ceo">
+            <p style="margin-top: 10px;"><b>JURAJ MOJZIS</b>, CEO Pribonasorte</p>
           </div>
 
         </div>

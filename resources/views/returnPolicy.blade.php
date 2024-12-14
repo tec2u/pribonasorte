@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | Payment')
+@section('title', 'Pribonasorte | Payment')
 @section('content')
 
   <style>
@@ -84,7 +84,7 @@
 
       <div class="line-content" style="margin-bottom: 50px;">
         <p class="text-content">4 - Return Procedure If you wish to return an item, please contact us at
-          return@lifeprosper.euand inform us of your intention to return the goods. We will provide you with detailed
+          return@Pribonasorte.euand inform us of your intention to return the goods. We will provide you with detailed
           instructions on how to proceed with the return.
         </p>
       </div>
@@ -97,7 +97,7 @@
 
       <div class="line-content" style="margin-bottom: 50px;">
         <p class="text-content">6 - Faulty Goods In the event that you receive damaged or faulty goods, please notify us
-          immediately at return@lifeprosper.eu. We will handle the complaint in accordance with applicable laws and
+          immediately at return@Pribonasorte.eu. We will handle the complaint in accordance with applicable laws and
           regulations.</p>
       </div>
 
@@ -116,7 +116,7 @@
 
       <div class="line-content" style="margin-bottom: 50px;">
         <p class="text-content">9 - Contact If you have any questions or concerns regarding our Return and Complaint
-          Policy, please feel free to contact us at return@lifeprosper.eu.</p>
+          Policy, please feel free to contact us at return@Pribonasorte.eu.</p>
       </div>
 
     </div>

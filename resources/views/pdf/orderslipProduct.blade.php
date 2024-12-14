@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <title>Invoice Lifeprosper</title>
+  <title>Invoice Pribonasorte</title>
 
   <style>
     .invoice-box {
@@ -129,7 +129,7 @@
             <table>
               <tr>
                 <td>
-                  LIFEPROSPER <br>
+                  Pribonasorte <br>
                   INTERMODELS s.r.o. <br>
                   Pod Nouzovem 971/17<br>
                   197 00 Praha,<br>
@@ -137,7 +137,7 @@
                   DIC (VAT ID): CZ26126893<br>
                   Czech Republic<br>
                   Phone: +420234688024<br>
-                  E-mail: support@lifeprosper.eu
+                  E-mail: support@Pribonasorte.eu
                 </td>
               </tr>
             </table>

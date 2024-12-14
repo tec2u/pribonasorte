@@ -199,7 +199,7 @@
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'Career_lifeprosper.xlsx'; // Nome do arquivo Excel
+        a.download = 'Career_Pribonasorte.xlsx'; // Nome do arquivo Excel
         a.click();
         window.URL.revokeObjectURL(url);
       });

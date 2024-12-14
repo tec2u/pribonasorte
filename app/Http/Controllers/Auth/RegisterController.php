@@ -296,8 +296,8 @@ class RegisterController extends Controller
 
 
       // $dominio = $request->getHost();
-      $dominio = "lifeprosper.eu";
-      if (strtolower($dominio) == 'lifeprosper.eu') {
+      $dominio = "Pribonasorte.eu";
+      if (strtolower($dominio) == 'Pribonasorte.eu') {
          $prod = 1;
       } else {
          $prod = 0;
@@ -327,8 +327,8 @@ class RegisterController extends Controller
 
       $data = [
          'sender' => [
-            'name' => 'Lifeprosper',
-            'email' => 'info@lifeprosper.eu',
+            'name' => 'Pribonasorte',
+            'email' => 'info@Pribonasorte.eu',
          ],
          'to' => [
             [
@@ -342,17 +342,17 @@ class RegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
                                     Hello, $nome
                                     <br>
                                     <br>
-                                    Welcome to LifeProsper!
+                                    Welcome to Pribonasorte!
                                     <br>
                                     <br>
-                                    We're thrilled to have you on board. Your first step on this exciting journey is to become a LifeProsper Distributor (Independent Distributor).
+                                    We're thrilled to have you on board. Your first step on this exciting journey is to become a Pribonasorte Distributor (Independent Distributor).
                                     To get started, click on 'Purchase,' select 'My Packages,' and enroll online by paying the required DISTRIBUTOR fee. This fee is 39.99 EUR annually. You can also purchase the license along with a package/products at the same time.
                                     <br>
                                     <br>
@@ -363,9 +363,9 @@ class RegisterController extends Controller
                                     <br>
                                     This fee covers:<br>
                                     <ul>
-                                       <li>Replicated LIFEPROSPER Websites</li>
-                                       <li>LIFEPROSPER Secure Back Office</li>
-                                       <li>LIFEPROSPER Training and Support Tools</li>
+                                       <li>Replicated Pribonasorte Websites</li>
+                                       <li>Pribonasorte Secure Back Office</li>
+                                       <li>Pribonasorte Training and Support Tools</li>
                                        <li>Administrative Support</li>
                                        <li>Better pricing for products</li>                                    
                                     </ul>
@@ -386,7 +386,7 @@ class RegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>                                                                      
                                        <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
                                        <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
                                     </ul>
@@ -395,13 +395,13 @@ class RegisterController extends Controller
                                     <div style='display:flex;justify-content: space-between;width:100%;gap:2rem;'>
                                         <div>
                                         Best Regards, <br>
-                                        LifeProsper Team<br>                                        
+                                        Pribonasorte Team<br>                                        
                                         Support-  +420 234 688 024<br>
                                         WHATSAPP number- +421 918 142 520
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>
@@ -458,8 +458,8 @@ class RegisterController extends Controller
 
       $data = [
          'sender' => [
-            'name' => 'Lifeprosper',
-            'email' => 'info@lifeprosper.eu',
+            'name' => 'Pribonasorte',
+            'email' => 'info@Pribonasorte.eu',
          ],
          'to' => [
             [
@@ -473,7 +473,7 @@ class RegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>
@@ -493,7 +493,7 @@ class RegisterController extends Controller
                                     Please reach out to them to provide support as they begin their journey. Helping your new distributor understand our business model is key to their success and yours. Together, you can build a thriving network and reach your goals.
                                     <br>
                                     <br>
-                                    In the first 72 hours, assist them in inviting 20 people to attend a Lifeprosper company presentation. These presentations can be conducted online, via Zoom, webinar, or in-person.
+                                    In the first 72 hours, assist them in inviting 20 people to attend a Pribonasorte company presentation. These presentations can be conducted online, via Zoom, webinar, or in-person.
                                     <br>
                                     <br>
                                     Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp: 
@@ -509,7 +509,7 @@ class RegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/lifeprosper_official'>https://www.instagram.com/lifeprosper_official/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>                                                                      
                                        <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
                                        <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
                                     </ul>
@@ -519,13 +519,13 @@ class RegisterController extends Controller
                                         <div>
                                         Best Regards, <br>
                                         JURAJ MOJZIS<br>
-                                        CEO of LifeProsper<br>
+                                        CEO of Pribonasorte<br>
                                         Support- +420234688024<br>
                                         WHATSAPP number- +420 721 530 732
                                         </div>
 
                                         <div>
-                                            <img src='https://lifeprosper.eu/img/ceo_lifeprosper.jpeg' alt='CEO'
+                                            <img src='https://Pribonasorte.eu/img/ceo_Pribonasorte.jpeg' alt='CEO'
                                             style='width:100px;height:100px;display:block;margin-left:16px;' />
                                         </div>
                                     </div>
@@ -581,7 +581,7 @@ class RegisterController extends Controller
          "prod" => "$prod"
       ];
 
-      $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+      $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
       try {
          $resposta = $client->post($url, [
@@ -602,7 +602,7 @@ class RegisterController extends Controller
          $log->operation = $data['type'] . "/" . $data['param'] . "/" . $data['idusuario'];
          $log->controller = "Auth/RegisterController";
          $log->http_code = $statusCode;
-         $log->route = "https://lifeprosper.eu/register";
+         $log->route = "https://Pribonasorte.eu/register";
          $log->status = "Success";
          $log->save();
 
@@ -706,8 +706,8 @@ class RegisterController extends Controller
 
       $data = [
          'sender' => [
-            'name' => 'Lifeprosper',
-            'email' => 'info@lifeprosper.eu',
+            'name' => 'Pribonasorte',
+            'email' => 'info@Pribonasorte.eu',
          ],
          'to' => [
             [
@@ -721,7 +721,7 @@ class RegisterController extends Controller
                               </head>
                               <body>
                                  <div style='background-color:#480D54;width:100%;'>
-                                 <img src='https://lifeprosper.eu/img/Logo_AuraWay.png' alt='Lifeprosper Logo' width='300'
+                                 <img src='https://Pribonasorte.eu/img/Logo_AuraWay.png' alt='Pribonasorte Logo' width='300'
                                     style='height:auto;display:block;' />
                                  </div>
                                  <p>

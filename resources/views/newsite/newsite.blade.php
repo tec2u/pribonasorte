@@ -1,5 +1,5 @@
 @extends('layouts.header_newsite')
-@section('title', 'Lifeprosper')
+@section('title', 'Pribonasorte')
 @section('content')
   <!--  -->
   <div id="video-modal" class="modal" style="z-index: 2;">

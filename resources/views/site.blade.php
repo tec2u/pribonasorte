@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper')
+@section('title', 'Pribonasorte')
 @section('content')
   <!--  -->
   <section id="background-top">
@@ -12,7 +12,7 @@
     <!--  -->
     <div id="box-inf">
       <p id="title-welcome">Welcome!</p>
-      <p id="title-landing">LIFEPROSPER</p>
+      <p id="title-landing">Pribonasorte</p>
       <center>
         <a href="{{ route('ecomm') }}">
           <button class="btn-shop-now">Shop now</button>
@@ -158,7 +158,7 @@
       </center>
       <p class="text-subscript-block" style="text-transform: uppercase;">Elevate Your Health, Empower Your Life!</p>
       <center>
-        <p style="font-size: 18px; color: #ffffff; margin-top: 30px;">Lifeprosper is your trusted destination for premium
+        <p style="font-size: 18px; color: #ffffff; margin-top: 30px;">Pribonasorte is your trusted destination for premium
           supplements and cutting-edge testing kits. Discover a world of wellness and unlock your full potential with our
           high-quality products and personalized solutions.</p>
       </center>
@@ -278,7 +278,7 @@
         Well-Being</p>
       <center>
         <p style="font-size: 18px; color: #ffffff; margin-top: 30px;">Get access to personalized health and wellness with
-          LifeProsper. Our mission is to empower individuals like you to take control of their well-being through a
+          Pribonasorte. Our mission is to empower individuals like you to take control of their well-being through a
           personal approach. By understanding your unique needs, we recommend the right products and tests to optimize
           your health journey.</p>
       </center>
@@ -337,7 +337,7 @@
       <div class="block-master-l">
         <center>
           <p class="text-subscript-new-block">Experience a Revolution in Personalized Nutrition</p>
-          <p class="text-prime-block">Lifeprosper brings you a range of personalized supplements and testing kits
+          <p class="text-prime-block">Pribonasorte brings you a range of personalized supplements and testing kits
             tailored to your unique needs. Discover the perfect balance of science and nature to nourish your body and
             thrive in every aspect of life.</p>
         </center>

@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | Terms')
+@section('title', 'Pribonasorte | Terms')
 @section('content')
 
   <style>
@@ -52,20 +52,20 @@
     <section class="master_3">
       <div class="container" style="padding: 50px 10%;">
 
-        <div class="base-id" id="lifeprosper">Section 1 - The Lifeprosper Group and its members</div>
+        <div class="base-id" id="Pribonasorte">Section 1 - The Pribonasorte Group and its members</div>
         <div class="line-content">
-          <p class="subtitulo-content">1.1. Welcome to the Lifeprosper group</p>
+          <p class="subtitulo-content">1.1. Welcome to the Pribonasorte group</p>
         </div>
 
         <div class="line-content">
-          <p class="text-content">1.1.1 The Lifeprosper Group consists of the company INTERMODELS s.r.o., Pod Nouzovem
-            971/17, 197 00 Praha, Czech Republic, Further mentioned lifeprosper brand as a group belonging to Intermodels
+          <p class="text-content">1.1.1 The Pribonasorte Group consists of the company INTERMODELS s.r.o., Pod Nouzovem
+            971/17, 197 00 Praha, Czech Republic, Further mentioned Pribonasorte brand as a group belonging to Intermodels
             s.r.o.
             <br />
             <br />
             1.1.2 The company operates in the market of food supplements, where it sells its products and services
             (hereinafter referred to as " Products ") through its official distribution channels or through a network of
-            independent Distributors. The Company's website can be accessed at www.lifeprosper.eu, and other relevant
+            independent Distributors. The Company's website can be accessed at www.Pribonasorte.eu, and other relevant
             subdomains.
             <br />
             <br />
@@ -75,7 +75,7 @@
             dealings with each other, and also for the Distributors' behavior towards any other to a third person.
             <br />
             <br />
-            1.1.4 By accepting these Rules, the Distributor confirms that he made the registration to the Lifeprosper
+            1.1.4 By accepting these Rules, the Distributor confirms that he made the registration to the Pribonasorte
             group voluntarily, thoroughly familiarized himself with the content of these Rules and all related attachments
             or documents, understood the meaning of the rights and obligations set forth herein, without reservations, and
             agrees and undertakes them unconditionally adhere to.
@@ -84,7 +84,7 @@
             1.1.5 The Company is entitled to unilaterally change, modify or expand these Rules, as well as all related
             annexes and documents. All such changes, modifications or extensions will be announced at least 7 days before
             they become effective through one of the Company's officially used communication channels (especially
-            newsletters, Lifeprosper office, SMS, e-mails, applications, etc.). In the event that the Distributor
+            newsletters, Pribonasorte office, SMS, e-mails, applications, etc.). In the event that the Distributor
             continues to cooperate with the Company after the effective date of these changes (buying Products, using
             benefits, receiving commissions, etc.), it is considered that he agrees with the changes, modifications or
             expansion of the conditions without reservation and has accepted them without any objection. If the
@@ -107,7 +107,7 @@
 
         <div class="line-content">
           <p class="text-content">
-            1.2.1 You can become a member of the Lifeprosper group
+            1.2.1 You can become a member of the Pribonasorte group
           </p>
 
           <ul>
@@ -123,10 +123,10 @@
             who properly fills out the Company's electronic registration form and expresses consent to these Rules,
             including all related attachments and documents.
             <br><br>
-            1.2.2 A person who is interested in becoming a member of the Lifeprosper group is obliged to properly fill in
+            1.2.2 A person who is interested in becoming a member of the Pribonasorte group is obliged to properly fill in
             the ID number of the sponsor to whose structure they will belong in the electronic registration form.
             <br><br>
-            1.2.3 These Rules may establish additional conditions and restrictions for membership in the Lifeprosper
+            1.2.3 These Rules may establish additional conditions and restrictions for membership in the Pribonasorte
             group. In the event that the person applying for membership does not meet the specified conditions or another
             obstacle prevents the establishment of membership, the Company decides to accept the registration of this
             person. The Company reserves the right to refuse to accept registration into the Company's system for any
@@ -151,7 +151,7 @@
             forbidden to provide the same billing address for multiple IDs.
 
             <br><br>
-            1.2.8 Membership in the Lifeprosper group is personal and cannot be transferred without the express consent of
+            1.2.8 Membership in the Pribonasorte group is personal and cannot be transferred without the express consent of
             the Company (the terms of transfer and transfer of membership are governed by Articles 3.2 and 3.3 of the
             Membership Rules). The Distributor undertakes to use the Account exclusively under his personally assigned ID,
             which he is not authorized to transfer or make available to another person. The Company is not responsible for
@@ -192,7 +192,7 @@
 
         <div class="line-content">
           <p class="text-content">
-            1.3.1 The Distributor is an independent business partner of the Company and membership in the Lifeprosper
+            1.3.1 The Distributor is an independent business partner of the Company and membership in the Pribonasorte
             group does not create an employment relationship, agency or any other legal relationship between the Company
             and the Distributor. The Distributor is also not a sales representative of the Company and therefore does not
             have the right to any compensation, special remuneration or compensation for the created clientele or the
@@ -211,10 +211,10 @@
             permits and authorizations for the performance of his activities, if they are required.
             <br><br>
             1.3.4 The Distributor can start enjoying the benefits of the Company's compensation plan, which is available
-            in the Lifeprosper office, only after paying the price of one of the starter packages or placing the first
+            in the Pribonasorte office, only after paying the price of one of the starter packages or placing the first
             order at the point value determined by the marketing career chart. Through this procedure, the Distributor
             acquires the status of a business partner of the Company and is granted access to the necessary sections of
-            the Account (Lifeprosper office, storage, customer interface, etc.), where he can change his personal data,
+            the Account (Pribonasorte office, storage, customer interface, etc.), where he can change his personal data,
             manage the Account, monitor and control all activities and enjoy available benefits.
             <br><br>
             1.3.5 In the event that the Distributor decides to carry out activities in accordance with these Rules in
@@ -225,7 +225,7 @@
             <br><br>
             1.3.6 In cooperation with the Company, the Distributor is entitled to carry out business activities for the
             purpose of achieving profit. In the event that a reward, commission or any other performance is paid to the
-            Distributor in connection with the membership of the Lifeprosper group, the Distributor is obliged to properly
+            Distributor in connection with the membership of the Pribonasorte group, the Distributor is obliged to properly
             declare this income and pay all relevant taxes, fees, insurance premiums and other mandatory payments. The
             Distributor is obliged to provide the Company with its tax identification number at its request.
             <br><br>
@@ -259,23 +259,23 @@
             belong, with regard to the generally known ethics in the field of MLM business.
 
             <br><br>
-            1.4.3 A distributor who brings a new person to the Lifeprosper group is obliged to verify that this person
+            1.4.3 A distributor who brings a new person to the Pribonasorte group is obliged to verify that this person
             fills in the correct ID of their sponsor in the electronic registration form. In the event that an ID other
             than the selected sponsor is entered incorrectly, this process may be irreversible due to the subsequent
-            drawing of commissions and other benefits in the Lifeprosper system. However, the company is entitled in
+            drawing of commissions and other benefits in the Pribonasorte system. However, the company is entitled in
             exceptional cases to make a change or assign a different sponsor.
             <br><br>
             1.4.4 Each Distributor is obliged to follow his upline, lead by example and support his downline group within
             the sponsor's activities, whose members he continuously trains, motivates, educates, communicates with them,
-            organizes support meetings for them, evaluates their activities in the Lifeprosper Academy group, solves
+            organizes support meetings for them, evaluates their activities in the Pribonasorte Academy group, solves
             potential disputes and provides them with positively complete and true information about the Products, the
-            Company, the opportunities in the Lifeprosper Group, the compensation plan and the work system.
+            Company, the opportunities in the Pribonasorte Group, the compensation plan and the work system.
             <br><br>
             1.4.5 In the event that a Distributor in the position of a sponsor does not know how to proceed correctly in a
             specific case, or does not yet have enough experience in any activity, he will contact his upline with a
             question about the correct procedure and, in serious cases, directly to the Company, which is discussing
-            serious issues at the level of the Lifeprosper leaders' meeting. The distributor can submit questions,
-            suggestions or proposals to improve the activities of the Lifeprosper group to the Lifeprosper leaders'
+            serious issues at the level of the Pribonasorte leaders' meeting. The distributor can submit questions,
+            suggestions or proposals to improve the activities of the Pribonasorte group to the Pribonasorte leaders'
             council.
             <br><br>
             1.4.6 The distributor in the position of sponsor resolves any disputes between members of his downline group
@@ -290,7 +290,7 @@
             Company's system. A subsequent change of sponsor after completing registration in the Company's system is not
             possible by default. However, the company is entitled in exceptional cases to make a change or to assign a
             different sponsor to the Distributor, as long as this does not affect the rights of other Distributors
-            registered in the Lifeprosper group network in the line of this Distributor above or below him. In particular,
+            registered in the Pribonasorte group network in the line of this Distributor above or below him. In particular,
             such an exceptional case can be:
 
           </p>
@@ -314,9 +314,9 @@
           </ul>
           <p class="text-content">
             1.4.8 The request to change the sponsor must be duly justified and delivered to the Company at the e-mail
-            address support@lifeprosper.eu together with the consent of the original and new sponsor, to whose structure
+            address support@Pribonasorte.eu together with the consent of the original and new sponsor, to whose structure
             the Distributor will belong. The company will decide on such a request according to ethics in the field of MLM
-            business after the recommendation of the Lifeprosper leaders' meeting, this decision is final. However, the
+            business after the recommendation of the Pribonasorte leaders' meeting, this decision is final. However, the
             company is not obliged to comply with such a request. A distributor applying for a change of sponsor is
             required to provide only complete, true and undistorted information in the application, otherwise he commits
             an offense against the code of ethics.
@@ -324,7 +324,7 @@
         </div>
 
 
-        <div class="base-id" id="lifeprosper">Section 2 Basic rights and obligations</div>
+        <div class="base-id" id="Pribonasorte">Section 2 Basic rights and obligations</div>
 
         <div class="line-content">
           <p class="subtitulo-content">2.1. General Membership Policy</p>
@@ -332,31 +332,31 @@
 
         <div class="line-content">
           <p class="text-content">
-            2.1.1 The Lifeprosper Group was established for the purpose of selling the Company's Products, supporting the
+            2.1.1 The Pribonasorte Group was established for the purpose of selling the Company's Products, supporting the
             physical and mental health of the company and providing an interesting business opportunity for all
             Distributors.
             <br><br>
             2.1.2 The Company supports the business activities of Distributors and trains them in the area of ​​mediating
-            the sale of Products and offering business opportunities in the Lifeprosper group. The Distributor
+            the sale of Products and offering business opportunities in the Pribonasorte group. The Distributor
             acknowledges that in order to develop the business of the Company and the Distributors, it is necessary to
-            ensure the continuous expansion of the Lifeprosper group with additional new Distributors.
+            ensure the continuous expansion of the Pribonasorte group with additional new Distributors.
             <br><br>
             2.1.3 The Distributor has the right, under the specified conditions, to purchase Products at more favorable
-            prices; mediate the sale of Products to third parties and expand the Lifeprosper group with newly registered
+            prices; mediate the sale of Products to third parties and expand the Pribonasorte group with newly registered
             Distributors; participate in the Company's compensation plan and receive commissions and draw other benefits
             upon meeting the specified conditions; to sponsor newly registered Distributors, by which he expanded the
-            Lifeprosper group; receive regular literature or newsletters from the Lifeprosper group; participate in
-            support, services, training and participate in promotional contests and programs related to the Lifeprosper
+            Pribonasorte group; receive regular literature or newsletters from the Pribonasorte group; participate in
+            support, services, training and participate in promotional contests and programs related to the Pribonasorte
             Group.
             <br><br>
             2.1.4 The amount of financial remuneration and rewards associated with the Distributor's participation in the
-            Lifeprosper group depends primarily on the work performed by each individual, his personal turnover and the
+            Pribonasorte group depends primarily on the work performed by each individual, his personal turnover and the
             turnover of his group. These Rules and the Company's compensation plan may condition the Distributor's
             entitlement to the payment of financial performance upon the fulfillment of other requirements for the
             Distributor's activity.
             <br><br>
             2.1.5 The Distributor is obliged in all cases where his behavior and actions can be associated with the
-            Lifeprosper group, to act professionally, to comply with all rights and obligations arising from these Rules,
+            Pribonasorte group, to act professionally, to comply with all rights and obligations arising from these Rules,
             related annexes and documents, to follow the code of ethics and not to damage the good name and reputation
             Companies.
 
@@ -382,17 +382,17 @@
 
             </li>
             <li>
-              to be loyal and to build the good reputation and name of the Lifeprosper Group, the Company and the
+              to be loyal and to build the good reputation and name of the Pribonasorte Group, the Company and the
               Products,
 
             </li>
             <li>
               be polite and show respect to every person with whom you come into contact in connection with being a member
-              of the Lifeprosper group,
+              of the Pribonasorte group,
 
             </li>
             <li>
-              not to harass potential new members of the Lifeprosper group or customers with their actions and not exert
+              not to harass potential new members of the Pribonasorte group or customers with their actions and not exert
               undue pressure on them,
 
             </li>
@@ -402,12 +402,12 @@
 
             </li>
             <li>
-              to fulfill as a sponsor its obligations towards the Distributors registered in the Lifeprosper group network
+              to fulfill as a sponsor its obligations towards the Distributors registered in the Pribonasorte group network
               under it, to support them, to communicate with them and to carry out ongoing training,
 
             </li>
             <li>
-              not to recommend or suggest to other Lifeprosper Group Distributors the transition or participation in any
+              not to recommend or suggest to other Pribonasorte Group Distributors the transition or participation in any
               other network marketing project, even indirectly,
 
             </li>
@@ -417,20 +417,20 @@
 
             </li>
             <li>
-              not to abuse the contacts obtained in connection with membership in the Lifeprosper group to distribute
-              products other than Lifeprosper Products,
+              not to abuse the contacts obtained in connection with membership in the Pribonasorte group to distribute
+              products other than Pribonasorte Products,
 
             </li>
             <li>
               not to use deceptive or unfair business practices in their activities and not to provide false information
-              about the Products or participation in the Lifeprosper group and remuneration,
+              about the Products or participation in the Pribonasorte group and remuneration,
             </li>
             <li>
               use only approved Company materials when presenting the Company's compensation plan,
             </li>
             <li>
               properly fulfill all legal and tax obligations that arise in connection with his membership in the
-              Lifeprosper group,
+              Pribonasorte group,
             </li>
             <li>
               not to misuse information received from customers for the purpose of sending unsolicited commercial
@@ -454,12 +454,12 @@
 
             </li>
             <li>
-              not to promise, guarantee or otherwise guarantee easy, fast or astronomical earnings in the Lifeprosper
+              not to promise, guarantee or otherwise guarantee easy, fast or astronomical earnings in the Pribonasorte
               group or the miraculous effects of the Products,
 
             </li>
             <li>
-              to comply with all legal regulations regarding his activities within the Lifeprosper group.
+              to comply with all legal regulations regarding his activities within the Pribonasorte group.
 
             </li>
 
@@ -475,7 +475,7 @@
         <div class="line-content">
           <p class="text-content">
             2.3.1 Indirect Registration
-            The distributor is not authorized to register persons to the Lifeprosper group without their knowledge or to
+            The distributor is not authorized to register persons to the Pribonasorte group without their knowledge or to
             register non-existent or fictitious persons. Any misuse of personal or contact data of third parties for the
             purpose of indirect registration is strictly prohibited.
             <br><br>
@@ -486,61 +486,61 @@
             into a disproportionate stock. The Distributor is therefore not authorized to place systematically oversized
             orders for Products or to purchase Products in a disproportionate supply in order to draw a higher commission
             or other financial performance. The company does not recommend indebtedness to the Distributor for the purpose
-            of developing his activities in the Lifeprosper group.
+            of developing his activities in the Pribonasorte group.
             <br><br>
             2.3.3 Prohibited Recruitment
-            The Distributor is not entitled to directly or indirectly offer other Distributors of the Lifeprosper Group or
-            to encourage them to cooperate in any competitive activities with respect to the activities of the Lifeprosper
-            Group, to switch to such other competitive activities or to terminate membership in the Lifeprosper.
+            The Distributor is not entitled to directly or indirectly offer other Distributors of the Pribonasorte Group or
+            to encourage them to cooperate in any competitive activities with respect to the activities of the Pribonasorte
+            Group, to switch to such other competitive activities or to terminate membership in the Pribonasorte.
             <br><br>
             2.3.4 Unauthorized Cooperation
-            The Distributor is not entitled in any way to use the database of Lifeprosper Group Distributors or
+            The Distributor is not entitled in any way to use the database of Pribonasorte Group Distributors or
             cooperating persons for his own profit or for the benefit of a third party, or to provide it to any third
-            party. It is primarily prohibited to use contacts obtained in connection with activities in the Lifeprosper
+            party. It is primarily prohibited to use contacts obtained in connection with activities in the Pribonasorte
             group to present any programs, opportunities, products or services other than the Products and opportunities
-            of the Lifeprosper group or the Company; to establish, through these contacts, business relationships not
-            related to the activities of the Lifeprosper group or to profit in any other way from the contacts and network
-            of the Lifeprosper group in the sense of building business profit outside the Company.
+            of the Pribonasorte group or the Company; to establish, through these contacts, business relationships not
+            related to the activities of the Pribonasorte group or to profit in any other way from the contacts and network
+            of the Pribonasorte group in the sense of building business profit outside the Company.
             <br><br>
             2.3.5 Unauthorized Sponsorship
-            The system of the Lifeprosper group allows taking over the sponsorship of a Distributor who is already
-            registered in the network of the Lifeprosper group in the structure of another sponsor only with the express
+            The system of the Pribonasorte group allows taking over the sponsorship of a Distributor who is already
+            registered in the network of the Pribonasorte group in the structure of another sponsor only with the express
             consent of the original sponsor and the new sponsor. If the original (direct) sponsor agrees to the transfer
             of the Distributor to another sponsor, this process is irreversible and it is not possible for this
             Distributor to belong to the structure of the original sponsor again in the future. Distributors are therefore
             prohibited from knowingly registering another already registered Distributor into their structure or even
             attempting to do so. Distributors are also prohibited from knowingly registering persons for whom 6 months has
-            not yet passed since the termination of their previous membership in the Lifeprosper group.
+            not yet passed since the termination of their previous membership in the Pribonasorte group.
             <br><br>
             2.3.6 Unauthorized Transactions
             The Distributor is not authorized to contact suppliers or other business partners of the Company without the
             prior written consent of the Company, especially, but not exclusively, for the purpose of establishing
-            business cooperation outside the Lifeprosper group. Distributors are prohibited from conducting transactions
-            with each other with Products or with other products and services traded within the Lifeprosper group.
+            business cooperation outside the Pribonasorte group. Distributors are prohibited from conducting transactions
+            with each other with Products or with other products and services traded within the Pribonasorte group.
             <br><br>
             2.3.7 Prohibited Distribution
             The Distributor is not authorized to mediate the sale of Products using other than the Company's official
-            distribution channels (through the Distributor's subdomain or by registering a new member in the Lifeprosper
+            distribution channels (through the Distributor's subdomain or by registering a new member in the Pribonasorte
             group). This prohibition applies in particular to further commercial resale of Products through the
             Distributor's own distribution channels or another person with direct or indirect participation or influence
             of the Distributor on its decisions or activities (e.g. websites, e-shops, Facebook, Instagram, etc.).
             <br><br>
             2.3.8 Promotional Materials
             The Company is the exclusive originator of all marketing, advertising and graphic materials, photographs,
-            documents, newsletters, as well as other communication tools related to the Products or the Lifeprosper group.
+            documents, newsletters, as well as other communication tools related to the Products or the Pribonasorte group.
             The Distributor is not authorized to use other promotional materials or to procure his own for the promotion
-            of the Products or his activities in the Lifeprosper group without the prior written consent of the Company.
+            of the Products or his activities in the Pribonasorte group without the prior written consent of the Company.
             <br><br>
             2.3.9 Dissemination of false or misleading information
             Distributors are prohibited from spreading false, misleading or otherwise purposefully distorted information
-            about the Products, the Company, participation, remuneration and opportunities in the Lifeprosper Group,
+            about the Products, the Company, participation, remuneration and opportunities in the Pribonasorte Group,
             regardless of the method of dissemination of such information and the medium used. If it is proven that the
             Distributor knowingly lies, in particular that he modifies information or falsifies documents, this behavior
             will be considered a serious violation of the Rules. The Company may terminate such Distributor's membership
             immediately without notice.
             <br><br>
-            2.3.10 Unauthorized use of the "Lifeprosper" designation
-            The Distributor is not authorized to use the designation "Lifeprosper" on any URL address, email address or
+            2.3.10 Unauthorized use of the "Pribonasorte" designation
+            The Distributor is not authorized to use the designation "Pribonasorte" on any URL address, email address or
             profile name, different from the official channels of the Company, and also in any word connection with
             another designation.
             <br><br>
@@ -567,15 +567,15 @@
             prior notice.
             <br><br>
             2.3.15 Promotion of competition
-            In the interests of loyalty, building the good reputation and name of the Lifeprosper group, the Company and
+            In the interests of loyalty, building the good reputation and name of the Pribonasorte group, the Company and
             the Products, the Distributor is not authorized to speak publicly in favor of another MLM or other competing
             project, or otherwise actively support this competition, especially in the case of achieving the "LEADER1"
-            position in the Lifeprosper group.
+            position in the Pribonasorte group.
 
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 3 Membership</div>
+        <div class="base-id" id="Pribonasorte">Section 3 Membership</div>
 
         <div class="line-content">
           <p class="subtitulo-content">3.1. Duration of membership</p>
@@ -583,12 +583,12 @@
 
         <div class="line-content">
           <p class="text-content">
-            3.1.1 Membership in the Lifeprosper group lasts until one of the facts occurs, as a result of which the
+            3.1.1 Membership in the Pribonasorte group lasts until one of the facts occurs, as a result of which the
             membership changes or ceases.
             <br><br>
-            3.1.2 If the Distributor's membership in the Lifeprosper group has been terminated, this person may
+            3.1.2 If the Distributor's membership in the Pribonasorte group has been terminated, this person may
             re-register in the Company's system only after the waiting period has expired, which is 6 months from the
-            termination of the previous membership in the Lifeprosper group.
+            termination of the previous membership in the Pribonasorte group.
             <br><br>
             3.1.3 In the event that the first purchase does not take place with the newly registered Distributor, this
             Distributor may be re-registered by a new sponsor, even without the consent of the original (direct) sponsor.
@@ -607,9 +607,9 @@
             <br><br>
             3.1.6 The Distributor acknowledges that all Distributors who are registered in the Company's system in a line
             below him have a separate contractual relationship with the Company, just like himself, and are thus not bound
-            by the duration of his membership in the Lifeprosper group. The entire membership network of Distributors is
+            by the duration of his membership in the Pribonasorte group. The entire membership network of Distributors is
             built primarily in the interest and benefit of the Company, which bears witness to all rights to the database
-            of its Distributors and the entire structure of the Lifeprosper group. The distributor is not entitled to make
+            of its Distributors and the entire structure of the Pribonasorte group. The distributor is not entitled to make
             any claims on this database or structure.
 
           </p>
@@ -625,10 +625,10 @@
             another person is subject to the prior consent of the Company. The request for consent to the transfer of
             membership must be sent to the Company by one of the methods proving the Distributor's identity, i.e. by
             mailbox, in person, in writing or by email with a guaranteed electronic signature to the email address
-            support@lifeprosper.eu
+            support@Pribonasorte.eu
             <br><br>
             3.2.2 The Companies will assess each case of such membership changes individually, always with regard to the
-            rights of the Company and other Lifeprosper Group Distributors. However, the company is not obliged to comply
+            rights of the Company and other Pribonasorte Group Distributors. However, the company is not obliged to comply
             with the request.
             <br><br>
             3.2.3 The company most often accepts reasons for transferring membership, such as divorce, long-term illness,
@@ -639,7 +639,7 @@
             upon the effectiveness of the transfer of membership to a third party, who becomes a proper Distributor upon
             acceptance of the change by the Company. The existing Account and assigned ID of the current Distributor are
             transferred to the new Distributor. The new Distributor must meet the requirements for becoming a member of
-            the Lifeprosper group and must accept these Rules, including the related attachments and documents.
+            the Pribonasorte group and must accept these Rules, including the related attachments and documents.
             <br><br>
             3.2.5 In the case of the transformation of the Distributor – a legal entity, as a result of which the existing
             legal entity is divided or its assets, property or parts thereof are transferred to several entities, the
@@ -660,7 +660,7 @@
         <div class="line-content">
           <p class="text-content">
             3.3.1 In the event of the death or dissolution of the Distributor, the membership passes to the legal
-            successor, if this person meets the requirements for becoming a member of the Lifeprosper group. No one is
+            successor, if this person meets the requirements for becoming a member of the Pribonasorte group. No one is
             entitled to exercise the membership rights of a deceased or defunct Distributor until the legal effect of the
             decision on the estate or until the effective registration of the succession of the legal entity in the
             commercial or other similar public register.
@@ -669,7 +669,7 @@
             with appropriate documents and to fill in the registration form with the required information. However, this
             person only becomes a distributor upon acceptance of these Rules, related annexes and documents.
             <br><br>
-            3.3.3 In the event that the legal successor is already a Distributor registered in the Lifeprosper group, he
+            3.3.3 In the event that the legal successor is already a Distributor registered in the Pribonasorte group, he
             is exceptionally allowed to hold more than one ID.
             <br><br>
             3.3.4 The legal successor is entitled to the payment of commissions or other benefits of the defunct
@@ -694,22 +694,22 @@
             In the event that the Distributor does not make any purchase of the Company's Products or services for a
             period longer than 6 consecutive months, nor does the registration of a new Distributor by entering his ID as
             a sponsor occur during this period, the Company is entitled to unilaterally terminate his membership in the
-            Lifeprosper group. If this person is interested in becoming a Distributor again after termination of
+            Pribonasorte group. If this person is interested in becoming a Distributor again after termination of
             membership, he must complete a new registration in the Company's system (after the waiting period, see Article
             3.1.2 of the Rules).
             <br><br>
             3.4.2 Voluntary Termination by Distributor
-            Membership in the Lifeprosper group is voluntary. Each distributor is entitled to terminate membership at any
+            Membership in the Pribonasorte group is voluntary. Each distributor is entitled to terminate membership at any
             time without notice. The termination must be delivered to the Company by one of the methods proving the
             Distributor's identity, i.e. by mailbox, in person, in writing or by email with a guaranteed electronic
-            signature to the email address support@lifeprosper.eu. The Distributor's membership is terminated on the date
+            signature to the email address support@Pribonasorte.eu. The Distributor's membership is terminated on the date
             of delivery of the notice to the Company.
             <br><br>
             3.4.3 Termination of membership by the Company
             In the event that the Distributor violates any obligation arising from these Rules, related annexes or
             documents, even individually or individually, regardless of the seriousness of such violation, the Company is
             entitled, without any prior notification or warning to the Distributor, to immediately terminate the
-            membership of the Lifeprosper group without notice times. The Company sends the notice together with
+            membership of the Pribonasorte group without notice times. The Company sends the notice together with
             information about the cancellation of the Distributor's registration in the Company's system to the e-mail
             address of the Distributor and his sponsor (the Distributor who is closest above him in his sponsorship line).
             In this case, the Distributor's membership is terminated as of the date of sending this message.
@@ -731,7 +731,7 @@
             3.4.5 Settlement of Lapsed Membership
             In the event that the Distributor's membership is terminated, the Company will cancel the Distributor's
             registration, the Account associated with it and his ID. On the day of termination of membership, all rights,
-            claims or other benefits of the Distributor that are associated with membership in the Lifeprosper group, in
+            claims or other benefits of the Distributor that are associated with membership in the Pribonasorte group, in
             particular the right to payment of commissions or other financial payments, cease. In the event of termination
             of membership, the Distributor is not entitled to any compensation, special remuneration or compensation for
             the created clientele or the built structure of the Distributors.
@@ -745,13 +745,13 @@
             The Company maintains a so-called internal blacklist for its Distributors, which is a nominal list of
             Distributors with whom the Company has terminated their membership by termination for breach of duty pursuant
             to clause 3.4.3 of these Rules. The Distributor acknowledges that in the event of termination of his
-            membership in the Lifeprosper Group in the manner envisaged, he may be included in this list. In order to
+            membership in the Pribonasorte Group in the manner envisaged, he may be included in this list. In order to
             protect the Company, an internal blacklist is available for Distributors with an active ID.
 
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 4 Removal of Products</div>
+        <div class="base-id" id="Pribonasorte">Section 4 Removal of Products</div>
 
         <div class="line-content">
           <p class="subtitulo-content">4.1. Orders</p>
@@ -792,7 +792,7 @@
             case of entering a payment by bank transfer with an incorrect payment designation, as a result of which the
             payment will not be matched with the Product order, the Company will return the received payment back to the
             account of the sender of this payment. In case of error when entering the payment, it is possible to contact
-            the Company at the e-mail address support@lifeprosper.eu
+            the Company at the e-mail address support@Pribonasorte.eu
 
             <br><br>
             4.1.7 Before placing the next order, the Distributor undertakes to consume at least 70% of the previously
@@ -826,7 +826,7 @@
             was sent, i.e. by 24:00 of the same calendar day.
             <br><br>
             4.1.12 The distributor acknowledges that he is not entitled to withdraw from the contract in the case of goods
-            that have been modified according to his wishes or were prepared only for him (individualized Lifeprosper
+            that have been modified according to his wishes or were prepared only for him (individualized Pribonasorte
             products).
 
           </p>
@@ -892,7 +892,7 @@
             goods against damage or theft.
             <br><br>
             4.4.9 In case of problems with the delivery of the ordered Products, it is possible to contact the Company at
-            the e-mail address support@lifeprosper.eu
+            the e-mail address support@Pribonasorte.eu
           </p>
         </div>
 
@@ -965,7 +965,7 @@
 
             <br><br>
             4.5.13 Since the purchase of Products by the Distributor takes place in connection with its business
-            activities in the Lifeprosper group, the Distributor does not have the consumer's rights established by law
+            activities in the Pribonasorte group, the Distributor does not have the consumer's rights established by law
             (in particular, the right to withdraw from the contract within 14 days from the date of receipt of the goods)
             within the scope of the complaint.
 
@@ -992,7 +992,7 @@
             <br><br>
             4.6.2 The Distributor acknowledges that in order to preserve their properties and durability, the Products
             must be stored in the prescribed manner, which is indicated on the Product label or on the Company's website
-            www.Lifeprosper.com . Improper storage may be grounds for rejection of any Product claims.
+            www.Pribonasorte.com . Improper storage may be grounds for rejection of any Product claims.
             <br><br>
             4.6.3 The Distributor is obliged to properly instruct its customers, through whom it has mediated the purchase
             of the Products, on the use and storage of the Products.
@@ -1000,7 +1000,7 @@
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 5 Promotion and Distribution</div>
+        <div class="base-id" id="Pribonasorte">Section 5 Promotion and Distribution</div>
 
         <div class="line-content">
           <p class="subtitulo-content">5.1. Presentation</p>
@@ -1010,9 +1010,9 @@
           <p class="text-content">
             5.1.1 The Company is entitled to use all videos, photographs, information, texts, health or financial results,
             comments, opinions or references provided to the Company by its Distributors and which are related to the
-            Products or the Lifeprosper group, without any restriction or right to financial or other consideration. If
+            Products or the Pribonasorte group, without any restriction or right to financial or other consideration. If
             such material is subject to copyright or intellectual property protection, the Distributor, by registering in
-            the Lifeprosper group, grants the Company a free, time- and territorially unlimited license to use these
+            the Pribonasorte group, grants the Company a free, time- and territorially unlimited license to use these
             materials with authorization for the Company to use them further at its discretion. In such a case, the
             company is also entitled to use the provided materials for marketing purposes, to publish them through any
             media, sublicense or transfer this license in whole or in part to any third party without restriction. If the
@@ -1020,14 +1020,14 @@
             Distributor, he undertakes to settle all possible claims with this person so that the Company is entitled to
             dispose of these materials in accordance with this provision.
             <br><br>
-            5.1.2 During any presentation of Products or business opportunities in the Lifeprosper group, the Distributor
-            is obliged to provide true and complete information about the Products and opportunities of the Lifeprosper
+            5.1.2 During any presentation of Products or business opportunities in the Pribonasorte group, the Distributor
+            is obliged to provide true and complete information about the Products and opportunities of the Pribonasorte
             group, including the rules of the compensation plan, the Company and himself. The distributor is not
             authorized to use deceptive or unfair business practices.
             <br><br>
             5.1.3 The distributor is not entitled to abuse the trust of individual persons and should respect the possible
             lack of their business or life experience and their knowledge regarding the matter presented. In particular,
-            the Distributor is not entitled to guarantee easy, fast or astronomical earnings in the Lifeprosper group or
+            the Distributor is not entitled to guarantee easy, fast or astronomical earnings in the Pribonasorte group or
             the miraculous effects of the Products.
             <br><br>
             5.1.4 Distributors are prohibited from disseminating claims regarding the therapeutic or healing effects of
@@ -1037,14 +1037,14 @@
             the provision of food information to consumers).
             <br><br>
             5.1.5 Distributors are prohibited from disparaging any other competing product or project in any way, directly
-            or indirectly, within the framework of the presentation of Lifeprosper Group Products and opportunities. In
+            or indirectly, within the framework of the presentation of Pribonasorte Group Products and opportunities. In
             particular, the Distributor avoids comparisons or belittling that could be misleading or incompatible with the
             principles of competition and regulations governing unfair competition.
             <br><br>
-            5.1.6 The Distributor is not authorized to present Products or opportunities of the Lifeprosper group or the
+            5.1.6 The Distributor is not authorized to present Products or opportunities of the Pribonasorte group or the
             Company together with any other programs, opportunities, products or services.
             <br><br>
-            5.1.7 If the Distributor decides, during the presentation for the purpose of expanding the Lifeprosper group
+            5.1.7 If the Distributor decides, during the presentation for the purpose of expanding the Pribonasorte group
             to include additional new Distributors, to publish statements of collected commissions or other rewards, or to
             allow access or preview to sections of the Account related to collected rewards or commissions, he is entitled
             to do so only in relation to his own the results achieved. If he wants to share the results of his upline, he
@@ -1052,9 +1052,9 @@
             publish only true results (see Article 2.3.9 of the Rules). In addition, to every communication in which the
             Distributor states his achieved results, he is obliged to attach the disclaimer below, sufficiently visible
             and in such a way that its connection with this statement is clear.
-            Disclaimer:The activity of members in the Lifeprosper group, leading to the generation of possible income, is
+            Disclaimer:The activity of members in the Pribonasorte group, leading to the generation of possible income, is
             not considered a main employment relationship (HPP), but it is a business opportunity that can generate
-            commissions as well as costs. This means that none of your future income in the Lifeprosper Group business can
+            commissions as well as costs. This means that none of your future income in the Pribonasorte Group business can
             be promised, let alone guaranteed, as your overall success depends only on you and your determination to carry
             out this activity ethically, correctly and long enough. Rewards are calculated from your own work and from the
             work of members in the business network you are building. This means that if the turnover of your group is too
@@ -1063,7 +1063,7 @@
             <br><br>
             5.1.8 Distributors are prohibited from giving any radio, television, newspaper, tabloid, internet or magazine
             interviews, making public appearances, speeches or issuing statements relating to the Products, the
-            Lifeprosper group or the Company without the prior written consent of the Company.
+            Pribonasorte group or the Company without the prior written consent of the Company.
 
           </p>
         </div>
@@ -1079,11 +1079,11 @@
 
             <br><br>
             5.2.1.1 through a custom subdomain that allows the Distributor to enter a custom subdomain name with the
-            domain "Lifeprosper" and the ending ".shop" or ".video" (eg novak.Lifeprosper.shop or
-            fitguy.Lifeprosper.video) .
+            domain "Pribonasorte" and the ending ".shop" or ".video" (eg novak.Pribonasorte.shop or
+            fitguy.Pribonasorte.video) .
 
             <br><br>
-            5.2.1.2 through the registration of a new member in the Lifeprosper group, who enters the ID of this
+            5.2.1.2 through the registration of a new member in the Pribonasorte group, who enters the ID of this
             Distributor as his sponsor during registration.
             <br><br>
             5.2.3 The Company is always the supplier of the Products in compliance with the stated conditions for their
@@ -1103,13 +1103,13 @@
           <p class="text-content">
             5.3.1 The Distributor is entitled to use exclusively official marketing, advertising and graphic materials,
             photographs, materials, newsletters, which are the originator of the Company or which the Company has approved
-            in advance, as part of the presentation of the Products or business opportunities in the Lifeprosper group.
+            in advance, as part of the presentation of the Products or business opportunities in the Pribonasorte group.
             <br><br>
             5.3.2 The Distributor is not entitled to create any audio-visual materials of his own that will be associated
             with the Company in any way, in any form (graphic materials, videos, podcasts, audio recordings, etc.), as the
             Company's name, the name of the Products and the Company's logo are subject to intellectual property
             protection and may not be freely distributed. The Distributor is authorized to use only the official digital
-            materials of the Company, which are available in the Lifeprosper Office.
+            materials of the Company, which are available in the Pribonasorte Office.
             <br><br>
             5.3.3 The Distributor is not authorized to modify or change the Company's official advertising materials in
             any way without the prior express consent of the Company.
@@ -1123,11 +1123,11 @@
             these materials, including the costs of their production and distribution, rests with the Distributor.
             <br><br>
             5.3.5 The Distributor is not authorized to negotiate or conclude any contracts on behalf of the Company for
-            the promotion or advertising of the Lifeprosper group, the Products or the Company.
+            the promotion or advertising of the Pribonasorte group, the Products or the Company.
             <br><br>
             5.3.6 The Distributor is not authorized to produce or reproduce audio or visual materials created by the
             Company without the prior express consent of the Company. The Distributor may not make his own recordings of
-            meetings, telephone calls, events or conferences related to his participation in the Lifeprosper Group, nor
+            meetings, telephone calls, events or conferences related to his participation in the Pribonasorte Group, nor
             publish officially made recordings without the prior express consent of the Company.
 
           </p>
@@ -1140,29 +1140,29 @@
         <div class="line-content">
           <p class="text-content">
             5.4.1 The Distributor is not authorized to use other than the Company's official distribution channels in the
-            framework of the presentation of the LIFEPROSPER project, mediation of the sale of Products and related
+            framework of the presentation of the Pribonasorte project, mediation of the sale of Products and related
             services, unless otherwise stipulated by these Rules.
             <br><br>
             5.4.2 The Distributor may not, without the prior written consent of the Company, create or submit its own
-            Internet advertisement promoting Products or opportunities of the Lifeprosper Group or the Company. This
+            Internet advertisement promoting Products or opportunities of the Pribonasorte Group or the Company. This
             prohibition applies in particular to paid online advertising (PPC advertising), content network advertising
             (contextual advertising), display / banner advertising, e-mailing and paid advertising on social networks.
             <br><br>
             5.4.3 In case of violation of the ban on the use of paid internet advertising according to the previous
-            article (Article 5.4.2 of the Rules), the Company is entitled to immediately block access to the Lifeprosper
+            article (Article 5.4.2 of the Rules), the Company is entitled to immediately block access to the Pribonasorte
             office of the concerned Distributor, without any prior notice or warning. If this is the first violation of
             this prohibition, by default, access to the Account will be blocked for a period of 30 days, after which
             access will be automatically restored. The Distributor will be informed by the Company about the restriction
             of access to the Account by e-mail, as well as his sponsor. Repeated violation of this prohibition is
             considered a serious violation of the Rules with all the consequences that follow.
             <br><br>
-            5.4.4 In the event that the Distributor is interested in presenting the Lifeprosper project, Products and
-            related services to potential new members of the Lifeprosper network as well as any other third parties
+            5.4.4 In the event that the Distributor is interested in presenting the Pribonasorte project, Products and
+            related services to potential new members of the Pribonasorte network as well as any other third parties
             through its promotional channel (e.g. website, Facebook, Instagram, etc.), it is obliged to of the intention
             to inform the Company in advance and become familiar with the conditions under which the promotion of the
             Products is made possible in this way. The next step in the implementation of the project in question is
             necessarily the agreement of exact conditions with the Company, followed by own investment in the relevant
-            modifications of its promotional channel and then the own presentation of the Lifeprosper project, Products
+            modifications of its promotional channel and then the own presentation of the Pribonasorte project, Products
             and related services under conditions approved by the Company.
             <br><br>
             5.4.5 Distributors are expressly prohibited from promoting Products through price comparators such as
@@ -1175,7 +1175,7 @@
             of transport), outdoor advertising (posters, billboards, advertising surfaces – house shields, fences, etc.),
             alternative advertising (walking advertising, city light showcases, trailed advertising, municipal furniture –
             benches, public transport stops, clocks, digital boards, etc.) or various promotional items that promote
-            Products or opportunities of the Lifeprosper Group or Companies. This prohibition does not apply to
+            Products or opportunities of the Pribonasorte Group or Companies. This prohibition does not apply to
             unconscious and gratuitous advertising that the Distributor did not actively cause himself.
             <br><br>
             5.4.7 The Distributor is not authorized to disseminate content that is illegal, harassing, harmful,
@@ -1193,11 +1193,11 @@
             without the prior written consent of the Company. The procedure and conditions for this method of promotion
             must be approved in advance by the Company.
             <br><br>
-            5.4.11 The Distributor is prohibited from using the word "Lifeprosper" in the name of any of its promotional
+            5.4.11 The Distributor is prohibited from using the word "Pribonasorte" in the name of any of its promotional
             channels, URL address, email address or profile name, as well as in any combination of words with any other
             designation. The only exception is the subdomain approved by the Company, which allows the Distributor to
-            enter the Distributor's own subdomain name with the domain "Lifeprosper" and the ending ".shop" or ".video"
-            (eg novak.Lifeprosper.shop or fitguy.Lifeprosper.video) .
+            enter the Distributor's own subdomain name with the domain "Pribonasorte" and the ending ".shop" or ".video"
+            (eg novak.Pribonasorte.shop or fitguy.Pribonasorte.video) .
 
           </p>
         </div>
@@ -1210,7 +1210,7 @@
         <div class="line-content">
           <p class="text-content">
             5.5.1 The Distributor is entitled to use social networks, such as Instagram, Facebook, etc. (hereinafter
-            referred to as " Profile "), to present the Lifeprosper project, Products and related services, only after
+            referred to as " Profile "), to present the Pribonasorte project, Products and related services, only after
             obtaining prior consent for this activity from the Company.
             <br><br>
             5.5.2 Each Distributor is entitled to always have only one profile on social networks (e.g. Instagram,
@@ -1221,12 +1221,12 @@
             <br><br>
             5.5.3 Each Profile that a Distributor creates on a social network must be clearly marked with the
             Distributor's full name and ID and must not be locked to the public. Distributors, on the other hand, are
-            prohibited from using the word "Lifeprosper" in the name of the Profile, as well as in any word connection
+            prohibited from using the word "Pribonasorte" in the name of the Profile, as well as in any word connection
             with any other designation. This restriction does not apply to the authorized use of the logo, graphic
             representation and texts determined by the Company according to Article 5.3.1 et seq.
             <br><br>
             5.5.4 The Distributor undertakes to use exclusively official marketing, advertising and graphic materials and
-            photos in accordance with Article 5.3.1 of the Rules for the purposes of any presentation of the Lifeprosper
+            photos in accordance with Article 5.3.1 of the Rules for the purposes of any presentation of the Pribonasorte
             project and the Products on its Profile. The Distributor is entitled to use on his Profile photos and posts
             that the Company will display on its official channels, but only through sharing. If the Distributor is
             interested in using content from another Distributor's Profile on his Profile, he is obliged to obtain his
@@ -1243,7 +1243,7 @@
             using a combination of several Products, this recommended amount must be maintained in relation to all the
             Products used daily.
             <br><br>
-            5.5.8 In the event that the Distributor shares screenshots from the Lifeprosper office, he is obliged to
+            5.5.8 In the event that the Distributor shares screenshots from the Pribonasorte office, he is obliged to
             strictly comply with the obligations arising in particular from the Regulation of the European Parliament and
             the Council (EU) No. 2016/679 of April 27, 2016, on the protection of natural persons in connection with
             processing of personal data and the free movement of such data. The company does not recommend sharing these
@@ -1276,20 +1276,20 @@
             5.5.15 Distributors are prohibited from tagging the personal profiles of Company representatives, as well as
             other persons connected to the Company in any way, in their posts on social networks.
             <br><br>
-            5.5.16 In the event that the Distributor addresses potential customers or future members of the Lifeprosper
+            5.5.16 In the event that the Distributor addresses potential customers or future members of the Pribonasorte
             group through his Profile, he is obliged to provide them with complete and true information about the
-            Products, the Company, opportunities in the Lifeprosper group, the compensation plan and the work system. The
+            Products, the Company, opportunities in the Pribonasorte group, the compensation plan and the work system. The
             Distributor is obliged to provide this information himself and not to refer it to the Company for this
             purpose.
             <br><br>
             5.5.17 Every Distributor is obliged to comply with the Code of Ethics (Article 2.2 of the Membership Rules)
-            and to comply with all legal regulations related to his activities within the Lifeprosper group. Each
+            and to comply with all legal regulations related to his activities within the Pribonasorte group. Each
             Distributor is obliged to report to the Company any violation of legal regulations and Membership Rules.
 
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 6 Legal Protection</div>
+        <div class="base-id" id="Pribonasorte">Section 6 Legal Protection</div>
 
         <div class="line-content">
           <p class="subtitulo-content">6.1. Intellectual property</p>
@@ -1297,26 +1297,26 @@
 
         <div class="line-content">
           <p class="text-content">
-            6.1.1 The Distributor acknowledges that all intellectual property rights related to the LIFEPROSPER project
+            6.1.1 The Distributor acknowledges that all intellectual property rights related to the Pribonasorte project
             vest in INTERMODELS s.r.o., Pod Nouzovem 971/17, 197 00 Praha, Czech Republic, VAT ID- CZ 26126893.
             <br><br>
-            6.1.2 In particular, the name LIFEPROSPER, the names and composition of all Products, as well as logos,
+            6.1.2 In particular, the name Pribonasorte, the names and composition of all Products, as well as logos,
             graphics, symbols, descriptions, texts, procedures, methodologies, systems, literature, domains, trademarks,
-            manuals, materials, packaging or technologies that are related to the LIFEPROSPER project.
+            manuals, materials, packaging or technologies that are related to the Pribonasorte project.
             <br><br>
             6.1.3 The Distributor is entitled to use the listed objects of protection of intellectual property rights
             within the scope of his activity only in accordance with these Rules or on the basis of a prior written
             authorization from the Company. Any unauthorized use of the objects of this protection is prohibited.
             <br><br>
             6.1.4 Distributors are prohibited from registering domains, names, companies, designations, trademarks,
-            utility models, patents or other data and designations related to the LIFEPROSPER project or interchangeable
+            utility models, patents or other data and designations related to the Pribonasorte project or interchangeable
             with them, as well as derivatives or abbreviations of these designations.
             <br><br>
             6.1.5 The company is entitled to control the respect of all intellectual property rights related to the
-            LIFEPROSPER project, to demand their protection and to assert all related claims against persons who violate
+            Pribonasorte project, to demand their protection and to assert all related claims against persons who violate
             these rights.
             <br><br>
-            6.1.6 With the termination of membership in the Lifeprosper group, the Distributor loses all rights to use
+            6.1.6 With the termination of membership in the Pribonasorte group, the Distributor loses all rights to use
             objects protected by intellectual property rights and is obliged to stop all activities that constitute or may
             constitute interference with these rights.
 
@@ -1331,7 +1331,7 @@
         <div class="line-content">
           <p class="text-content">
             6.2.1 INTERMODELS s.r.o., Pod Nouzovem 971/17, 197 00 Praha, Czech Republic, VAT ID- CZ 26126893, is the owner
-            of the registered trademarks Lifeprosper and the names of the individual Products.
+            of the registered trademarks Pribonasorte and the names of the individual Products.
             <br><br>
             6.2.2 The Company exercises all rights resulting from registered trademarks towards Distributors and is
             entitled to decide or determine to whom and under what conditions it will allow to deal with the names in
@@ -1339,7 +1339,7 @@
             written authorization from the Company.
             <br><br>
             6.2.3 When using the logo or name for his own activity, the distributor is obliged to clearly state that he is
-            an independent LIFEPROSPER distributor according to these Rules.
+            an independent Pribonasorte distributor according to these Rules.
 
           </p>
         </div>
@@ -1352,7 +1352,7 @@
           <p class="text-content">
             6.3.1 All information with which the Distributor comes into contact during the duration of the membership and
             which is of a commercial, production, technical or economic nature related to the activities of the Company or
-            the Lifeprosper group, in particular procedures, processes, results and related technologies, know-how ,
+            the Pribonasorte group, in particular procedures, processes, results and related technologies, know-how ,
             marketing techniques and information, price lists, pricing policies, business methods and strategies,
             contracts and contractual relationships with customers and suppliers, research, computer software (including
             subject and source codes), databases, systems, structures and architectures not generally known to competitors
@@ -1362,20 +1362,20 @@
             confidential information. The confidential nature of this information remains regardless of the form and
             method of its communication or capture until the time of its authorized publication. The Company allows the
             Distributor access to confidential information only for the purpose of carrying out his activity and
-            development in the Lifeprosper group.
+            development in the Pribonasorte group.
             <br><br>
             6.3.3 The Distributors' database, their contact details, as well as all other confidential information
             mentioned above are created for the purpose and benefit of the Company's business activities.
             <br><br>
             6.3.4 The Distributor is obliged to maintain the confidentiality of this information and use it only for the
-            proper performance of his activities in the Lifeprosper group and for the benefit of the Company. The
+            proper performance of his activities in the Pribonasorte group and for the benefit of the Company. The
             Distributor undertakes not to use this information contrary to the Company's interests for his own benefit or
             for the benefit of any third parties.
 
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 7 Commission System and Compensation</div>
+        <div class="base-id" id="Pribonasorte">Section 7 Commission System and Compensation</div>
 
         <div class="line-content">
           <p class="subtitulo-content">7.1. The principle of rewards</p>
@@ -1383,12 +1383,12 @@
 
         <div class="line-content">
           <p class="text-content">
-            7.1.1 In connection with his participation in the Lifeprosper group, the Distributor may have the right to the
+            7.1.1 In connection with his participation in the Pribonasorte group, the Distributor may have the right to the
             payment of commissions, other financial payments and the drawing of other rewards or benefits. The conditions
             for the payment of rewards according to the previous sentence are set out in the Company's compensation plan,
             or in other separate documents.
             <br><br>
-            7.1.2 The amount of financial remuneration and rewards in the Lifeprosper group depends on the work performed
+            7.1.2 The amount of financial remuneration and rewards in the Pribonasorte group depends on the work performed
             by each Distributor, personal turnover and also depends on the turnover of his downline group. The Distributor
             acknowledges that the right to payment of financial performance may be further conditioned by the fulfillment
             of other requirements for the Distributor's activity.
@@ -1398,7 +1398,7 @@
             results. No Distributor or his downline group is guaranteed any income without meeting the conditions set
             forth in the Company's compensation plan.
             <br><br>
-            7.1.4 Before becoming a member of the Lifeprosper group, the company recommends that you carefully consider
+            7.1.4 Before becoming a member of the Pribonasorte group, the company recommends that you carefully consider
             steps to end your current job and does not recommend taking on debt for the purpose of more efficient
             earnings.
 
@@ -1415,60 +1415,60 @@
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 8 Educational and Social Events Lifeprosper</div>
+        <div class="base-id" id="Pribonasorte">Section 8 Educational and Social Events Pribonasorte</div>
 
         <div class="line-content">
-          <p class="subtitulo-content">8.1. Lifeprosper Academy</p>
+          <p class="subtitulo-content">8.1. Pribonasorte Academy</p>
         </div>
 
         <div class="line-content">
           <p class="text-content">
-            8.1.1 The company implements a basic training program called Lifeprosper Academy for its Distributors.
+            8.1.1 The company implements a basic training program called Pribonasorte Academy for its Distributors.
             <br><br>
-            8.1.2 The date, venue and all related details and conditions of participation in the Lifeprosper Academy are
+            8.1.2 The date, venue and all related details and conditions of participation in the Pribonasorte Academy are
             always announced by the Company several weeks in advance of the event through one of the Company's officially
-            used communication channels (in particular the website, newsletters, Lifeprosper office, SMS, e-mails,
+            used communication channels (in particular the website, newsletters, Pribonasorte office, SMS, e-mails,
             applications etc.).
             <br><br>
-            8.1.3 The Distributor acknowledges that participation in the Lifeprosper Academy may be subject to a fee and
+            8.1.3 The Distributor acknowledges that participation in the Pribonasorte Academy may be subject to a fee and
             may be limited by the capacity of participants in this event. The company is entitled to change or modify the
-            conditions and details of participation in the Lifeprosper Academy at any time.
+            conditions and details of participation in the Pribonasorte Academy at any time.
             <br><br>
-            8.1.4 Participation in Lifeprosper Academy educational events is possible for leaders who have reached the
+            8.1.4 Participation in Pribonasorte Academy educational events is possible for leaders who have reached the
             LEADER1 position during the relevant period. For the purposes of this provision, the decisive period is the
-            period from the date of the last Lifeprosper Academy to the date of the current Lifeprosper Academy.
+            period from the date of the last Pribonasorte Academy to the date of the current Pribonasorte Academy.
             <br><br>
-            8.1.5 Lifeprosper Academy can only be attended by a leader whose Account is based on a natural person, is
+            8.1.5 Pribonasorte Academy can only be attended by a leader whose Account is based on a natural person, is
             properly filled out and has allowed congratulations. An account that is based on a legal entity or a
             non-existent entity is considered non-transparent to other Distributors and the Company, and the person who
-            maintains it is not entitled to participate in the Lifeprosper Academy.
+            maintains it is not entitled to participate in the Pribonasorte Academy.
             <br><br>
-            8.1.6 A Leader who is invited to a Lifeprosper Academy event is entitled to bring family members (spouse,
-            partner, etc.) with them. The company covers the costs associated with accommodation at the Lifeprosper
+            8.1.6 A Leader who is invited to a Pribonasorte Academy event is entitled to bring family members (spouse,
+            partner, etc.) with them. The company covers the costs associated with accommodation at the Pribonasorte
             Academy event only for its leaders, and that in full.
             <br><br>
-            8.1.7 Persons accompanying leaders to the Lifeprosper Academy are obliged to pay the costs incurred in
-            connection with their participation in the Lifeprosper Academy.
+            8.1.7 Persons accompanying leaders to the Pribonasorte Academy are obliged to pay the costs incurred in
+            connection with their participation in the Pribonasorte Academy.
             <br><br>
-            8.1.8 As part of the Lifeprosper Academy educational events, the company can negotiate preferential price
+            8.1.8 As part of the Pribonasorte Academy educational events, the company can negotiate preferential price
             terms regarding accommodation for persons who accompany leaders.
             <br><br>
-            8.1.9 None of the Lifeprosper Academy participants is authorized to act on behalf of the Company with any
-            facility (especially accommodation) associated with Lifeprosper Academy in order to negotiate a more favorable
+            8.1.9 None of the Pribonasorte Academy participants is authorized to act on behalf of the Company with any
+            facility (especially accommodation) associated with Pribonasorte Academy in order to negotiate a more favorable
             price offer. Failure to comply with this provision is perceived as a violation of the Code of Ethics with all
             the consequences that follow.
             <br><br>
             8.1.10 Persons accompanying leaders are not authorized to participate in competitions or events organized by
-            the Company within the Lifeprosper Academy.
+            the Company within the Pribonasorte Academy.
             <br><br>
-            8.1.11 Making any recordings (audio, video, etc.) of events organized within the Lifeprosper Academy and their
+            8.1.11 Making any recordings (audio, video, etc.) of events organized within the Pribonasorte Academy and their
             subsequent distribution is strictly prohibited, when a violation of this provision will be considered a
             violation of the Rules with all the consequences resulting from this.
             <br><br>
-            8.1.12 If the leader cannot attend the Lifeprosper Academy, he is obliged to inform the Company about this
-            immediately at the e-mail address support@lifeprosper.eu . In the event that the Lifeprosper Academy
+            8.1.12 If the leader cannot attend the Pribonasorte Academy, he is obliged to inform the Company about this
+            immediately at the e-mail address support@Pribonasorte.eu . In the event that the Pribonasorte Academy
             participant does not report his/her non-participation in time, cancels his/her participation or does not
-            participate in the Lifeprosper Academy at all, he/she is obliged to reimburse the Company for all incurred
+            participate in the Pribonasorte Academy at all, he/she is obliged to reimburse the Company for all incurred
             costs. This action of the given leader will be considered a violation of the obligations arising from these
             Rules with all the expected consequences, and in the future he will no longer be able to participate in any
             educational and social event of the Company.
@@ -1476,44 +1476,44 @@
         </div>
 
         <div class="line-content">
-          <p class="subtitulo-content">8.2. Lifeprosper Event</p>
+          <p class="subtitulo-content">8.2. Pribonasorte Event</p>
         </div>
 
         <div class="line-content">
           <p class="text-content">
-            8.2.1 Every year, the Company organizes an annual event for its Distributors called Lifeprosper Event, in the
+            8.2.1 Every year, the Company organizes an annual event for its Distributors called Pribonasorte Event, in the
             form of a celebration, annual celebration, ball, social event, etc.
             <br><br>
-            8.2.2 The date, venue and all related details and conditions of participation in the Lifeprosper Event are
+            8.2.2 The date, venue and all related details and conditions of participation in the Pribonasorte Event are
             always announced by the Company several months in advance of the event through one of the Company's officially
-            used communication channels (in particular the website, newsletters, Lifeprosper office, SMS, e-mails,
+            used communication channels (in particular the website, newsletters, Pribonasorte office, SMS, e-mails,
             applications etc.).
             <br><br>
-            8.2.3 Personal participation of the Distributor at the Lifeprosper Event may be one of the conditions for
-            drawing bonuses (e.g. Car Bonus, Cash Bonus or Lifeprosper Business Trip), according to the rules established
-            for drawing these bonuses. In the event that the Distributor cannot participate in the Lifeprosper Event for
+            8.2.3 Personal participation of the Distributor at the Pribonasorte Event may be one of the conditions for
+            drawing bonuses (e.g. Car Bonus, Cash Bonus or Pribonasorte Business Trip), according to the rules established
+            for drawing these bonuses. In the event that the Distributor cannot participate in the Pribonasorte Event for
             serious reasons, he is obliged to notify the Company of this fact at least 3 days before the event at the
-            e-mail address support@lifeprosper.eu . The Company assesses each excuse for the Distributor's participation
-            in the Lifeprosper Event individually and is not obliged to accept it in order to waive the fulfillment of the
+            e-mail address support@Pribonasorte.eu . The Company assesses each excuse for the Distributor's participation
+            in the Pribonasorte Event individually and is not obliged to accept it in order to waive the fulfillment of the
             condition for drawing the relevant bonus.
             <br><br>
-            8.2.4 In the event that it is impossible to participate in the Lifeprosper Event, the Distributor is entitled
+            8.2.4 In the event that it is impossible to participate in the Pribonasorte Event, the Distributor is entitled
             to authorize another person (Distributor) to participate in this event and take over the voucher for drawing
             the relevant bonus. In order to maintain the right to draw the bonus, the Distributor is obliged to notify the
-            Company of this fact at least 3 days before the event to the e-mail address support@lifeprosper.eu .
+            Company of this fact at least 3 days before the event to the e-mail address support@Pribonasorte.eu .
             <br><br>
-            8.2.5 The Distributor acknowledges that participation in the Lifeprosper Event may be subject to a fee and may
+            8.2.5 The Distributor acknowledges that participation in the Pribonasorte Event may be subject to a fee and may
             also be limited by the capacity of participants in this event. The company is entitled to change or modify the
-            conditions and details of participation in the Lifeprosper Event at any time.
+            conditions and details of participation in the Pribonasorte Event at any time.
 
           </p>
         </div>
 
         <div class="line-content">
-          <p class="subtitulo-content">8.3. Lifeprosper Business Trip</p>
+          <p class="subtitulo-content">8.3. Pribonasorte Business Trip</p>
         </div>
 
-        <div class="base-id" id="lifeprosper">Section 9 Other Provisions</div>
+        <div class="base-id" id="Pribonasorte">Section 9 Other Provisions</div>
 
         <div class="line-content">
           <p class="subtitulo-content">9.1. Scanty</p>
@@ -1521,7 +1521,7 @@
 
         <div class="line-content">
           <p class="text-content">
-            9.1.1 In the event that a dispute arises between Distributors related to their membership in the Lifeprosper
+            9.1.1 In the event that a dispute arises between Distributors related to their membership in the Pribonasorte
             group, the Distributor is obliged to try to resolve this dispute amicably.
             <br><br>
             9.1.2 The Distributors' dispute, which cannot be resolved amicably even with the help of sponsors, will be
@@ -1533,7 +1533,7 @@
             appropriate.
             <br><br>
             9.1.4 When deciding a dispute between Distributors, the company is based on the recommendation of the
-            Lifeprosper leaders' meeting, but this recommendation is not binding for its own decision of the dispute.
+            Pribonasorte leaders' meeting, but this recommendation is not binding for its own decision of the dispute.
             <br><br>
             9.1.5 The company is entitled to adopt a decision within the resolution of the dispute imposing an obligation
             on the parties to the dispute to remedy the breach of obligations or a defective condition, including an
@@ -1573,7 +1573,7 @@
             regulations, etc. The Company does not provide any compensation to the Distributors in such case.
             <br><br>
             9.2.6 In the event that the Company causes demonstrable damage to the Distributor in connection with the
-            Distributor's membership in the Lifeprosper group, it is only liable for this damage up to the amount of EUR
+            Distributor's membership in the Pribonasorte group, it is only liable for this damage up to the amount of EUR
             1,000.
             <br><br>
             9.2.7 In the event that the Company asserts any claims against the Distributor for violation of these Rules,
@@ -1589,17 +1589,17 @@
             agreements, which are negotiated in these agreements, before which it has this provision of the Rules of
             application priority.
             <br><br>
-            9.2.9 In the interest of the successful business of Distributors within the Lifeprosper group, the Company
-            created a document for its Distributors entitled "Instructions on how to do Lifeprosper without legal
+            9.2.9 In the interest of the successful business of Distributors within the Pribonasorte group, the Company
+            created a document for its Distributors entitled "Instructions on how to do Pribonasorte without legal
             problems", which contains ideas, recommendations and warnings about the most common mistakes and should help
             Distributors avoid unnecessary legal problems. This document is available to all active Distributors in the
-            Lifeprosper office.
+            Pribonasorte office.
 
           </p>
         </div>
 
 
-        <div class="base-id" id="lifeprosper">Section 10 Definitions</div>
+        <div class="base-id" id="Pribonasorte">Section 10 Definitions</div>
 
         <div class="line-content">
           <p class="subtitulo-content">MLM</p>
@@ -1631,7 +1631,7 @@
 
         <div class="line-content">
           <p class="text-content">
-            The distributor who showed you a business opportunity and brought you to the Lifeprosper group.
+            The distributor who showed you a business opportunity and brought you to the Pribonasorte group.
           </p>
         </div>
 
@@ -1665,7 +1665,7 @@
 
         <div class="line-content">
           <p class="text-content">
-            Sponsor line of other Distributors who are above you in the Lifeprosper group hierarchy. This is a support
+            Sponsor line of other Distributors who are above you in the Pribonasorte group hierarchy. This is a support
             team that guides and educates you in the field of MLM business.
           </p>
         </div>
@@ -1676,8 +1676,8 @@
 
         <div class="line-content">
           <p class="text-content">
-            Lines of other Distributors who are below you in the Lifeprosper group hierarchy. These are Distributors that
-            you yourself bring to the Lifeprosper group as their sponsor or Distributors from your team under you. For
+            Lines of other Distributors who are below you in the Pribonasorte group hierarchy. These are Distributors that
+            you yourself bring to the Pribonasorte group as their sponsor or Distributors from your team under you. For
             these Distributors, you are their upline.
           </p>
         </div>
@@ -1700,7 +1700,7 @@
         <div class="line-content">
           <p class="text-content">
             Internal nominal list of former Distributors with whom the Company has terminated membership by termination
-            for breach of obligations arising from membership in the Lifeprosper group. In order to protect the Company,
+            for breach of obligations arising from membership in the Pribonasorte group. In order to protect the Company,
             an internal blacklist is available for Distributors with an active ID.
           </p>
         </div>
@@ -1733,15 +1733,15 @@
 
         <div class="line-content">
           <p class="text-content">
-            Each Distributor has the option to use his subdomain to mediate the sale of Lifeprosper products, which the
-            Distributor will set up in his account in the Lifeprosper office section. The subdomain is the URL address of
-            the Lifeprosper website, which consists of the Distributor's own name (e.g. last name, company) of the
-            Lifeprosper domain and the suffix .shop or .video. The entire subdomain of the Distributor can look like this,
-            for example: novak.Lifeprosper.shop or fitguy.Lifeprosper.video.
+            Each Distributor has the option to use his subdomain to mediate the sale of Pribonasorte products, which the
+            Distributor will set up in his account in the Pribonasorte office section. The subdomain is the URL address of
+            the Pribonasorte website, which consists of the Distributor's own name (e.g. last name, company) of the
+            Pribonasorte domain and the suffix .shop or .video. The entire subdomain of the Distributor can look like this,
+            for example: novak.Pribonasorte.shop or fitguy.Pribonasorte.video.
           </p>
         </div>
 
-        <div class="base-id" id="lifeprosper">General terms and conditions_for unregistered distributors</div>
+        <div class="base-id" id="Pribonasorte">General terms and conditions_for unregistered distributors</div>
 
         <div class="line-content">
           <p class="subtitulo-content">INTERMODELS s.r.o., Pod Nouzovem 971/17, 197 00 Praha, Czech Republic, </p>
@@ -1759,7 +1759,7 @@
               basis of the purchase contract (hereinafter referred to as "purchase contract ") concluded between the
               Seller and another natural person (hereinafter referred to as the " buyer ") through the Seller's online
               store. The online store is operated by the seller on the website located at the internet address
-              https://www.lifeprosper.eu (hereinafter referred to as the " online store "), through the website interface.
+              https://www.Pribonasorte.eu (hereinafter referred to as the " online store "), through the website interface.
             </li>
             <li>The general terms and conditions do not apply to cases where the person who intends to purchase goods from
               the seller is a legal entity or a person who, when ordering goods, acts as part of his business activity or
@@ -1772,10 +1772,10 @@
             <li>The general terms and conditions are an integral part of the purchase contract. The purchase contract and
               GTC are drawn up in the English language.</li>
             <li>
-              LIFEPROSPER is entitled to unilaterally change these General Terms and Conditions. The change does not
+              Pribonasorte is entitled to unilaterally change these General Terms and Conditions. The change does not
               affect the rights and obligations of the contracting parties arising during the effective period of the
               previous general terms and conditions, unless the parties agree otherwise. The current wording of the terms
-              and conditions is published on the website: https://www.lifeprosper.eu/
+              and conditions is published on the website: https://www.Pribonasorte.eu/
 
             </li>
           </ol>
@@ -1787,7 +1787,7 @@
             <li>According to these GTC, a buyer is a natural person in the position of a consumer or a natural person or
               legal entity running a business.</li>
             <li>
-              A consumer is any person who enters into a contract with LIFEPROSPER outside the scope of his business
+              A consumer is any person who enters into a contract with Pribonasorte outside the scope of his business
               activity or outside the scope of the independent exercise of his profession or deals with it in any other
               way outside the scope of his business activity or outside the scope of the independent exercise of his
               profession.
@@ -1869,12 +1869,12 @@
               If the seller cannot fulfill any of the requirements specified in the order, he will send the buyer an
               amended offer to the e-mail address specified in the order. This is not considered a new draft of the
               purchase contract - in this case, the purchase contract is concluded by the buyer's confirmation of
-              acceptance of this seller's offer to the e-mail address: support@lifeprosper.eu
+              acceptance of this seller's offer to the e-mail address: support@Pribonasorte.eu
             </li>
             <li>
               All orders accepted by the seller under these General Terms and Conditions are binding. The buyer is
               entitled to cancel the sent order only until the seller has notified him of the acceptance of the order. The
-              buyer may cancel the order by notifying the email address support@Lifeprosper.com .
+              buyer may cancel the order by notifying the email address support@Pribonasorte.com .
             </li>
             <li>
               If there was an obvious technical error on the part of the seller at the stated price of the goods in the
@@ -1883,7 +1883,7 @@
               accordance with these General Business Terms conditions. The seller informs the buyer about the error
               without undue delay and then sends him an amended offer to the e-mail address specified in the order. This
               is considered a new draft of the purchase contract, and the purchase contract is concluded in such a case by
-              confirmation of acceptance by the buyer to the seller's e-mail address: support@Lifeprosper.com .
+              confirmation of acceptance by the buyer to the seller's e-mail address: support@Pribonasorte.com .
             </li>
             <li>
               The purchase contract is concluded in the English language, unless circumstances on the part of the seller
@@ -1999,7 +1999,7 @@
               paragraph. To withdraw from the purchase contract, the buyer can use the sample form provided by the seller,
               which forms an appendix to the General Terms and Conditions. The buyer can send a withdrawal from the
               purchase contract to, among other things, the address of the seller's place of business or to the e-mail:
-              support@Lifeprosper.com .
+              support@Pribonasorte.com .
             </li>
 
             <li>
@@ -2235,7 +2235,7 @@
 
         <div class="line-content">
           <p class="text-content">Join us on this incredible journey of health and wellness. Together, let's unlock your
-            potential and thrive with LifeProsper.</p>
+            potential and thrive with Pribonasorte.</p>
         </div>
       </div>
     </section>

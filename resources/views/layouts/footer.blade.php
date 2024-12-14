@@ -113,11 +113,11 @@
         </ul>
         <ul class="footer-network">
 
-          <li><a href="https://www.facebook.com/lifeprosper.eu"><i class="fa-brands fa-facebook"
+          <li><a href="https://www.facebook.com/Pribonasorte.eu"><i class="fa-brands fa-facebook"
                 style="font-size: 25px;"></i></a></li>
-          <li><a href="https://www.tiktok.com/@lifeprosper.eu"><i class="fa-brands fa-tiktok"
+          <li><a href="https://www.tiktok.com/@Pribonasorte.eu"><i class="fa-brands fa-tiktok"
                 style="font-size: 25px;"></i></a></li>
-          <li><a href="https://www.instagram.com/lifeprosper.eu/" target="blank_"><i class="fa-brands fa-instagram"
+          <li><a href="https://www.instagram.com/Pribonasorte.eu/" target="blank_"><i class="fa-brands fa-instagram"
                 style="font-size: 25px;"></i></a></li>
         </ul>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="col-3">
         <p style="color: #ffffff; font-size: 13px; margin-bottom: 0px;">Phone: +420234688024</p>
-        <p style="color: #ffffff; font-size: 13px;">E-mail: support@lifeprosper.eu</p>
+        <p style="color: #ffffff; font-size: 13px;">E-mail: support@Pribonasorte.eu</p>
       </div>
       <div class="col-4">
         <ul style="margin-top: 5px;" class="list_payment_ul">

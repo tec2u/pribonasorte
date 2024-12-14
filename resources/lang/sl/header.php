@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'infinity_clubcards'   => 'Lifeprosper',
+    'infinity_clubcards'   => 'Pribonasorte',
     'language'             => strtoupper('Jazyk'),
     'english'              => strtoupper('Angličtina'),
     'spanish'              => strtoupper('španielčina'),
@@ -72,7 +72,7 @@ return [
     'news'                 => 'Správy',
     'blog'                 => 'Blog',
     'contact'              => 'Kontakt',
-    'all_rights'           => 'Všetky práva vyhradené Lifeprosper',
+    'all_rights'           => 'Všetky práva vyhradené Pribonasorte',
     'all_trademarks'       => 'Všetky ochranné známky a obrázky produktov zobrazené na tejto stránke sú majetkom spoločnosti Intermodels s.r.o.',
     'bonus_list' => 'ZOZNAM BONUSOV'
 ];

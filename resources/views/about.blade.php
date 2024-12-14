@@ -1,5 +1,5 @@
 @extends('layouts.header_page')
-@section('title', 'Lifeprosper | About')
+@section('title', 'Pribonasorte | About')
 @section('content')
 
   <style>
@@ -103,7 +103,7 @@
     <section class="master_3">
       <div class="container" style="padding: 50px 10%;">
 
-        <div class="base-id" id="lifeprosper"></div>
+        <div class="base-id" id="Pribonasorte"></div>
         <div class="line-content">
           <p class="subtitulo-content">Sobre Pri Bonasorte?</p>
         </div>
@@ -138,7 +138,7 @@
         </div>
 
         <div class="line-content">
-          <p class="text-content">Behind LifeProsper stands a team of visionary leaders who are passionate about promoting
+          <p class="text-content">Behind Pribonasorte stands a team of visionary leaders who are passionate about promoting
             wellness and making a difference. Our management team combines expertise from diverse fields, including
             nutrition, medicine, research, and business. With their wealth of knowledge and experience, they guide the
             company towards delivering exceptional products and services that meet the evolving needs of our valued
@@ -154,7 +154,7 @@
 
         <div class="line-content">
           <p class="text-content">Join us on this incredible journey of health and wellness. Together, let's unlock your
-            potential and thrive with LifeProsper.</p>
+            potential and thrive with Pribonasorte.</p>
         </div>
 
 
@@ -187,8 +187,8 @@
           </div>
 
           <div class="box_float2">
-            <img class="image_ceo" src="/img/ceo_lifeprosper.jpeg" alt="ceo">
-            <p style="margin-top: 10px;"><b>JURAJ MOJZIS</b>, CEO LIFEPROSPER</p>
+            <img class="image_ceo" src="/img/ceo_Pribonasorte.jpeg" alt="ceo">
+            <p style="margin-top: 10px;"><b>JURAJ MOJZIS</b>, CEO Pribonasorte</p>
           </div>
 
         </div>

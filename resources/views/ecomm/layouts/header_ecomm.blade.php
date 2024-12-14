@@ -38,7 +38,7 @@
         <div id="headerBackground" class="top-complete"></div>
         <div style="width: 10%; display: inline-block;">
           <a href="/" class="navbar-brand">
-            <img src="/img/Logo_AuraWay.png" id="logo" alt="LIFEPROSPER">
+            <img src="/img/Logo_AuraWay.png" id="logo" alt="Pribonasorte">
           </a>
         </div>
         <ul class="btns-header cart-mobile" style="margin: 15px 0px 0px 100px;">
@@ -84,8 +84,8 @@
                   About US
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#lifeprosper">About
-                      LifeProsper</a></li>
+                  <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#Pribonasorte">About
+                      Pribonasorte</a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#vision">Our
                       vision</a></li>
                   <li><a class="dropdown-item" style="color:#212121" href="{{ route('about') }}#management">Our
@@ -251,7 +251,7 @@
         <!--  -->
         <div id="box-inf">
             <p id="title-welcome">Welcome!</p>
-            <p id="title-landing">LIFEPROSPER</p>
+            <p id="title-landing">Pribonasorte</p>
             <center><button class="btn-shop-now">Shop now</button></center>
         </div>
     </section> --}}

@@ -739,7 +739,7 @@ trait ApiUser
             "idusuario" => $user->id
         ];
 
-        $url = 'https://lifeprosper.eu/public/compensacao/bonificacao.php';
+        $url = 'https://Pribonasorte.eu/public/compensacao/bonificacao.php';
 
         try {
 

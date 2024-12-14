@@ -716,7 +716,7 @@
                       </div>
                       {{-- @if ($qv >= 100) --}}
                       </br>Click here to place a smartship from this order. Smartship is a convenient, automatic monthly
-                      shipment of your favorite Lifeprosper Products.</br>
+                      shipment of your favorite Pribonasorte Products.</br>
 
                       {{-- @if (isset($userCorporate) && $userCorporate)
                         <button @if (isset($btnSmart) && $btnSmart == 'smart') disabled @endif class="btn btn-primary btn-lg"

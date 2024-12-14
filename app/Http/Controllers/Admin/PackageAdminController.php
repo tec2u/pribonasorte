@@ -903,7 +903,7 @@ class PackageAdminController extends Controller
         // dd($data);
         $countryCodeClient = ShippingPrice::where('country_code', $data['client_country'])->orWhere('country', $data['client_country'])->first();
 
-        $f = new FakturoidClient('intermodels', 'juraj@lifeprosper.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@lifeprosper.eu>');
+        $f = new FakturoidClient('intermodels', 'juraj@Pribonasorte.eu', 'd2f384a3e232c5fbeb28c8e2a49435573561905f', 'PHPlib <juraj@Pribonasorte.eu>');
         // dd($f);
 
         $existisSubject = SubjectsFakturoid::where('user_id', $data['client_id'])->first();
