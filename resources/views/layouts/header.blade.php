@@ -309,11 +309,7 @@
                     </a>
                     <ul id="minting-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
-                        <li>
-                            <a href="{{ route('packages.index') }}">
-                                <i class="bi bi-circle"></i><span>@lang('header.packages')</span>
-                            </a>
-                        </li>
+
                         @else
                         <li>
                             <a href="{{ route('packages.newProcessPackage') }}">
@@ -321,11 +317,6 @@
                             </a>
                         </li>
                         <br>
-                        <li>
-                            <a href="{{ route('packages.index') }}">
-                                <i class="bi bi-circle"></i><span>@lang('header.packages')</span>
-                            </a>
-                        </li>
                         @endif
                         @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
                         {{-- @if (auth()->user()->activated == 1 and empty(auth()->user()->id_corporate)) --}}
