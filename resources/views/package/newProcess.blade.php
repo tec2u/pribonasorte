@@ -134,7 +134,7 @@
                         </div>
 
                         <h5 class="tittle-name">{{ $package->name }}</h5>
-                        <h6 class="text-price">R$ {{ $package->price }}</h6>
+                        <h6 class="text-price">€ {{ $package->price }}</h6>
 
                         <div class="container-description">
                           @if (!empty($package->long_description))

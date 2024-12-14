@@ -55,7 +55,7 @@
                                                 <div class="d-flex justify-content-center" style="position: relative;margin-top:15px;">
                                                     <div class="d-flex flex-column align-items-center flag-content">
                                                         <img src="{{asset('assets/img/flag-star.png')}}" alt="" width="80" style="position:absolute;top:-15px;">
-                                                        <div style="font-size: 30px;">{{$total}} R$</div>
+                                                        <div style="font-size: 30px;">{{$total}} €</div>
                                                         <div style="font-size: 20px;">@lang('network.total')</div>
                                                     </div>
                                                 </div>

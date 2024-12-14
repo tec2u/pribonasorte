@@ -199,8 +199,8 @@
                                         </th>
 
 
-                                        <th style="border: 1px solid silver; ">R${{ $new_price }}</th>
-                                        <th style="border: 1px solid silver; ">R${{ $priceTax }}</th>
+                                        <th style="border: 1px solid silver; ">€{{ $new_price }}</th>
+                                        <th style="border: 1px solid silver; ">€{{ $priceTax }}</th>
                                         <th style="border: 1px solid silver; ">
                                             <ul style="margin-top: 10px;">
                                                 <li style="display: inline-block;"><a id="diminuir_quant"
@@ -214,7 +214,7 @@
                                             </ul>
                                         </th>
                                         <th style="border: 1px solid silver; ">
-                                            R${{ number_format($item->total + $item->priceTax, 2, ',', '.') }}</th>
+                                            €{{ number_format($item->total + $item->priceTax, 2, ',', '.') }}</th>
                                         <th style="border: 1px solid silver; ">
                                             <a id="limpa_carrinho" href="{{ route('packages.delete_cart_buy', ['id' => $item->id]) }}"><i
                                                     style="font-size: 20px;" class="bi bi-trash3-fill"></i></a>
@@ -239,7 +239,7 @@
                         <table style="margin-top: 10px;">
                             <thead>
                                 <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
-                                <th style="border: 1px solid silver; padding: 10px;" width="25%">R${{ $priceShippingHome }}</th>
+                                <th style="border: 1px solid silver; padding: 10px;" width="25%">€{{ $priceShippingHome }}</th>
                             </thead>
                         </table>
                         @endif
@@ -450,7 +450,7 @@
                                             <thead>
                                                 <tr>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
-                                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R${{ $withoutVAT }}
+                                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">€{{ $withoutVAT }}
                                                     </th>
                                                 </tr>
                                                 <tr>

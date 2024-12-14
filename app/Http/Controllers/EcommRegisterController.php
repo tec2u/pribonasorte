@@ -2462,10 +2462,10 @@ class EcommRegisterController extends Controller
 
             $produtos .= "<tr style='text-align:center;width:100%;border-top:1px solid;'>
                             <td>$prod->name</td>
-                            <td>R$$price</td>
+                            <td>€$price</td>
                             <td>$item->amount</td>
-                            <td>R$$item->total_vat</td>
-                            <td>R$$totalThisProduct</td>
+                            <td>€$item->total_vat</td>
+                            <td>€$totalThisProduct</td>
                         </tr>";
         }
 
@@ -2525,9 +2525,9 @@ class EcommRegisterController extends Controller
                                     </table>
                                     <br>
                                     <br>
-                                    Total VAT: R$$total_vat <br>
-                                    Total Shipping+VAT: R$$total_shipping <br>
-                                    Total Order: R$$total <br> <br>
+                                    Total VAT: €$total_vat <br>
+                                    Total Shipping+VAT: €$total_shipping <br>
+                                    Total Order: €$total <br> <br>
                                     Order Status: paid <br>
                                     <br>
                                     <br>

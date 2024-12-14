@@ -115,21 +115,21 @@
 
         @foreach ($data['products'] as $item)
           <p>
-            <span>{{ $item['amount'] }}X {{ $item['name'] }} -> Unit: R${{ $item['unit'] }}</span>
+            <span>{{ $item['amount'] }}X {{ $item['name'] }} -> Unit: €{{ $item['unit'] }}</span>
 
-            <span style="margin-left: 1rem">-> Total: R${{ number_format($item['total'], 2, '.', ',') }}</span>
+            <span style="margin-left: 1rem">-> Total: €{{ number_format($item['total'], 2, '.', ',') }}</span>
           </p>
         @endforeach
 
         <p>
 
-          <td>Shipping: R${{ number_format($data['total_shipping'], 2, '.', ',') }}</td>
+          <td>Shipping: €{{ number_format($data['total_shipping'], 2, '.', ',') }}</td>
         </p>
 
 
         <p>
 
-          <td>Vat: R${{ number_format($data['total_vat'], 2, '.', ',') }}</td>
+          <td>Vat: €{{ number_format($data['total_vat'], 2, '.', ',') }}</td>
         </p>
 
 
@@ -142,7 +142,7 @@
         <p>
           <td>Paid: {{ date('m/d/Y', strtotime($data['paid_data'])) }} </td>
 
-          <td>Total: R${{ $data['total_order'] }}</td>
+          <td>Total: €{{ $data['total_order'] }}</td>
         </p>
 
       </div>

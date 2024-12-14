@@ -154,7 +154,7 @@
                       <td scope="col">{{ $item->number_order }}</td>
                       <td scope="col">{{ \Carbon\Carbon::parse($item->updated_at)->format('m/d/Y h:i A') }}</td>
                       <td scope="col">{{ $item->payment }}</td>
-                      {{-- <td scope="col">R${{ $item->total }}</td> --}}
+                      {{-- <td scope="col">€{{ $item->total }}</td> --}}
                       @if ($item->invoiceFak)
                         <td scope="col">Sim</td>
 

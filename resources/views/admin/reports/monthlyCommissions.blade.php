@@ -74,7 +74,7 @@
             <div class="col-12 col-md-12 d-flex" style="justify-content: end">
                 <button id="btnExport" onclick="excell()" class="btn btn-warning btn-sm" style="height: fit-content; background-color: green; padding: 10px 20px 10px 20px;">Report Excel</button>
                 {{-- <a href="{{ route('admin.reports.monthlyCommissionsExcel') }}"><p style="float: right; font-size: 18px;">Export Excel</p></a> --}}
-                {{-- <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$ 0.00</p> --}}
+                {{-- <p style="float: left; margin: 10px 0px 0px 30px;">Total : € 0.00</p> --}}
             </div>
         </div>
     </div>

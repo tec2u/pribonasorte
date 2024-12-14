@@ -146,7 +146,7 @@
                           </td>
 
                           <td><span
-                              class="rounded-pill bg-primary px-4 py-1">R${{ number_format($score->total, 2, ',', '.') }}</span>
+                              class="rounded-pill bg-primary px-4 py-1">€{{ number_format($score->total, 2, ',', '.') }}</span>
 
                           <td><span class="rounded-pill bg-primary px-4 py-1">{{ $score->level_from }}</span>
 

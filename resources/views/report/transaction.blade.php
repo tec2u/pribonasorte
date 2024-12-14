@@ -50,7 +50,7 @@
                             <input type="submit" value="@lang('admin.btn.search')" class="btn btn-info">
                             </div>
                             <div class="col">
-                            <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$ {{ number_format($totalTrans,2,",",".")}}</p>
+                            <p style="float: left; margin: 10px 0px 0px 30px;">Total : € {{ number_format($totalTrans,2,",",".")}}</p>
                             </div>
                         </form>
                         </div>
@@ -182,11 +182,11 @@
                           @else
                             <td>Payment order</td>
                           @endif
-                          <td><span class="rounded-pill bg-success px-4 py-1">R$
+                          <td><span class="rounded-pill bg-success px-4 py-1">€
                               {{ number_format($transaction->price, 2, ',', '.') }}</span></td>
                           <td>{{ $transaction->getUserOrderLogin($transaction->order_id) }}</td>
                           <td><span class="rounded-pill bg-warning px-4 py-1">Product Purchase</span></td>
-                          <td><span class="rounded-pill bg-primary px-4 py-1">R$
+                          <td><span class="rounded-pill bg-primary px-4 py-1">€
                               {{ number_format($transaction->getUserOrderPackageValue($transaction->order_id), 2, ',', '.') }}</span>
                           </td>
                           <td>{{ $transaction->qv }}</td>

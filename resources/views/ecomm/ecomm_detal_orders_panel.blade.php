@@ -130,7 +130,7 @@
                 <p class="title-order-panel">Seu pedido foi feito com sucesso!</p>
                 <p class="title-number-panel">Seu pedido</p>
                 <p class="number-order">{{ $order_number }}</p>
-                <p class="title-number-panel">Total: R${{ $order[0]->total_price }}</p>
+                <p class="title-number-panel">Total: €{{ $order[0]->total_price }}</p>
               </center>
               <div>
                 <p class="title-number-panel">Pagamento: <strong style="font-size: 1rem"> {{ $order[0]->payment }}

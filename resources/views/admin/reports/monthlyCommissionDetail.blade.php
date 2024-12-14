@@ -66,7 +66,7 @@
             <div class="col-12 col-md-12 d-flex" style="justify-content: end">
 
                 {{-- <a href="{{ route('admin.reports.monthlyCommissionsExcel') }}"><p style="float: right; font-size: 18px;">Export Excel</p></a> --}}
-                {{-- <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$ 0.00</p> --}}
+                {{-- <p style="float: left; margin: 10px 0px 0px 30px;">Total : € 0.00</p> --}}
             </div>
         </div>
     </div>

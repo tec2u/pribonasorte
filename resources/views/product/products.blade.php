@@ -116,6 +116,10 @@ $categorias = \App\Models\Categoria::get();
                                     </div>
                                 </div>
 
+                                @php
+                                $new_price = $product->backoffice_price;
+                                @endphp
+
                                 <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">
                                     <h5 class="tittle-name">{{ $product->name }}</h5>
                                 </a>
