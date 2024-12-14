@@ -409,6 +409,7 @@ class EcommController extends Controller
     public function renderPayment($id)
     {
         $order = EcommOrders::where('number_order', $id)->first();
+        return response()->json($order);
         return view('ecomm.renderPayment', compact('order'));
     }
 
