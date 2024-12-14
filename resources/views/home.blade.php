@@ -897,39 +897,6 @@
               </div>
             </div>
 
-
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="info-box mb-4 shadow elevation c1 box-info">
-                <span class="info-box-icon" style="margin-top: -15px;"><i class="bi bi-display"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.smartship')</span>
-                  @if (isset($career_user->actived))
-                    <span class="info-box-number">@lang('home.smartship_active')</span>
-                  @else
-                    <span class="info-box-number">@lang('home.smartship_no_active')</span>
-                  @endif
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="info-box mb-4 shadow elevation c1 box-info">
-                <span class="info-box-icon" style="margin-top: -15px;"><i
-                    class="bi bi-credit-card-2-back-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.your_status')</span>
-                  <span class="info-box-number">
-                    @if ($active >= 100)
-                      @lang('home.smartship_active')
-                    @else
-                      @lang('home.smartship_no_active')
-                    @endif
-                  </span>
-                </div>
-              </div>
-            </div>
-
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon " style="margin-top: -15px;"><i class="bi bi-star-fill"></i></span>
@@ -1181,45 +1148,6 @@
             </div>
           </div>
 
-          <div class="col-12">
-            <div class="info-box shadow  d-flex column" style="flex-direction: column">
-              <h5 class="info-box-text col-12">@lang('home.my_orders_smartshipping')</h5>
-              <div class="info-box-content">
-                <div class="info-box" style="height: fit-content;">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">@lang('home.orders'): {{ count($pedidosSmart) }}</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>@lang('home.order')</td>
-                        <td>@lang('home.created')</td>
-                        <td>@lang('home.next_payment')</td>
-                        <td>@lang('home.price')</td>
-                        <td>QV</td>
-                      </tr>
-
-                      @foreach ($pedidosSmart as $item)
-                        <tr>
-                          <td>{{ $item->number_order }}</td>
-                          <td>{{ date('d/m/Y', strtotime($item->created_at)) }} </td>
-                          <td>{{ date('d/m/Y', strtotime($item->nextDayPay)) }} </td>
-                          <td>€{{ $item->total_price }}</td>
-                          <td>{{ $item->qv }} QV</td>
-                        </tr>
-                      @endforeach
-
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="col-12">
             <div class="info-box shadow  d-flex column" style="flex-direction: column;height: 50vh;overflow-y: scroll">
               <h5 class="info-box-text col-12">@lang('home.new_enrollments')</h5>
