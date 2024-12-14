@@ -121,7 +121,7 @@ class EcommController extends Controller
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         $data = $response->json();
-        return $data;
+        // return $data;
         EcommRegister::where('id', $user->id)->update(['code_api' => $data['id']]);
         if ($response->successful()) {
             return $data['id'];
@@ -148,7 +148,7 @@ class EcommController extends Controller
 
     public function createNewPaymentOrderAPI($customerID, $request, $cartOrder)
     {
-        $url = 'https://api.pagar.me/core/v5/paymentlinks';
+        $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
 
         $items = [];
         foreach ($cartOrder as $item) {
@@ -254,7 +254,7 @@ class EcommController extends Controller
 
     public function payment($request, $order)
     {
-        return $this->checkClientExistsAPI($request);
+        $customerID = $this->checkClientExistsAPI($request);
 
         $this->updateOrCreateClientAddress($customerID, $request);
 
@@ -314,6 +314,7 @@ class EcommController extends Controller
                     $orders->id_product = $order->id_product;
                     $orders->amount = $order->amount;
                     $orders->total = $order_total;
+                    $orders->payment_link = $data["url"];
                     $orders->total_vat = 0;
                     $orders->total_shipping = 0;
                     $orders->status_order = "order placed";
@@ -383,7 +384,7 @@ class EcommController extends Controller
             }
         }
 
-        return $data;
+        return $orders;
     }
 
     public function finalizeEcomm(Request $request)
@@ -397,10 +398,11 @@ class EcommController extends Controller
         }
 
         $responseData = $this->payment($request, $order_cart);
-        return response()->json($responseData);
+        // return response()->json($responseData);
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
-            return redirect()->away($payment['url']);
+            return response()->json($payment);
+            return redirect()->route($payment['url']);
         } else {
             return redirect()->back();
         }
