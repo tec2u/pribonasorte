@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <style>
   .navbar li {
@@ -73,7 +73,7 @@
   <style src="/js/progressbar.min.js"></style>
 </head>
 
-<body style="overflow-x: hidden;" class="body-image">
+<body style="overflow-x: hidden;" class="body-image h-100">
   <a href="https://api.whatsapp.com/send/?phone=5511960719101&text&type=phone_number&app_absent=0" target="blank_"
     class="content-btn-wpp">
     <i class="fa-brands fa-whatsapp"></i>
