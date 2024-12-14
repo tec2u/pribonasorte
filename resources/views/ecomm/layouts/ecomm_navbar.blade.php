@@ -5,7 +5,9 @@
         <a class="nav-link" href="{{ route('orders.panel.ecomm') }}">Todos os pedidos<span
             class="sr-only">(current)</span></a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('orders.invoicesReport.ecomm') }}">Recibos</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('orders.settings.ecomm') }}">Configurações</a>
       </li>

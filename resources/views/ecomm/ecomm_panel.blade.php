@@ -277,7 +277,6 @@
                 <thead>
                   <tr>
                     <th scope="col">Produto</th>
-                    <th scope="col">QV</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Recibo</th>
@@ -296,9 +295,6 @@
 
                       <tr>
                         <td><img src="/img/products/{{ $product[0]->img_1 }}" class="img-order"></td>
-                        <td>
-                          <p>{{ $item->qv ? $item->qv : '0' }}</p>
-                        </td>
                         <td>
                           <p>{{ $item->amount }} unidades</p>
                         </td>
@@ -340,9 +336,6 @@
                           <p>{{ $product[0]->name }}</p>
                         </div>
                       </table>
-                    </div>
-                    <div width="10%">
-                      <p>{{ $item->qv ? $item->qv : '0' }}</p>
                     </div>
                     <div width="15%">
                       <p>{{ $item->amount }} units</p>
