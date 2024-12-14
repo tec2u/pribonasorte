@@ -92,20 +92,10 @@ class ProductController extends Controller
     {
         $user = User::find(Auth::id());
         $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-        $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-        if (count($productsByCountry) > 0) {
-            $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->where('id_product', $productid)->first();
-
-            if (!isset($productsByCountry))
-                return abort(404);
+ 
 
             $product = Product::where('id', '=', $productid)->first();
-        } else {
-
-            $product = Product::where('id', '=', $productid)->first();
-        }
-
+    
 
         $stock = 1;
         if ($product->kit != 0) {
