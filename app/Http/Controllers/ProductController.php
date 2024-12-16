@@ -92,10 +92,10 @@ class ProductController extends Controller
     {
         $user = User::find(Auth::id());
         $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
- 
 
-            $product = Product::where('id', '=', $productid)->first();
-    
+
+        $product = Product::where('id', '=', $productid)->first();
+
 
         $stock = 1;
         if ($product->kit != 0) {
@@ -635,7 +635,7 @@ class ProductController extends Controller
 
         // return response()->json($request);
         $responseData = $this->payment($request, 0, $n_order);
-
+        // return response()->json($responseData);
         if (isset($responseData)) {
             $payment = $this->createRegisterPayment($responseData, $n_order);
 
@@ -955,7 +955,7 @@ class ProductController extends Controller
         }
     }
 
-    public function checkClientExistsAPI()
+    public function checkClientExistsAPI($request)
     {
         $code = auth()->user()->code_api;
         $url = 'https://api.pagar.me/core/v5/customers/';
@@ -967,7 +967,7 @@ class ProductController extends Controller
         if ($response->successful() && isset($response->json()["id"])) {
             return $response->json()["id"];
         } else {
-            return $this->createClientPaymentAPI();
+            return $this->createClientPaymentAPI($request);
         }
     }
 
@@ -1048,19 +1048,10 @@ class ProductController extends Controller
 
         if (count($response->json()["data"]) > 0) {
             $addressID = $response->json()["data"][0]["id"];
-            $data = [
-                "country" => "BR",
-                "state" => $request->state_ppl,
-                "city" => $request->city_ppl,
-                "zip_code" => preg_replace('/\D/', '', $request->zip_code_ppl),
-                "line_1" => $request->number_ppl . ", " . $request->address_ppl . ", " . $request->neighborhood_ppl,
-                "line_2" => ""
-            ];
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
-            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $customerID . "/addresses"."/".$addressID);
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->delete($url . $customerID . "/addresses" . "/" . $addressID);
         }
-
 
         $data = [
             "country" => "BR",
@@ -1080,7 +1071,7 @@ class ProductController extends Controller
 
     public function payment(Request $request)
     {
-        $customerID = $this->checkClientExistsAPI();
+        $customerID = $this->checkClientExistsAPI($request);
 
         $this->updateOrCreateClientAddress($customerID, $request);
 

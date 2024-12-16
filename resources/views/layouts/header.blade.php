@@ -308,24 +308,14 @@
                             class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="minting-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
+                        @if (true)
 
-                        @else
-                        <li>
-                            <a href="{{ route('packages.newProcessPackage') }}">
-                                <i class="bi bi-circle"></i><span>@lang('header.packages') + <br> @lang('header.products')</span>
-                            </a>
-                        </li>
-                        <br>
-                        @endif
-                        @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
-                        {{-- @if (auth()->user()->activated == 1 and empty(auth()->user()->id_corporate)) --}}
                         <li>
                             <a href="{{ route('packages.index_products') }}">
                                 <i class="bi bi-circle"></i><span>@lang('header.products')</span>
                             </a>
                         </li>
-                        {{-- @else --}}
+
                         {{-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#minting-nav-categories" data-bs-toggle="collapse">
                   <i class="bi bi-clipboard2-minus"></i><span>@lang('header.products')</span><i

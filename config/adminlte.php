@@ -350,26 +350,26 @@ return [
                'text' => 'members_list',
                'url' => 'admin/users',
             ],
-            [
-               'text' => 'Career',
-               'url' => 'admin/users/report/career',
-            ],
-            [
-               'text' => 'Career first',
-               'url' => 'admin/users/report/career-first',
-            ],
-            [
-               'text' => 'Alter career',
-               'url' => 'admin/users/alter-career',
-            ],
-            [
-               'text' => 'Newsletter',
-               'url' => 'admin/newsletter',
-            ],
-            [
-               'text' => 'Library',
-               'url' => 'admin/library',
-            ],
+            // [
+            //    'text' => 'Career',
+            //    'url' => 'admin/users/report/career',
+            // ],
+            // [
+            //    'text' => 'Career first',
+            //    'url' => 'admin/users/report/career-first',
+            // ],
+            // [
+            //    'text' => 'Alter career',
+            //    'url' => 'admin/users/alter-career',
+            // ],
+            // [
+            //    'text' => 'Newsletter',
+            //    'url' => 'admin/newsletter',
+            // ],
+            // [
+            //    'text' => 'Library',
+            //    'url' => 'admin/library',
+            // ],
             // [
             //    'text' => 'inactive_members_list',
             //    'url'  => 'admin/users/inactive',
@@ -378,26 +378,26 @@ return [
       ],
 
       [
-         'text' => 'Package',
+         'text' => 'Products',
          'icon' => 'fas fa-fw fa-box',
          'can' => 'is_admin',
          'submenu' => [
-            [
-               'text' => 'Adm packages',
-               'url' => 'admin/packages',
-            ],
+            // [
+            //    'text' => 'Adm packages',
+            //    'url' => 'admin/packages',
+            // ],
 
             [
-               'text' => 'Adm Products',
+               'text' => 'Create product',
                'url' => 'admin/packages/products',
             ],
 
 
 
-            [
-               'text' => 'Create Pkg Order',
-               'url' => "/admin/order-admin",
-            ],
+            // [
+            //    'text' => 'Create Pkg Order',
+            //    'url' => "/admin/order-admin",
+            // ],
 
 
          ],
@@ -413,74 +413,74 @@ return [
       //       ],
       //    ],
       // ],
-      [
-         'text' => 'withdraw',
-         'url' => 'admin/settings',
-         'icon' => 'fas fa-fw fa-money-bill',
-         'can' => 'is_admin1',
-         'submenu' => [
-            [
-               'text' => 'withdraw_requests',
-               'url' => 'admin/withdraws/withdrawRequests',
-            ],
-            [
-               'text' => 'withdraw_log',
-               'url' => 'admin/withdraws/withdrawLog',
-            ],
-         ],
-      ],
+    //   [
+    //      'text' => 'withdraw',
+    //      'url' => 'admin/settings',
+    //      'icon' => 'fas fa-fw fa-money-bill',
+    //      'can' => 'is_admin1',
+    //      'submenu' => [
+    //         [
+    //            'text' => 'withdraw_requests',
+    //            'url' => 'admin/withdraws/withdrawRequests',
+    //         ],
+    //         [
+    //            'text' => 'withdraw_log',
+    //            'url' => 'admin/withdraws/withdrawLog',
+    //         ],
+    //      ],
+    //   ],
 
-      [
-         'text' => 'blog',
-         'icon' => 'fas fa-fw fa-users',
-         'can' => 'admin',
-         'submenu' => [
-            [
-               'text' => 'Create Post',
-               'url' => 'admin/blog/post',
-            ],
-            [
-               'text' => 'Posts',
-               'url' => 'admin/blog/posts',
-            ],
-            // [
-            //    'text' => 'inactive_members_list',
-            //    'url'  => 'admin/users/inactive',
-            // ],
-         ],
-      ],
+    //   [
+    //      'text' => 'blog',
+    //      'icon' => 'fas fa-fw fa-users',
+    //      'can' => 'admin',
+    //      'submenu' => [
+    //         [
+    //            'text' => 'Create Post',
+    //            'url' => 'admin/blog/post',
+    //         ],
+    //         [
+    //            'text' => 'Posts',
+    //            'url' => 'admin/blog/posts',
+    //         ],
+    //         // [
+    //         //    'text' => 'inactive_members_list',
+    //         //    'url'  => 'admin/users/inactive',
+    //         // ],
+    //      ],
+    //   ],
 
-      [
-         'text' => 'News',
-         'icon' => 'fas fa-fw fa-users',
-         'can' => 'admin',
-         'submenu' => [
-            [
-               'text' => 'Create News',
-               'url' => 'admin/news/create',
-            ],
-            [
-               'text' => 'News List',
-               'url' => 'admin/news/list',
-            ],
-         ],
-      ],
+    //   [
+    //      'text' => 'News',
+    //      'icon' => 'fas fa-fw fa-users',
+    //      'can' => 'admin',
+    //      'submenu' => [
+    //         [
+    //            'text' => 'Create News',
+    //            'url' => 'admin/news/create',
+    //         ],
+    //         [
+    //            'text' => 'News List',
+    //            'url' => 'admin/news/list',
+    //         ],
+    //      ],
+    //   ],
 
-      [
-         'text' => 'Faq',
-         'icon' => 'fas fa-fw fa-file',
-         'can' => 'admin',
-         'submenu' => [
-            [
-               'text' => 'Create Questions',
-               'url' => 'admin/faq/create',
-            ],
-            [
-               'text' => 'List Questions',
-               'url' => 'admin/faq/list',
-            ],
-         ],
-      ],
+    //   [
+    //      'text' => 'Faq',
+    //      'icon' => 'fas fa-fw fa-file',
+    //      'can' => 'admin',
+    //      'submenu' => [
+    //         [
+    //            'text' => 'Create Questions',
+    //            'url' => 'admin/faq/create',
+    //         ],
+    //         [
+    //            'text' => 'List Questions',
+    //            'url' => 'admin/faq/list',
+    //         ],
+    //      ],
+    //   ],
 
       [
          'text' => 'support',
@@ -488,21 +488,21 @@ return [
          'icon' => 'fas fa-fw fa-headset',
       ],
 
-      [
-         'text' => 'Tutorial',
-         'icon' => 'fas fa-fw fa-headset',
-         'can' => 'admin',
-         'submenu' => [
-            [
-               'text' => 'Create Tutorial',
-               'url' => 'admin/tutorial/create',
-            ],
-            [
-               'text' => 'List Tutorial',
-               'url' => 'admin/tutorial/list',
-            ],
-         ],
-      ],
+    //   [
+    //      'text' => 'Tutorial',
+    //      'icon' => 'fas fa-fw fa-headset',
+    //      'can' => 'admin',
+    //      'submenu' => [
+    //         [
+    //            'text' => 'Create Tutorial',
+    //            'url' => 'admin/tutorial/create',
+    //         ],
+    //         [
+    //            'text' => 'List Tutorial',
+    //            'url' => 'admin/tutorial/list',
+    //         ],
+    //      ],
+    //   ],
 
       // [
       //    'text' => 'Change Wallet',
@@ -510,69 +510,69 @@ return [
       //    'icon' => 'fas fa-fw fa-headset',
       // ],
 
-      [
-         'text' => 'General Reports',
-         'url' => 'admin/settings',
-         'icon' => 'fas fa-fw fa-file',
-         'can' => 'is_admin2',
-         'submenu' => [
+    //   [
+    //      'text' => 'General Reports',
+    //      'url' => 'admin/settings',
+    //      'icon' => 'fas fa-fw fa-file',
+    //      'can' => 'is_admin2',
+    //      'submenu' => [
 
-            [
-               'text' => 'Username Up To Master',
-               'url' => 'admin/reports/UsernameUpToMaster',
-            ],
-            [
-               'text' => 'Registration Report',
-               'url' => '/admin/reports/RegistrationsWithDate',
-            ],
-            [
-               'text' => 'Registration Per Country',
-               'url' => '/admin/reports/UsersByCountry',
-            ],
-            [
-               'text' => 'Lastest registrations (30d)*',
-               'url' => '/admin/reports/UsersByCountry',
-            ],
-            [
-               'text' => 'Rank Report',
-               'url' => 'admin/reports/rankReward',
-            ],
-            [
-               'text' => 'Monthly Commissions',
-               'url' => '/admin/reports/monthlyCommissions',
-            ],
-            [
-               'text' => 'Smartshipping History',
-               'url' => '/admin/reports/smartshipping-history'
-            ],
-            // [
-            //   'text' => 'special_commission',
-            //   'url' => 'admin/reports/signupcommission',
-            //],
+    //         [
+    //            'text' => 'Username Up To Master',
+    //            'url' => 'admin/reports/UsernameUpToMaster',
+    //         ],
+    //         [
+    //            'text' => 'Registration Report',
+    //            'url' => '/admin/reports/RegistrationsWithDate',
+    //         ],
+    //         [
+    //            'text' => 'Registration Per Country',
+    //            'url' => '/admin/reports/UsersByCountry',
+    //         ],
+    //         [
+    //            'text' => 'Lastest registrations (30d)*',
+    //            'url' => '/admin/reports/UsersByCountry',
+    //         ],
+    //         [
+    //            'text' => 'Rank Report',
+    //            'url' => 'admin/reports/rankReward',
+    //         ],
+    //         [
+    //            'text' => 'Monthly Commissions',
+    //            'url' => '/admin/reports/monthlyCommissions',
+    //         ],
+    //         [
+    //            'text' => 'Smartshipping History',
+    //            'url' => '/admin/reports/smartshipping-history'
+    //         ],
+    //         // [
+    //         //   'text' => 'special_commission',
+    //         //   'url' => 'admin/reports/signupcommission',
+    //         //],
 
-            // [
-            //    'text' => 'Staking Rewards',
-            //    'url'  => 'admin/reports/stakingRewards',
-            // ],
-            //[
-            //  'text' => 'Referral Comission',
-            //  'url' => 'admin/reports/levelIncome',
-            //],
-            // [
-            //   'text' => 'Pool Commission',
-            //   'url' => 'admin/reports/poolcommission',
-            //],
-            // [
-            //    'text' => 'Ranking List',
-            //    'url'  => 'admin/reports/rankReward',
-            // ],
-            // [
-            //    'text' => 'Monthly Coins',
-            //    'url'  => 'admin/reports/monthlyCoins',
-            // ],
+    //         // [
+    //         //    'text' => 'Staking Rewards',
+    //         //    'url'  => 'admin/reports/stakingRewards',
+    //         // ],
+    //         //[
+    //         //  'text' => 'Referral Comission',
+    //         //  'url' => 'admin/reports/levelIncome',
+    //         //],
+    //         // [
+    //         //   'text' => 'Pool Commission',
+    //         //   'url' => 'admin/reports/poolcommission',
+    //         //],
+    //         // [
+    //         //    'text' => 'Ranking List',
+    //         //    'url'  => 'admin/reports/rankReward',
+    //         // ],
+    //         // [
+    //         //    'text' => 'Monthly Coins',
+    //         //    'url'  => 'admin/reports/monthlyCoins',
+    //         // ],
 
-         ],
-      ],
+    //      ],
+    //   ],
       [
          'text' => 'Financial Reports',
          'url' => 'admin/settings',
@@ -580,26 +580,26 @@ return [
          'can' => 'is_admin2',
          'submenu' => [
 
-            [
-               'text' => 'All Transactions',
-               'url' => 'admin/reports/transactions',
-            ],
+            // [
+            //    'text' => 'All Transactions',
+            //    'url' => 'admin/reports/transactions',
+            // ],
             [
                'text' => 'All Orders Payed',
                'url' => 'admin/reports/orders/payed',
             ],
-            [
-               'text' => 'Bonus Report',
-               'url' => 'admin/reports/transactions/bonus',
-            ],
-            [
-               'text' => 'Commision Report',
-               'url' => 'admin/reports/transactions',
-            ],
-            [
-               'text' => 'Rank Comission',
-               'url' => 'admin/reports/transactions',
-            ]
+            // [
+            //    'text' => 'Bonus Report',
+            //    'url' => 'admin/reports/transactions/bonus',
+            // ],
+            // [
+            //    'text' => 'Commision Report',
+            //    'url' => 'admin/reports/transactions',
+            // ],
+            // [
+            //    'text' => 'Rank Comission',
+            //    'url' => 'admin/reports/transactions',
+            // ]
 
          ],
       ],
@@ -610,10 +610,10 @@ return [
          'can' => 'is_admin2',
          'submenu' => [
 
-            [
-               'text' => 'Paid Order x Label',
-               'url' => 'admin/packages/paid/orderfilter/product',
-            ],
+            // [
+            //    'text' => 'Paid Order x Label',
+            //    'url' => 'admin/packages/paid/orderfilter/product',
+            // ],
             [
                'text' => 'Stocks',
                'url' => 'admin/packages/product/stock',
@@ -621,83 +621,83 @@ return [
 
          ],
       ],
-      [
-         'text' => 'Products Reports',
-         'url' => 'admin/settings',
-         'icon' => 'fas fa-fw fa-file',
-         'can' => 'is_admin2',
-         'submenu' => [
+    //   [
+    //      'text' => 'Products Reports',
+    //      'url' => 'admin/settings',
+    //      'icon' => 'fas fa-fw fa-file',
+    //      'can' => 'is_admin2',
+    //      'submenu' => [
 
-            //    [
-            //       'text' => 'Product Orders',
-            //       'url' => 'admin/packages/orderProducts',
-            //    ],
+    //         //    [
+    //         //       'text' => 'Product Orders',
+    //         //       'url' => 'admin/packages/orderProducts',
+    //         //    ],
 
-            [
-               'text' => 'Package Orders',
-               'url' => 'admin/packages/orderPackages',
-            ]
+    //         [
+    //            'text' => 'Package Orders',
+    //            'url' => 'admin/packages/orderPackages',
+    //         ]
 
-         ],
-      ],
-      [
-         'text' => 'settings',
-         'url' => 'admin/settings',
-         'icon' => 'fas fa-fw fa-cog',
-         'can' => 'is_admin3',
-         'submenu' => [
-            // [
-            //    'text' => 'indication',
-            //    'url' => 'admin/settings/indication',
-            // ],
-            [
-               'text' => 'PopUp',
-               'url' => 'admin/settings/popup',
-            ],
-            [
-               'text' => 'white_list',
-               'url' => 'admin/whitelist/whitelist',
-            ],
-            [
-               'text' => 'black_list',
-               'url' => 'admin/blacklist/blacklist',
-            ],
-            [
-               'text' => 'config_system',
-               'url' => 'admin/settings/system',
-            ],
+    //      ],
+    //   ],
+    //   [
+    //      'text' => 'settings',
+    //      'url' => 'admin/settings',
+    //      'icon' => 'fas fa-fw fa-cog',
+    //      'can' => 'is_admin3',
+    //      'submenu' => [
+    //         // [
+    //         //    'text' => 'indication',
+    //         //    'url' => 'admin/settings/indication',
+    //         // ],
+    //         [
+    //            'text' => 'PopUp',
+    //            'url' => 'admin/settings/popup',
+    //         ],
+    //         [
+    //            'text' => 'white_list',
+    //            'url' => 'admin/whitelist/whitelist',
+    //         ],
+    //         [
+    //            'text' => 'black_list',
+    //            'url' => 'admin/blacklist/blacklist',
+    //         ],
+    //         [
+    //            'text' => 'config_system',
+    //            'url' => 'admin/settings/system',
+    //         ],
 
-            // [
-            //    'text' => 'SMTP Setting',
-            //    'url'  => 'admin/smtp',
-            // ],
-            // [
-            //    'text' => 'mml_setting',
-            //    'url' => '#',
-            //    'submenu' => [
-            //[
-            //   'text' => 'unilevel_bonus',
-            //   'url' => 'admin/configBonus',
-            //],
-            // [
-            //    'text' => 'Rank Commission',
-            //    'url'  => 'admin/settings/mlmLevel',
-            // ],
-            //    ],
-            // ],
-         ],
-      ],
-      [
-         'text' => 'Generate Bonus',
-         'url' => 'admin/bonus/generate',
-         'icon' => 'fas fa-fw fa-undo',
-         // 'submenu' => [
-         //    [
-         //       'text' => 'Test',
-         //       'url'  => '#',
-         //    ],
-         // ],
-      ],
+    //         // [
+    //         //    'text' => 'SMTP Setting',
+    //         //    'url'  => 'admin/smtp',
+    //         // ],
+    //         // [
+    //         //    'text' => 'mml_setting',
+    //         //    'url' => '#',
+    //         //    'submenu' => [
+    //         //[
+    //         //   'text' => 'unilevel_bonus',
+    //         //   'url' => 'admin/configBonus',
+    //         //],
+    //         // [
+    //         //    'text' => 'Rank Commission',
+    //         //    'url'  => 'admin/settings/mlmLevel',
+    //         // ],
+    //         //    ],
+    //         // ],
+    //      ],
+    //   ],
+    //   [
+    //      'text' => 'Generate Bonus',
+    //      'url' => 'admin/bonus/generate',
+    //      'icon' => 'fas fa-fw fa-undo',
+    //      // 'submenu' => [
+    //      //    [
+    //      //       'text' => 'Test',
+    //      //       'url'  => '#',
+    //      //    ],
+    //      // ],
+    //   ],
       // [
       //    'text' => 'CMS',
       //    'url'  => 'admin/settings',

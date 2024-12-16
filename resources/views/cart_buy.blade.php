@@ -377,7 +377,7 @@
 
                                             <div class="col-sm-12">
                                                 <input class="form-input-finalize form-control form-register" placeholder="Estado - exemplo: SP"
-                                                    id="state_toAddress" type="text" value="{{ $user->state }}" readonly>
+                                                    id="state_toAddress" type="text" value="{{ $user->state }}" required oninput="changeField(this, 'state_ppl')">
                                             </div>
 
                                             <div class="col-sm-12">
@@ -387,7 +387,7 @@
 
                                             <div class="col-sm-12">
                                                 <input class="form-input-finalize form-control form-register" placeholder="Bairro"
-                                                    id="neighborhood_toAddress" type="text" value="{{ $user->area_residence }}" readonly>
+                                                    id="neighborhood_toAddress" type="text" value="{{ $user->area_residence }}" oninput="changeField(this, 'neighborhood_ppl')">
                                             </div>
 
                                             <div class="col-sm-12">
@@ -514,6 +514,10 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="{{ asset('css/intlTelInput.min.css') }}" />
 <script>
+
+    function changeField(iThis, pplID) {
+        $(`#${pplID}`).val($(iThis).val())
+    }
     function changeShippingMethod(method) {
         $('#allowed-shipping-methods').html('')
         $('.address-content').css('display', 'none');

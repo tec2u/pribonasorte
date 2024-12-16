@@ -36,6 +36,10 @@ Route::controller(ShippingController::class)->group(function () {
     Route::post('/calculate/{userID}', 'calculateShippingPrice')->name('calculate');
 });
 
+Route::controller(ShippingController::class)->group(function () {
+    Route::post('/ecomm/calculate', 'calculateShippingPriceEcomm')->name('calculateEcomm');
+});
+
 Route::get('/verify-corporation-authenticity/{idCorporate}', [CorporateController::class, "verify"])->name("verify_corporation_authenticity");
 
 

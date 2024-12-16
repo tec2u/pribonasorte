@@ -118,7 +118,7 @@ class EcommController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         $data = $response->json();
         return $data;
@@ -137,7 +137,7 @@ class EcommController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $code);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $code);
 
         if ($response->successful() && isset($response->json()["id"])) {
             return $response->json()["id"];
@@ -148,7 +148,7 @@ class EcommController extends Controller
 
     public function createNewPaymentOrderAPI($customerID, $request, $cartOrder)
     {
-        $url = 'https://api.pagar.me/core/v5/paymentlinks';
+        $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
 
         $items = [];
         foreach ($cartOrder as $item) {
@@ -191,7 +191,7 @@ class EcommController extends Controller
                 "customer_id" => $customerID
             ],
             "cart_settings" => [
-                "shipping_cost" => 0,
+                "shipping_cost" => floatval($request->send_value) * 100,
                 "items" => $items
             ],
             "layout_settings" => [
@@ -203,7 +203,7 @@ class EcommController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         if ($response->successful()) {
             return $response->json();
@@ -254,9 +254,9 @@ class EcommController extends Controller
 
     public function payment($request, $order)
     {
-        return $this->checkClientExistsAPI($request);
+        $customerID = $this->checkClientExistsAPI($request);
 
-        $this->updateOrCreateClientAddress($customerID, $request);
+        // $this->updateOrCreateClientAddress($customerID, $request);
 
         $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request, $order);
 
@@ -398,7 +398,8 @@ class EcommController extends Controller
         }
 
         $responseData = $this->payment($request, $order_cart);
-        return response()->json($responseData);
+        // return response()->json($responseData);
+
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
             return redirect()->route("payment_render.ecomm", ["id" => $payment->number_order]);
