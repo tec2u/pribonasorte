@@ -112,7 +112,6 @@
                     <thead>
                       <tr>
                         <th>Id</th>
-                        <th style="text-align: center">QV</th>
                         <th>@lang('reports.referral_commission.from')</th>
                         <th>@lang('reports.package')</th>
                         <th>@lang('reports.package_value')</th>
@@ -132,10 +131,6 @@
 
                         <tr>
                           <th>{{ $score->id }}</th>
-                          <td><span
-                              class="rounded-pill bg-success px-4 py-1">{{ number_format($score->qv, 2, ',', '.') }}</span>
-                          </td>
-
                           @if (isset($info_user) and !empty($info_user))
                             <td>{{ $info_user[0]->login }}</td>
                           @else
@@ -146,7 +141,7 @@
                           </td>
 
                           <td><span
-                              class="rounded-pill bg-primary px-4 py-1">€{{ number_format($score->total, 2, ',', '.') }}</span>
+                              class="rounded-pill bg-primary px-4 py-1">R$ {{ number_format($score->total, 2, ',', '.') }}</span>
 
                           <td><span class="rounded-pill bg-primary px-4 py-1">{{ $score->level_from }}</span>
 
@@ -160,11 +155,6 @@
                     </tbody>
                   </table>
                 </div>
-                <!--  -->
-                <div style="width: 100%; display: inline-block; margin: 20px 0px 0px 20px;">
-                  <p style="color: #212121; font-size: 18px;">Total QV: {{ number_format($total_qv, 2, ',', '.') }}</p>
-                </div>
-                <!--  -->
                 @if (!isset($filter) and empty($filter))
                   <div class="card-footer clearfix py-3">
                     {{ $scores->links() }}

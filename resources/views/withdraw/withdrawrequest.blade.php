@@ -168,9 +168,9 @@
                 </div>
                 <div class="note">
                   <h5>@lang('withdraw.note')</h5>
-                  <p>O minimo é 25EUR</p>
+                  <p>O minimo é R$ 25,00</p>
                   <p>Você também pode usar suas comissões para comprar produtos</p>
-                  <p>A taxa de processamento é de 3,5 EUR do valor solicitado e será deduzida do valor
+                  <p>A taxa de processamento é de R$ 3,50 do valor solicitado e será deduzida do valor
                     pago!</p>
                 </div>
                 <div class="modal-footer">

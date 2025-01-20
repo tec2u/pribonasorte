@@ -50,7 +50,7 @@
                             <input type="submit" value="@lang('admin.btn.search')" class="btn btn-info">
                             </div>
                             <div class="col">
-                            <p style="float: left; margin: 10px 0px 0px 30px;">Total : € {{ number_format($totalTrans,2,",",".")}}</p>
+                            <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$  {{ number_format($totalTrans,2,",",".")}}</p>
                             </div>
                         </form>
                         </div>
@@ -163,8 +163,6 @@
                         <th>@lang('reports.transaction.from')</th>
                         <th>Package</th>
                         <th>Package Value</th>
-                        <th>QV</th>
-                        <th>CV</th>
                         <th>Level</th>
                         <th>@lang('reports.transaction.id_order')</th>
                         <th>@lang('reports.transaction.date')</th>
@@ -182,15 +180,13 @@
                           @else
                             <td>Payment order</td>
                           @endif
-                          <td><span class="rounded-pill bg-success px-4 py-1">€
+                          <td><span class="rounded-pill bg-success px-4 py-1">R$
                               {{ number_format($transaction->price, 2, ',', '.') }}</span></td>
                           <td>{{ $transaction->getUserOrderLogin($transaction->order_id) }}</td>
                           <td><span class="rounded-pill bg-warning px-4 py-1">Product Purchase</span></td>
-                          <td><span class="rounded-pill bg-primary px-4 py-1">€
+                          <td><span class="rounded-pill bg-primary px-4 py-1">R$
                               {{ number_format($transaction->getUserOrderPackageValue($transaction->order_id), 2, ',', '.') }}</span>
                           </td>
-                          <td>{{ $transaction->qv }}</td>
-                          <td>{{ $transaction->cv }}</td>
                           <td>{{ $transaction->level_from }}</td>
                           <td>{{ $transaction->order_id }}</td>
                           <td>{{ date('d/m/Y', strtotime($transaction->created_at)) }}</td>

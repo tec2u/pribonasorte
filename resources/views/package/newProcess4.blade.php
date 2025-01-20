@@ -221,14 +221,14 @@
                           alt="img_products"></a>
                     </th>
                     <th style="border: 1px solid silver; padding: 10px;" width="45%">{{ $item->name }}</th>
-                    <th style="border: 1px solid silver; padding: 10px;" width="15%">€{{ $new_price }}</th>
+                    <th style="border: 1px solid silver; padding: 10px;" width="15%">R$ {{ $new_price }}</th>
                     <th style="border: 1px solid silver; padding: 10px;" width="15%">
                       <ul style="margin-top: 10px;">
                         <li style="display: inline-block;"><input class="text-center" style="width: 50px;" disabled
                             type="text" value="{{ $item->amount }}"></li>
                       </ul>
                     </th>
-                    <th style="border: 1px solid silver; padding: 10px;" width="15%">€{{ $new_total }}</th>
+                    <th style="border: 1px solid silver; padding: 10px;" width="15%">R$ {{ $new_total }}</th>
                     <th style="border: 1px solid silver; padding: 10px;" width="5%">
                       {{-- <a id="limpa_carrinho" href="{{ route('packages.delete_cart_buy', ['id' => $item->id]) }}"><i
                           style="font-size: 20px;" class="bi bi-trash3-fill"></i></a> --}}
@@ -276,14 +276,14 @@
                         alt="img_products"></a>
                   </th>
                   <th style="border: 1px solid silver; padding: 10px;" width="45%">{{ $package_choosed->name }}</th>
-                  <th style="border: 1px solid silver; padding: 10px;" width="15%">€{{ $new_price_package }}</th>
+                  <th style="border: 1px solid silver; padding: 10px;" width="15%">R$ {{ $new_price_package }}</th>
                   <th style="border: 1px solid silver; padding: 10px;" width="15%">
                     <ul style="margin-top: 10px;">
                       <li style="display: inline-block;"><input class="text-center" style="width: 50px;" disabled
                           type="text" value="1"></li>
                     </ul>
                   </th>
-                  <th style="border: 1px solid silver; padding: 10px;" width="15%">€{{ $new_total_package }}</th>
+                  <th style="border: 1px solid silver; padding: 10px;" width="15%">R$ {{ $new_total_package }}</th>
                   <th style="border: 1px solid silver; padding: 10px;" width="5%">
                     {{-- <a id="limpa_carrinho" href="{{ route('packages.delete_cart_buy', ['id' => $item->id]) }}"><i
                           style="font-size: 20px;" class="bi bi-trash3-fill"></i></a> --}}
@@ -309,7 +309,7 @@
                 <thead>
                   {{-- <tr>
                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
-                    <th style="border: 1px solid silver; padding: 10px;" width="25%">€{{ $priceShippingHome }}</th>
+                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $priceShippingHome }}</th>
                   </tr> --}}
                 </thead>
               </table>
@@ -318,12 +318,7 @@
                   <tr>
                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
                     <th style="border: 1px solid silver; padding: 10px;" width="25%">
-                      €{{ $withoutVAT }}</th>
-                  </tr>
-                  <tr>
-                    <th style="border: 1px solid silver; padding: 10px;" width="75%">QV</th>
-                    <th style="border: 1px solid silver; padding: 10px;" width="25%">
-                      {{ number_format($qv, 2, ',', '.') }}</th>
+                      R$ {{ $withoutVAT }}</th>
                   </tr>
                   <tr>
                     <th style="border: 1px solid silver; padding: 10px;" width="75%">CV</th>
@@ -382,7 +377,7 @@
                     </div>
 
                     <div class="row-form endereco2">
-                    
+
                       <div class="small-form">
                         <input class="form-input-finalize" placeholder="City" id="campo_cidade" type="text"
                           name="city">
@@ -590,7 +585,7 @@
                     @endif
                     <div class="card shadow p-md-2" style="width: 100%; height: fit-content;">
                       <p class="card-title-new text-start">Choose Shipping</p>
-                      {{-- <p class="text-start">€{{ $priceShippingHome }}</p> --}}
+                      {{-- <p class="text-start">R$ {{ $priceShippingHome }}</p> --}}
                       <div class="form-check" style="font-size: 1rem;">
                         <input class="form-check-input" type="radio" value="home1" name="method_shipping"
                           id="flexRadioDefault1" onclick="alterarValor('home')" required>
@@ -627,7 +622,7 @@
                           <tr>
                             <th style="border: 1px solid silver; padding: 10px;" width="75%">My E-Wallet Balance</th>
                             <th style="border: 1px solid silver; padding: 10px;" width="25%">
-                              €{{ number_format($availableComission, 2, ',', '.') }}</th>
+                              R$ {{ number_format($availableComission, 2, ',', '.') }}</th>
                           </tr>
                         </thead>
                       </table>
@@ -646,30 +641,20 @@
                         <thead>
                           <tr>
                             <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
-                            <th style="border: 1px solid silver; padding: 10px;" width="25%">€{{ $withoutVAT }}
+                            <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $withoutVAT }}
                             </th>
                           </tr>
                           <tr>
                             <th style="border: 1px solid silver; padding: 10px;" width="75%">VAT</th>
-                            <th style="border: 1px solid silver; padding: 10px;" width="25%">€<span
+                            <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ <span
                                 id="p_vat">{{ $total_VAT }}</span>
                             </th>
                           </tr>
                           <tr>
                             <th style="border: 1px solid silver; padding: 10px;" width="75%">Shipping</th>
-                            <th style="border: 1px solid silver; padding: 10px;" width="25%">€<span
+                            <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ <span
                                 id="shipping_table">{{ number_format($priceShippingHome, 2, '.', ',') }}</span>
                             </th>
-                          </tr>
-                          <tr>
-                            <th style="border: 1px solid silver; padding: 10px;" width="75%">QV</th>
-                            <th style="border: 1px solid silver; padding: 10px;" width="25%">
-                              {{ number_format($qv, 2, ',', '.') }}</th>
-                          </tr>
-                          <tr>
-                            <th style="border: 1px solid silver; padding: 10px;" width="75%">CV</th>
-                            <th style="border: 1px solid silver; padding: 10px;" width="25%">
-                              {{ number_format($cv, 2, ',', '.') }}</th>
                           </tr>
                           <tr>
                             <th style="border: 1px solid silver; padding: 10px;" width="75%">Total</th>
@@ -1062,7 +1047,7 @@
           // });
 
           document.getElementById('p_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('p_shipping').innerHTML = "€" + newtax_add;
+          document.getElementById('p_shipping').innerHTML = "R$ " + newtax_add;
           document.getElementById('shipping_table').innerHTML = newtax_add;
         }
       });
@@ -1107,7 +1092,7 @@
 
 
           document.getElementById('p_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('lognPrice').innerHTML = `€${n}`;
+          document.getElementById('lognPrice').innerHTML = `R$ ${n}`;
           document.getElementById('shipping_table').innerHTML = n;
         }
 
@@ -1237,7 +1222,7 @@
 
           let n = parseFloat(newtax_add)
           document.getElementById('p_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('lognPrice').innerHTML = `€${n}`;
+          document.getElementById('lognPrice').innerHTML = `R$ ${n}`;
           document.getElementById('shipping_table').innerHTML = n;
         }
 
@@ -1279,8 +1264,8 @@
 
           let n = parseFloat(newtax_add)
           document.getElementById('p_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-          document.getElementById('logpickup').innerHTML = "€" + n;
-          document.getElementById('shipping_table').innerHTML = "€" + n;
+          document.getElementById('logpickup').innerHTML = "R$ " + n;
+          document.getElementById('shipping_table').innerHTML = "R$ " + n;
 
 
         }

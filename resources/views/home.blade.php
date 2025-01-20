@@ -797,7 +797,7 @@
                       @lang('home.total_commission')
                       {{-- Total Commissions --}}
                     </span>
-                    <span class="info-box-number">{{ number_format($totalComission, 2, ',', '.') }} €</span>
+                    <span class="info-box-number">{{ number_format($totalComission, 2, ',', '.') }} R$ </span>
                   </div>
                 </div>
               </a>
@@ -820,22 +820,12 @@
                         {{ $mesAnterior }}</span>
                     @endif
                   </div>
-                  <span class="info-box-number">{{ number_format($availableComission, 2, ',', '.') }} €</span>
+                  <span class="info-box-number">{{ number_format($availableComission, 2, ',', '.') }} R$ </span>
                 </div>
 
               </div>
             </div>
 
-
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="info-box mb-4 shadow c1 box-info">
-                <span class="info-box-icon"><i class="bi bi-star-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.downline_volume')</span>
-                  <span class="info-box-number">{{ number_format($totalVolume, 2, ',', '.') }} QV</span>
-                </div>
-              </div>
-            </div>
 
             {{-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-4 shadow elevation c1 box-info">
@@ -873,36 +863,6 @@
                 <div class="info-box-content" style="color: #000;">
                   <span class="info-box-text">@lang('home.direct_distributors')</span>
                   <span class="info-box-number">{{ $diretos }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-6">
-              <div class="info-box mb-4 shadow c1 box-info">
-                <span class="info-box-icon"><i class="bi bi-star-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.downline_volume') (@lang('home.last_month'))</span>
-                  <span class="info-box-number">{{ number_format($totalVolumelast, 2, ',', '.') }} QV</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-6">
-              <div class="info-box mb-4 shadow c1 box-info">
-                <span class="info-box-icon"><i class="bi bi-star-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.personal_volume') (@lang('home.last_month'))</span>
-                  <span class="info-box-number">{{ number_format($personalVolumelast, 2, ',', '.') }} QV</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="info-box mb-4 shadow elevation c1 box-info">
-                <span class="info-box-icon " style="margin-top: -15px;"><i class="bi bi-star-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
-                  <span class="info-box-text">@lang('home.personal_volume')</span>
-                  <span class="info-box-number">{{ number_format($personalVolume, 2, ',', '.') }} QV</span>
                 </div>
               </div>
             </div>
@@ -985,7 +945,7 @@
         </div>
         </div> --}}
 
-            <div class="col-12 col-sm-6 col-md-6">
+            <!-- <div class="col-12 col-sm-6 col-md-6">
               <div class="info-box mb-4 shadow elevation c1 box-info box-career">
                 <div class="img-career">
                   <img src="/images/Badges/{{ $greatest_career_user->id }}.png"
@@ -1004,9 +964,9 @@
                   @endif
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-12 col-sm-6 col-md-6">
+            <!-- <div class="col-12 col-sm-6 col-md-6">
               <div class="info-box mb-4 shadow elevation c1 box-info box-career">
 
                 <div class="img-career">
@@ -1042,7 +1002,7 @@
               @endif
 
 
-            </div>
+            </div> -->
           </div>
 
           <div class="card">
@@ -1078,7 +1038,7 @@
                   <div class="col-10">
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" id="referral"
-                        value="https://register.Pribonasorte.eu/{{ auth()->user()->login }}">
+                        value="{{ route('indication.register', auth()->user()->id) }}">
                       <button class=" btn btn-dark orderbtn linkcopy px-4" type="button"
                         onclick=" FunctionCopy2()">Copy</button>
                     </div>
@@ -1107,46 +1067,6 @@
             </div>
           </div>
 
-          <div class="col-12">
-            <div class="info-box shadow  d-flex column" style="flex-direction: column">
-              <h5 class="info-box-text col-12">@lang('home.my_directs')</h5>
-              <div class="info-box-content">
-                <div class="info-box" style="height: fit-content;">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">@lang('home.directs'): {{ count($usersDirects) }}</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col">@lang('home.directs_with_qv'): {{ $quantQv }}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-
-                      @foreach ($usersDirects as $item)
-                        @if ($item->qv > 0)
-                          <tr>
-                            <td>{{ $item->name }} {{ $item->last_name ?? '' }}</td>
-                            <td></td>
-                            <td></td>
-                            <td>{{ $item->qv }} QV</td>
-                          </tr>
-                        @endif
-                      @endforeach
-
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div>
-          </div>
 
           <script>
             $(document).ready(function() {

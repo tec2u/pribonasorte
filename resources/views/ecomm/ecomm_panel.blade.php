@@ -130,7 +130,7 @@
                 <center>
                   <p class="title-order-panel">Pedido mais recente!</p>
                   <p class="title-number-panel">Pedido</p>
-                  <p class="title-number-panel">Total: €{{ $order[0]->total }}</p>
+                  <p class="title-number-panel">Total: R$ {{ $order[0]->total }}</p>
                   <p class="number-order">{{ $order_number }}</p>
 
                 </center>

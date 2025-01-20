@@ -37,8 +37,6 @@
                         <th>E-mail</th>
                         <th>@lang('network.phone')</th>
                         <th>@lang('network.country')</th>
-                        <th>CV</th>
-                        <th>QV</th>
                         <th>@lang('network.city')</th>
                         <th>@lang('network.next_pay')</th>
                         <th>@lang('network.active')</th>
@@ -63,8 +61,6 @@
                           <th>{{ $recruits->email }}</th>
                           <th>{{ $recruits->cell ?? $recruits->telephone }}</th>
                           <th>{{ $recruits->country }}</th>
-                          <th>{{ $cv }}</th>
-                          <th>{{ $qv }}</th>
                           <th>{{ $recruits->city }}</th>
                           <th>{{ date('d/m/Y', strtotime($recruits->cobranca ?? '')) }}</th>
                           <th>{{ $recruits->ativo ?? '' }}</th>
@@ -116,8 +112,6 @@
                         <th>E-mail</th>
                         <th>@lang('network.phone')</th>
                         <th>@lang('network.country')</th>
-                        <th>CV</th>
-                        <th>QV</th>
                         <th>@lang('network.city')</th>
                         <th>@lang('network.next_pay')</th>
                         <th>@lang('network.active')</th>
@@ -147,8 +141,6 @@
                             <th>{{ $itens->email }}</th>
                             <th>{{ $itens->phone }}</th>
                             <th>{{ $itens->country }}</th>
-                            <th>{{ number_format($cv, 2, ',', '.') }}</th>
-                            <th>{{ number_format($qv, 2, ',', '.') }}</th>
                             <th>{{ $itens->city }}</th>
                             <th>{{ date('d/m/Y', strtotime($itens->cobranca ?? '')) }}</th>
                             <th>{{ $itens->ativo ?? '' }}</th>

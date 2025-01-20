@@ -30,7 +30,6 @@
                         <th>Order</th>
                         <th>Payment</th>
                         <th>Total</th>
-                        <th>QV</th>
                         <th>Registered</th>
                         <th></th>
                       </tr>
@@ -41,7 +40,6 @@
                           <th>{{ $item->number_order }}</th>
                           <th>{{ $item->payment }}</th>
                           <th>{{ $item->total }}</th>
-                          <th>{{ $item->t_qv }}</th>
                           <th>{{ $item->created_at }}</th>
                           <th>
                             <a href="{{ route('networks.IndicationEcommOrdersDetail', $item->number_order) }}">

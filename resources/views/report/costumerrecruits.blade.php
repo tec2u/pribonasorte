@@ -39,7 +39,6 @@
                         <th>Country</th>
                         <th>City</th>
                         <th>Register</th>
-                        <th>QV</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -52,7 +51,6 @@
                           <th>{{ $recruits['country'] }}</th>
                           <th>{{ $recruits['city'] }}</th>
                           <th>{{ $recruits['created_at'] }}</th>
-                          <th>{{ number_format($recruits['qv'], 2, ',', '.') }}</th>
                         </tr>
                       @empty
                         <p class="m-4 fst-italic">no records for news recruits</p>

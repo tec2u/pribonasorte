@@ -158,8 +158,6 @@
                           <!-- <th>@lang('network.state')</th> -->
                           <th>@lang('network.city')</th>
                           <th>@lang('network.total')</th>
-                          <th>QV</th>
-                          <th>CV</th>
                           <th>Date</th>
                           <th></th>
                         </tr>
@@ -211,9 +209,7 @@
                             <th>{{ $team->country }}</th>
                             <!-- <th>{{ $team->state }}</th> -->
                             <th>{{ $team->city }}</th>
-                            <th>€{{ number_format($total_values, 2, ',', '.') }}</th>
-                            <th>{{ number_format($qv, 2, ',', '.') }}</th>
-                            <th>{{ number_format($cv, 2, ',', '.') }}</th>
+                            <th>R$ {{ number_format($total_values, 2, ',', '.') }}</th>
                             @if (isset($team->date))
                               <th>{{ date('d/m/Y', strtotime($team->date)) }}</th>
                             @else

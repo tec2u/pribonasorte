@@ -123,7 +123,7 @@ $categorias = \App\Models\Categoria::get();
                                 <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">
                                     <h5 class="tittle-name">{{ $product->name }}</h5>
                                 </a>
-                                <h6 class="text-price">€ {{ $new_price }} (exl.VAT)</h6>
+                                <h6 class="text-price">R$  {{ $new_price }} (exl.VAT)</h6>
 
 
                                 <div class="container-description">

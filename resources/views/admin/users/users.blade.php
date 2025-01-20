@@ -12,19 +12,7 @@
     <div class="card-header">
       <div class="alignPackage">
         <h3>@lang('admin.members.title_2')</h3>
-        <a href="{{ route('admin.users.customers') }}">
-          <button class="btn btn-warning btn-sm" type="button">
-            See Customers
-          </button>
-        </a>
 
-        <a href="{{ route('admin.users.corporates') }}">
-          <button class="btn btn-warning btn-sm" type="button">
-            See Corporates
-          </button>
-        </a>
-
-        <br>
         <form action="{{ route('admin.users.sendBrevo') }}" method="post" style="width: fit-content;display: flex;">
           @csrf
           <button class="btn btn-success btn-sm" type="submit">

@@ -122,7 +122,6 @@
                           <th scope="col">@lang('network.coutry')</th>
                           <th scope="col">@lang('network.email')</th>
                           <th scope="col">Volume</th>
-                          <th scope="col">QV Externo</th>
                           <th scope="col">@lang('network.level')</th>
                         </tr>
                       </thead>
@@ -201,7 +200,6 @@
                               @else
                                 <td>0</td>
                               @endif
-                              <td id="qvExt{{ $network->id }}">{{ $qvExternal }}</td>
                               <td id="nivel{{ $network->id }}">1</td>
                             </tr>
                             <tr>

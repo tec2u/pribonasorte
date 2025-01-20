@@ -105,28 +105,6 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="qv">QV</label>
-                  <input type="number" class="form-control form-control-lg @error('qv') is-invalid @enderror"
-                    id="qv" name="qv" step=".01" placeholder="9.99" value="{{ $product->qv ?? 0 }}">
-                  @error('qv')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="cv">CV</label>
-                  <input type="number" class="form-control form-control-lg @error('cv') is-invalid @enderror"
-                    id="cv" name="cv" step=".01" placeholder="9.99" value="{{ $product->cv ?? 0 }}">
-                  @error('cv')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
-                </div>
-              </div>
-
             </div>
             {{--  --}}
             <div class="row">

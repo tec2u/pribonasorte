@@ -395,14 +395,7 @@
                 <a class="nav-link collapsed" data-bs-target="#networks-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-people"></i><span>@lang('header.networks')</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="networks-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-
-                    <li>
-                        <a href="{{ route('networks.mycareer') }}">
-                            <i class="bi bi-circle"></i><span>@lang('header.my_career')</span>
-                        </a>
-                    </li>
-
+            <ul id="networks-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="{{ route('networks.mytree', ['parameter' => auth()->user()->id]) }}">
                             <i class="bi bi-circle"></i><span>@lang('header.my_tree')</span>

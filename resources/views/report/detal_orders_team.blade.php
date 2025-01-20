@@ -43,11 +43,6 @@
                       <input type="text" class="form-control" id="city" required name="city"
                         value="{{ $orders->total_vat }}">
                     </div>
-                    <div class="col-md-6">
-                      <label for="inputname" class="form-label">Total QV<span style="color: brown">*</span></label>
-                      <input type="text" class="form-control" id="city" required name="city"
-                        value="{{ $orders->qv }}">
-                    </div>
                   </div>
 
                 <div class="row" style="margin-top: 20px;">

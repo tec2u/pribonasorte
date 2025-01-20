@@ -578,17 +578,6 @@
                 <div class="box-total">
                     <div class="raw">
                         <div class="camp-text-total">
-                            <p class="text-total">QV:</p>
-                        </div>
-
-                        <div class="camp-value-total">
-                            <p class="text-value" id="pq_shipping">{{ number_format($qv, 2, ',', '.') }}</p>
-                            <input class="text-value" name="qv" value="" id="qv" style="display: none" />
-                        </div>
-                    </div>
-
-                    <div class="raw">
-                        <div class="camp-text-total">
                             <p class="text-total">Produtos:</p>
                         </div>
 
@@ -608,7 +597,7 @@
                         </div>
 
                         <div class="camp-value-total">
-                            <p class="text-value">€<span id="span_vat">{{ $total_VAT }}</span></p>
+                            <p class="text-value">R$ <span id="span_vat">{{ $total_VAT }}</span></p>
                             <input class="text-value" id="input_vat" name="total_vat" value="{{ $total_VAT }}"
                                 style="display: none" />
                         </div>
@@ -1089,7 +1078,7 @@
                     $priceShippingHome + $subtotal
                 }
             }
-            document.getElementById('p_shipping').innerHTML = "€" + {
+            document.getElementById('p_shipping').innerHTML = "R$ " + {
                 {
                     $priceShippingHome
                 }
@@ -1111,13 +1100,13 @@
                     $subtotal
                 }
             };
-            document.getElementById('value_order').innerHTML = "€" + {
+            document.getElementById('value_order').innerHTML = "R$ " + {
                 {
                     $subtotal
                 }
             };
             document.getElementById('text_my_address_pickup').style.display = 'none';
-            document.getElementById('p_shipping').innerHTML = "€" + {
+            document.getElementById('p_shipping').innerHTML = "R$ " + {
                 {
                     0
                 }
@@ -1125,7 +1114,7 @@
             return;
         } else if (valor == 'pickup') {
             document.getElementById('radio_method_payment').value = 'pickup';
-            document.getElementById('p_shipping').innerHTML = "€" + {
+            document.getElementById('p_shipping').innerHTML = "R$ " + {
                 {
                     0
                 }
@@ -1149,7 +1138,7 @@
         });
 
         document.getElementById('request_price').value = numeroFormatado;
-        document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
+        document.getElementById('value_order').innerHTML = "R$ " + numeroFormatado;
     }
 
     function atualizaPrecoPickup(pais) {
@@ -1174,7 +1163,7 @@
 
 
                 document.getElementById('span_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-                document.getElementById('p_shipping').innerHTML = "€" + parseFloat(newtax_add);
+                document.getElementById('p_shipping').innerHTML = "R$ " + parseFloat(newtax_add);
 
             }
         });
@@ -1188,7 +1177,7 @@
         });
 
         document.getElementById('request_price').value = numeroFormatado;
-        document.getElementById('value_order').innerHTML = "€" + numeroFormatado;
+        document.getElementById('value_order').innerHTML = "R$ " + numeroFormatado;
     }
 </script>
 
@@ -1361,7 +1350,6 @@
         }
     }
 </script>
-<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <script defer>
     function changeSendMethod(methodID, methodPrice) {
         $('#send_method').val(methodID);

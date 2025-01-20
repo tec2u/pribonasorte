@@ -102,8 +102,6 @@
                         <th>@lang('network.country')</th>
                         <th>@lang('network.city')</th>
                         <th>@lang('network.registered')</th>
-                        <th>QV</th>
-                        <th>CV</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -117,8 +115,6 @@
                           <th>{{ $recruits['country'] }}</th>
                           <th>{{ $recruits['city'] }}</th>
                           <th>{{ $recruits['created_at'] }}</th>
-                          <th>{{ number_format($recruits['qv'], 2, ',', '.') }}</th>
-                          <th>{{ number_format($recruits['cv'], 2, ',', '.') }}</th>
                         </tr>
                       @empty
                         <p class="m-4 fst-italic">@lang('network.no_records')no records for news recruits</p>

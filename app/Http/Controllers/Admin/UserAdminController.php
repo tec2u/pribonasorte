@@ -37,13 +37,9 @@ class UserAdminController extends Controller
      */
     public function index()
     {
-        $users = User::whereNull('id_corporate')
-            ->whereNull('corporate_nome')
-            ->orderBy('id', 'DESC')
-            ->paginate(9);
+        $users = User::orderBy('id', 'DESC')->paginate(9);
 
-        $user_stts = User::whereNull('id_corporate')
-            ->whereNull('corporate_nome')->get();
+        $user_stts = User::get();
 
         $all_states = array();
 

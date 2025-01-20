@@ -121,11 +121,7 @@
                       {{-- <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">
                     </a> --}}
                       <h5 class="tittle-name">{{ $product->name }}</h5>
-                      <h6 class="text-price">€ {{ $new_price }}</h6>
-                      <h6 class="text-price" style="color: #51185D; font-size:12px;">QV {{ $qv_format }} | CV
-                        {{ $product->cv }}</h6>
-
-
+                      <h6 class="text-price">R$  {{ $new_price }}</h6>
                       <div class="container-description">
                         @if (!empty($product->description))
                           <h6 class="text-description">

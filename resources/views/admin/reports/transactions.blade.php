@@ -61,7 +61,7 @@
             {{-- </div> --}}
             </div>
             <div class="col-sm-12 col-md-12" style="display: flex;justify-content: right;">
-                <p style="float: left; margin: 10px 0px 0px 30px;">Total : € {{ number_format($totalTrans,2,",",".")}}</p>
+                <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$  {{ number_format($totalTrans,2,",",".")}}</p>
             </div>
         </div>
 
@@ -127,7 +127,7 @@
                     </div>
                 </form>
 
-                <p style="float: left; margin: 10px 0px 0px 30px;">Total : € {{ number_format($totalTrans,2,",",".")}}</p>
+                <p style="float: left; margin: 10px 0px 0px 30px;">Total : R$  {{ number_format($totalTrans,2,",",".")}}</p>
             </div>
         </div> --}}
     </div>
@@ -141,8 +141,6 @@
             <th>@lang('reports.transaction.descr')</th>
             <th>@lang('reports.transaction.price')</th>
             <th>Package</th>
-            <th>QV</th>
-            <th>CV</th>
             <th>Level</th>
             <th>@lang('reports.transaction.id_order')</th>
             <th>@lang('reports.transaction.date')</th>
@@ -175,11 +173,9 @@
                 @else
                   <td>Payment order</td>
                 @endif
-                <td><span>€
+                <td><span>R$
                     {{ number_format($transaction->price, 2, ',', '.') }}</span></td>
                 <td><span>Product Purchase</span></td>
-                <td>{{ $transaction->qv }}</td>
-                <td>{{ $transaction->cv }}</td>
                 <td>{{ $transaction->level_from }}</td>
                 <td>{{ $transaction->order_id }}</td>
                 @if (isset($transaction->banco_created))
@@ -215,7 +211,7 @@
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 @section('js')
-  
+
     <script>
         $(document).ready(function () {
             $('#maskdata').mask('99/99/9999');

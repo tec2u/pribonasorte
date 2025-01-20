@@ -44,8 +44,6 @@
               <th>Product</th>
               <th>Username</th>
               <th>Price</th>
-              <th>QV</th>
-              <th>CV</th>
               <th>Register</th>
               <th></th>
             </tr>
@@ -84,8 +82,6 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->login }}</td>
                 <td>{{ $item->total }}</td>
-                <td>{{ $item->qv }}</td>
-                <td>{{ $item->cv }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     onclick="defineOrderInput('{{ $item->number_order }}', 'number-order-{{ $item->number_order }}')"

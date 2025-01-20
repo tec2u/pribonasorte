@@ -49,7 +49,6 @@
                         <th><b>@lang('network.name')Name</b></th>
                         <th><b>Email</b></th>
                         <th><b>@lang('network.phone')Phone</b></th>
-                        <th><b>QV</b></th>
                         <th><b>@lang('network.registered')Registered</b></th>
                         <th></th>
                       </tr>
@@ -71,7 +70,6 @@
                           @else
                             <th>-</th>
                           @endif
-                          <th>{{ number_format($item['qv'], 2, ',', '.') }}</th>
                           <th>{{ $item['register'] }}</th>
                           <th>
                             <a href="{{ route('networks.IndicationEcommOrders', $item['id']) }}">

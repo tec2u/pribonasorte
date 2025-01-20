@@ -41,10 +41,7 @@
                   $qv = $product->qv;
                   $qv_format = number_format($qv, 2, ',', '.');
                 @endphp
-                <p class="price-now">€ {{ $new_price }} (exl.VAT)</p>
-                <p class="price-now" style="color: #51185D; font-size: 1rem;">QV {{ $qv }} |
-                  CV {{ $product->cv }}
-                </p>
+                <p class="price-now">R$  {{ $new_price }} (exl.VAT)</p>
               </div>
               @if ($stock > 0)
                 <form action="{{ route('packages.buy_products', ['id' => $product->id]) }}" method="GET">

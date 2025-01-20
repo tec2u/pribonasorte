@@ -133,7 +133,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($commissionSum, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($commissionSum, 2, ',', '.') }} R$ </h3>
           <p>@lang('admin.dashboard.commission')</p>
         </div>
         <div class="icon">
@@ -146,7 +146,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($ecommOrders, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($ecommOrders, 2, ',', '.') }} R$ </h3>
           <p>@lang('admin.dashboard.sales_comission')</p>
         </div>
         <div class="icon">
@@ -159,7 +159,7 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ number_format($ecommOrdersThisMonth, 2, ',', '.') }} €</h3>
+          <h3>{{ number_format($ecommOrdersThisMonth, 2, ',', '.') }} R$ </h3>
           <p>@lang('admin.dashboard.sales_month')</p>
         </div>
         <div class="icon">
@@ -198,19 +198,6 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>{{ $SSDistributor }}</h3>
-          <p>@lang('admin.dashboard.smartshipping_dis')</p>
-        </div>
-        <div class="icon">
-          <i class="fas fa-hand-holding-usd"></i>
-        </div>
-        {{-- <a href="{{ route('admin.withdraw.withdrawRequests') }}" class="small-box-footer">@lang('admin.btn.moreinfo')<i
-            class="fas fa-arrow-circle-right"></i></a> --}}
-      </div>
-    </div>
-    <div class="col-lg-4 col-6">
-      <div class="small-box bg-warning">
-        <div class="inner">
           <h3>{{ $CountCustomers }}</h3>
           <p>@lang('admin.dashboard.registered_custom')</p>
         </div>
@@ -220,21 +207,6 @@
         {{-- <a href="{{ route('admin.withdraw.withdrawRequests') }}" class="small-box-footer">@lang('admin.btn.moreinfo')<i
             class="fas fa-arrow-circle-right"></i></a> --}}
       </div>
-    </div>
-    <div class="col-lg-4 col-6">
-      <a href="{{ route('admin.reports.smartShippingCustomers') }}">
-        <div class="small-box bg-warning">
-          <div class="inner">
-            <h3>{{ $SSCustomers }}</h3>
-            <p>@lang('admin.dashboard.smartshipping_custom')</p>
-          </div>
-          <div class="icon">
-            <i class="fas fa-hand-holding-usd"></i>
-          </div>
-          {{-- <a href="{{ route('admin.withdraw.withdrawRequests') }}" class="small-box-footer">@lang('admin.btn.moreinfo')<i
-            class="fas fa-arrow-circle-right"></i></a> --}}
-        </div>
-      </a>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">

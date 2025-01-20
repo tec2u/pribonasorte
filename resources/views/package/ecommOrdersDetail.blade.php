@@ -210,7 +210,6 @@
                         style="display: flex; align-items: center; width: 100%;justify-content: space-around; text-align: center">
                         <th>Imagem</th>
                         <th>Produto</th>
-                        <th>QV</th>
                         <th>Quantidade</th>
                         <th></th>
                       </tr>
@@ -224,7 +223,6 @@
                               style="width: 150px; height: 150px;">
                           </th>
                           <th>{{ $item->name_product }}</th>
-                          <th>{{ $item->qv ? $item->qv : '0' }}</th>
                           <th>{{ $item->amount }}</th>
                           <th>
                             <a href="{{ route('packages.detail_products', $item->id_product) }}">

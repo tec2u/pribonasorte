@@ -658,20 +658,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="raw">
-            <div class="total-column1">
-              <p class="text-column1">QV:</p>
-              <p class="text-column1">{{ number_format($qv, 2, ',', '.') }}</p>
-            </div>
-        </div>
-
-        <div class="raw">
-            <div class="total-column1">
-                <p class="text-column1">Total VAT:</p>
-                <p class="text-column1">R${{ $total_VAT }}</p>
-            </div>
-        </div>--}}
-
         <div class="raw">
             <div class="total-column1">
                 <p class="text-column1">Preço total:</p>
@@ -740,7 +726,7 @@
             $(".modal_popup").fadeIn();
         });
 
-       
+
 
     });
 </script>

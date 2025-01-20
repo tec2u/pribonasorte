@@ -256,7 +256,7 @@ class EcommController extends Controller
     {
         $customerID = $this->checkClientExistsAPI($request);
 
-        // $this->updateOrCreateClientAddress($customerID, $request);
+        $this->updateOrCreateClientAddress($customerID, $request);
 
         $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request, $order);
 
@@ -292,7 +292,6 @@ class EcommController extends Controller
 
 
                 $numb_order = $this->genNumberOrder();
-
 
                 $newPayment = new PaymentOrderEcomm;
                 $newPayment->id_user = $verific_register->id;
@@ -600,20 +599,7 @@ class EcommController extends Controller
             $user = session()->get('buyer');
             $countryIp = ["country" => $user->country];
 
-            $countryUser = ShippingPrice::where('country', $user->country)->orWhere('country_code', $user->country)->first();
-            $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->get('id_product');
-
-            if (count($productsByCountry) > 0) {
-                $productsByCountry = ProductByCountry::where('id_country', $countryUser->id)->where('id_product', $id)->first();
-
-                if (!isset($productsByCountry))
-                    return abort(404);
-
-                $product = Product::where('id', '=', $id)->first();
-            } else {
-
-                $product = Product::where('id', '=', $id)->first();
-            }
+            $product = Product::where('id', '=', $id)->first();
         } else {
             $product = Product::find($id);
         }

@@ -130,7 +130,7 @@
                 <p class="title-order-panel">Seu pedido foi feito com sucesso!</p>
                 <p class="title-number-panel">Seu pedido</p>
                 <p class="number-order">{{ $order_number }}</p>
-                <p class="title-number-panel">Total: €{{ $order[0]->total_price }}</p>
+                <p class="title-number-panel">Total: R$ {{ $order[0]->total_price }}</p>
               </center>
               <div>
                 <p class="title-number-panel">Pagamento: <strong style="font-size: 1rem"> {{ $order[0]->payment }}
@@ -258,7 +258,6 @@
               <thead>
                 <tr>
                   <th scope="col">Produto</th>
-                  <th scope="col">QV</th>
                   <th scope="col">Quantidade</th>
                   <th scope="col">Pagamento</th>
                   <th scope="col">Recibo</th>
@@ -277,9 +276,6 @@
 
                     <tr>
                       <td><img src="/img/products/{{ $product[0]->img_1 }}" class="img-order"></td>
-                      <td>
-                        <p>{{ $item->qv ? $item->qv : '0' }}</p>
-                      </td>
                       <td>
                         <p>{{ $item->amount }} Unidades</p>
                       </td>
