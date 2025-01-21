@@ -440,7 +440,7 @@ class ProductController extends Controller
             }
         }
 
-        return view('cart_buy', compact('btnSmart', 'user_cart', 'count_itens', 'subtotal', 'countPackages', 'total_VAT', 'metodos', 'withoutVAT', 'user'));
+        return view('cart_buy', compact('btnSmart', 'user_cart', 'count_itens', 'subtotal', 'countPackages', 'total_VAT', 'withoutVAT', 'user'));
     }
 
     public function registerChosenPickup(Request $request, $number_order)
