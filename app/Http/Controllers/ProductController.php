@@ -814,7 +814,7 @@ class ProductController extends Controller
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $code);
-
+        return $response->json();
         if ($response->successful() && isset($response->json()["id"])) {
             return $response->json()["id"];
         } else {
