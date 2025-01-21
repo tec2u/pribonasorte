@@ -136,9 +136,6 @@ class RegisterController extends Controller
       $user_rec = DB::table('users')->where('id', $data['recommendation_user_id'])->orWhere('login', $data['recommendation_user_id'])->first();
 
       $recommendation = $user_rec != null ? $user_rec->id : '3';
-
-      $data['cell'] = $data['countryCodeCell'] . $data['cell'];
-
       // $data['telephone'] = ($data['telephone']=='') ? 0 :  $data['telephone'];
 
       $eliminar_espace = str_replace(' ', '', $data['login']);
@@ -150,13 +147,6 @@ class RegisterController extends Controller
 
       $sem_acent = str_replace($comAcentos, $semAcentos, $eliminar_espace);
       $new_usern = strtolower($sem_acent);
-
-
-      $countryTable = ShippingPrice::where('country', $data['country'])->orWhere('country_code', $data['country'])->first();
-      if (!isset($countryTable)) {
-         // dd($data);
-         throw new Exception('error', 'error in country');
-      }
 
       $user = new User;
       $user->name = $data['name'];
@@ -171,7 +161,7 @@ class RegisterController extends Controller
       $user->special_comission = 1;
       $user->special_comission_active = 0;
       $user->cell = $data['cell'];
-      $user->country = $countryTable->country;
+      $user->country = $data['country'];
       $user->city = $data['city'];
       $user->last_name = $data['last_name'];
       $user->birthday = date('Y-m-d', strtotime($data['birthday']));
@@ -367,18 +357,18 @@ class RegisterController extends Controller
                                        <li>Pribonasorte Secure Back Office</li>
                                        <li>Pribonasorte Training and Support Tools</li>
                                        <li>Administrative Support</li>
-                                       <li>Better pricing for products</li>                                    
+                                       <li>Better pricing for products</li>
                                     </ul>
                                     <br>
                                     <br>
                                     This is your opportunity to join a dynamic community dedicated to well-being and prosperity. We're here to support you every step of the way.
                                     Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp:
                                     <br>
-                                    <br>                                                            
+                                    <br>
                                     <ul>
-                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>                                                                      
-                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>                                                                      
-                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>                                                                      
+                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>
+                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>
+                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -386,16 +376,16 @@ class RegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>                                                                      
-                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
-                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>
+                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
+                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
                                     <div style='display:flex;justify-content: space-between;width:100%;gap:2rem;'>
                                         <div>
                                         Best Regards, <br>
-                                        Pribonasorte Team<br>                                        
+                                        Pribonasorte Team<br>
                                         Support-  +420 234 688 024<br>
                                         WHATSAPP number- +421 918 142 520
                                         </div>
@@ -480,7 +470,7 @@ class RegisterController extends Controller
                                     Hello, $distributor->name
                                     <br>
                                     <br>
-                                    We're excited to inform you that a new distributor has registered using your referral link. 
+                                    We're excited to inform you that a new distributor has registered using your referral link.
                                     <br>
                                     <br>
                                     Here are their details: <br>
@@ -496,12 +486,12 @@ class RegisterController extends Controller
                                     In the first 72 hours, assist them in inviting 20 people to attend a Pribonasorte company presentation. These presentations can be conducted online, via Zoom, webinar, or in-person.
                                     <br>
                                     <br>
-                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp: 
-                                    <br>                                                           
+                                    Communication is key, and it's very important to follow us on all social media platforms. Immediately after registration, the first steps should be to follow us on our private Facebook group and Telegram, or WhatsApp:
+                                    <br>
                                     <ul>
-                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>                                                                      
-                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>                                                                      
-                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>                                                                      
+                                       <li>Private Facebook Group <a href='https://www.facebook.com/groups/467430965762866'>https://www.facebook.com/groups/467430965762866/</a> </li>
+                                       <li>Telegram <a href='https://t.me/+4pRjuBp4Pw1kYjY0'>https://t.me/+4pRjuBp4Pw1kYjY0/</a> </li>
+                                       <li>WhatsApp <a href='https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j'>https://chat.whatsapp.com/DzI11cuddPu4BMhl64827j/</a> </li>
                                     </ul>
                                     <br>
                                     <br>
@@ -509,9 +499,9 @@ class RegisterController extends Controller
                                     <br>
                                     <br>
                                      <ul>
-                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>                                                                      
-                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>                                                                      
-                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>                                                                      
+                                       <li>Instagram <a href='https://www.instagram.com/Pribonasorte_official'>https://www.instagram.com/Pribonasorte_official/</a> </li>
+                                       <li>Facebook <a href='https://www.facebook.com/profile.php?id=61557861185751'>https://www.facebook.com/profile.php?id=61557861185751/</a> </li>
+                                       <li>YouTube <a href='https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ'>https://www.youtube.com/channel/UCfK89eNJjOYbwowYjdO8MnQ/</a> </li>
                                     </ul>
                                     <br>
                                     <br>

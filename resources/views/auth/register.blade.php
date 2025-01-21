@@ -210,8 +210,8 @@ autocomplete="postcode" tabindex="5">
 </div> --}}
             <div class="col-lg-6">
               <label class="form-label teste1234">País <span style="color: brown">*</span></label>
-              <select class="teste1234 form-register form-control" required name="country" tabindex="7"
-                onchange="chooseCountryCellByCountryInput(event)">
+              <select class="teste1234 form-register form-control" required name="country" tabindex="7">
+                <option value="Brazil">Brazil</option>
                 @foreach ($allCountry as $item)
                   <option class="country-{{ $item->country_code }}" value="{{ $item->country }}">
                     {{ $item->country }}
@@ -435,6 +435,7 @@ autocomplete="postcode" tabindex="5">
               <div class="col-lg-6">
                 <label class="form-label teste1234">País <span style="color: brown">*</span></label>
                 <select class="teste1234 form-register form-control" name="faturing_country" tabindex="7">
+                <option value="Brazil">Brazil</option>
                   @foreach ($allCountry as $item)
                     <option value="{{ $item->country }}">{{ $item->country }}</option>
                   @endforeach
@@ -622,31 +623,12 @@ autocomplete="postcode" tabindex="5">
     });
 
 
-
-    function chooseCountryCellByCountryInput(e) {
-      const selectedOption = event.target.selectedOptions[0];
-      const selectedClass = selectedOption.className;
-      const cleanedClass = selectedClass.replace("country-", "");
-      // console.log("Cleaned class:", cleanedClass);
-      codeCell.setCountry(cleanedClass);
-    }
-
     function allowNumeric(e) {
       var code = ('charCode' in e) ? e.charCode : e.keyCode;
       if (!(code > 47 && code < 58)) { // numeric (0-9)
         e.preventDefault();
       }
     }
-
-    var inputCell = document.querySelector("#cell");
-    let codeCell = window.intlTelInput(inputCell, {
-      separateDialCode: true
-    });
-    inputCell.addEventListener("countrychange", function() {
-      // console.log(codeCell.getSelectedCountryData());
-      document.querySelector("#countryCodeCell").value = codeCell.getSelectedCountryData().dialCode;
-    });
-
 
     function showPassrWord(id) {
       let senhaInput = document.getElementById(id)

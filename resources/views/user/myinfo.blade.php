@@ -346,7 +346,7 @@
                     <label for="inputAddress" class="form-label">@lang('user.country')<span
                         style="color: brown">*</span></label>
                     <select class="form-control" id="country" required name="country" tabindex="7">
-                        <option value="Brazil" @if ($user->country == 'BR') selected="selected" @endif>Brazil</option>
+                        <option value="Brazil" @if ($user->country == 'Brazil') selected="selected" @endif>Brazil</option>
                       @foreach ($allCountry as $item)
                         <option value="{{ $item->country }}"
                           @if ($user->country == $item->country) selected="selected" @endif>
