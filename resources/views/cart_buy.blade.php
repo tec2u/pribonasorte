@@ -336,7 +336,7 @@
                                                 <select class="form-input-finalize form-control form-register" name="country"
                                                     id="country_toOtherAddress">
                                                     <option value="">Escolher</option>
-                                                    @foreach ($countryes as $item)
+                                                    @foreach ($allCountry as $item)
                                                     <option class="country-{{ $item->country_code }}" value="{{ $item->country }}">
                                                         {{ $item->country }}
                                                     </option>
