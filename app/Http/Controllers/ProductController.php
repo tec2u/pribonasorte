@@ -794,7 +794,7 @@ class ProductController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
 
         $data = $response->json();
         return $data;
@@ -813,7 +813,7 @@ class ProductController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $code);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $code);
 
         if ($response->successful() && isset($response->json()["id"])) {
             return $response->json()["id"];
@@ -880,7 +880,7 @@ class ProductController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
 
         if ($response->successful()) {
             return $response->json();
@@ -895,13 +895,13 @@ class ProductController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->get($url . $customerID . "/addresses");
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $customerID . "/addresses");
 
         if (count($response->json()["data"]) > 0) {
             $addressID = $response->json()["data"][0]["id"];
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
-            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->delete($url . $customerID . "/addresses" . "/" . $addressID);
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->delete($url . $customerID . "/addresses" . "/" . $addressID);
         }
 
         $data = [
@@ -915,7 +915,7 @@ class ProductController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url . $customerID . "/addresses", $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url . $customerID . "/addresses", $data);
 
         return response()->json($response->json());
     }
