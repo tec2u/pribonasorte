@@ -239,7 +239,7 @@
                         <table style="margin-top: 10px;">
                             <thead>
                                 <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
-                                <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $priceShippingHome }}</th>
+                                <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ 0</th>
                             </thead>
                         </table>
                         @endif
