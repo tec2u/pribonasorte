@@ -485,7 +485,7 @@ class ProductController extends Controller
 
         // return response()->json($request);
         $responseData = $this->payment($request, 0, $n_order);
-        // return response()->json($responseData);
+        return response()->json($responseData);
         if (isset($responseData)) {
             $payment = $this->createRegisterPayment($responseData, $n_order);
 
@@ -797,6 +797,7 @@ class ProductController extends Controller
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         $data = $response->json();
+        return $data;
         User::where('id', auth()->user()->id)->update(['code_api' => $data['id']]);
         if ($response->successful()) {
             return $data['id'];
@@ -923,6 +924,7 @@ class ProductController extends Controller
     {
         $customerID = $this->checkClientExistsAPI($request);
 
+        return $customerID;
         $this->updateOrCreateClientAddress($customerID, $request);
 
         $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
