@@ -52,6 +52,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\VideosController;
 
 /*
 |--------------------------------------------------------------------------
