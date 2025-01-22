@@ -246,7 +246,7 @@
                             @if (!empty(auth()->user()->image_path))
                             <img src="{{ asset(auth()->user()->image_path) }}" alt="Profile" class="rounded-circle">
                             @else
-                            <img src="../../../assetsWelcome/images/favicon.jpeg" alt="Profile" class="rounded-circle">
+                            <img src="../../../assetsWelcome/images/favicon.png" alt="Profile" class="rounded-circle">
                             @endif
 
                             <span class="d-none d-md-block dropdown-toggle ps-2">{{ ucwords(auth()->user()->name) }}</span>
@@ -289,13 +289,13 @@
                 @if (!empty(auth()->user()->image_path))
                 <img src="{{ asset(auth()->user()->image_path) }}" alt="Profile" class="rounded-circle">
                 @else
-                <img src="../../../assetsWelcome/images/favicon.jpeg" alt="Profile" class="rounded-circle">
+                <img src="../../../assetsWelcome/images/favicon.png" alt="Profile" class="rounded-circle">
                 @endif
                 <h5>{{ auth()->user()->login }}</h5>
                 <span>{{ $career_user }}</span>
             </div>
             <ul class="sidebar-nav" id="sidebar-nav">
-                @if ($corporate_activated == 1 || !$id_corporate)
+                @if (true)
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('home.home') }}">
                         <i class="bi bi-grid"></i>
@@ -351,7 +351,7 @@
                   <i class="bi bi-circle"></i><span>@lang('header.club')</span>
               </a>
           </li> --}}
-            @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
+            @if (true)
             <li>
                 <a href="{{ route('packages.packagelog') }}">
                     <i class="bi bi-circle"></i><span>@lang('header.order_history')</span>
@@ -364,7 +364,7 @@
             <!-- End Components Nav -->
 
             {{-- @if (auth()->user()->payFirstOrder()) --}}
-            @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
+            @if (true)
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-wallet2"></i><span>@lang('header.withdraw')</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -390,7 +390,7 @@
             @endif
             {{-- <!-- End Products Nav --> --}}
 
-            @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
+            @if (true)
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#networks-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-people"></i><span>@lang('header.networks')</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -411,15 +411,8 @@
             @endif
             @endif
 
-            @if ($OpenMenu > 0 || $user_id == 1 || (auth()->user()->activated == 1 && isset($id_corporate)))
-            @if ($corporate_activated == 1 || !$id_corporate)
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('backoffice.library.list') }}">
-                    <i class="bi bi-question-octagon"></i>
-                    <span>@lang('header.library')</span>
-                </a>
-            </li>
-            @endif
+            @if (true)
+
 
             <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#media-nav" data-bs-toggle="collapse" href="#">
