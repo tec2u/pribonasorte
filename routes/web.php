@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoriaAdminController;
 use App\Http\Controllers\Admin\ConfigBonusController;
+use App\Http\Controllers\Admin\DocumentsAdminController;
 use App\Http\Controllers\Admin\GeraBonusAdminController;
 use App\Http\Controllers\Admin\InvestmentAdminController;
 use App\Http\Controllers\Admin\IpWhitelistAdminController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\WithdrawsAdminController;
 use App\Http\Controllers\Admin\ReportsAdminController;
 use App\Http\Controllers\Admin\SettingsAdminController;
+use App\Http\Controllers\Admin\VideoAdminController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProductController;
@@ -647,6 +649,22 @@ Route::prefix('payment')->middleware('auth')->name('payment')->group(function ()
     });
 });
 
+Route::prefix('documents')->middleware('auth')->name('documents')->group(function () {
+    Route::controller(DocumentsController::class)->group(function () {
+       Route::get('/documents', 'index')->name('.index');
+       Route::get('/download/{file}', 'downloadFile')->name('.download');
+       Route::post('/getDateDocuments', 'getDateDocuments')->name('.getDateDocuments');
+    });
+ });
+
+ Route::prefix('videos')->middleware('auth')->name('videos')->group(function () {
+    Route::controller(VideosController::class)->group(function () {
+       Route::get('/videos', 'index')->name('.index');
+       Route::get('/download/{file}', 'downloadFile')->name('.download');
+       Route::post('/getDateVideos', 'getDateVideos')->name('.getDateVideos');
+    });
+ });
+
 
 /**
  * Admin Route
@@ -937,6 +955,28 @@ Route::prefix('admin')->middleware(['auth', 'is.admin'])->name('admin')->group(f
             Route::post('/creating', 'CreateTutorial')->name('.CreateTutorial');
         });
     });
+
+    Route::prefix('video-upload')->name('.video-upload')->group(function () {
+        Route::controller(VideoAdminController::class)->group(function () {
+           Route::get('/', 'index')->name('.index');
+           Route::post('/', 'store')->name('.store');
+           Route::get('download/{file}', 'downloadFile')->name('.download');
+           Route::get('/{id}/edit', 'edit')->name('.edit');
+           Route::put('/{id}/update', 'update')->name('.update');
+           Route::delete('/{id}/remove', 'destroy')->name('.delete');
+        });
+     });
+
+     Route::prefix('documents-upload')->name('.documents-upload')->group(function () {
+        Route::controller(DocumentsAdminController::class)->group(function () {
+           Route::get('/', 'index')->name('.index');
+           Route::post('/', 'store')->name('.store');
+           Route::get('download/{file}', 'downloadFile')->name('.download');
+           Route::get('/{id}/edit', 'edit')->name('.edit');
+           Route::put('/{id}/update', 'update')->name('.update');
+           Route::delete('/{id}/remove', 'destroy')->name('.delete');
+        });
+     });
 
     Route::prefix('settings')->name('.settings')->group(function () {
         Route::controller(SettingsAdminController::class)->group(function () {

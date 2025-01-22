@@ -488,6 +488,20 @@ return [
          'icon' => 'fas fa-fw fa-headset',
       ],
 
+      [
+        'text' => 'upload',
+        'icon' => 'fas fa-fw fa-upload',
+        'submenu' => [
+           [
+              'text' => 'Video',
+              'url' => 'admin/video-upload',
+           ],
+           [
+              'text' => 'Documents',
+              'url' => 'admin/documents-upload',
+           ],
+        ],
+     ],
     //   [
     //      'text' => 'Tutorial',
     //      'icon' => 'fas fa-fw fa-headset',
