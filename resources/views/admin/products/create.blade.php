@@ -137,8 +137,8 @@
               </div>
               <div class="col-md-4" style="display: none;" id="documento">
                 <div class="form-group">
-                  <label for="type">Arquivo complementar</label>
-                  <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="id_additional_archive" required>
+                  <label for="id_additional_archive">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
                     <option value="">(selecione)</option>
                     @foreach($documents as $document)
                         <option value="{{ $document->id }}">{{ $document->title }}</option>
@@ -148,8 +148,8 @@
               </div>
               <div class="col-md-4" style="display: none;" id="video">
                 <div class="form-group">
-                  <label for="type">Arquivo complementar</label>
-                  <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="id_additional_archive" required>
+                  <label for="id_additional_archive">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
                     <option value="">(selecione)</option>
                     @foreach($videos as $video)
                         <option value="{{ $video->id }}">{{ $video->title }}</option>
