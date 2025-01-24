@@ -647,10 +647,10 @@ return [
     //         //       'url' => 'admin/packages/orderProducts',
     //         //    ],
 
-    //         [
-    //            'text' => 'Package Orders',
-    //            'url' => 'admin/packages/orderPackages',
-    //         ]
+            [
+               'text' => 'Package Orders',
+               'url' => 'admin/packages/orderPackages',
+            ]
 
     //      ],
     //   ],
