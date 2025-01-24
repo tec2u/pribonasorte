@@ -483,18 +483,26 @@ class ProductController extends Controller
 
         $n_order = $this->genNumberOrder();
 
-        // return response()->json($request);
-        $responseData = $this->payment($request, 0, $n_order);
-        return response()->json($responseData);
-        if (isset($responseData)) {
-            $payment = $this->createRegisterPayment($responseData, $n_order);
+        OrderPackage::create([
+            'user_id' => auth()->user()->id,
+            'payment_status' => 2,
+            'status' => 2,
+            'transaction_code' => 1,
+            'transaction_wallet' => 1,
+            'package_id' => $cart[0]->id_product,
+            'price' => $cart[0]->price,
+            'amount' => 1,
+        ]);
+        // $responseData = $this->payment($request, 0, $n_order);
+        // if (isset($responseData)) {
+        //     $payment = $this->createRegisterPayment($responseData, $n_order);
 
-            $this->createRegisterEcommOrder($responseData, $n_order, $payment);
+        //     $this->createRegisterEcommOrder($responseData, $n_order, $payment);
 
-            return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
-        } else {
-            return redirect()->back();
-        }
+        //     return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
+        // } else {
+        //     return redirect()->back();
+        // }
     }
 
     public function createRegisterEcommOrder($data, $n_order = null, $payment)
@@ -924,7 +932,6 @@ class ProductController extends Controller
     {
         $customerID = $this->checkClientExistsAPI($request);
 
-        return $customerID;
         $this->updateOrCreateClientAddress($customerID, $request);
 
         $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
