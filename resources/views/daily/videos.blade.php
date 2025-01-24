@@ -34,19 +34,19 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
+                                            <th>Pedido</th>
+                                            <th>Produto</th>
                                             <th>View</th>
                                             <th>@lang('withdraw.date')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($videos as $video)
+                                        @forelse ($orders as $order)
                                         <tr>
-                                            <td>{{$video->id}}</td>
-                                            <td>{{$video->title}}</td>
-                                            <td><a href="{{ asset('storage/' . $video->path) }}" target="_blank">View</a></td>
-                                            <td>{{date('d/m/Y ', strtotime($video->created_at))}}</td>
+                                            <td>{{$order->id}}</td>
+                                            <td>{{$order->product->name}}</td>
+                                            <td><a href="{{ asset('storage/' . $order->product->video->path) }}" target="_blank">View</a></td>
+                                            <td>{{date('d/m/Y ', strtotime($order->created_at))}}</td>
                                         </tr>
                                         @empty
                                         <p class="m-4 fst-italic">No document registered</p>

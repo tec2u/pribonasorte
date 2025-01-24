@@ -94,19 +94,19 @@
                   @enderror
                 </div>
               </div>
-
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="cv">CV</label>
-                  <input type="number" class="form-control form-control-lg @error('cv') is-invalid @enderror"
-                    id="cv" name="cv" step=".01" placeholder="9.99">
-                  @error('cv')
+                  <label for="type">Stock</label>
+                  <input type="number" class="form-control form-control-lg @error('stock') is-invalid @enderror"
+                    id="stock" name="stock" step="1" placeholder="0" value="{{ old('stock') }}">
+                  @error('rule')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
                 </div>
-              </div>
 
+              </div>
             </div>
+
 
             <div class="row">
               <div class="col-md-4">
@@ -125,26 +125,37 @@
                 <div class="form-group">
                   <label for="type">@lang('admin.editProduct.edit.type')</label>
                   <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="type"
-                    id="type">
-                    <option value="product">@lang('admin.editProduct.edit.typeedit.product')</option>
+                    id="type" onchange="changeAdditionalArchives(this)">
+                    <option value="fisico">Físico</option>
+                    <option value="virtual">Virtual</option>
+                    <option value="curso">Curso</option>
                   </select>
                   @error('rule')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
                 </div>
-
               </div>
-
-              <div class="col-md-4">
+              <div class="col-md-4" style="display: none;" id="documento">
                 <div class="form-group">
-                  <label for="type">Stock</label>
-                  <input type="number" class="form-control form-control-lg @error('stock') is-invalid @enderror"
-                    id="stock" name="stock" step="1" placeholder="0" value="{{ old('stock') }}">
-                  @error('rule')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
+                  <label for="type">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="id_additional_archive" required>
+                    <option value="">(selecione)</option>
+                    @foreach($documents as $document)
+                        <option value="{{ $document->id }}">{{ $document->title }}</option>
+                    @endforeach
+                  </select>
                 </div>
-
+              </div>
+              <div class="col-md-4" style="display: none;" id="video">
+                <div class="form-group">
+                  <label for="type">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="id_additional_archive" required>
+                    <option value="">(selecione)</option>
+                    @foreach($videos as $video)
+                        <option value="{{ $video->id }}">{{ $video->title }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
 
             </div>
@@ -382,8 +393,25 @@
 @stop
 
 @section('js')
+
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
+    function changeAdditionalArchives(element) {
+        switch (element.value) {
+            case 'curso':
+                $('#video').css('display', 'block')
+                $('#documento').css('display', 'none')
+                break;
+            case 'virtual':
+                $('#video').css('display', 'none')
+                $('#documento').css('display', 'block')
+                break;
+            default:
+                $('#video').css('display', 'none')
+                $('#documento').css('display', 'none')
+                break;
+        }
+    }
     $(document).ready(function() {
       $('.select2').select2({
         theme: "classic"

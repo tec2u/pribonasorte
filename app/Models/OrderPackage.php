@@ -41,6 +41,10 @@ class OrderPackage extends Model
         return $this->belongsTo(Package::class);
     }
 
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
+
     public function wallet(){
         return $this->hasMany(Wallet::class);
     }

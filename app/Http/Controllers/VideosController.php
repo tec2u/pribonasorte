@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderPackage;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -14,20 +15,24 @@ class VideosController extends Controller
      */
     public function index(Request $request)
     {
-        $videosQuery = Video::orderBy('id', 'DESC');
+
         $fdate = $request->fdate ? $request->fdate. " 00:00:00" : '' ;
         $sdate = $request->sdate ? $request->sdate. " 23:59:59" : '' ;
 
+        $ordersQuery = OrderPackage::with(['product', 'product.videoAdditional'])->whereHas('product', function ($query) {
+            $query->where('type', 'video');
+        })->where('user_id', auth()->user()->id)->where('payment_status', 1)->where('status', 1);
+
         if ($fdate) {
-            $videosQuery->where('created_at', '>=', $fdate);
+            $ordersQuery->where('created_at', '>=', $fdate);
         }
         if ($sdate) {
-            $videosQuery->where('created_at', '<=', $sdate);
+            $ordersQuery->where('created_at', '<=', $sdate);
         }
 
-        $videos = $videosQuery->paginate(9);
+        $orders = $ordersQuery->paginate(9);
 
-        return view('daily.videos', compact('videos', 'fdate', 'sdate'));
+        return view('daily.videos', compact('orders', 'fdate', 'sdate'));
     }
 
     public function downloadFile($id)

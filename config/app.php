@@ -195,7 +195,7 @@ return [
        */
       RealRashid\SweetAlert\SweetAlertServiceProvider::class,
       Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
-
+      ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider::class,
       /*
        * Application Service Providers...
        */
@@ -225,6 +225,7 @@ return [
       'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
       'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
       'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+      'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
    ])->toArray(),
 
 ];

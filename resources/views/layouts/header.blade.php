@@ -421,7 +421,7 @@
         <ul id="media-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('videos.index') }}">
-              <i class="bi bi-circle"></i><span>Videos</span>
+              <i class="bi bi-circle"></i><span>Cursos</span>
             </a>
           </li>
 
@@ -593,31 +593,7 @@
             </li>
             </ul>
         </aside>
-        @if (!isset($count_itens))
-        <main id="main" class="main p-0">
-            <section style="backdrop-filter: blur(0px);filter: brightness(120%) grayscale(0%) saturate(120%);"
-                id="herosection">
-                <div data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="0.5"
-                    style="width: 100%; height: 25vh; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(&quot;/img/logo-2-gradient.png&quot;) center / contain no-repeat;">
-                    <div class="container h-100">
-                        <div class="row justify-content-center align-items-center h-100">
-                            <div
-                                class="col-md-10 col-lg-10 col-xl-8 d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
-                                <div class="text-center" style="margin: 0 auto;">
-                                    {{-- <p data-aos="fade" data-aos-duration="1500" data-aos-delay="400" data-aos-once="true"
-                    class="phero">@lang('leadpage.home.txt')</p>
-                  <h2 class="text-uppercase fw-bold mb-3 hhero hherosm" data-aos="fade-up" data-aos-duration="1400"
-                    data-aos-delay="800" data-aos-once="true">
-                    Pribonasorte</h2> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        @endif
-
+        
         @yield('content')
 
         {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}

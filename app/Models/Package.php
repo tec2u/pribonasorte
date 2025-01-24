@@ -29,6 +29,10 @@ class Package extends Model
     {
         return $this->hasMany(OrderPackage::class);
     }
+
+    public function document(){
+        return $this->belongsTo(Package::class);
+    }
     #endregion
     /** */
 
@@ -39,7 +43,7 @@ class Package extends Model
     //     $package = Package::where('id', '=', $packageid)
     //     ->selectRaw("sum(period_days*daily_returns*$value) as total")
     //     ->first();
-      
+
     //     return $package->total;
     // }
 }

@@ -502,12 +502,6 @@
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
     }
 
-    /* end carousel */
-
-    #pop-div {
-      width: 100% !important;
-      height: 600px !important;
-    }
 
     @media (min-width: 800px) {
       .geochart {
@@ -610,8 +604,10 @@
     use App\Models\User;
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\DB;
+    use App\Models\Product;
     use Illuminate\Support\Facades\Auth;
 
+    $products = Product::get();
     $currentDate = Carbon::now();
     $dayThreshold = 15;
     $cardAvailable = false;
@@ -733,61 +729,56 @@
     $mesAntesDoAnterior = Carbon::now()->subMonths(2)->monthName;
 
   @endphp
+  <script>
+    $(function() {
+        $('#carouselEcommerc img:eq(0)').addClass("ativo").show();
+        setInterval(slide, 5000);
+
+        function slide() {
+
+            //Se a proxima imagem existir
+            if ($('.ativo').next().length) {
+
+                $('.ativo').removeClass("ativo").next().addClass("ativo");
+
+            } else { //Se for a ultima img do carrosel
+
+                $('.ativo').removeClass("ativo");
+                $('#carouselEcommerc img:eq(0)').addClass("ativo");
+
+            }
+
+        }
+    });
+  </script>
   <main id="main" class="main mt-0">
     {{-- @include('flash::message') --}}
     <section id="home" class="content">
       <div class="fade">
         <div class="container-fluid">
-          <div class="row mb-3">
-            {{-- <div class="col-12">
-                        <div class="info-box">
-                            <video autoplay muted loop class=" d-block w-100" alt="...">
-                                <source src="../videos/Design sem nome (4).mp4" type="video/mp4">
-                            </video>
-                            <img src="assets/img/heroimg.png" class="img-fluid" style="height:100%;">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach($products as $key => $product)
+                    <div class="carousel-item {{ $key==0 ? 'active' : '' }}">
+                        <div class="container-fluid bg-white p-0 radius-15 section-banner"
+                            style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); position: relative; background-image: url('img/products/{{ $product->img_1 }}'); height: 400px; background-size: contain; background-position: center;background-repeat: no-repeat;">
                         </div>
-                    </div> --}}
+                    </div>
+                @endforeach
+            </div>
 
-
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+          <div class="row mb-3 mt-3">
             {{-- @if (auth()->user()->isAllowed()) --}}
-            <!-- <div class="col-12 col-sm-6 col-md-6">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="info-box mb-4 shadow elevation c1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <span class="info-box-icon">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <i class="bi bi-people-fill"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </span>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="info-box-content">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="info-box-text">@lang('home.people_for_next_levels')</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="info-box-number">150</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="progress">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div class="progress-bar" style="width: 70%; background-color: #111111;"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="progress-description">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          70% @lang('home.people_next_levels_in') 200
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div> -->
-
-
-
-
-
-
-            {{-- <div class="col-12 col-sm-12 col-md-12" STYLE="margin-bottom:20px">
-              <div id="slider">
-                <a href="#" class="control_next"> > </a>
-                <a href="#" class="control_prev">
-                  < </a>
-                    <ul>
-                      <li style="background-image: url('/images/b1.png');">SLIDE 1</li>
-                      <li style="background-image: url('/images/b2.png');">SLIDE 2</li>
-                      <li style="background-image: url('/images/b1.png');">SLIDE 3</li>
-                      <li style="background-image: url('/images/b2.png');">SLIDE 4</li>
-                    </ul>
-              </div>
-            </div> --}}
             <div class="col-12 col-sm-12 col-md-4">
               <a href="{{ route('reports.bonus_group') }}">
                 <div class="info-box mb-4 shadow c1 box-info">
@@ -1006,8 +997,37 @@
           </div>
 
           <div class="card">
-            <div id="pop-div" class="geochart"></div>
-            <?= $lava->render('GeoChart', 'Popularity', 'pop-div') ?>
+            <div class="d-flex flex-wrap">
+                @forelse($products as $product)
+                <div class="col-sm-3 hover">
+                    <div id="card-product" class="card p-3" style="height: 437px;">
+                        <div>><a href="{{ route('packages.detail_products', ['id' => $product->id]) }}"><img class="w-100"
+                                        src='/img/products/{{ $product->img_1 }}'></a>
+                        </div>
+
+                        @php
+                        $new_price = $product->backoffice_price;
+                        @endphp
+
+                        <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">
+                            <h5 class="tittle-name">{{ $product->name }}</h5>
+                        </a>
+                        <h6 class="text-price">R$  {{ $new_price }}</h6>
+
+
+                        <div class="container-description">
+                            <h6 class="text-description">
+                                <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}">Ver mais...</a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+                @empty
+                <p>@lang('package.any_products_registered')</p>
+                @endforelse
+
+            </div>
           </div>
 
           {{-- <div class="col-12">

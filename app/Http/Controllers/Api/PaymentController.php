@@ -39,22 +39,53 @@ class PaymentController extends Controller
                         "payment_status" => $status
                     ];
                     $id = $order->id;
-                    $order->update($data); 
+                    $order->update($data);
 
                     if($status == 1){
                         $this->bonus_compra(0,$order->user_id,$order->price,$order->id);
                         $this->createPaymentLog('Payment processed successfully', 200, 'success',  $id, $content);
                     }
                 }
-                
-                
+
+
             } catch (Exception $e) {
 
                 $this->errorPaymentCatch($e->getMessage(), $id);
 
-            }  
+            }
         }
-        
-        
+    }
+    public function createPayment($data)
+    {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+
+        $order = $provider->createOrder([
+            'intent' => 'CAPTURE',
+            'purchase_units' => [
+                [
+                    'amount' => [
+                        'currency_code' => 'USD',
+                        'value' => floatval($data->total_price),
+                    ],
+                    'custom_id' => 'order_'.$data->id,
+                ],
+            ],
+            'application_context' => [
+                'brand_name' => 'Pribonasorte', // Nome da sua loja
+                'return_url' => route('confirmPayment', ['id' => $data->id]),
+                'cancel_url' => route('home'),
+            ],
+        ]);
+        // Retorne o link para o usuário completar o pagamento
+        foreach ($order['links'] as $link) {
+            if ($link['rel'] === 'approve') {
+                $response = ['payment_link' => $link['href'], 'message' => 'success'];
+                return $response;
+            }
+        }
+        $response = ['message' => 'error'];
+        return $response;
     }
 }

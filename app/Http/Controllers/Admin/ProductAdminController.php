@@ -29,6 +29,8 @@ use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use App\Models\Banco;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Documents;
+use App\Models\Video;
 use Fakturoid\Client as FakturoidClient;
 
 class ProductAdminController extends Controller
@@ -45,7 +47,9 @@ class ProductAdminController extends Controller
     {
         $allProducts = Product::where('kit', '<>', 1)->get();
 
-        return view('admin.products.create', compact('allProducts'));
+        $documents = Documents::get();
+        $videos = Video::get();
+        return view('admin.products.create', compact('allProducts', 'videos', 'documents'));
     }
 
     public function store(Request $request)
@@ -101,6 +105,7 @@ class ProductAdminController extends Controller
         $product->score = 0;
         $product->activated = $request->activated;
         $product->availability = $request->availability;
+        $product->id_additional_archive = $request->id_additional_archive;
         $product->active = "";
 
         try {

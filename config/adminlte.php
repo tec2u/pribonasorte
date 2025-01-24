@@ -489,7 +489,7 @@ return [
       ],
 
       [
-        'text' => 'upload',
+        'text' => 'Upload',
         'icon' => 'fas fa-fw fa-upload',
         'submenu' => [
            [

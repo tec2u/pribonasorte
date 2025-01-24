@@ -91,6 +91,7 @@ class HomeController extends Controller
         $current_package = OrderPackage::where('user_id', $id_user)->first();
         $pacote = $user->orderPackage->first();
 
+        $products = Product::inRandomOrder()->limit(10)->get();
         $openProduct = OrderPackage::where('user_id', $id_user)->where('payment_status', 1)->where('status', 1)->orderBy('id', 'DESC')->get();
         $countPackages = count($openProduct);
 
@@ -491,7 +492,7 @@ class HomeController extends Controller
         $percentProgress = $career['percentProgress'];
         $soma = $career['soma'];
 
-        return view('home', ['lava' => $lava])->with(compact('soma', 'percentProgress', 'proximaCarreira', 'pedidosSmart', 'quantQv', 'usersDirects', 'pontosPorUser', 'rankAdvancement', 'OpenMenu', 'diasFaltantes', 'packages', 'name', 'user', 'data', 'label', 'datasaida', 'totalbanco', 'bonusdaily', 'pontos', 'saque', 'carrer', 'inactiverights', 'popup', 'kycstatus', 'countPackages'));
+        return view('home', ['lava' => $lava])->with(compact('products','soma', 'percentProgress', 'proximaCarreira', 'pedidosSmart', 'quantQv', 'usersDirects', 'pontosPorUser', 'rankAdvancement', 'OpenMenu', 'diasFaltantes', 'packages', 'name', 'user', 'data', 'label', 'datasaida', 'totalbanco', 'bonusdaily', 'pontos', 'saque', 'carrer', 'inactiverights', 'popup', 'kycstatus', 'countPackages'));
     }
 
     public function careerProgress($user_id = null)

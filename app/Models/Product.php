@@ -31,7 +31,8 @@ class Product extends Model
         'active',
         'video',
         'sequence',
-        'availability'
+        'availability',
+        'id_additional_archive'
 
     ];
 
@@ -40,4 +41,11 @@ class Product extends Model
         return $this->hasMany(Tax::class)->onDelete('cascade');
     }
 
+    public function videoAdditional(){
+        return $this->belongsTo(Package::class, 'id_additional_archive', 'id');
+    }
+
+    public function documentAdditional(){
+        return $this->belongsTo(Package::class, 'id_additional_archive', 'id');
+    }
 }

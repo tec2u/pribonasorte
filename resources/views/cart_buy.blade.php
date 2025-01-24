@@ -235,13 +235,13 @@
                         </div>
 
 
-                        @if ($count_itens > 0)
-                        <table style="margin-top: 10px;">
-                            <thead>
-                                <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
-                                <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ 0</th>
-                            </thead>
-                        </table>
+                        @if ($count_itens > 0 && $user_cart[0]->type == fisico)
+                            <table style="margin-top: 10px;">
+                                <thead>
+                                    <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
+                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ 0</th>
+                                </thead>
+                            </table>
                         @endif
                     </div>
                     @if ($count_itens > 0)
@@ -275,6 +275,7 @@
                             </div>
 
                             <div style="display: flex;flex-direction: row;flex-wrap:wrap; padding:0;">
+                                @if ($user_cart[0]->type == fisico)
                                 <div style="padding: 0rem;" class="col-sm-12 col-md-6">
                                     <div class="card shadow p-md-8 address-content" id="toOtherAddress"
                                         style="width: 100%; padding:1rem;height: auto; display: flex; flex-wrap: wrap; display: none">
@@ -415,7 +416,7 @@
 
                                     </div>
                                 </div>
-
+                                @endif
 
 
                                 <div style="padding: 0rem;" class="col-sm-12 col-md-6">
@@ -426,7 +427,7 @@
                                     @endif
 
                                     <div class="card shadow p-md-2" style="width: 100%; height: fit-content;">
-
+                                        @if ($user_cart[0]->type == fisico)
                                         <p class="card-title-new text-start">Escolher metodo de entrega</p>
                                         <div class="form-check" style="font-size: 1rem;">
                                             <input class="form-check-input loading-shipping" type="radio" value="toAddress" name="method_shipping" id="to_address"
@@ -443,7 +444,7 @@
                                                 Outro endereço
                                             </label>
                                         </div>
-
+                                    @endif
                                         <div id="allowed-shipping-methods"></div>
                                         <input type="hidden" id="send_method" name="send_method">
                                         <table style="margin-top: 10px;">
