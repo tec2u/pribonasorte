@@ -391,6 +391,10 @@ return [
                'text' => 'Create product',
                'url' => 'admin/packages/products',
             ],
+            [
+               'text' => 'Orders',
+               'url' => 'admin/packages/orderPackages',
+            ],
 
 
 
