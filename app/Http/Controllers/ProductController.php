@@ -485,6 +485,7 @@ class ProductController extends Controller
 
         OrderPackage::create([
             'user_id' => auth()->user()->id,
+            'reference' => 1,
             'payment_status' => 2,
             'status' => 2,
             'transaction_code' => 1,
