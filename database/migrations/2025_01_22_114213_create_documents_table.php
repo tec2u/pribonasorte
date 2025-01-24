@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id'); // 'user_id', 'bigint(20) unsigned', 'NO', '', NULL, ''
             $table->tinyInteger('backoffice')->default(1); // 'backoffice', 'tinyint(1)', 'NO', '', '1', ''
-            $table->string('type', 191); // 'type', 'varchar(191)', 'NO', '', NULL, ''
+            $table->string('type', 255); // 'type', 'varchar(191)', 'NO', '', NULL, ''
             $table->text('content'); // 'content', 'text', 'NO', '', NULL, ''
             $table->tinyInteger('approved')->default(0);
             $table->timestamps();

@@ -32,10 +32,10 @@ class DocumentsAdminController extends Controller
             'document' => 'required|file|mimes:pdf,doc,zip,rar',
         ]);
 
-        $fileName = $request->video->getClientOriginalName();
+        $fileName = $request->document->getClientOriginalName();
         $filePath = 'videos/' . $fileName;
 
-        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->document));
 
         // File URL to access the video in frontend
         $url = Storage::disk('public')->url($filePath);
@@ -46,10 +46,10 @@ class DocumentsAdminController extends Controller
         }
 
         if ($isFileUploaded) {
-            $video = new Documents();
-            $video->title = $title;
-            $video->path = $filePath;
-            $video->save();
+            $document = new Documents();
+            $document->title = $title;
+            $document->content = $filePath;
+            $document->save();
 
             return back()
                 ->with('success', 'Document has been successfully uploaded.');
