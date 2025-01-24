@@ -33,7 +33,7 @@ class DocumentsAdminController extends Controller
         ]);
 
         $fileName = $request->document->getClientOriginalName();
-        $filePath = 'videos/' . $fileName;
+        $filePath = 'documents/' . $fileName;
 
         $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->document));
 
