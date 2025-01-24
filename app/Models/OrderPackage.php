@@ -42,7 +42,7 @@ class OrderPackage extends Model
     }
 
     public function product(){
-        return $this->belongsTo(Product::class, 'id', 'package_id');
+        return $this->belongsTo(Product::class, 'package_id', 'id');
     }
 
     public function wallet(){
