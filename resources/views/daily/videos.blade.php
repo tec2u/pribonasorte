@@ -57,7 +57,7 @@
                             </div>
                             <div class="card-footer clearfix py-3">
                                 <ul class="pagination pagination-sm m-0 float-right">
-                                    {{$order->links()}}
+                                    {{$orders->links()}}
                                 </ul>
                             </div>
                         </div>

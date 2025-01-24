@@ -392,8 +392,12 @@ return [
                'url' => 'admin/packages/products',
             ],
             [
-               'text' => 'Orders',
+               'text' => 'Pedidos de pacote',
                'url' => 'admin/packages/orderPackages',
+            ],
+            [
+                'text' => 'Pedidos de produtos',
+                'url' => 'admin/packages/orderProducts',
             ],
 
 

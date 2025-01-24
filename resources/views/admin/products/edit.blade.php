@@ -79,32 +79,28 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="premium_price">Premium @lang('admin.editProduct.edit.price')</label>
-                  <input type="number" class="form-control form-control-lg @error('premium_price') is-invalid @enderror"
-                    id="premium_price" name="premium_price" step=".01" placeholder="9.99"
-                    value="{{ $product->premium_price }}">
-                  @error('premium_price')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
+                    <label for="backoffice_price">Backoffice price</label>
+                    <input type="number"
+                        class="form-control form-control-lg @error('backoffice_price') is-invalid @enderror"
+                        id="backoffice_price" name="backoffice_price" step=".01" placeholder="9.99"
+                        value="{{ $product->backoffice_price ?? 0 }}">
+                    @error('backoffice_price')
+                        <span class="error invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
               </div>
             </div>
-            {{--  --}}
-            <div class="row">
-
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="backoffice_price">Backoffice price</label>
-                  <input type="number"
-                    class="form-control form-control-lg @error('backoffice_price') is-invalid @enderror"
-                    id="backoffice_price" name="backoffice_price" step=".01" placeholder="9.99"
-                    value="{{ $product->backoffice_price ?? 0 }}">
-                  @error('backoffice_price')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
+            <div class="row fisico" style="{{ $product->type != 'fisico' ? 'display: none' : '' }}">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="type">Add Stock</label>
+                        <input type="number" class="form-control form-control-lg @error('stock') is-invalid @enderror"
+                            id="stock" name="stock" step="1" placeholder="1" value="0">
+                        @error('rule')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
-              </div>
-
             </div>
             {{--  --}}
             <div class="row">
@@ -125,35 +121,39 @@
                 <div class="form-group">
                   <label for="type">@lang('admin.editProduct.edit.type')</label>
                   <select class="form-control form-control-lg @error('type') is-invalid @enderror" name="type"
-                    id="type">
-                    <option value="products" @if ($product->type == 'products') selected @endif>
-                      @lang('admin.editProduct.edit.typeedit.product')</option>
-                    <option value="activator" @if ($product->type == 'activator') selected @endif>
-                      @lang('admin.editProduct.edit.typeedit.active')</option>
+                    id="type" onchange="changeAdditionalArchives(this)">
+                    <option value="fisico" @if ($product->type == 'fisico') selected @endif>Físico</option>
+                    <option value="virtual" @if ($product->type == 'virtual') selected @endif>Virtual</option>
+                    <option value="curso" @if ($product->type == 'curso') selected @endif>Curso</option>
                   </select>
                   @error('rule')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
                 </div>
-
               </div>
-
-              <div class="col-md-4">
+              <div class="col-md-4 documento" style="{{ $product->type == 'curso' ? 'display: none' : '' }}">
                 <div class="form-group">
-                  <label for="type">Add Stock</label>
-                  <input type="number" class="form-control form-control-lg @error('stock') is-invalid @enderror"
-                    id="stock" name="stock" step="1" placeholder="1" value="0">
-                  @error('rule')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
+                  <label for="id_additional_archive">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
+                    @foreach($documents as $document)
+                        <option value="{{ $document->id }}" @if ($product->id_additional_archive == $document->id) selected @endif >{{ $document->title }}</option>
+                    @endforeach
+                  </select>
                 </div>
-
               </div>
-
-
+              <div class="col-md-4 video" style="{{ $product->type == 'virtual' ? 'display: none' : '' }}">
+                <div class="form-group">
+                  <label for="id_additional_archive">Arquivo complementar</label>
+                  <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
+                    @foreach($videos as $video)
+                        <option value="{{ $video->id }}" @if ($product->id_additional_archive == $video->id) 'selected' @endif >{{ $video->title }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
             {{--  --}}
-            <div class="row">
+            <div class="row fisico"  style="{{ $product->type != 'fisico' ? 'display: none' : '' }}">
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="price">Width(cm)</label>
@@ -396,6 +396,25 @@
 @section('js')
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
+    function changeAdditionalArchives(element) {
+        switch (element.value) {
+            case 'curso':
+                $('.video').css('display', 'block')
+                $('.documento').css('display', 'none')
+                $('.fisico').css('display', 'none')
+                break;
+            case 'virtual':
+                $('.video').css('display', 'none')
+                $('.documento').css('display', 'block')
+                $('.fisico').css('display', 'none')
+                break;
+            default:
+                $('.video').css('display', 'none')
+                $('.documento').css('display', 'none')
+                $('.fisico').css('display', 'flex')
+                break;
+        }
+    }
     $(document).ready(function() {
       $('.select2').select2({
         theme: "classic"

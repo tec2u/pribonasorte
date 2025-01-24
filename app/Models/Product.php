@@ -33,7 +33,6 @@ class Product extends Model
         'sequence',
         'availability',
         'id_additional_archive'
-
     ];
 
     public function taxes()

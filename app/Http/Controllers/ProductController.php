@@ -74,6 +74,9 @@ class ProductController extends Controller
                     ->sum('amount');
             }
 
+            if($product_info->type != 'fisico') {
+                $stock = 1;
+            }
             $product_info['stock'] = $stock;
         }
 
@@ -142,6 +145,10 @@ class ProductController extends Controller
             ->where('product_id', $id)
             ->sum('amount');
 
+        if ($product->type != 'fisico') {
+            $stock = 1000;
+        }
+
         if ($quantProduct > $stock) {
             $quantProduct = $stock;
         }
@@ -194,6 +201,7 @@ class ProductController extends Controller
     public function buyProduct(Request $request, $id)
     {
         $product = Product::find($id);
+        CartOrder::where('id_user', auth()->user()->id)->delete();
         // Verificar produto
         if ($product->kit != 0) {
 
@@ -233,6 +241,9 @@ class ProductController extends Controller
                 ->sum('amount');
         }
 
+        if ($product->type != 'fisico') {
+            $stock = 1000;
+        }
         $quantProduct = $request->quant_product;
 
         if ($quantProduct > $stock) {
@@ -483,27 +494,33 @@ class ProductController extends Controller
 
         $n_order = $this->genNumberOrder();
 
-        OrderPackage::create([
-            'user_id' => auth()->user()->id,
-            'reference' => 1,
-            'payment_status' => 2,
-            'status' => 2,
-            'transaction_code' => 1,
-            'transaction_wallet' => 1,
-            'package_id' => $cart[0]->id_product,
-            'price' => $cart[0]->price,
-            'amount' => 1,
-        ]);
-        // $responseData = $this->payment($request, 0, $n_order);
-        // if (isset($responseData)) {
-        //     $payment = $this->createRegisterPayment($responseData, $n_order);
+        $testMode = true;
 
-        //     $this->createRegisterEcommOrder($responseData, $n_order, $payment);
+        if ($testMode) {
+            $responseData = [
+                'id' => 1,
+                'status' => 'pending',
+                'cart_settings' => [
+                    'items_total_cost' => $cart[0]->total * 100,
+                    'shipping_total_cost' => $request->send_value,
+                ],
+                'url' => route('home.home')
+            ];
+        } else {
+            $responseData = $this->payment($request, 0, $n_order);
+        }
+        if (isset($responseData)) {
+            $payment = $this->createRegisterPayment($responseData, $n_order);
 
-        //     return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
-        // } else {
-        //     return redirect()->back();
-        // }
+            $this->createRegisterEcommOrder($responseData, $n_order, $payment);
+
+            if ($testMode) {
+                return redirect()->route('home.home');
+            }
+            return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function createRegisterEcommOrder($data, $n_order = null, $payment)
@@ -530,7 +547,7 @@ class ProductController extends Controller
             $orders->status_order = "order placed";
             $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
             $orders->client_backoffice = 1;
-            $orders->id_payment_order = $data['id'];
+            $orders->id_payment_order = $payment->id;
             $orders->payment_link = $data['url'];
             $orders->qv = $qv;
             $orders->cv = $cv;
@@ -544,7 +561,7 @@ class ProductController extends Controller
             $stock->save();
         }
 
-        // $this->clearCartBuy($user_id);
+        $this->clearCartBuy($user_id);
     }
 
     public function createRegisterPayment($data, $orderID)
@@ -801,12 +818,15 @@ class ProductController extends Controller
             'birthdate' => $user->birthday,
         ];
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '');
 
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+        $response = $requestAPI->post($url, $data);
         $data = $response->json();
-        return $data;
         User::where('id', auth()->user()->id)->update(['code_api' => $data['id']]);
         if ($response->successful()) {
             return $data['id'];
@@ -820,10 +840,16 @@ class ProductController extends Controller
         $code = auth()->user()->code_api;
         $url = 'https://api.pagar.me/core/v5/customers/';
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $code);
-        return $response->json();
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '');
+
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->get($url . $code);
+
         if ($response->successful() && isset($response->json()["id"])) {
             return $response->json()["id"];
         } else {
@@ -887,10 +913,15 @@ class ProductController extends Controller
             ]
         ];
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
 
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->post($url, $data);
         if ($response->successful()) {
             return $response->json();
         } else {
@@ -902,17 +933,28 @@ class ProductController extends Controller
     {
         $url = 'https://api.pagar.me/core/v5/customers/';
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->get($url . $customerID . "/addresses");
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '');
+
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->get($url . $customerID . "/addresses");
 
         if (count($response->json()["data"]) > 0) {
             $addressID = $response->json()["data"][0]["id"];
-            $response = Http::withHeaders([
+            $requestAPI = Http::withHeaders([
                 'Content-Type' => 'application/json',
-            ])->withBasicAuth(env('API_PAGARME_KEY'), '')->delete($url . $customerID . "/addresses" . "/" . $addressID);
+            ])->withBasicAuth(env('API_PAGARME_KEY'), '');
         }
 
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->delete($url . $customerID . "/addresses" . "/" . $addressID);
         $data = [
             "country" => "BR",
             "state" => $request->state_ppl,
@@ -922,10 +964,15 @@ class ProductController extends Controller
             "line_2" => ""
         ];
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url . $customerID . "/addresses", $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '');
 
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->post($url . $customerID . "/addresses", $data);
         return response()->json($response->json());
     }
 

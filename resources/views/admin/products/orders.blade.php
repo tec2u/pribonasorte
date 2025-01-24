@@ -42,7 +42,7 @@
       </div>
       <div class="row">
         <div class="col-sm-12 col-md-6" style="float: left;">
-          <form action="{{ route('admin.packages.orderFilterName.products', ['parameter' => $parameter]) }}"
+          <form action="{{ route('admin.packages.orderFilterName.products', ['parameter' => $parameter ?? 0]) }}"
             method="GET">
             @csrf
             <div class="input-group input-group-lg">
@@ -93,9 +93,6 @@
               <th>Date</th>
               <th>Payment</th>
               <th>Shipping Label</th>
-              <th>Invoice</th>
-              <th>Fakturoid</th>
-              <th>Order Slip</th>
               <th>track</th>
               <th>Cancell</th>
               <th>Edit</th>
@@ -179,32 +176,6 @@
                       <a type="button" class="btn btn-primary btn-sm m-0"
                         href="{{ route('admin.packages.order_products_label', $orderpackage->number_order) }}">
                         shipping label
-                      </a>
-                    </td>
-                    <td>
-                      <a type="button" class="btn btn-primary btn-sm m-0"
-                        href="{{ route('invoicePDF', $orderpackage->number_order) }}">
-                        Invoice
-                      </a>
-                    </td>
-                    @if ($SendedFakturoid)
-                      <td>
-                        <button type="button" class="btn btn-success">
-                          Sended
-                        </button>
-                      </td>
-                    @else
-                      <td>
-                        <a type="button" class="btn btn-primary btn-sm m-0"
-                          href="{{ route('admin.packages.Fakturoid', $orderpackage->number_order) }}">
-                          Send to Fakturoid
-                        </a>
-                      </td>
-                    @endif
-                    <td>
-                      <a type="button" class="btn btn-primary btn-sm m-0"
-                        href="{{ route('orderslipPDF', $orderpackage->number_order) }}">
-                        Order Slip
                       </a>
                     </td>
                     <td>
@@ -315,15 +286,6 @@
                       </div>
                     </td>
                   @else
-                    <td>
-                    </td>
-
-                    <td>
-                    </td>
-
-                    <td>
-                    </td>
-
                     <td>
                     </td>
 

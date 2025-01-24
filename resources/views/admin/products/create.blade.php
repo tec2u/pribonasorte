@@ -70,31 +70,19 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="premium_price">Premium @lang('admin.editProduct.edit.price')</label>
-                  <input type="number" class="form-control form-control-lg @error('premium_price') is-invalid @enderror"
-                    id="premium_price" name="premium_price" step=".01" placeholder="9.99"
-                    value="{{ old('premium_price') }}">
-                  @error('premium_price')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
+                    <label for="backoffice_price">Backoffice price</label>
+                    <input type="number"
+                        class="form-control form-control-lg @error('backoffice_price') is-invalid @enderror"
+                        id="backoffice_price" name="backoffice_price" step=".01" placeholder="9.99" required>
+                    @error('backoffice_price')
+                        <span class="error invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
               </div>
             </div>
 
             <div class="row">
-
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="backoffice_price">Backoffice price</label>
-                  <input type="number"
-                    class="form-control form-control-lg @error('backoffice_price') is-invalid @enderror"
-                    id="backoffice_price" name="backoffice_price" step=".01" placeholder="9.99" required>
-                  @error('backoffice_price')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                  @enderror
-                </div>
-              </div>
-              <div class="col-md-4">
+              <div class="col-md-12 fisico">
                 <div class="form-group">
                   <label for="type">Stock</label>
                   <input type="number" class="form-control form-control-lg @error('stock') is-invalid @enderror"
@@ -135,22 +123,20 @@
                   @enderror
                 </div>
               </div>
-              <div class="col-md-4" style="display: none;" id="documento">
+              <div class="col-md-4 documento" style="display: none;">
                 <div class="form-group">
                   <label for="id_additional_archive">Arquivo complementar</label>
                   <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
-                    <option value="">(selecione)</option>
                     @foreach($documents as $document)
                         <option value="{{ $document->id }}">{{ $document->title }}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
-              <div class="col-md-4" style="display: none;" id="video">
+              <div class="col-md-4 video" style="display: none;">
                 <div class="form-group">
                   <label for="id_additional_archive">Arquivo complementar</label>
                   <select class="form-control form-control-lg @error('id_additional_archive') is-invalid @enderror" name="id_additional_archive">
-                    <option value="">(selecione)</option>
                     @foreach($videos as $video)
                         <option value="{{ $video->id }}">{{ $video->title }}</option>
                     @endforeach
@@ -160,12 +146,12 @@
 
             </div>
 
-            <div class="row">
+            <div class="row fisico">
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="price">Width(cm)</label>
                   <input type="number" class="form-control form-control-lg @error('width') is-invalid @enderror"
-                    id="width" name="width" placeholder="0" value="{{ old('width') }}" required>
+                    id="width" name="width" placeholder="0" value="{{ old('width') }}">
                   @error('width')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
@@ -176,7 +162,7 @@
                 <div class="form-group">
                   <label for="price">Height(cm)</label>
                   <input type="number" class="form-control form-control-lg @error('height') is-invalid @enderror"
-                    id="height" name="height" placeholder="0" value="{{ old('height') }}" required>
+                    id="height" name="height" placeholder="0" value="{{ old('height') }}">
                   @error('height')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
@@ -187,7 +173,7 @@
                 <div class="form-group">
                   <label for="price">Depth(cm)</label>
                   <input type="number" class="form-control form-control-lg @error('depth') is-invalid @enderror"
-                    id="depth" name="depth" placeholder="0" value="{{ old('depth') }}" required>
+                    id="depth" name="depth" placeholder="0" value="{{ old('depth') }}">
                   @error('depth')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
@@ -199,7 +185,7 @@
                   <label for="price">Weight(kg)</label>
                   <input type="number" class="form-control form-control-lg @error('weight') is-invalid @enderror"
                     id="weight" name="weight" step="0.001" placeholder="0" value="{{ old('weight') }}"
-                    required>
+                    >
                   @error('weight')
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
@@ -399,16 +385,19 @@
     function changeAdditionalArchives(element) {
         switch (element.value) {
             case 'curso':
-                $('#video').css('display', 'block')
-                $('#documento').css('display', 'none')
+                $('.video').css('display', 'block')
+                $('.documento').css('display', 'none')
+                $('.fisico').css('display', 'none')
                 break;
             case 'virtual':
-                $('#video').css('display', 'none')
-                $('#documento').css('display', 'block')
+                $('.video').css('display', 'none')
+                $('.documento').css('display', 'block')
+                $('.fisico').css('display', 'none')
                 break;
             default:
-                $('#video').css('display', 'none')
-                $('#documento').css('display', 'none')
+                $('.video').css('display', 'none')
+                $('.documento').css('display', 'none')
+                $('.fisico').css('display', 'flex')
                 break;
         }
     }

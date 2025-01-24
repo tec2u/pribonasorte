@@ -91,11 +91,11 @@ class ProductAdminController extends Controller
         $product->type = $request->type;
         $product->unity = "";
         $product->price = $request->price;
-        $product->premium_price = $request->premium_price;
-        $product->height = $request->height;
-        $product->width = $request->width;
-        $product->depth = $request->depth;
-        $product->weight = $request->weight;
+        $product->premium_price = $request->price;
+        $product->height = $request->height ?? 0;
+        $product->width = $request->width ?? 0;
+        $product->depth = $request->depth ?? 0;
+        $product->weight = $request->weight ?? 0;
         $product->backoffice_price = $request->backoffice_price;
         $product->qv = $request->qv ?? 0;
         $product->cv = $request->cv ?? 0;
@@ -184,6 +184,9 @@ class ProductAdminController extends Controller
 
         $separado = [];
 
+        $documents = Documents::get();
+        $videos = Video::get();
+
         if ($product->kit != 0) {
             $parts = explode('|', $product->kit_produtos);
             foreach ($parts as $part) {
@@ -192,7 +195,7 @@ class ProductAdminController extends Controller
             }
         }
 
-        return view('admin.products.edit', compact('product', 'allProducts', 'separado'));
+        return view('admin.products.edit', compact('product', 'allProducts', 'separado', 'documents', 'videos'));
     }
 
     public function update(Request $request, $id)
@@ -252,7 +255,8 @@ class ProductAdminController extends Controller
             'depth' => $request->depth,
             'weight' => $request->weight,
             'activated' => $request->activated,
-            'availability' => $request->availability
+            'availability' => $request->availability,
+            'id_additional_archive' => $request->id_additional_archive
         ]);
 
         $productEdit->kit = $request->kit;
@@ -376,19 +380,7 @@ class ProductAdminController extends Controller
     public function orderproducts()
     {
         $orderpackages = PaymentOrderEcomm::orderBy('id', 'DESC')->paginate(50);
-        $metodos = $this->metodosComgate();
-        // dd($metodos);
 
-        foreach ($orderpackages as $order) {
-            $metodo_pay = $order->payment_method;
-
-            foreach ($metodos as $mt) {
-                if ($mt->id == $metodo_pay) {
-                    $metodo_pay = $mt->name;
-                }
-            }
-            $order->payment_method = $metodo_pay;
-        }
         return view('admin.products.orders', compact('orderpackages'));
     }
 

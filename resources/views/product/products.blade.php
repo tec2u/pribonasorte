@@ -159,13 +159,15 @@ $categorias = \App\Models\Categoria::get();
                                     </div>
                                 </div>
 
-                                <div>Estoque {{ $product->stock }}</div>
+                                @if($product->type == 'fisico')
+                                    <div>Estoque {{ $product->stock }}</div>
+                                @endif
                                 <form class="buyProductForm" action="{{ route('packages.buy_products', ['id' => $product->id]) }}"
                                     method="GET">
-                                    <input name="quant_product" class="quant_cart" value="1" max="{{ $product->stock }}"
+                                    <input name="quant_product" class="quant_cart" value="1" max="{{ $product->stock <= 0 && $product->type == 'fisico' ? $product->stock : 1000 }}"
                                         min="0" type="number">
                                     <button type="submit" style="padding: 6px 1rem !important"
-                                        class="btn btn-primary m-4 rounded-pill" {{ $product->stock <= 0 ? 'disabled': '' }}>Adicionar ao carrinho</button>
+                                        class="btn btn-primary m-4 rounded-pill" {{ ($product->stock <= 0 && $product->type == 'fisico') ? 'disabled': '' }}>Adicionar ao carrinho</button>
                                 </form>
 
                             </div>

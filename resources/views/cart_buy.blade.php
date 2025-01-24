@@ -172,7 +172,6 @@
                                     <tr>
                                         <th style="color: #ffffff; font-size: 13px;">Produto</th>
                                         <th style="color: #ffffff; font-size: 13px;">Preço</th>
-                                        <th style="color: #ffffff; font-size: 13px;">VAT</th>
                                         <th style="color: #ffffff; font-size: 13px;">Quantidade</th>
                                         <th style="color: #ffffff; font-size: 13px;">Total</th>
                                         <th style="color: #ffffff; font-size: 13px;"></th>
@@ -200,7 +199,6 @@
 
 
                                         <th style="border: 1px solid silver; ">R$ {{ $new_price }}</th>
-                                        <th style="border: 1px solid silver; ">R$ {{ $priceTax }}</th>
                                         <th style="border: 1px solid silver; ">
                                             <ul style="margin-top: 10px;">
                                                 <li style="display: inline-block;"><a id="diminuir_quant"
