@@ -275,7 +275,7 @@
                             </div>
 
                             <div style="display: flex;flex-direction: row;flex-wrap:wrap; padding:0;">
-                                @if ($user_cart[0]->type == fisico)
+                                @if ($user_cart[0]->type == 'fisico')
                                 <div style="padding: 0rem;" class="col-sm-12 col-md-6">
                                     <div class="card shadow p-md-8 address-content" id="toOtherAddress"
                                         style="width: 100%; padding:1rem;height: auto; display: flex; flex-wrap: wrap; display: none">
@@ -427,7 +427,7 @@
                                     @endif
 
                                     <div class="card shadow p-md-2" style="width: 100%; height: fit-content;">
-                                        @if ($user_cart[0]->type == fisico)
+                                        @if ($user_cart[0]->type == 'fisico')
                                         <p class="card-title-new text-start">Escolher metodo de entrega</p>
                                         <div class="form-check" style="font-size: 1rem;">
                                             <input class="form-check-input loading-shipping" type="radio" value="toAddress" name="method_shipping" id="to_address"
