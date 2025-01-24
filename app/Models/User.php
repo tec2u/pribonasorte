@@ -465,15 +465,10 @@ class User extends Authenticatable
 
       $getpackages = $this->getPackages($id);
 
-      if (!$pay) {
-         $tag = "Inactive";
-      }
-      if ($getadessao > 0) {
-         $tag = "PreRegistration";
-      }
-      if ($getpackages > 0) {
+
+    //   if ($getpackages > 0) {
          $tag = "AllCards";
-      }
+    //   }
 
       return $tag;
    }
