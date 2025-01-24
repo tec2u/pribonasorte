@@ -235,7 +235,7 @@
                         </div>
 
 
-                        @if ($count_itens > 0 && $user_cart[0]->type == fisico)
+                        @if ($count_itens > 0 && $user_cart[0]->type == 'fisico')
                             <table style="margin-top: 10px;">
                                 <thead>
                                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>

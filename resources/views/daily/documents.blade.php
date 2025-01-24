@@ -35,19 +35,19 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
+                                            <th>Pedido</th>
+                                            <th>Produto</th>
                                             <th>Download</th>
-                                            <th>@lang('withdraw.date')</th>
+                                            <th>Criado em</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($documents as $document)
+                                        @forelse ($orders as $order)
                                         <tr>
-                                            <td>{{$document->id}}</td>
-                                            <td>{{$document->title}}</td>
-                                            <td><a class="btn btn-success btn-sm m-0" href="{{ route('documents.download', $document->id) }}">Download</a></td>
-                                            <td>{{date('d/m/Y ', strtotime($document->created_at))}}</td>
+                                            <td>{{$order->id}}</td>
+                                            <td>{{$order->product->name}}</td>
+                                            <td><a class="btn btn-success btn-sm m-0" href="{{ route('documents.download', $order->product->documentAdditional->id) }}">Download</a></td>
+                                            <td>{{date('d/m/Y ', strtotime($order->created_at))}}</td>
                                         </tr>
                                         @empty
                                         <p class="m-4 fst-italic">No document registered</p>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="card-footer clearfix py-3">
                                 <ul class="pagination pagination-sm m-0 float-right">
-                                    {{$documents->links()}}
+                                    {{$order->links()}}
                                 </ul>
                             </div>
                         </div>

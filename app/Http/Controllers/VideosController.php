@@ -20,7 +20,7 @@ class VideosController extends Controller
         $sdate = $request->sdate ? $request->sdate. " 23:59:59" : '' ;
 
         $ordersQuery = OrderPackage::with(['product', 'product.videoAdditional'])->whereHas('product', function ($query) {
-            $query->where('type', 'video');
+            $query->where('type', 'curso');
         })->where('user_id', auth()->user()->id)->where('payment_status', 1)->where('status', 1);
 
         if ($fdate) {
