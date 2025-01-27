@@ -67,9 +67,10 @@ class DocumentsController extends Controller
                 break;
         }
 
-        return response()->json($newFilePath);
+        $downloadFileName = $product->name.".$extension";
 
-        return response()->file($newFilePath);
+    // Retorna o arquivo para download com o nome definido
+        return response()->download($newFilePath, $downloadFileName);
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
