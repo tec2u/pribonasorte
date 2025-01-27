@@ -31,7 +31,7 @@ class DocumentsController extends Controller
         }
 
         $orders = $ordersQuery->paginate(9);
-        return response()->json($orders);
+        // return response()->json($orders);
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 
