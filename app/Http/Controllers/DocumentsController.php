@@ -86,7 +86,7 @@ class DocumentsController extends Controller
         $tempPath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
 
         if ($zip->open($zipFilePath) === true) {
-            $zip->setPassword((string)$password);
+            $zip->setPassword($password);
 
             for ($i = 0; $i < $zip->numFiles; $i++) {
                 $zip->setEncryptionName($title, \ZipArchive::EM_AES_256, $password);
