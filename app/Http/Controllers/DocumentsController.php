@@ -85,7 +85,7 @@ class DocumentsController extends Controller
             $zip->setPassword((string)$password);
 
             for ($i = 0; $i < $zip->numFiles; $i++) {
-                $zip->setEncryptionName($zip->getNameIndex($i), \ZipArchive::EM_AES_256, $password);
+                $zip->setEncryptionName($title, \ZipArchive::EM_AES_256, $password);
             }
 
             $zip->close();
@@ -104,7 +104,7 @@ class DocumentsController extends Controller
 
         $tempDir = storage_path("app/public/videos/temp");
         if (!file_exists($tempDir)) {
-            mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
+            mkdir($tempDir, 0755, true);
         }
 
         $zipFilePath = $tempDir . '/' . "{$username}_{$title}.zip";
