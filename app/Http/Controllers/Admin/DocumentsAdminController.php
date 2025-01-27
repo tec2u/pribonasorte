@@ -29,7 +29,7 @@ class DocumentsAdminController extends Controller
         // dd($request);
         $this->validate($request, [
             'title' => 'required|string|max:255',
-            'document' => 'required|file|mimes:pdf,doc,zip,rar',
+            'document' => 'required|file|mimes:pdf,doc,zip',
         ]);
 
         $fileName = $request->document->getClientOriginalName();

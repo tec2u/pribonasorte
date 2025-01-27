@@ -73,9 +73,6 @@ class DocumentsController extends Controller
             case 'zip':
                 $newFilePath = $this->addMetadataToZip($filepath, $metadata);
                 break;
-            case 'rar':
-                $newFilePath = $this->convertToZipAndAddMetadata($filepath, $metadata);
-                break;
         }
 
         $headers = [
@@ -125,37 +122,6 @@ class DocumentsController extends Controller
         $templateProcessor->saveAs($newFilePath);
 
         return $newFilePath;
-    }
-
-    private function convertToZipAndAddMetadata($filePath, $metadata)
-    {
-    $tempDir = storage_path("app/public/documents/temp_" . time());
-    $newFilePath = null;
-
-    if (!file_exists($tempDir)) {
-        mkdir($tempDir, 0777, true);
-    }
-
-    exec("unrar x {$filePath} {$tempDir}", $output, $returnVar);
-    if ($returnVar !== 0) {
-        throw new \Exception("Erro ao descompactar o arquivo .rar: " . implode("\n", $output));
-    }
-
-    $newFilePath = storage_path("app/public/documents/with_metadata_" . time() . ".rar");
-
-    $metadataContent = json_encode($metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    $jsonFilePath = "{$tempDir}/metadata.json";
-    file_put_contents($jsonFilePath, $metadataContent);
-
-    // Compactar novamente os arquivos junto com o JSON em um novo arquivo RAR
-    exec("rar a {$newFilePath} {$tempDir}/*", $output, $returnVar);
-    if ($returnVar !== 0) {
-        throw new \Exception("Erro ao criar o arquivo .rar: " . implode("\n", $output));
-    }
-
-    exec("rm -rf {$tempDir}");
-
-    return $newFilePath;
     }
 
     private function addMetadataToZip($filePath, $metadata)
