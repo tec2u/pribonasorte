@@ -67,6 +67,8 @@ class DocumentsController extends Controller
                 break;
         }
 
+        return response()->json($newFilePath);
+
         return response()->file($newFilePath);
     }
 
