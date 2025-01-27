@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Documents;
 use App\Models\EcommOrders;
 use App\Models\OrderPackage;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
 use setasign\Fpdi\Tcpdf\Fpdi;
@@ -38,9 +39,10 @@ class DocumentsController extends Controller
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 
-    public function downloadFile($id)
+    public function downloadFile($id, $product_id)
     {
         $file = Documents::where("id", $id)->first();
+        $product = Product::find($product_id);
 
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
@@ -63,27 +65,28 @@ class DocumentsController extends Controller
 
         switch (strtolower($extension)) {
             case 'zip':
-                $newFilePath = $this->addPasswordToZip($filepath, $userLogin);
+                $newFilePath = $this->addPasswordToZip($filepath, $product->title, $userLogin);
                 break;
             default:
-                $newFilePath = $this->createZipWithPassword($filepath, $userLogin);
+                $newFilePath = $this->createZipWithPassword($filepath, $product->title, $userLogin);
                 break;
         }
 
         return response()->file($newFilePath);
     }
 
-    private function addPasswordToZip($zipFilePath, $password)
+    private function addPasswordToZip($zipFilePath, $title, $password)
     {
         $zip = new \ZipArchive();
         $tempPath = str_replace('.zip', '_secured.zip', $zipFilePath);
 
         if ($zip->open($zipFilePath) === true) {
             $zip->setPassword($password);
+            $fileName = basename($title);
 
             // Protege os arquivos já dentro do ZIP
             for ($i = 0; $i < $zip->numFiles; $i++) {
-                $zip->setEncryptionName($zip->getNameIndex($i), \ZipArchive::EM_AES_256, $password);
+                $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
             }
 
             $zip->close();
@@ -95,13 +98,13 @@ class DocumentsController extends Controller
         return $tempPath;
     }
 
-    private function createZipWithPassword($filePath, $password)
+    private function createZipWithPassword($filePath, $title, $password)
     {
         $zip = new \ZipArchive();
         $zipFilePath = str_replace(pathinfo($filePath, PATHINFO_EXTENSION), 'zip', $filePath);
 
         if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
-            $fileName = basename($filePath);
+            $fileName = basename($title);
             $zip->addFile($filePath, $fileName);
             $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
             $zip->close();
