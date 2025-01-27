@@ -74,56 +74,66 @@ class DocumentsController extends Controller
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
-    {
-        $zip = new \ZipArchive();
-        $username = auth()->user()->login;
+{
+    $zip = new \ZipArchive();
+    $username = auth()->user()->login;
 
-        $tempDir = storage_path("app/public/videos/temp");
-        if (!file_exists($tempDir)) {
-            mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
-        }
-        $this->clearTempFiles($tempDir, $username);
-        $tempPath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
+    // Diretório temporário onde o arquivo com senha será salvo
+    $tempDir = storage_path("app/public/videos/temp");
+    if (!file_exists($tempDir)) {
+        mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
+    }
+    $this->clearTempFiles($tempDir, $username);
 
-        if ($zip->open($zipFilePath) === true) {
-            $zip->setPassword((string)$password);
+    // Caminho do arquivo ZIP temporário com senha
+    $tempPath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
 
-            for ($i = 0; $i < $zip->numFiles; $i++) {
-                $zip->setEncryptionName($title, \ZipArchive::EM_AES_256, $password);
-            }
+    // Cria o arquivo ZIP com senha
+    if ($zip->open($tempPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
+        $fileName = basename($zipFilePath); // Apenas o nome do arquivo
+        $zip->addFile($zipFilePath, $fileName); // Adiciona o arquivo ao ZIP
 
-            $zip->close();
-            copy($zipFilePath, $tempPath);
-        } else {
-            throw new \Exception("Não foi possível abrir o arquivo ZIP.");
-        }
+        // Aplica a senha no arquivo dentro do ZIP
+        $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
 
-        return $tempPath;
+        $zip->close(); // Fecha o ZIP
+    } else {
+        throw new \Exception("Não foi possível criar o arquivo ZIP.");
     }
 
-    private function createZipWithPassword($filePath, $title, $password)
-    {
-        $zip = new \ZipArchive();
-        $username = auth()->user()->login;
+    return $tempPath; // Retorna o caminho do arquivo com senha
+}
 
-        $tempDir = storage_path("app/public/videos/temp");
-        if (!file_exists($tempDir)) {
-            mkdir($tempDir, 0755, true);
-        }
-        $this->clearTempFiles($tempDir, $username);
+private function createZipWithPassword($filePath, $title, $password)
+{
+    $zip = new \ZipArchive();
+    $username = auth()->user()->login;
 
-        $zipFilePath = $tempDir . '/' . "{$username}_{$title}.zip";
-        if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
-            $fileName = basename($filePath); // Apenas o nome original do arquivo
-            $zip->addFile($filePath, $fileName); // Adiciona o arquivo ao ZIP
-            $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password); // Aplica a senha
-            $zip->close();
-        } else {
-            throw new \Exception("Não foi possível criar o arquivo ZIP.");
-        }
-
-        return $zipFilePath;
+    // Diretório temporário onde o arquivo com senha será salvo
+    $tempDir = storage_path("app/public/videos/temp");
+    if (!file_exists($tempDir)) {
+        mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
     }
+    $this->clearTempFiles($tempDir, $username);
+
+    // Caminho do arquivo ZIP temporário com senha
+    $zipFilePath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
+
+    // Cria o arquivo ZIP com senha
+    if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
+        $fileName = basename($filePath); // Apenas o nome original do arquivo
+        $zip->addFile($filePath, $fileName); // Adiciona o arquivo ao ZIP
+
+        // Aplica a senha no arquivo dentro do ZIP
+        $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
+
+        $zip->close(); // Fecha o ZIP
+    } else {
+        throw new \Exception("Não foi possível criar o arquivo ZIP.");
+    }
+
+    return $zipFilePath; // Retorna o caminho do arquivo ZIP com senha
+}
 
     private function clearTempFiles($directory, $username)
     {
