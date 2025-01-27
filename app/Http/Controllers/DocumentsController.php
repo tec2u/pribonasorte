@@ -44,7 +44,6 @@ class DocumentsController extends Controller
         $file = Documents::where("id", $id)->first();
         $product = Product::find($product_id);
 
-        return response()->json(['id' => $id, 'product' =>$file]);
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
         }
@@ -54,6 +53,7 @@ class DocumentsController extends Controller
         if (!file_exists($filepath)) {
             return response()->json(['error' => 'Arquivo não encontrado no armazenamento.'], 404);
         }
+        return response()->json(['id' => $id, 'product' =>$file]);
 
         $userLogin = auth()->user()->login;
         $metadata = [
