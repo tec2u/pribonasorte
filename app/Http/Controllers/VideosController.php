@@ -39,7 +39,7 @@ class VideosController extends Controller
     public function downloadFile($id)
     {
         $file = Video::where("id", $id)->first();
-        $filepath = storage_path("app/public/{$file->path}");
+        $filepath = storage_path("app/public/videos/{$file->path}");
         return response()->download($filepath);
     }
 

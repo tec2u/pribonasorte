@@ -43,7 +43,7 @@ class DocumentsController extends Controller
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
         }
 
-        $filepath = storage_path("app/public/{$file->path}");
+        $filepath = storage_path("app/public/videos/{$file->content}");
 
         if (!file_exists($filepath)) {
             return response()->json(['error' => 'Arquivo não encontrado no armazenamento.'], 404);
