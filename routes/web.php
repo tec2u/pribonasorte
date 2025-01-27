@@ -662,7 +662,7 @@ Route::prefix('documents')->middleware('auth')->name('documents')->group(functio
  Route::prefix('videos')->middleware('auth')->name('videos')->group(function () {
     Route::controller(VideosController::class)->group(function () {
        Route::get('/videos', 'index')->name('.index');
-       Route::get('/download/{id}', 'downloadFile')->name('.download');
+       Route::get('/download/{file}', 'downloadFile')->name('.download');
        Route::post('/getDateVideos', 'getDateVideos')->name('.getDateVideos');
     });
  });

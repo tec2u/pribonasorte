@@ -39,29 +39,22 @@ class DocumentsController extends Controller
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 
-    public function downloadFile($id)
+    public function downloadFile($id, $product_id)
     {
         $file = Documents::where("id", $id)->first();
-        // $product = Product::find($product_id);
+        $product = Product::find($product_id);
 
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
         }
 
-        $filepath = storage_path("app/public/videos/stitch pb.zip");
+        $filepath = storage_path("app/public/videos/{$file->content}");
 
-        return response()->file($filepath);
         if (!file_exists($filepath)) {
             return response()->json(['error' => 'Arquivo não encontrado no armazenamento.'], 404);
         }
-        return response()->json(['id' => $id, 'product' =>$file]);
 
         $userLogin = auth()->user()->login;
-        $metadata = [
-            'user' => $userLogin,
-            'description' => 'Arquivo baixado com metadados',
-            'downloaded_at' => now()->toDateTimeString(),
-        ];
 
         $extension = pathinfo($filepath, PATHINFO_EXTENSION);
 
@@ -74,6 +67,7 @@ class DocumentsController extends Controller
                 break;
         }
 
+        return response()->file($newFilePath);
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
