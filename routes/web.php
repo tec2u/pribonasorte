@@ -654,7 +654,7 @@ Route::prefix('payment')->middleware('auth')->name('payment')->group(function ()
 Route::prefix('documents')->middleware('auth')->name('documents')->group(function () {
     Route::controller(DocumentsController::class)->group(function () {
        Route::get('/documents', 'index')->name('.index');
-       Route::get('/download/{id}/{product_id}', 'downloadFile')->name('.download');
+       Route::get('/download/{file}', 'downloadFile')->name('.download');
        Route::post('/getDateDocuments', 'getDateDocuments')->name('.getDateDocuments');
     });
  });

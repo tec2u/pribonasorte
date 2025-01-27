@@ -46,7 +46,7 @@
                                         <tr>
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->product->name}}</td>
-                                            <td><a class="btn btn-success btn-sm m-0" href="{{ route('documents.download', ['id' => $order->product->documentAdditional->id, 'product_id' => $order->product->id]) }}">Download</a></td>
+                                            <td><a class="btn btn-success btn-sm m-0" href="{{ route('documents.download', $order->product->documentAdditional->id) }}">Download</a></td>
                                             <td>{{date('d/m/Y ', strtotime($order->created_at))}}</td>
                                         </tr>
                                         @empty

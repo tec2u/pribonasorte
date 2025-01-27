@@ -39,7 +39,7 @@ class DocumentsController extends Controller
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 
-    public function downloadFile($id, $product_id)
+    public function downloadFile($id)
     {
         $file = Documents::where("id", $id)->first();
         $product = Product::find($product_id);
