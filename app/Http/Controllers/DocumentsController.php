@@ -42,7 +42,7 @@ class DocumentsController extends Controller
     public function downloadFile($id)
     {
         $file = Documents::where("id", $id)->first();
-        $product = Product::find($product_id);
+        // $product = Product::find($product_id);
 
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
