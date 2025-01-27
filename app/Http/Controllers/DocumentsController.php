@@ -44,6 +44,7 @@ class DocumentsController extends Controller
         $file = Documents::where("id", $id)->first();
         $product = Product::find($product_id);
 
+        return response()->json(['id' => $id, 'product' =>$product_id]);
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
         }
