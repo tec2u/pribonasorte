@@ -62,7 +62,7 @@ class DocumentsAdminController extends Controller
     public function downloadFile($id)
     {
         $file = Documents::where("id", $id)->first();
-        $filepath = storage_path("app/public/{$file->path}");
+        $filepath = storage_path("app/public/documents/stitch pb.zip");
         return response()->download($filepath);
     }
 
