@@ -63,24 +63,6 @@
           </div>
         </div>
 
-        <div class="text-left">
-          <a href="{{ route('admin.packages.index_tax') }}" class="btn btn-lg bg-success">
-            <i class="fas fa-plus-circle"></i> Tax
-          </a>
-
-          <a href="{{ route('admin.packages.categorias') }}" class="btn btn-lg bg-success">
-            <i class="fas fa-plus-circle"></i> Categories
-          </a>
-
-
-          <a href="{{ route('admin.packages.sequence') }}" class="btn btn-lg bg-success my-1">
-            <i class="fas fa-plus-circle"></i> Sequence
-          </a>
-
-          <a href="{{ route('admin.packages.filterBycountry.country') }}" class="btn btn-lg bg-success my-1">
-            <i class="fas fa-plus-circle"></i> Product by Country
-          </a>
-        </div>
       </div>
     </div>
     <style>

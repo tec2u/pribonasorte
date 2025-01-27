@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Documents;
+use App\Models\EcommOrders;
 use App\Models\OrderPackage;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,7 @@ class DocumentsController extends Controller
      */
     public function index(Request $request)
     {
-        $ordersQuery = OrderPackage::with(['product', 'product.documentAdditional'])->whereHas('product', function ($query) {
-            $query->where('type', 'virtual');
-        })->where('user_id', auth()->user()->id)->where('payment_status', 1)->where('status', 1);
+        $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])->where('id_user', auth()->user()->id)->where('status_order', 'Order completed');
 
         $fdate = $request->fdate ? $request->fdate . " 00:00:00" : '';
         $sdate = $request->sdate ? $request->sdate . " 23:59:59" : '';
@@ -30,7 +29,7 @@ class DocumentsController extends Controller
         }
 
         $orders = $ordersQuery->paginate(9);
-
+        return response()->json($orders);
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 

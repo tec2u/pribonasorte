@@ -13,4 +13,8 @@ class EcommOrders extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function product(){
+        return $this->belongsTo(Product::class, 'id_product', 'id');
+    }
 }
