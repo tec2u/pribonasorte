@@ -16,9 +16,8 @@ class DocumentsController extends Controller
      */
     public function index(Request $request)
     {
-        $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])->whereHas('product', function ($query) {
-            $query->where('type', 'virtual');
-        })->where('id_user', auth()->user()->id)->where('status_order', 'order placed');
+        $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])->where('id_user', auth()->user()->id)
+        ->where('status_order', 'order placed');
 
         $orders = $ordersQuery->paginate(9);
         return response()->json($orders);
