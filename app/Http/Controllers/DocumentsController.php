@@ -62,85 +62,54 @@ class DocumentsController extends Controller
         $extension = pathinfo($filepath, PATHINFO_EXTENSION);
 
         switch (strtolower($extension)) {
-            case 'pdf':
-                $newFilePath = $this->addMetadataToPdf($filepath, $metadata);
-                break;
-
-            case 'docx':
-                $newFilePath = $this->addMetadataToDoc($filepath, $metadata);
-                break;
-
             case 'zip':
-                $newFilePath = $this->addMetadataToZip($filepath, $metadata);
+                $newFilePath = $this->addPasswordToZip($filepath, $metadata);
+                break;
+            default:
+                $newFilePath = $this->createZipWithPassword($filepath, $userLogin);
                 break;
         }
 
-        $headers = [
-            'Content-Type' => mime_content_type($newFilePath),
-            'Content-Disposition' => "attachment; filename=\"" . basename($newFilePath) . "\"",
-            'X-User-Login' => $userLogin,
-        ];
-
-        return response()->file($newFilePath, $headers);
+        return response()->file($newFilePath);
     }
 
-    private function addMetadataToPdf($filePath, $metadata)
+    private function addPasswordToZip($zipFilePath, $password)
     {
-        $newFilePath = storage_path("app/public/documents/with_metadata_" . time() . ".pdf");
+        $zip = new \ZipArchive();
+        $tempPath = str_replace('.zip', '_secured.zip', $zipFilePath);
 
-        // Inicialize o FPDI baseado no TCPDF
-        $pdf = new Fpdi();
+        if ($zip->open($zipFilePath) === true) {
+            $zip->setPassword($password);
 
-        // Configuração do documento
-        $pdf->SetCreator('Seu Sistema');
-        $pdf->SetAuthor($metadata['user']);
-        $pdf->SetTitle($metadata['description']);
-        $pdf->SetSubject('Arquivo com metadados');
-        $pdf->SetKeywords('metadados, pdf, download');
-
-        $pdf->AddPage();
-        $pdf->setSourceFile($filePath);
-        $templateId = $pdf->importPage(1);
-        $pdf->useTemplate($templateId);
-
-        $pdf->Output($newFilePath, 'F');
-
-        return $newFilePath;
-    }
-
-    private function addMetadataToDoc($filePath, $metadata)
-    {
-        $newFilePath = storage_path("app/public/documents/with_metadata_" . time() . ".docx");
-
-        $templateProcessor = new TemplateProcessor($filePath);
-
-        // Adicionar metadados no cabeçalho do documento (exemplo básico)
-        $templateProcessor->setValue('Title', $metadata['description']);
-        $templateProcessor->setValue('Author', $metadata['user']);
-        $templateProcessor->setValue('Date', $metadata['downloaded_at']);
-
-        $templateProcessor->saveAs($newFilePath);
-
-        return $newFilePath;
-    }
-
-    private function addMetadataToZip($filePath, $metadata)
-    {
-        $newFilePath = storage_path("app/public/documents/with_metadata_" . time() . ".zip");
-
-        $zip = new ZipArchive();
-        if ($zip->open($newFilePath, ZipArchive::CREATE) === true) {
-            $zip->addFile($filePath, basename($filePath));
-
-            $metadataContent = json_encode($metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            $zip->addFromString('metadata.json', $metadataContent);
+            // Protege os arquivos já dentro do ZIP
+            for ($i = 0; $i < $zip->numFiles; $i++) {
+                $zip->setEncryptionName($zip->getNameIndex($i), \ZipArchive::EM_AES_256, $password);
+            }
 
             $zip->close();
+            rename($zipFilePath, $tempPath); // Substitui o ZIP original pelo protegido
         } else {
-            throw new \Exception('Falha ao criar o arquivo ZIP com metadados.');
+            throw new \Exception("Não foi possível abrir o arquivo ZIP.");
         }
 
-        return $newFilePath;
+        return $tempPath;
+    }
+
+    private function createZipWithPassword($filePath, $password)
+    {
+        $zip = new \ZipArchive();
+        $zipFilePath = str_replace(pathinfo($filePath, PATHINFO_EXTENSION), 'zip', $filePath);
+
+        if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
+            $fileName = basename($filePath);
+            $zip->addFile($filePath, $fileName);
+            $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
+            $zip->close();
+        } else {
+            throw new \Exception("Não foi possível criar o arquivo ZIP.");
+        }
+
+        return $zipFilePath;
     }
 
     public function getDateDocuments(Request $request)
