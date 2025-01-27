@@ -82,7 +82,7 @@ class DocumentsController extends Controller
         }
 
         // Define o caminho completo do arquivo temporário
-        $tempPath = $tempDir . '/' . basename($zipFilePath."_".$username, '.zip') . '_secured.zip';
+        $tempPath = $tempDir . '/' . basename($zipFilePath."_".$username."_".$title, '.zip') . '_secured.zip';
 
         if ($zip->open($zipFilePath) === true) {
             $zip->setPassword((string)$password);
