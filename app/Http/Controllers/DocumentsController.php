@@ -75,14 +75,11 @@ class DocumentsController extends Controller
         $zip = new \ZipArchive();
         $username = auth()->user()->login;
 
-        // Define o caminho temporário para salvar o arquivo protegido
         $tempDir = storage_path("app/public/videos/temp");
         if (!file_exists($tempDir)) {
             mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
         }
-
-        // Define o caminho completo do arquivo temporário
-        $tempPath = $tempDir . '/' . basename($zipFilePath."_".$username."_".$title, '.zip') . '_secured.zip';
+        $tempPath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
 
         if ($zip->open($zipFilePath) === true) {
             $zip->setPassword((string)$password);
@@ -92,7 +89,6 @@ class DocumentsController extends Controller
             }
 
             $zip->close();
-
             copy($zipFilePath, $tempPath);
         } else {
             throw new \Exception("Não foi possível abrir o arquivo ZIP.");
@@ -105,18 +101,17 @@ class DocumentsController extends Controller
     {
         $zip = new \ZipArchive();
         $username = auth()->user()->login;
+
         $tempDir = storage_path("app/public/videos/temp");
         if (!file_exists($tempDir)) {
             mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
         }
 
-        $zipFilePath = $tempDir . '/' . basename($filePath."_".$username, '.' . pathinfo($filePath, PATHINFO_EXTENSION)) . '.zip';
-
-        // Cria o arquivo ZIP e aplica a senha
+        $zipFilePath = $tempDir . '/' . "{$username}_{$title}.zip";
         if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
-            $fileName = basename($title."_".$username);
-            $zip->addFile($filePath, $fileName);
-            $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password);
+            $fileName = basename($filePath); // Apenas o nome original do arquivo
+            $zip->addFile($filePath, $fileName); // Adiciona o arquivo ao ZIP
+            $zip->setEncryptionName($fileName, \ZipArchive::EM_AES_256, $password); // Aplica a senha
             $zip->close();
         } else {
             throw new \Exception("Não foi possível criar o arquivo ZIP.");
