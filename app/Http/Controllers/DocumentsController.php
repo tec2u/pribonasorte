@@ -60,10 +60,10 @@ class DocumentsController extends Controller
 
         switch (strtolower($extension)) {
             case 'zip':
-                $newFilePath = $this->addPasswordToZip($filepath, $product->title, $userLogin);
+                $newFilePath = $this->addPasswordToZip($filepath, $product->name, $userLogin);
                 break;
             default:
-                $newFilePath = $this->createZipWithPassword($filepath, $product->title, $userLogin);
+                $newFilePath = $this->createZipWithPassword($filepath, $product->name, $userLogin);
                 break;
         }
 
