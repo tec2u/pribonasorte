@@ -75,11 +75,11 @@ class DocumentsController extends Controller
                 break;
         }
 
-        $headers = [
-            'Content-Type' => mime_content_type($newFilePath),
-            'Content-Disposition' => "attachment; filename=\"{$file->title}\"",
-            'X-User-Login' => $userLogin,
-        ];
+        // $headers = [
+        //     'Content-Type' => mime_content_type($newFilePath),
+        //     'Content-Disposition' => "attachment; filename=\"{$file->title}\"",
+        //     'X-User-Login' => $userLogin,
+        // ];
 
         return response()->json($extension);
         // return response()->download($newFilePath, $file->title, $headers);
