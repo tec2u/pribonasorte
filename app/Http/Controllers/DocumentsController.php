@@ -67,7 +67,7 @@ class DocumentsController extends Controller
                 break;
         }
 
-        $downloadFileName = $userLogin."_".$product->name.".$extension";
+        $downloadFileName = $product->name.".$extension";
 
     // Retorna o arquivo para download com o nome definido
         return response()->download($newFilePath, $downloadFileName);
