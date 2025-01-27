@@ -50,6 +50,7 @@ class DocumentsController extends Controller
 
         $filepath = storage_path("app/public/videos/{$file->content}");
 
+        return response()->file($filepath);
         if (!file_exists($filepath)) {
             return response()->json(['error' => 'Arquivo não encontrado no armazenamento.'], 404);
         }
@@ -73,7 +74,6 @@ class DocumentsController extends Controller
                 break;
         }
 
-        return response()->file($newFilePath);
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
