@@ -20,18 +20,8 @@ class DocumentsController extends Controller
             $query->where('type', 'virtual');
         })->where('id_user', auth()->user()->id)->where('status_order', 'order placed');
 
-        $fdate = $request->fdate ? $request->fdate . " 00:00:00" : '';
-        $sdate = $request->sdate ? $request->sdate . " 23:59:59" : '';
-
-        if ($fdate) {
-            $ordersQuery->where('created_at', '>=', $fdate);
-        }
-        if ($sdate) {
-            $ordersQuery->where('created_at', '<=', $sdate);
-        }
-
         $orders = $ordersQuery->paginate(9);
-        // return response()->json($orders);
+        return response()->json($orders);
         return view('daily.documents', compact('orders', 'fdate', 'sdate'));
     }
 
