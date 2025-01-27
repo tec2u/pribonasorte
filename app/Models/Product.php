@@ -41,10 +41,10 @@ class Product extends Model
     }
 
     public function videoAdditional(){
-        return $this->belongsTo(Package::class, 'id_additional_archive', 'id');
+        return $this->belongsTo(Product::class, 'id_additional_archive', 'id');
     }
 
     public function documentAdditional(){
-        return $this->belongsTo(Package::class, 'id_additional_archive', 'id');
+        return $this->belongsTo(Product::class, 'id_additional_archive', 'id');
     }
 }
