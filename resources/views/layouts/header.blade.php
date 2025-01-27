@@ -246,7 +246,7 @@
                             @if (!empty(auth()->user()->image_path))
                             <img src="{{ asset(auth()->user()->image_path) }}" alt="Profile" class="rounded-circle">
                             @else
-                            <img src="../../../assetsWelcome/images/favicon.png" alt="Profile" class="rounded-circle">
+                            <img src="/images/favicon.png" alt="Profile" class="rounded-circle">
                             @endif
 
                             <span class="d-none d-md-block dropdown-toggle ps-2">{{ ucwords(auth()->user()->name) }}</span>
@@ -593,7 +593,7 @@
             </li>
             </ul>
         </aside>
-        
+
         @yield('content')
 
         {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}

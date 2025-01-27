@@ -77,7 +77,7 @@ class DocumentsController extends Controller
 
         $headers = [
             'Content-Type' => mime_content_type($newFilePath),
-            'Content-Disposition' => "attachment; filename=\"{$file->title}\"",
+            'Content-Disposition' => "attachment; filename=\"" . basename($newFilePath) . "\"",
             'X-User-Login' => $userLogin,
         ];
 
