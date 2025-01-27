@@ -81,6 +81,7 @@ class DocumentsController extends Controller
         if (!file_exists($tempDir)) {
             mkdir($tempDir, 0755, true); // Cria a pasta "temp" se não existir
         }
+        $this->clearTempFiles($tempDir, $username);
         $tempPath = $tempDir . '/' . "{$username}_{$title}_secured.zip";
 
         if ($zip->open($zipFilePath) === true) {
@@ -108,6 +109,7 @@ class DocumentsController extends Controller
         if (!file_exists($tempDir)) {
             mkdir($tempDir, 0755, true);
         }
+        $this->clearTempFiles($tempDir, $username);
 
         $zipFilePath = $tempDir . '/' . "{$username}_{$title}.zip";
         if ($zip->open($zipFilePath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) === true) {
@@ -120,6 +122,16 @@ class DocumentsController extends Controller
         }
 
         return $zipFilePath;
+    }
+
+    private function clearTempFiles($directory, $username)
+    {
+        $files = glob($directory . '/' . $username . '_*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
     }
 
     public function getDateDocuments(Request $request)
