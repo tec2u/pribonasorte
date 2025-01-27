@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EcommOrders;
 use App\Models\OrderPackage;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ class VideosController extends Controller
         $fdate = $request->fdate ? $request->fdate. " 00:00:00" : '' ;
         $sdate = $request->sdate ? $request->sdate. " 23:59:59" : '' ;
 
-        $ordersQuery = OrderPackage::with(['product', 'product.videoAdditional'])->whereHas('product', function ($query) {
+        $ordersQuery = EcommOrders::with(['product', 'product.videoAdditional'])->whereHas('product', function ($query) {
             $query->where('type', 'curso');
-        })->where('user_id', auth()->user()->id)->where('payment_status', 1)->where('status', 1);
+        })->where('user_id', auth()->user()->id)->where('status_order', 'order placed');
 
         if ($fdate) {
             $ordersQuery->where('created_at', '>=', $fdate);
