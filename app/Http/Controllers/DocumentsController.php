@@ -16,12 +16,19 @@ class DocumentsController extends Controller
      */
     public function index(Request $request)
     {
-        $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])
-        ->whereHas('product', function ($query) {
+        $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])->whereHas('product', function ($query) {
             $query->where('type', 'virtual');
-        })
-        ->where('id_user', auth()->user()->id)
-        ->where('status_order', 'order placed');
+        })->where('id_user', auth()->user()->id)->where('status_order', 'order placed');
+
+        $fdate = $request->fdate ? $request->fdate . " 00:00:00" : '';
+        $sdate = $request->sdate ? $request->sdate . " 23:59:59" : '';
+
+        if ($fdate) {
+            $ordersQuery->where('created_at', '>=', $fdate);
+        }
+        if ($sdate) {
+            $ordersQuery->where('created_at', '<=', $sdate);
+        }
 
         $orders = $ordersQuery->paginate(9);
         return response()->json($orders);
