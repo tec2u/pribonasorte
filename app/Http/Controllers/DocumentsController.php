@@ -73,16 +73,18 @@ class DocumentsController extends Controller
             case 'zip':
                 $newFilePath = $this->addMetadataToZip($filepath, $metadata);
                 break;
+            case 'rar':
+                $newFilePath = $this->convertToZipAndAddMetadata($filepath, $metadata);
+                break;
         }
 
-        // $headers = [
-        //     'Content-Type' => mime_content_type($newFilePath),
-        //     'Content-Disposition' => "attachment; filename=\"{$file->title}\"",
-        //     'X-User-Login' => $userLogin,
-        // ];
+        $headers = [
+            'Content-Type' => mime_content_type($newFilePath),
+            'Content-Disposition' => "attachment; filename=\"{$file->title}\"",
+            'X-User-Login' => $userLogin,
+        ];
 
-        return response()->json($extension);
-        // return response()->download($newFilePath, $file->title, $headers);
+        return response()->download($newFilePath, $file->title, $headers);
     }
 
     private function addMetadataToPdf($filePath, $metadata)
@@ -122,6 +124,40 @@ class DocumentsController extends Controller
 
         $templateProcessor->saveAs($newFilePath);
 
+        return $newFilePath;
+    }
+
+    private function convertToZipAndAddMetadata($filePath, $metadata)
+    {
+        $tempDir = storage_path("app/public/documents/temp_" . time());
+        $newFilePath = null;
+        $newFileExtension = '';
+
+        if (!file_exists($tempDir)) {
+            mkdir($tempDir, 0777, true);
+        }
+
+        exec("unrar x {$filePath} {$tempDir}", $output, $returnVar);
+
+        $newFilePath = storage_path("app/public/documents/with_metadata_" . time() . ".zip");
+
+        $zip = new ZipArchive();
+        if ($zip->open($newFilePath, ZipArchive::CREATE) !== TRUE) {
+            throw new \Exception("Não foi possível criar o arquivo .zip.");
+        }
+        $metadataContent = json_encode($metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+        $files = scandir($tempDir);
+        foreach ($files as $file) {
+            if ($file !== '.' && $file !== '..') {
+                $zip->addFile("{$tempDir}/{$file}", $file);
+            }
+        }
+
+        $zip->addFromString("metadata.json", json_encode($metadataContent));
+        $zip->setArchiveComment("Arquivo gerado com metadados: {$metadata['description']} por {$metadata['user']}");
+        $zip->close();
+        exec("rm -rf {$tempDir}");
         return $newFilePath;
     }
 
