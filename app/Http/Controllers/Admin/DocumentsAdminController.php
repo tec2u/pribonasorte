@@ -33,7 +33,7 @@ class DocumentsAdminController extends Controller
         ]);
 
         $fileName = $request->document->getClientOriginalName();
-        $filePath = 'videos/' . $fileName;
+        $filePath = $fileName;
 
         $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->document));
 
@@ -62,7 +62,7 @@ class DocumentsAdminController extends Controller
     public function downloadFile($id)
     {
         $file = Documents::where("id", $id)->first();
-        $filepath = storage_path("app/public/{$file->content}");
+        $filepath = storage_path("app/public/videos/{$file->content}");
         return response()->download($filepath);
     }
 
