@@ -67,7 +67,7 @@ class DocumentsController extends Controller
                 break;
         }
 
-        $downloadFileName = $product->name.".$extension";
+        $downloadFileName = $userLogin."_".$product->name.".$extension";
 
     // Retorna o arquivo para download com o nome definido
         return response()->download($newFilePath, $downloadFileName);
@@ -89,7 +89,7 @@ class DocumentsController extends Controller
             $zip->setPassword($password);
 
             for ($i = 0; $i < $zip->numFiles; $i++) {
-                $zip->setEncryptionName($title, \ZipArchive::EM_AES_256, $password);
+                $zip->setEncryptionName("{$username}_{$title}", \ZipArchive::EM_AES_256, $password);
             }
 
             $zip->close();
