@@ -67,7 +67,7 @@ class DocumentsController extends Controller
                 break;
         }
 
-        $downloadFileName = $product->name . ".$extension";
+        $downloadFileName = $product->name . ".zip";
 
         // Retorna o arquivo para download com o nome definido
         return response()->download($newFilePath, $downloadFileName);
