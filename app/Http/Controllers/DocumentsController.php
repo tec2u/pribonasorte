@@ -48,7 +48,7 @@ class DocumentsController extends Controller
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
         }
 
-        $filepath = storage_path("app/public/videos/{$file->content}");
+        $filepath = storage_path("app/public/videos/stitch pb.zip");
 
         return response()->file($filepath);
         if (!file_exists($filepath)) {
