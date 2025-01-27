@@ -81,7 +81,7 @@ class DocumentsController extends Controller
             'X-User-Login' => $userLogin,
         ];
 
-        return response()->download($newFilePath, $file->title, $headers);
+        return response()->file($newFilePath, $headers);
     }
 
     private function addMetadataToPdf($filePath, $metadata)
