@@ -144,6 +144,7 @@
                     <th scope="col">Status</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Preço total</th>
+                    <th scope="col">Produto digital</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
@@ -156,6 +157,13 @@
                       <td scope="col">{{ $item->status_order }}</td>
                       <td scope="col">{{ $item->payment }}</td>
                       <td scope="col">R$ {{ $item->total }}</td>
+                      <td scope="col">
+                        @if($item->status_order == 'order placed')
+                            <a class="btn btn-success btn-sm m-0" href="{{ route('ecomm.documents.download', ['id' => $item->product->documentAdditional->id, 'product_id' => $item->product->id]) }}">Download</a>
+                        @else
+                            Produto disponivel somente após confirmação de pagamento
+                        @endif
+                      </td>
                       @if ($item->invoiceFak)
                         <td scope="col"><a href="{{ route('invoicePDF', $item->number_order) }}"><button
                               class="button-detal">Recibo</button></a></td>

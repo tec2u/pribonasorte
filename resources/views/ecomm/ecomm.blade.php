@@ -406,7 +406,6 @@
                 $qv_format = number_format($qv, 2, ',', '.');
               @endphp
 
-
               <div class="product">
                 <div class="">
                   <a href="{{ route('detals', ['id' => $product->id]) }}">
@@ -421,7 +420,7 @@
                     <div class="prices">
                       <h5 class="text-price">R${{ $price }}
                       </h5>
-                    
+
                     </div>
 
                     <div>

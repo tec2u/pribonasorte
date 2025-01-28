@@ -424,7 +424,7 @@
             <div class="box-register">
                 @if (isset($user))
                 <div class="line-title-registration registers">
-                    @if (!isset($user->address2) and empty($user->address2))
+                    @if (!$tipo && (!isset($user->address2) and empty($user->address2)))
                     <div class="band-registration">
                         <p class="subtitle_form">
                             Seu pedido será enviado para <strong id="address_delivery">{{ $user->address }},
@@ -432,16 +432,19 @@
                                 {{ $user->number }} {{ $user->zip }}</strong></p>
 
                     </div>
-                    @endif
                     <div class="band-registration">
                         <p class="link-loginn">
                             <a href="{{ route('orders.settings.ecomm') }}" style="color: white" class="btn_address">
-                                {{-- <button class="btn_address"> --}}
                                 Editar endereço
-                                {{-- </button> --}}
                             </a>
                         </p>
                     </div>
+                    @else
+                    <div class="band-registration">
+                        <p class="subtitle_form">
+                            Seu pedido estará disponivel em sua conta após a confirmação do pagamento
+                    </div>
+                    @endif
                 </div>
 
                 <div id="box_another_address_pickup" style="display: none">
@@ -593,17 +596,6 @@
 
                     <div class="raw">
                         <div class="camp-text-total">
-                            <p class="text-total">VAT:</p>
-                        </div>
-
-                        <div class="camp-value-total">
-                            <p class="text-value">R$ <span id="span_vat">{{ $total_VAT }}</span></p>
-                            <input class="text-value" id="input_vat" name="total_vat" value="{{ $total_VAT }}"
-                                style="display: none" />
-                        </div>
-                    </div>
-                    <div class="raw">
-                        <div class="camp-text-total">
                             <p class="text-total">Preço total:</p>
                         </div>
 
@@ -717,73 +709,6 @@
     });
 </script>
 <script>
-    function calcularVAT(country_code) {
-        let maiorestaxas = @json($todosVats);
-        let tax1add = 0;
-
-        if (country_code === 'AT' || country_code === 'Austria') {
-            tax1add = maiorestaxas.Austria;
-        } else if (country_code === 'BE' || country_code === 'Belgium') {
-            tax1add = maiorestaxas.Belgium;
-        } else if (country_code === 'BG' || country_code === 'Bulgaria') {
-            tax1add = maiorestaxas.Bulgaria;
-        } else if (country_code === 'CY' || country_code === 'Cyprus') {
-            tax1add = maiorestaxas.Cyprus;
-        } else if (country_code === 'CZ' || country_code === 'Czech Republic') {
-            tax1add = maiorestaxas["Czech Republic"];
-        } else if (country_code === 'DE' || country_code === 'Germany') {
-            tax1add = maiorestaxas.Germany
-        } else if (country_code === 'DK' || country_code === 'Denmark') {
-            tax1add = maiorestaxas.Denmark
-        } else if (country_code === 'EE' || country_code === 'Estonia') {
-            tax1add = maiorestaxas.Estonia
-        } else if (country_code === 'EL' || country_code === 'Greece') {
-            tax1add = maiorestaxas.Greece
-        } else if (country_code === 'ES' || country_code === 'Spain') {
-            tax1add = maiorestaxas.Spain
-        } else if (country_code === 'FI' || country_code === 'Finland') {
-            tax1add = maiorestaxas.Finland
-        } else if (country_code === 'FR' || country_code === 'France') {
-            tax1add = maiorestaxas.France
-        } else if (country_code === 'HR' || country_code === 'Croatia') {
-            tax1add = maiorestaxas.Croatia
-        } else if (country_code === 'HU' || country_code === 'Hungary') {
-            tax1add = maiorestaxas.Hungary
-        } else if (country_code === 'IE' || country_code === 'Ireland') {
-            tax1add = maiorestaxas.Ireland
-        } else if (country_code === 'IT' || country_code === 'Italy') {
-            tax1add = maiorestaxas.Italy
-        } else if (country_code === 'LT' || country_code === 'Lithuania') {
-            tax1add = maiorestaxas.Lithuania
-        } else if (country_code === 'LU' || country_code === 'Luxembourg') {
-            tax1add = maiorestaxas.Luxembourg
-        } else if (country_code === 'LV' || country_code === 'Latvia') {
-            tax1add = maiorestaxas.Latvia
-        } else if (country_code === 'MT' || country_code === 'Malta') {
-            tax1add = maiorestaxas.Malta
-        } else if (country_code === 'NL' || country_code === 'Netherlands') {
-            tax1add = maiorestaxas.Netherlands
-        } else if (country_code === 'PL' || country_code === 'Poland') {
-            tax1add = maiorestaxas.Poland
-        } else if (country_code === 'PT' || country_code === 'Portugal') {
-            tax1add = maiorestaxas.Portugal
-        } else if (country_code === 'RO' || country_code === 'Romania') {
-            tax1add = maiorestaxas.Romania
-        } else if (country_code === 'SE' || country_code === 'Sweden') {
-            tax1add = maiorestaxas.Sweden
-        } else if (country_code === 'SI' || country_code === 'Slovenia') {
-            tax1add = maiorestaxas.Slovenia
-        } else if (country_code === 'SK' || country_code === 'Slovakia') {
-            tax1add = maiorestaxas.Slovakia
-        } else if (country_code === 'XI' || country_code === 'Unknown Country') {
-            tax1add = 0
-        } else {
-            tax1add = 0; // Valor padrão se o país não for encontrado
-        }
-
-        return tax1add;
-    }
-
     function precoPickup(country_code) {
         let maiorestaxas = @json($todosFretePickup);
 
@@ -948,37 +873,6 @@
     // Add the script+href link to the document head
     document.head.appendChild(link);
     document.head.appendChild(script);
-    document.addEventListener(
-        "ppl-parcelshop-map",
-        (event) => {
-            // attribute
-            document.getElementById('name_ppl_selected').style.display = 'block';
-            document.getElementById('name_ppl_selected').innerHTML = `Selected ${event.detail.name}`;
-
-            document.getElementById('box_another_address_pickup').style.display = 'block';
-            document.getElementById('text_my_address_pickup').innerHTML = `Selected pickup: ${event.detail.name}`;
-            document.getElementById('address_delivery').innerHTML = `Pickup: ${event.detail.name}`;
-
-
-            document.getElementById('id_ppl').value = event.detail.id;
-            document.getElementById('accessPointType').value = event.detail.accessPointType;
-            document.getElementById('code').value = event.detail.code;
-            document.getElementById('dhlPsId').value = event.detail.dhlPsId;
-            document.getElementById('depot').value = event.detail.depot;
-            document.getElementById('depotName').value = event.detail.depotName;
-            document.getElementById('name_ppl').value = event.detail.name;
-            document.getElementById('street_ppl').value = event.detail.street;
-            document.getElementById('city_ppl').value = event.detail.city;
-            document.getElementById('zipCode_ppl').value = event.detail.zipCode;
-            document.getElementById('country_ppl').value = event.detail.country;
-            document.getElementById('parcelshopName').value = event.detail.parcelshopName;
-
-            modalBox.style.display = 'none';
-            modalOverlay.style.display = 'none';
-
-            atualizaPrecoPickup(event.detail.country);
-        }
-    );
 
     let selectCrypto = document.getElementById("selectCrypto");
     let bt_submit_crypt = document.getElementById("bt_submit_crypt");
@@ -1132,45 +1026,6 @@
         }
 
         const numeroFormatado = frete.toLocaleString('pt-BR', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-            useGrouping: true,
-        });
-
-        document.getElementById('request_price').value = numeroFormatado;
-        document.getElementById('value_order').innerHTML = "R$ " + numeroFormatado;
-    }
-
-    function atualizaPrecoPickup(pais) {
-        select = pais.toLowerCase();
-        paises = @json($allPickup);
-        let frete = 0;
-
-        paises.forEach(element => {
-            if (element.country_code.toLowerCase() == select) {
-                newtax_add = precoPickup(pais)
-                new_vat = calcularVAT(pais);
-                frete = parseFloat(newtax_add) + parseFloat(<?php echo $withoutVAT; ?>);
-
-                document.getElementById('input_vat').value = parseFloat(new_vat)
-                document.getElementById('total_shipping').value = parseFloat(newtax_add)
-
-                // newtax_add = newtax_add.toLocaleString('pt-BR', {
-                //   minimumFractionDigits: 2,
-                //   maximumFractionDigits: 2,
-                //   useGrouping: true,
-                // });
-
-
-                document.getElementById('span_vat').innerHTML = parseFloat(new_vat).toFixed(2);
-                document.getElementById('p_shipping').innerHTML = "R$ " + parseFloat(newtax_add);
-
-            }
-        });
-
-        let tt = frete + new_vat;
-
-        const numeroFormatado = tt.toLocaleString('pt-BR', {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             useGrouping: true,
@@ -1384,8 +1239,10 @@
 
         })
     }
+    @if (!$tipo)
+        calculateShippiment()
+    @endif
 
-    calculateShippiment()
 </script>
 
 @endsection

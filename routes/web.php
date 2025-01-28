@@ -53,6 +53,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\DocumentsControllerEcomm;
 use App\Http\Controllers\VideosController;
 
 /*
@@ -650,6 +651,12 @@ Route::prefix('payment')->middleware('auth')->name('payment')->group(function ()
         // Route::get('/subscriptionClub/{package}', 'subscriptionClub')->name('.subscriptionClub');
     });
 });
+
+Route::prefix('ecomm.documents')->name('ecomm.documents')->group(function () {
+    Route::controller(DocumentsControllerEcomm::class)->group(function () {
+       Route::get('/download/{id}/{product_id}', 'downloadFile')->name('.download');
+    });
+ });
 
 Route::prefix('documents')->middleware('auth')->name('documents')->group(function () {
     Route::controller(DocumentsController::class)->group(function () {

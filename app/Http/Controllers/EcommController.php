@@ -46,7 +46,6 @@ class EcommController extends Controller
                 $query->where('availability', 'external')
                     ->orWhere('availability', 'both');
             })->get();
-
         foreach ($products as $product) {
             $totalAmount = null;
 
@@ -82,6 +81,7 @@ class EcommController extends Controller
         }
 
         $allprod = $this->productsRandom();
+
 
         return view('ecomm.ecomm', compact('products', 'count_order', 'allprod'));
     }
@@ -396,11 +396,27 @@ class EcommController extends Controller
             return redirect()->route('ecomm');
         }
 
-        $responseData = $this->payment($request, $order_cart);
+        $testMode = true;
+        if ($testMode) {
+            $responseData = [
+                'id' => 1,
+                'status' => 'pending',
+                'cart_settings' => [
+                    'items_total_cost' => $order_cart[0]->total * 100,
+                    'shipping_total_cost' => $request->send_value,
+                ],
+                'url' => route('home.home')
+            ];
+        } else {
+            $responseData = $this->payment($request, $order_cart);
+        }
         // return response()->json($responseData);
 
         if (isset($responseData)) {
             $payment = $this->registerOrder($request, $responseData);
+            if ($testMode) {
+                return redirect()->route('ecomm');
+            }
             return redirect()->route("payment_render.ecomm", ["id" => $payment->number_order]);
         } else {
             return redirect()->back();
@@ -924,11 +940,15 @@ class EcommController extends Controller
         $qv = 0;
         $allSavedTax = Tax::all();
         $idSprodutos = [];
+        $tipo = false;
 
         foreach ($order_cart as $order) {
             $withoutVAT = $withoutVAT + $order->total;
             $taxValue = Tax::where('product_id', $order->id_product)->where('country', $countryIp['country'])->first();
             $findProduct = Product::where('id', $order->id_product)->first();
+            if ($findProduct->type == 'virtual' || $findProduct->type == 'curso') {
+                $tipo = $findProduct->type;
+            }
             array_push($idSprodutos, $order->id_product);
             $order->product_id = $findProduct->id;
             $weightProduct = $findProduct;
@@ -988,7 +1008,7 @@ class EcommController extends Controller
 
 
         if ($count_order > 0) {
-            return view('ecomm.ecomm_finalize', compact('todosFreteCasa', 'todosFretePickup', 'todosVats', 'allSavedTax', 'order_cart', 'qv', 'allPickup', 'subtotal', 'withoutVAT', 'ip_order', 'count_order', 'format_price', 'user', 'total_VAT', 'metodos', 'countryIpOrder', 'priceShippingHome', 'priceShippingPickup', 'format_shipping', 'list_product'));
+            return view('ecomm.ecomm_finalize', compact('todosFreteCasa', 'todosFretePickup', 'todosVats', 'allSavedTax', 'order_cart', 'qv', 'allPickup', 'subtotal', 'withoutVAT', 'ip_order', 'count_order', 'format_price', 'user', 'total_VAT', 'metodos', 'countryIpOrder', 'priceShippingHome', 'priceShippingPickup', 'format_shipping', 'list_product', 'tipo'));
         } else {
             return redirect()->route('ecomm');
         }
@@ -1268,9 +1288,18 @@ class EcommController extends Controller
                 ->groupBy('number_order')
                 ->pluck('id');
 
-            $order = EcommOrders::whereIn('id', $orderIds)
+            $order = EcommOrders::with(['product' => function ($query) {
+                    $query->with('documentAdditional');
+                }])
+                ->whereIn('id', $orderIds)
                 ->orderBy('created_at', 'DESC')
                 ->paginate(15);
+
+            $order->getCollection()->each(function ($order) {
+                if ($order->status_order === 'order placed' && $order->product->type === 'virtual') {
+                    $order->product->load('documentAdditional');
+                }
+            });
 
             $ip_order = $_SERVER['REMOTE_ADDR'];
             $order_cart = OrderEcomm::where('ip_order', $ip_order)->get();

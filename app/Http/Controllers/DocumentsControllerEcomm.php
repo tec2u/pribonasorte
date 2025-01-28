@@ -7,18 +7,19 @@ use App\Models\EcommOrders;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class DocumentsController extends Controller
+class DocumentsControllerEcomm extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
+        $user = session()->get('buyer');
         $ordersQuery = EcommOrders::with(['product', 'product.documentAdditional'])->whereHas('product', function ($query) {
             $query->where('type', 'virtual');
-        })->where('id_user', auth()->user()->id)->where('status_order', 'order placed');
+        })->where('id_user', $user->id)->where('status_order', 'order placed');
 
         $fdate = $request->fdate ? $request->fdate . " 00:00:00" : '';
         $sdate = $request->sdate ? $request->sdate . " 23:59:59" : '';
@@ -39,6 +40,7 @@ class DocumentsController extends Controller
     {
         $file = Documents::where("id", $id)->first();
         $product = Product::find($product_id);
+        $user = session()->get('buyer');
 
         if (!$file) {
             return response()->json(['error' => 'Arquivo não encontrado.'], 404);
@@ -50,7 +52,7 @@ class DocumentsController extends Controller
             return response()->json(['error' => 'Arquivo não encontrado no armazenamento.'], 404);
         }
 
-        $userLogin = auth()->user()->login;
+        $userLogin = $user->username;
 
         $extension = pathinfo($filepath, PATHINFO_EXTENSION);
 
@@ -72,7 +74,8 @@ class DocumentsController extends Controller
     private function addPasswordToZip($zipFilePath, $title, $password)
     {
         $zip = new \ZipArchive();
-        $username = auth()->user()->login;
+        $user = session()->get('buyer');
+        $username = $user->username;
 
         // Diretório temporário onde o arquivo com senha será salvo
         $tempDir = storage_path("app/public/videos/temp");
@@ -103,7 +106,8 @@ class DocumentsController extends Controller
     private function createZipWithPassword($filePath, $title, $password)
     {
         $zip = new \ZipArchive();
-        $username = auth()->user()->login;
+        $user = session()->get('buyer');
+        $username = $user->username;
 
         // Diretório temporário onde o arquivo com senha será salvo
         $tempDir = storage_path("app/public/videos/temp");
@@ -145,16 +149,5 @@ class DocumentsController extends Controller
                 unlink($file);
             }
         }
-    }
-
-    public function getDateDocuments(Request $request)
-    {
-
-        $fdate = $request->get('fdate') . " 00:00:00";
-        $sdate = $request->get('sdate') . " 23:59:59";
-
-        $documents = Documents::where('created_at', '>=', $fdate)->where('created_at', '<=', $sdate)->paginate(9);
-
-        return view('daily.documents', compact('documents'));
     }
 }
