@@ -551,6 +551,7 @@
         border-radius: 20px;
         color: #fff;
         box-shadow: 2px 0px 5px 0px #6b6b6b;
+        z-index: 2;
     }
 
     .position-relative {
