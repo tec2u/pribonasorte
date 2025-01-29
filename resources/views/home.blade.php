@@ -502,15 +502,18 @@
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
     }
 
-    .image-card-ramdom {
+    .image-card-random {
         display: block;
         width: 100%;
         height: 250px;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         background-position: center;
     }
 
+    .card-product-random {
+        height: 360px;
+    }
 
     @media (min-width: 800px) {
       .geochart {
@@ -1005,13 +1008,13 @@
             </div> -->
           </div>
 
-          <div class="card">
+          <div class="card p-3">
             <div class="d-flex flex-wrap">
                 @forelse($products as $product)
                 <div class="col-sm-3 hover">
-                    <div id="card-product" class="card p-3" style="height: 437px;">
+                    <div class="card-product-random card p-3">
                         <div>
-                            <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}" class="image-card-ramdom" style="background-image: url('/img/products/{{ $product->img_1 }}')"></a>
+                            <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}" class="image-card-random" style="background-image: url('/img/products/{{ $product->img_1 }}')"></a>
                         </div>
 
                         @php
