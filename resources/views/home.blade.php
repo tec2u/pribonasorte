@@ -854,12 +854,12 @@
                   </span>
                   <div style="font-size: .8rem">
                     @if ($cardAvailable)
-                      <span class="info-box-number" style="color: green">@lang('home.available') - {{ $mesAnterior }}</span>
-                      <span class="info-box-number" style="color: red">@lang('home.not_available') - {{ $nomeMesAtual }}</span>
+                      <span class="info-box-number">@lang('home.available') - {{ $mesAnterior }}</span>
+                      <span class="info-box-number" >@lang('home.not_available') - {{ $nomeMesAtual }}</span>
                     @else
-                      <span class="info-box-number" style="color: green">@lang('home.available') -
+                      <span class="info-box-number" >@lang('home.available') -
                         {{ $mesAntesDoAnterior }}</span>
-                      <span class="info-box-number" style="color: red">@lang('home.not_available') - {{ $nomeMesAtual }},
+                      <span class="info-box-number" >@lang('home.not_available') - {{ $nomeMesAtual }},
                         {{ $mesAnterior }}</span>
                     @endif
                   </div>
