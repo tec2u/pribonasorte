@@ -798,6 +798,10 @@
                 @foreach($products as $key => $product)
                     <div class="carousel-item {{ $key==0 ? 'active' : '' }} position-relative">
                         <div class="section-banner-focus" style="background-image: url('img/products/{{ $product->img_1 }}');">
+                            <div class="position-relative w-100">
+                                <div><h4>{{ $product->name }}</h4></div>
+                                <div><h4>{{ $product->backoffice_price }}</h4></div>
+                            </div>
                         </div>
                         <div class="container-fluid bg-white p-0 radius-15 section-banner-opac" style="background-image: url('img/products/{{ $product->img_1 }}');">
                         </div>
