@@ -214,7 +214,7 @@
 
     .box-info {
       font-size: 1rem;
-      background-image: url(/images/box_bg.png), linear-gradient(to right, #fcd4fd, #d8c6f3, #f6f6f6);
+      background-color: #d26075;
       background-position: center;
     }
 
@@ -795,7 +795,7 @@
               <a href="{{ route('reports.bonus_group') }}">
                 <div class="info-box mb-4 shadow c1 box-info">
                   <span class="info-box-icon"><i class="bi bi-arrow-down-up"></i></span>
-                  <div class="info-box-content" style="color: #000;">
+                  <div class="info-box-content" style="color: #ffff;">
                     <span class="info-box-text">
                       @lang('home.total_commission')
                       {{-- Total Commissions --}}
@@ -808,7 +808,7 @@
             <div class="col-12 col-sm-12 col-md-4">
               <div class="info-box mb-4 shadow c1 box-info">
                 <span class="info-box-icon"><i class="bi bi-trophy-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">
                     @lang('home.available_comission')
                   </span>
@@ -833,7 +833,7 @@
             {{-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon "><i class="bi bi-credit-card-2-back-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">YOUR STATUS</span>
                   <span class="info-box-number">{{ $active }}</span>
                 </div>
@@ -843,7 +843,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon" style="margin-top: -15px;"><i class="bi bi-person-plus-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">@lang('home.indirect_distributors')</span>
                   <span class="info-box-number">{{ $indiretos }}</span>
                 </div>
@@ -853,7 +853,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon" style="margin-top: -15px;"><i class="bi bi-reception-4"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">@lang('home.total_distributors')</span>
                   <span class="info-box-number">{{ $totalMembros }}</span>
                 </div>
@@ -863,7 +863,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon" style="margin-top: -15px;"><i class="bi bi-person-plus-fill"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">@lang('home.direct_distributors')</span>
                   <span class="info-box-number">{{ $diretos }}</span>
                 </div>
@@ -873,7 +873,7 @@
             {{-- <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-4 shadow elevation c1 box-info">
                 <span class="info-box-icon "><i class="bi bi-display"></i></span>
-                <div class="info-box-content" style="color: #000;">
+                <div class="info-box-content" style="color: #ffff;">
                   <span class="info-box-text">CAREER PLAN</span>
                   <span class="info-box-number">Active</span>
                 </div>
@@ -884,7 +884,7 @@
                                 <div class="info-box mb-4 shadow elevation c1"
                                     style="background-image: linear-gradient(to right, #c18c07, #f1af09, #f6f6f6);">
                                     <span class="info-box-icon "><i class="bi bi-person-fill"></i></span>
-                                    <div class="info-box-content" style="color: #000;">
+                                    <div class="info-box-content" style="color: #ffff;">
                                         <span class="info-box-text">@lang('home.user_details')</span>
                                         @if ($user->getTypeActivated($user->id) == 'AllCards')
                                             <span class="info-box-number">@lang('network.active')</span>
