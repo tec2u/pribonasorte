@@ -416,18 +416,18 @@
 
             <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#media-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gear"></i><span>Media</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-gear"></i><span>MIDÍA</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="media-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('videos.index') }}">
-              <i class="bi bi-circle"></i><span>Cursos</span>
+              <i class="bi bi-circle"></i><span>CURSOS</span>
             </a>
           </li>
 
           <li>
             <a href="{{ route('documents.index') }}">
-              <i class="bi bi-circle"></i><span>Documents</span>
+              <i class="bi bi-circle"></i><span>PRODUTOS VIRTUAIS</span>
             </a>
           </li>
         </ul>

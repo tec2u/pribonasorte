@@ -108,7 +108,7 @@ class RegisterController extends Controller
 
       $user_rec = DB::table('users')->where('id', $data['recommendation_user_id'])->orWhere('login', $data['recommendation_user_id'])->first();
 
-      $recommendation = $user_rec != null ? $user_rec->id : '3';
+      $recommendation = $user_rec != null ? $user_rec->id : '1';
       // $data['telephone'] = ($data['telephone']=='') ? 0 :  $data['telephone'];
 
       $eliminar_espace = str_replace(' ', '', $data['login']);

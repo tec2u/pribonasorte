@@ -502,6 +502,15 @@
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
     }
 
+    .image-card-ramdom {
+        display: block;
+        width: 100%;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
 
     @media (min-width: 800px) {
       .geochart {
@@ -1001,8 +1010,8 @@
                 @forelse($products as $product)
                 <div class="col-sm-3 hover">
                     <div id="card-product" class="card p-3" style="height: 437px;">
-                        <div>><a href="{{ route('packages.detail_products', ['id' => $product->id]) }}"><img class="w-100"
-                                        src='/img/products/{{ $product->img_1 }}'></a>
+                        <div>
+                            <a href="{{ route('packages.detail_products', ['id' => $product->id]) }}" class="image-card-ramdom" style="background-image: url('/img/products/{{ $product->img_1 }}')"></a>
                         </div>
 
                         @php

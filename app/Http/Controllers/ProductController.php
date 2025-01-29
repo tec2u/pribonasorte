@@ -201,8 +201,6 @@ class ProductController extends Controller
     public function buyProduct(Request $request, $id)
     {
         $product = Product::find($id);
-        CartOrder::where('id_user', auth()->user()->id)->delete();
-        // Verificar produto
         if ($product->kit != 0) {
 
             $parts = explode('|', $product->kit_produtos); // Divide a string pelo caractere "|"
@@ -497,11 +495,15 @@ class ProductController extends Controller
         $testMode = true;
 
         if ($testMode) {
+            $total = 0;
+            foreach($cart as $product) {
+                $total += $product->total;
+            }
             $responseData = [
                 'id' => 1,
                 'status' => 'pending',
                 'cart_settings' => [
-                    'items_total_cost' => $cart[0]->total * 100,
+                    'items_total_cost' => $total * 100,
                     'shipping_total_cost' => $request->send_value,
                 ],
                 'url' => route('home.home')
