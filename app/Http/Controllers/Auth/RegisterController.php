@@ -79,39 +79,16 @@ class RegisterController extends Controller
       $login = $data['login'];
       $password = $data['password'];
 
-
-      // $verify = $this->verifyBlacklist($ip, $login, $password);
-      // if ($verify != 'IP_BLOCK') {
-      //    $data['verify'] = 'OK';
-      // } else {
-      //    Alert::error('You have made too many attempts. Try again in a few hours or contact support@infinityclubcards.com');
-      //    $data['verify'] = NULL;
-      // }
-
-      // if(empty($data['id_card']) || $data['id_card'] == null){
-      //    Alert::error('You must choose a card to proceed with the registration!');
-      // }
-
-      // $data['telephone'] = ($data['telephone']=='') ? 0 :  $data['telephone'];
-
       return Validator::make($data, [
-         'name' => ['required', 'string', 'max:255'],
+         'name' => ['required', 'alpha', 'max:255'],
          'login' => ['required', 'alpha_num', 'lowercase', 'max:255', 'unique:users'],
          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
          'password' => ['required', 'regex:/^\S*$/u', 'string', 'min:8', 'confirmed'],
-         // 'telephone' => ['regex:/[0-9\+]/'],
          'cell' => ['required', 'regex:/[0-9\+]/'],
-         // 'gender' => ['required', 'string', 'max:255'],
          'country' => ['required', 'string', 'max:255'],
          'city' => ['required', 'string', 'max:255'],
-         'last_name' => ['required', 'string', 'max:255'],
-         // 'address1' => ['required', 'string', 'max:255'],
-         // 'postcode' => ['required', 'string', 'max:255'],
-         // 'state' => ['required', 'string', 'max:255'],
-         // 'birthday' => ['required', 'date'],
-         // 'id_card' => ['required', 'int'],
+         'last_name' => ['required', 'alpha', 'max:255'],
          'recommendation_user_id' => ['required', 'int'],
-         // 'verify' => ['required', 'string'],
       ]);
    }
 
@@ -128,10 +105,6 @@ class RegisterController extends Controller
       $password = $data['password'];
 
       $verify = $this->verifyBlacklist($ip, $login, $password);
-
-      // if ($verify != 'IP_BLOCK') {
-
-      // $data['birthday'] = str_replace("/", "-", $data['birthday']);
 
       $user_rec = DB::table('users')->where('id', $data['recommendation_user_id'])->orWhere('login', $data['recommendation_user_id'])->first();
 
