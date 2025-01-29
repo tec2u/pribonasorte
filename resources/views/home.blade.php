@@ -530,6 +530,10 @@
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+        width: 100%;
+        height: 95%;
+        position: absolute;
+        z-index: 1;
     }
 
     .position-relative {
