@@ -773,7 +773,7 @@
                 @foreach($products as $key => $product)
                     <div class="carousel-item {{ $key==0 ? 'active' : '' }}">
                         <div class="container-fluid bg-white p-0 radius-15 section-banner"
-                            style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); position: relative; background-image: url('img/products/{{ $product->img_1 }}'); height: 400px; background-size: contain; background-position: center;background-repeat: no-repeat;">
+                            style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); position: relative; background-image: url('img/products/{{ $product->img_1 }}'); height: 400px; background-size: cover; background-position: center;background-repeat: no-repeat;">
                         </div>
                     </div>
                 @endforeach
