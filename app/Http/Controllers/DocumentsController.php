@@ -65,8 +65,22 @@ class DocumentsController extends Controller
 
         $downloadFileName = $product->name . ".zip";
 
+        $newFilePath = $this->addMetadataToFile($newFilePath, $userLogin);
+
         // Retorna o arquivo para download com o nome definido
         return response()->download($newFilePath, $downloadFileName);
+    }
+
+    function addMetadataToFile($filePath, $userLogin)
+    {
+        $outputFile = storage_path("app/public/temp/modified_" . basename($filePath));
+
+        // ExifTool adicionando metadados ao arquivo
+        $command = "exiftool -overwrite_original -Comment='Baixado por: {$userLogin}' -User='Sistema Laravel' -Copyright='Seu Sistema' -o {$outputFile} {$filePath}";
+
+        shell_exec($command);
+
+        return $outputFile;
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
