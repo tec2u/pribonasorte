@@ -536,6 +536,16 @@
         z-index: 1;
     }
 
+    .container-info-img-banner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        position: relative;
+        right: 20px;
+    }
+
     .position-relative {
         position: relative;
     }
@@ -798,9 +808,9 @@
                 @foreach($products as $key => $product)
                     <div class="carousel-item {{ $key==0 ? 'active' : '' }} position-relative">
                         <div class="section-banner-focus" style="background-image: url('img/products/{{ $product->img_1 }}');">
-                            <div class="position-relative w-100">
+                            <div class="container-info-img-banner w-100">
                                 <div><h4>{{ $product->name }}</h4></div>
-                                <div><h4>{{ $product->backoffice_price }}</h4></div>
+                                <div><h4>R$ {{ $product->backoffice_price }}</h4></div>
                             </div>
                         </div>
                         <div class="container-fluid bg-white p-0 radius-15 section-banner-opac" style="background-image: url('img/products/{{ $product->img_1 }}');">
