@@ -450,7 +450,7 @@
                                                 <tr>
                                                     <th cols=2>
                                                         <select name="payment_method" class="form-control">
-                                                            <option value="paypal">Paypal</option>
+                                                            <!-- <option value="paypal">Paypal</option> -->
                                                             <option value="mp">Mercado pago</option>
                                                         </select>
                                                     </th>
