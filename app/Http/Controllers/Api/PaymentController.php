@@ -108,7 +108,7 @@ class PaymentController extends Controller
             $items = [];
             foreach ($cartItems as $item) {
                 $obj = [
-                    "title" => 'teste',
+                    "title" => $item->product->name,
                     "quantity" => 1,
                     "unit_price" => 100.00,
                     "currency_id" => "BRL"
