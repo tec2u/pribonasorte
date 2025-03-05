@@ -102,13 +102,13 @@ class PaymentController extends Controller
             // Criar um cliente de preferências
             $client = new PreferenceClient();
 
-            $cartItems = CartOrder::with('package')->where('id_user', $user_id)->get();
+            $cartItems = CartOrder::with('product')->where('id_user', $user_id)->get();
             return $cartItems;
 
             $items = [];
             foreach ($cartItems as $item) {
                 $obj = [
-                    "title" => $item->package->name,
+                    "title" => $item->product->name,
                     "quantity" => $item->amount,
                     "unit_price" => $item->price,
                     "currency_id" => "BRL"

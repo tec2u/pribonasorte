@@ -877,15 +877,15 @@ class ProductController extends Controller
     public function createNewPaymentOrderAPI($customerID, $request)
     {
         $url = 'https://sdx-api.pagar.me/core/v5/paymentlinks';
-        $cartItems = CartOrder::with('package')->where('id_user', User::find(Auth::id())->id)->get();
+        $cartItems = CartOrder::with('product')->where('id_user', User::find(Auth::id())->id)->get();
 
         $items = [];
         foreach ($cartItems as $item) {
             $obj = [
-                "name" => $item->package->name,
+                "name" => $item->product->name,
                 "amount" => $item->price * 100,
                 "default_quantity" => $item->amount,
-                "description" => $item->package->description_fees,
+                "description" => $item->product->description_fees,
                 "shipping_cost" => 0,
             ];
             $items[] = $obj;
