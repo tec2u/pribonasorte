@@ -234,12 +234,12 @@
 
 
                         @if ($count_itens > 0 && $user_cart[0]->type == 'fisico')
-                            <table style="margin-top: 10px;">
-                                <thead>
-                                    <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
-                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ 0</th>
-                                </thead>
-                            </table>
+                        <table style="margin-top: 10px;">
+                            <thead>
+                                <th style="border: 1px solid silver; padding: 10px;" width="75%">Frete</th>
+                                <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ 0</th>
+                            </thead>
+                        </table>
                         @endif
                     </div>
                     @if ($count_itens > 0)
@@ -442,19 +442,11 @@
                                                 Outro endereço
                                             </label>
                                         </div>
-                                    @endif
+                                        @endif
                                         <div id="allowed-shipping-methods"></div>
                                         <input type="hidden" id="send_method" name="send_method">
                                         <table style="margin-top: 10px;">
                                             <thead>
-                                                <tr>
-                                                    <th cols=2>
-                                                        <select name="payment_method" class="form-control">
-                                                            <!-- <option value="paypal">Paypal</option> -->
-                                                            <option value="mp">Mercado pago</option>
-                                                        </select>
-                                                    </th>
-                                                </tr>
                                                 <tr>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $withoutVAT }}
@@ -487,7 +479,12 @@
                                             </label>
 
                                         </div>
-
+                                        <div class="d-flex align-items-center">
+                                            <label for="payment_method">Forma de pagamento</label>
+                                            <select name="payment_method" id="payment_method" class="form-control ml-2">
+                                                <!-- <option value="paypal">Paypal</option> -->
+                                                <option value="mp">Mercado pago</option>
+                                            </select></div>
                                         <button @if (isset($btnSmart) && $btnSmart=='smart' ) disabled @endif class="btn btn-primary btn-lg" id="button-buy">Fazer pedido</button>
 
                                     </div>
@@ -521,10 +518,10 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="{{ asset('css/intlTelInput.min.css') }}" />
 <script>
-
     function changeField(iThis, pplID) {
         $(`#${pplID}`).val($(iThis).val())
     }
+
     function changeShippingMethod(method) {
         $('#allowed-shipping-methods').html('')
         $('.address-content').css('display', 'none');
