@@ -510,7 +510,7 @@ class ProductController extends Controller
             ];
         } else {
             $responseData = $this->payment($request, 0, $n_order);
-            return response()->json($responseData);
+            // return response()->json($responseData);
         }
         if (isset($responseData)) {
             $payment = $this->createRegisterPayment($responseData, $n_order, $request);
