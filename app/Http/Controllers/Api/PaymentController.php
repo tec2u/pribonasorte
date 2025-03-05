@@ -96,7 +96,6 @@ class PaymentController extends Controller
     public function createPaymentMP(Request $request, $user_id)
     {
         try {
-            return $user_id;
             // Configura a chave de acesso do Mercado Pago
             MercadoPagoConfig::setAccessToken(env('MP_ACCESS_TOKEN'));
 
@@ -104,6 +103,7 @@ class PaymentController extends Controller
             $client = new PreferenceClient();
 
             $cartItems = CartOrder::with('package')->where('id_user', $user_id)->get();
+            return $cartItems;
 
             $items = [];
             foreach ($cartItems as $item) {
