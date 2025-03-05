@@ -576,13 +576,16 @@ class ProductController extends Controller
     {
         $newPayment = new PaymentOrderEcomm;
         $newPayment->id_user = auth()->user()->id;
-        $newPayment->id_payment_gateway = $data["id"];
-        $newPayment->id_invoice_trans = $data["id"];
-        $newPayment->status = isset($data["status"]) ? $data["status"] : 'pending';
 
         if ($request->payment_method == 'paypal') {
+            $newPayment->id_payment_gateway = $data["id"];
+            $newPayment->id_invoice_trans = $data["id"];
+            $newPayment->status = $data["status"];
+
             $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
         } else {
+            $newPayment->id_payment_gateway = $data->id;
+            $newPayment->id_invoice_trans = $data->id;
             $total_price = 0;
             foreach ($data->items as $item) {
                 $total_price += ($item->quantity * $item->unit_price);
