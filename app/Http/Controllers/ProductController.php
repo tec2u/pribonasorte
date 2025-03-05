@@ -1002,7 +1002,7 @@ class ProductController extends Controller
             $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
         } else {
             $paymentMP = new PaymentController();
-            $paymentResponse = $paymentMP->createPaymentMP($request, Auth()->user()->id);
+            $paymentResponse = $paymentMP->createPaymentMP($request, auth()->user()->id);
         }
 
         return $paymentResponse;
