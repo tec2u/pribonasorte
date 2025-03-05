@@ -132,7 +132,10 @@ class PaymentController extends Controller
             // Redirecionar o cliente para o link de pagamento
             return $preference;
         } catch (MPApiException $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json([
+                'error' => $e->getMessage(),
+                'details' => $e->getResponse()
+            ], 500);
         }
     }
 }
