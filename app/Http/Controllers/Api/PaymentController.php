@@ -103,7 +103,7 @@ class PaymentController extends Controller
             $client = new PreferenceClient();
 
             $cartItems = CartOrder::with('product')->where('id_user', $user_id)->get();
-            return $cartItems;
+            // return $cartItems;
 
             $items = [];
             foreach ($cartItems as $item) {
