@@ -448,6 +448,14 @@
                                         <table style="margin-top: 10px;">
                                             <thead>
                                                 <tr>
+                                                    <th cols=2>
+                                                        <select name="payment_method" class="form-control">
+                                                            <option value="paypal">Paypal</option>
+                                                            <option value="mp">Mercado pago</option>
+                                                        </select>
+                                                    </th>
+                                                </tr>
+                                                <tr>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $withoutVAT }}
                                                     </th>

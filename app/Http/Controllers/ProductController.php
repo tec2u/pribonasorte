@@ -75,7 +75,7 @@ class ProductController extends Controller
                     ->sum('amount');
             }
 
-            if($product_info->type != 'fisico') {
+            if ($product_info->type != 'fisico') {
                 $stock = 1;
             }
             $product_info['stock'] = $stock;
@@ -493,43 +493,39 @@ class ProductController extends Controller
 
         $n_order = $this->genNumberOrder();
 
-        $testMode = true;
+        $testMode = false;
+        if ($testMode) {
+            $total = 0;
+            foreach ($cart as $product) {
+                $total += $product->total;
+            }
+            $responseData = [
+                'id' => 1,
+                'status' => 'pending',
+                'cart_settings' => [
+                    'items_total_cost' => $total * 100,
+                    'shipping_total_cost' => $request->send_value,
+                ],
+                'url' => route('home.home')
+            ];
+        } else {
+            $responseData = $this->payment($request, 0, $n_order);
+        }
+        if (isset($responseData)) {
+            $payment = $this->createRegisterPayment($responseData, $n_order, $request);
 
-        $paymentMP = new PaymentController();
-        $res = $paymentMP->createPaymentMP();
-        return response()->json($res);
-        // if ($testMode) {
-        //     $total = 0;
-        //     foreach($cart as $product) {
-        //         $total += $product->total;
-        //     }
-        //     $responseData = [
-        //         'id' => 1,
-        //         'status' => 'pending',
-        //         'cart_settings' => [
-        //             'items_total_cost' => $total * 100,
-        //             'shipping_total_cost' => $request->send_value,
-        //         ],
-        //         'url' => route('home.home')
-        //     ];
-        // } else {
-        //     $responseData = $this->payment($request, 0, $n_order);
-        // }
-        // if (isset($responseData)) {
-        //     $payment = $this->createRegisterPayment($responseData, $n_order);
+            $this->createRegisterEcommOrder($responseData, $n_order, $payment, $request);
 
-        //     $this->createRegisterEcommOrder($responseData, $n_order, $payment);
-
-        //     if ($testMode) {
-        //         return redirect()->route('home.home');
-        //     }
-        //     return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
-        // } else {
-        //     return redirect()->back();
-        // }
+            if ($testMode) {
+                return redirect()->route('home.home');
+            }
+            return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
+        } else {
+            return redirect()->back();
+        }
     }
 
-    public function createRegisterEcommOrder($data, $n_order = null, $payment)
+    public function createRegisterEcommOrder($data, $n_order = null, $payment, $request)
     {
 
         $user_id = Auth::id();
@@ -551,10 +547,15 @@ class ProductController extends Controller
             $orders->amount = $order->amount;
             $orders->total = $order->total;
             $orders->status_order = "order placed";
-            $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
+            if ($request->payment_method == 'paypal') {
+                $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
+                $orders->payment_link = $data['url'];
+            } else {
+                $orders->total_shipping = 0;
+                $orders->payment_link = $data->init_point;
+            }
             $orders->client_backoffice = 1;
             $orders->id_payment_order = $payment->id;
-            $orders->payment_link = $data['url'];
             $orders->qv = $qv;
             $orders->cv = $cv;
 
@@ -570,14 +571,23 @@ class ProductController extends Controller
         $this->clearCartBuy($user_id);
     }
 
-    public function createRegisterPayment($data, $orderID)
+    public function createRegisterPayment($data, $orderID, $request)
     {
         $newPayment = new PaymentOrderEcomm;
         $newPayment->id_user = auth()->user()->id;
         $newPayment->id_payment_gateway = $data["id"];
         $newPayment->id_invoice_trans = $data["id"];
-        $newPayment->status = $data["status"];
-        $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
+        $newPayment->status = isset($data["status"]) ? $data["status"] : 'pending';
+
+        if ($request->payment_method == 'paypal') {
+            $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
+        } else {
+            $total_price = 0;
+            foreach ($data->items as $item) {
+                $total_price += ($item->quantity * $item->unit_price);
+            }
+            $newPayment->total_price = $total_price;
+        }
         $newPayment->number_order = $orderID;
 
         $newPayment->save();
@@ -984,11 +994,16 @@ class ProductController extends Controller
 
     public function payment(Request $request)
     {
-        $customerID = $this->checkClientExistsAPI($request);
+        if ($request->payment_method == 'paypal') {
+            $customerID = $this->checkClientExistsAPI($request);
 
-        $this->updateOrCreateClientAddress($customerID, $request);
+            $this->updateOrCreateClientAddress($customerID, $request);
 
-        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
+            $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request);
+        } else {
+            $paymentMP = new PaymentController();
+            $paymentResponse = $paymentMP->createPaymentMP($request, Auth()->user()->id);
+        }
 
         return $paymentResponse;
     }

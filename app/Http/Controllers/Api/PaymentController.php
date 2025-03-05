@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartOrder;
 use App\Models\OrderPackage;
+use App\Models\User;
 use App\Traits\OrderBonusTrait;
 use App\Traits\PaymentLogTrait;
 use Exception;
@@ -91,7 +93,7 @@ class PaymentController extends Controller
         return $response;
     }
 
-    public function createPaymentMP()
+    public function createPaymentMP(Request $request, $user_id)
     {
         try {
             // Configura a chave de acesso do Mercado Pago
@@ -100,16 +102,21 @@ class PaymentController extends Controller
             // Criar um cliente de preferências
             $client = new PreferenceClient();
 
-            // Definir os itens do pagamento
-            $preferenceData = [
-                "items" => [
-                    [
-                        "title" => "Nome do Produto",
-                        "quantity" => 1,
-                        "unit_price" => 100.00, // Defina o preço correto
-                        "currency_id" => "BRL"
-                    ]
-                ],
+            $cartItems = CartOrder::with('package')->where('id_user', $user_id)->get();
+
+            $items = [];
+            foreach ($cartItems as $item) {
+                $obj = [
+                    "title" => $item->package->name,
+                    "quantity" => $item->amount,
+                    "unit_price" => $item->price,
+                    "currency_id" => "BRL"
+                ];
+                $items[] = $obj;
+                unset($obj);
+            }
+            $data = [
+                "items" => $items,
                 "back_urls" => [
                     "success" => route('home.home'),
                     "failure" => route('home.home'),
@@ -119,7 +126,7 @@ class PaymentController extends Controller
             ];
 
             // Criar a preferência de pagamento
-            $preference = $client->create($preferenceData);
+            $preference = $client->create($data);
 
             // Redirecionar o cliente para o link de pagamento
             return $preference;
