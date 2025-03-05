@@ -446,11 +446,13 @@
                                         <div id="allowed-shipping-methods"></div>
                                         <input type="hidden" id="send_method" name="send_method">
                                         <div class="d-flex align-items-center">
-                                            <label for="payment_method"style="white-space: nowrap;">Forma de pagamento</label>
-                                            <select name="payment_method" id="payment_method" class="form-control ml-2">
-                                                <!-- <option value="paypal">Paypal</option> -->
-                                                <option value="mp">Mercado pago</option>
-                                            </select>
+                                            <label for="payment_method" style="white-space: nowrap;" class="col-8">Escolha o metodo de pagamento</label>
+                                            <div>
+                                                <select name="payment_method" id="payment_method" class="form-control ml-2 col-4">
+                                                    <!-- <option value="paypal">Paypal</option> -->
+                                                    <option value="mp">Mercado pago</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <table style="margin-top: 10px;">
                                             <thead>
