@@ -445,6 +445,13 @@
                                         @endif
                                         <div id="allowed-shipping-methods"></div>
                                         <input type="hidden" id="send_method" name="send_method">
+                                        <div class="d-flex align-items-center">
+                                            <label for="payment_method"style="white-space: nowrap;">Forma de pagamento</label>
+                                            <select name="payment_method" id="payment_method" class="form-control ml-2">
+                                                <!-- <option value="paypal">Paypal</option> -->
+                                                <option value="mp">Mercado pago</option>
+                                            </select>
+                                        </div>
                                         <table style="margin-top: 10px;">
                                             <thead>
                                                 <tr>
@@ -479,12 +486,7 @@
                                             </label>
 
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <label for="payment_method"style="white-space: nowrap;">Forma de pagamento</label>
-                                            <select name="payment_method" id="payment_method" class="form-control ml-2">
-                                                <!-- <option value="paypal">Paypal</option> -->
-                                                <option value="mp">Mercado pago</option>
-                                            </select></div>
+
                                         <button @if (isset($btnSmart) && $btnSmart=='smart' ) disabled @endif class="btn btn-primary btn-lg" id="button-buy">Fazer pedido</button>
 
                                     </div>
