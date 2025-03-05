@@ -323,54 +323,6 @@ class NetworkController extends Controller
         $year = $request->year;
         $month = $request->month;
 
-        // $networks = User::where('recommendation_user_id', $id_user)->get();
-
-        // $meus_diretos = DB::select("SELECT count(distinct(user_id_from)) as total FROM historic_score where user_id = $id_user and level_from = 1");
-
-        // dd($nova_rede, $meus_diretos);
-        // exit();
-        // $recommendation_user_id = 
-
-
-        // if ($rede) {
-
-        // $networks = Rede::where('upline_id', $rede->id)->get();
-        // $new_rede = Rede::where('upline_id', $rede->id)->get();
-
-        // dd($networks);
-        // exit();
-
-        // SELECT sum(score),user_id FROM historic_score where  user_id in (select id from users where recommendation_user_id=116091) 
-        // and created_at like '%2024-01%' group by user_id;
-
-        // $totalnet = DB::select("SELECT * FROM historic_score where user_id = $id_user and level_from = 1 and DATE_FORMAT(updated_at, '%Y-%m') = DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m')");
-
-        // $networks = array();
-
-        // $totalnet = DB::select("SELECT sum(score),user_id FROM historic_score where user_id in (select id from users where recommendation_user_id = $id_user) group by user_id");
-
-        // dd($totalnet, $nova_rede);
-        // exit();
-
-        // foreach ($totalnet as $list_user) {
-
-        //     $user_array = User::where('id', $list_user->user_id)->first();
-        //     array_push($networks, $user_array);
-        // }
-
-        //     $totalnot = DB::select("SELECT * FROM historic_score where user_id = $id_user and level_from > 1 and DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m')");
-
-        //     $diretos_qr = DB::select("SELECT sum(score) as total FROM historic_score where user_id = $id_user and level_from = 1 and DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m')");
-
-        //     $indiretos_qr = DB::select("SELECT sum(score) as total FROM historic_score where user_id = $id_user and level_from > 1 and DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m')");
-
-        //     $totalScore = $totalnot;
-
-        // } else {
-        //     $networks = [];
-        //     $totalScore = 0;
-        // }
-
         if ($request->month && $request->year) {
 
             $networks = DB::select("SELECT * FROM users WHERE recommendation_user_id = $id_user");

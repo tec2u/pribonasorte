@@ -10,6 +10,7 @@ use App\Models\CustomLog;
 use App\Models\EcommOrders;
 use App\Models\PaymentOrderEcomm;
 use App\Models\PickupPoint;
+use App\Http\Controllers\Api\PaymentController;
 use App\Models\PriceCoin;
 use App\Models\Product;
 use App\Models\ProductByCountry;
@@ -494,35 +495,37 @@ class ProductController extends Controller
 
         $testMode = true;
 
-        if ($testMode) {
-            $total = 0;
-            foreach($cart as $product) {
-                $total += $product->total;
-            }
-            $responseData = [
-                'id' => 1,
-                'status' => 'pending',
-                'cart_settings' => [
-                    'items_total_cost' => $total * 100,
-                    'shipping_total_cost' => $request->send_value,
-                ],
-                'url' => route('home.home')
-            ];
-        } else {
-            $responseData = $this->payment($request, 0, $n_order);
-        }
-        if (isset($responseData)) {
-            $payment = $this->createRegisterPayment($responseData, $n_order);
+        $paymentMP = new PaymentController();
+        $paymentMP->createPaymentMP();
+        // if ($testMode) {
+        //     $total = 0;
+        //     foreach($cart as $product) {
+        //         $total += $product->total;
+        //     }
+        //     $responseData = [
+        //         'id' => 1,
+        //         'status' => 'pending',
+        //         'cart_settings' => [
+        //             'items_total_cost' => $total * 100,
+        //             'shipping_total_cost' => $request->send_value,
+        //         ],
+        //         'url' => route('home.home')
+        //     ];
+        // } else {
+        //     $responseData = $this->payment($request, 0, $n_order);
+        // }
+        // if (isset($responseData)) {
+        //     $payment = $this->createRegisterPayment($responseData, $n_order);
 
-            $this->createRegisterEcommOrder($responseData, $n_order, $payment);
+        //     $this->createRegisterEcommOrder($responseData, $n_order, $payment);
 
-            if ($testMode) {
-                return redirect()->route('home.home');
-            }
-            return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
-        } else {
-            return redirect()->back();
-        }
+        //     if ($testMode) {
+        //         return redirect()->route('home.home');
+        //     }
+        //     return redirect()->route('packages.payment_link_render', ['orderID' => $n_order]);
+        // } else {
+        //     return redirect()->back();
+        // }
     }
 
     public function createRegisterEcommOrder($data, $n_order = null, $payment)

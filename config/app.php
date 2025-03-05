@@ -206,7 +206,7 @@ return [
       App\Providers\RouteServiceProvider::class,
 
       Maatwebsite\Excel\ExcelServiceProvider::class,
-
+      LivePixel\MercadoPago\Providers\MercadoPagoServiceProvider::class,
    ],
 
    /*
@@ -226,6 +226,7 @@ return [
       'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
       'Excel' => Maatwebsite\Excel\Facades\Excel::class,
       'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
+      'MP' => LivePixel\MercadoPago\Facades\MP::class,
    ])->toArray(),
 
 ];

@@ -569,17 +569,8 @@
   @php
 
     $user_id = ucwords(auth()->user()->id);
-
-    $diretos_qr = Illuminate\Support\Facades\DB::select(
-        "SELECT count(distinct(user_id_from)) as total FROM historic_score where user_id=$user_id and level_from=1;",
-    );
-    $diretos = isset($diretos_qr[0]->{'total'}) ? $diretos_qr[0]->{'total'} : 0;
-
-    $indiretos_qr = Illuminate\Support\Facades\DB::select(
-        "SELECT count(distinct(user_id_from)) as total FROM historic_score where user_id=$user_id and level_from>1;",
-    );
-    $indiretos = isset($indiretos_qr[0]->{'total'}) ? $indiretos_qr[0]->{'total'} : 0;
-
+    $diretos = count(auth()->user()->directs());
+    $indiretos = count(auth()->user()->indirects());
     $totalMembros = $diretos + $indiretos;
 
     $directVolume = Illuminate\Support\Facades\DB::select(

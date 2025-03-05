@@ -8,10 +8,15 @@ use App\Traits\OrderBonusTrait;
 use App\Traits\PaymentLogTrait;
 use Exception;
 use Illuminate\Http\Request;
+use MercadoPago\Client\Common\RequestOptions;
+use MercadoPago\Client\Payment\PaymentClient;
+use MercadoPago\Client\Preference\PreferenceClient;
+use MercadoPago\Exceptions\MPApiException;
+use MercadoPago\MercadoPagoConfig;
 
 class PaymentController extends Controller
 {
-    use PaymentLogTrait,OrderBonusTrait;
+    use PaymentLogTrait, OrderBonusTrait;
     /**
      * Store a newly created resource in storage.
      *
@@ -23,35 +28,32 @@ class PaymentController extends Controller
         $content = $request->getContent();
         $dados =  json_decode(json_encode($request->all()), false);
 
-        if(!empty($dados)){
+        if (!empty($dados)) {
             $codepayment = $dados->merchant_id;
             $status = $dados->status_code;
 
             $id = "";
 
-            $order = OrderPackage::where('transaction_code',$codepayment)->first();
+            $order = OrderPackage::where('transaction_code', $codepayment)->first();
 
             try {
 
-                if(!empty($order)){
-                $data = [
+                if (!empty($order)) {
+                    $data = [
                         "status" => $status == 1 ? 1 : 0,
                         "payment_status" => $status
                     ];
                     $id = $order->id;
                     $order->update($data);
 
-                    if($status == 1){
-                        $this->bonus_compra(0,$order->user_id,$order->price,$order->id);
+                    if ($status == 1) {
+                        $this->bonus_compra(0, $order->user_id, $order->price, $order->id);
                         $this->createPaymentLog('Payment processed successfully', 200, 'success',  $id, $content);
                     }
                 }
-
-
             } catch (Exception $e) {
 
                 $this->errorPaymentCatch($e->getMessage(), $id);
-
             }
         }
     }
@@ -69,7 +71,7 @@ class PaymentController extends Controller
                         'currency_code' => 'USD',
                         'value' => floatval($data->total_price),
                     ],
-                    'custom_id' => 'order_'.$data->id,
+                    'custom_id' => 'order_' . $data->id,
                 ],
             ],
             'application_context' => [
@@ -87,5 +89,42 @@ class PaymentController extends Controller
         }
         $response = ['message' => 'error'];
         return $response;
+    }
+
+    public function createPaymentMP()
+    {
+        try {
+            // Configura a chave de acesso do Mercado Pago
+            MercadoPagoConfig::setAccessToken(env('MP_ACCESS_TOKEN'));
+
+            // Criar um cliente de preferências
+            $client = new PreferenceClient();
+
+            // Definir os itens do pagamento
+            $preferenceData = [
+                "items" => [
+                    [
+                        "title" => "Nome do Produto",
+                        "quantity" => 1,
+                        "unit_price" => 100.00, // Defina o preço correto
+                        "currency_id" => "BRL"
+                    ]
+                ],
+                "back_urls" => [
+                    "success" => route('home.home'),
+                    "failure" => route('home.home'),
+                    "pending" => route('home.home')
+                ],
+                "auto_return" => "approved" // Retorno automático após aprovação
+            ];
+
+            // Criar a preferência de pagamento
+            $preference = $client->create($preferenceData);
+
+            // Redirecionar o cliente para o link de pagamento
+            return redirect($preference->init_point);
+        } catch (MPApiException $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

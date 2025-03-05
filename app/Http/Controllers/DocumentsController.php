@@ -6,6 +6,8 @@ use App\Models\Documents;
 use App\Models\EcommOrders;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use ZipArchive;
 
 class DocumentsController extends Controller
 {
@@ -54,33 +56,83 @@ class DocumentsController extends Controller
 
         $extension = pathinfo($filepath, PATHINFO_EXTENSION);
 
-        switch (strtolower($extension)) {
-            case 'zip':
-                $newFilePath = $this->addPasswordToZip($filepath, $product->name, $userLogin);
-                break;
-            default:
-                $newFilePath = $this->createZipWithPassword($filepath, $product->name, $userLogin);
-                break;
-        }
+        // switch (strtolower($extension)) {
+        //     case 'zip':
+        //         $newFilePath = $this->addPasswordToZip($filepath, $product->name, $userLogin);
+        //         break;
+        //     default:
+        //         $newFilePath = $this->createZipWithPassword($filepath, $product->name, $userLogin);
+        //         break;
+        // }
 
         $downloadFileName = $product->name . ".zip";
 
-        $newFilePath = $this->addMetadataToFile($newFilePath, $userLogin);
-
+        $this->addMetadataToFile($filepath, $userLogin);
         // Retorna o arquivo para download com o nome definido
-        return response()->download($newFilePath, $downloadFileName);
+        // return response()->download($newFilePath, $downloadFileName);
     }
 
-    function addMetadataToFile($filePath, $userLogin)
+    function addMetadataToFile($zipPath, $userLogin)
     {
-        $outputFile = storage_path("app/public/temp/modified_" . basename($filePath));
+        // $tempDir = storage_path("app/public/videos/temp/" . uniqid("zip_extract_")); // Diretório temporário
+        $zipPathOrigin = storage_path("app/public/videos/temp/" . basename($zipPath)); // Diretório temporário
+        // mkdir($tempDir, 0777, true);
 
-        // ExifTool adicionando metadados ao arquivo
-        $command = "exiftool -overwrite_original -Comment='Baixado por: {$userLogin}' -User='Sistema Laravel' -Copyright='Seu Sistema' -o {$outputFile} {$filePath}";
+        // // Extrair arquivos do ZIP
+        // $zip = new ZipArchive;
+        // if ($zip->open($zipPathOrigin) === TRUE) {
+        //     $zip->extractTo($tempDir);
+        //     $zip->close();
+        // } else {
+        //     Log::info("Falha ao abrir o ZIP: $zipPathOrigin");
+        //     return false;
+        // }
 
-        shell_exec($command);
+        // Adiciona metadados aos arquivos extraídos
+        // $files = glob("$tempDir/*"); // Obtém todos os arquivos extraídos
+            $title = 'algo';
+            $author = 'Fulano';
 
-        return $outputFile;
+            // Modify metadata
+            $command = "exiftool -Title='$title' -Author='$author' -overwrite_original $zipPath";
+            exec($command, $output, $returnVar); // Captura a saída e o código de retorno
+
+            // Verificar se o comando foi executado com sucesso
+            if ($returnVar === 0) {
+                Log::info("Metadados atualizados com sucesso para o arquivo: $zipPath");
+                Log::info("Metadados: Título - '$title', Autor - '$author'");
+                Log::info("Saída do comando exiftool: " . implode("\n", $output));
+            } else {
+                Log::error("Erro ao atualizar metadados para o arquivo: $zipPath");
+                Log::error("Erro no comando exiftool: " . implode("\n", $output));
+            }
+
+            // Verificar se o arquivo foi alterado (se ele existe)
+            if (file_exists($zipPath)) {
+                Log::info("Arquivo com metadados atualizado existe em: $zipPath");
+            } else {
+                Log::error("Arquivo não encontrado após a atualização: $zipPath");
+            }
+            // return $zipPath;
+        // print 'caiu aqui 0'. $zipPath;
+        // foreach ($files as $file) {
+        //     print 'caiu aquiiiiiiiiiii';
+        //     var_dump($file);
+        //     $title = 'algo';
+        //     $author = 'Fulano';
+
+        //     // Modify metadata
+        //     exec("exiftool -Title='$title' -Author='$author' -overwrite_original $file");
+
+        //     // Verify success
+        //     if (file_exists($file)) {
+        //         echo "Metadata updated successfully!";
+        //     } else {
+        //         echo "Error updating metadata.";
+        //     }
+
+        // }
+
     }
 
     private function addPasswordToZip($zipFilePath, $title, $password)
