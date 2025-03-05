@@ -134,7 +134,7 @@ class PaymentController extends Controller
         } catch (MPApiException $e) {
             return response()->json([
                 'error' => $e->getMessage(),
-                'details' => $e->getResponse()
+                'details' => $e->getApiResponse() // Resposta detalhada da API
             ], 500);
         }
     }
