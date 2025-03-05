@@ -586,6 +586,7 @@ class ProductController extends Controller
         } else {
             $newPayment->id_payment_gateway = $data->id;
             $newPayment->id_invoice_trans = $data->id;
+            $newPayment->status = 'pending';
             $total_price = 0;
             foreach ($data->items as $item) {
                 $total_price += ($item->quantity * $item->unit_price);
