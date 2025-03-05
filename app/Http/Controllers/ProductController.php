@@ -496,7 +496,8 @@ class ProductController extends Controller
         $testMode = true;
 
         $paymentMP = new PaymentController();
-        $paymentMP->createPaymentMP();
+        $res = $paymentMP->createPaymentMP();
+        return response()->json($res);
         // if ($testMode) {
         //     $total = 0;
         //     foreach($cart as $product) {

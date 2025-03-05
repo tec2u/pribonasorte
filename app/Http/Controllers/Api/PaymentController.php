@@ -122,7 +122,7 @@ class PaymentController extends Controller
             $preference = $client->create($preferenceData);
 
             // Redirecionar o cliente para o link de pagamento
-            return redirect($preference->init_point);
+            return $preference;
         } catch (MPApiException $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
