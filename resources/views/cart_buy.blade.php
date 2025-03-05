@@ -480,7 +480,7 @@
 
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <label for="payment_method">Forma de pagamento</label>
+                                            <label for="payment_method"style="white-space: nowrap;">Forma de pagamento</label>
                                             <select name="payment_method" id="payment_method" class="form-control ml-2">
                                                 <!-- <option value="paypal">Paypal</option> -->
                                                 <option value="mp">Mercado pago</option>
