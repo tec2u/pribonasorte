@@ -458,7 +458,7 @@
                                             <thead>
                                                 <tr>
                                                     <th style="border: 1px solid silver; padding: 10px;" width="75%">Subtotal</th>
-                                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $withoutVAT }}
+                                                    <th style="border: 1px solid silver; padding: 10px;" width="25%">R$ {{ $new_sub_total }}
                                                     </th>
                                                 </tr>
                                                 <tr>
