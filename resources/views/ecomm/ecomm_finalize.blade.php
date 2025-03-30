@@ -634,6 +634,15 @@
                 </label>
               </div>
               <div class="form-check">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Metodo de pagamento
+                </label>
+                <select name="payment_method" id="" class="form-control">
+                    <option value="mp">Mercado Pago</option>
+                </select>
+
+              </div>
+              <div class="form-check">
                 <input class="form-check-input" type="radio" value="0" name="smartshipping"
                   id="flexRadioDefault2" required>
                 <label class="form-check-label" for="flexRadioDefault2">

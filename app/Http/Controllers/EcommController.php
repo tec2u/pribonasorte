@@ -13,6 +13,7 @@ use App\Models\InvoicesFakturoid;
 use App\Models\PaymentOrderEcomm;
 use App\Models\Product;
 use App\Models\ProductByCountry;
+use App\Http\Controllers\Api\PaymentController;
 use App\Models\Stock;
 use App\Models\TaxPackage;
 use App\Models\User;
@@ -201,14 +202,19 @@ class EcommController extends Controller
             ]
         ];
 
-        $response = Http::withHeaders([
+        $requestAPI = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
+        ])->withBasicAuth(env('API_PAGARME_KEY'), '')->post($url, $data);
 
+        if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+            $requestAPI->withoutVerifying();
+        }
+
+        $response = $requestAPI->post($url, $data);
         if ($response->successful()) {
             return $response->json();
         } else {
-            return $response->body();
+            return response()->json($response->body());
         }
     }
 
@@ -252,13 +258,18 @@ class EcommController extends Controller
         return response()->json($response->json());
     }
 
-    public function payment($request, $order)
+    public function payment(Request $request, $cartOrder, $ip_order)
     {
-        $customerID = $this->checkClientExistsAPI($request);
+        if ($request->payment_method == 'paypal') {
+            $customerID = $this->checkClientExistsAPI($request);
 
-        $this->updateOrCreateClientAddress($customerID, $request);
+            $this->updateOrCreateClientAddress($customerID, $request);
 
-        $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request, $order);
+            $paymentResponse = $this->createNewPaymentOrderAPI($customerID, $request, $cartOrder);
+        } else {
+            $paymentMP = new PaymentController();
+            $paymentResponse = $paymentMP->createPaymentMP($request, $ip_order, true);
+        }
 
         return $paymentResponse;
     }
@@ -274,7 +285,7 @@ class EcommController extends Controller
         }
     }
 
-    public function registerOrder(Request $request, $data = [])
+    public function registerOrder(Request $request, $data, $orderID)
     {
         $ip_order = $_SERVER['REMOTE_ADDR'];
 
@@ -295,12 +306,24 @@ class EcommController extends Controller
 
                 $newPayment = new PaymentOrderEcomm;
                 $newPayment->id_user = $verific_register->id;
-                $newPayment->id_payment_gateway = $data["id"];
-                $newPayment->id_invoice_trans = $data["id"];
-                $newPayment->status = strtolower($data["status"]);
-                $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100;
-                $newPayment->number_order = $numb_order;
-                $newPayment->payment_method = 'api';
+                if ($request->payment_method == 'paypal') {
+                    $newPayment->id_payment_gateway = $data["id"];
+                    $newPayment->id_invoice_trans = $data["id"];
+                    $newPayment->status = $data["status"];
+
+                    $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
+                } else {
+                    $newPayment->id_payment_gateway = $data->id;
+                    $newPayment->id_invoice_trans = $data->id;
+                    $newPayment->status = 'pending';
+                    $total_price = 0;
+                    foreach ($data->items as $item) {
+                        $total_price += ($item->quantity * $item->unit_price);
+                    }
+                    $newPayment->total_price = $total_price;
+                }
+                $newPayment->number_order = $orderID;
+
                 $newPayment->save();
 
                 foreach ($order_cart as $order) {
@@ -313,9 +336,14 @@ class EcommController extends Controller
                     $orders->id_product = $order->id_product;
                     $orders->amount = $order->amount;
                     $orders->total = $order_total;
-                    $orders->payment_link = $data["url"];
+                    if ($request->payment_method == 'paypal') {
+                        $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
+                        $orders->payment_link = $data['url'];
+                    } else {
+                        $orders->total_shipping = 0;
+                        $orders->payment_link = $data->init_point;
+                    }
                     $orders->total_vat = 0;
-                    $orders->total_shipping = 0;
                     $orders->status_order = "order placed";
                     $orders->client_backoffice = 0;
                     $orders->vat_product_percentage = 0;
@@ -344,12 +372,24 @@ class EcommController extends Controller
 
             $newPayment = new PaymentOrderEcomm;
             $newPayment->id_user = $user_new->id;
-            $newPayment->id_payment_gateway = $data["id_payment"];
-            $newPayment->id_invoice_trans = $data["id_invoice_trans"];
-            $newPayment->status = strtolower($data["status"]);
-            $newPayment->total_price = $data["total_price"];
-            $newPayment->number_order = $numb_order;
-            $newPayment->payment_method = $data["method"];
+            if ($request->payment_method == 'paypal') {
+                $newPayment->id_payment_gateway = $data["id"];
+                $newPayment->id_invoice_trans = $data["id"];
+                $newPayment->status = $data["status"];
+
+                $newPayment->total_price = $data["cart_settings"]["items_total_cost"] / 100; //preço retorna em centavos
+            } else {
+                $newPayment->id_payment_gateway = $data->id;
+                $newPayment->id_invoice_trans = $data->id;
+                $newPayment->status = 'pending';
+                $total_price = 0;
+                foreach ($data->items as $item) {
+                    $total_price += ($item->quantity * $item->unit_price);
+                }
+                $newPayment->total_price = $total_price;
+            }
+            $newPayment->number_order = $orderID;
+
             $newPayment->save();
 
             foreach ($order_cart as $order) {
@@ -361,8 +401,14 @@ class EcommController extends Controller
                 $orders->amount = $order->amount;
                 $orders->total = $data["total_price"];
                 $orders->total_vat = 0;
-                $orders->total_shipping = 0;
                 $orders->status_order = 0;
+                if ($request->payment_method == 'paypal') {
+                    $orders->total_shipping = $data['cart_settings']['shipping_total_cost'];
+                    $orders->payment_link = $data['url'];
+                } else {
+                    $orders->total_shipping = 0;
+                    $orders->payment_link = $data->init_point;
+                }
                 $orders->id_payment_order = $newPayment->id;
                 $orders->vat_product_percentage = 0;
                 $orders->vat_shipping_percentage = 0;
@@ -383,7 +429,7 @@ class EcommController extends Controller
             }
         }
 
-        return $orders;
+        return $newPayment;
     }
 
     public function finalizeEcomm(Request $request)
@@ -391,33 +437,38 @@ class EcommController extends Controller
 
 
         $ip_order = $_SERVER['REMOTE_ADDR'];
-        $order_cart = OrderEcomm::with('product')->where('ip_order', $ip_order)->get();
-        if (count($order_cart) < 1) {
+        $cartOrders = OrderEcomm::with('product')->where('ip_order', $ip_order)->get();
+        if (count($cartOrders) < 1) {
             return redirect()->route('ecomm');
         }
 
-        $testMode = true;
+        $n_order = $this->genNumberOrder();
+
+        $testMode = false;
         if ($testMode) {
+            $total = 0;
+            foreach ($cartOrders as $product) {
+                $total += $product->total;
+            }
             $responseData = [
                 'id' => 1,
                 'status' => 'pending',
                 'cart_settings' => [
-                    'items_total_cost' => $order_cart[0]->total * 100,
+                    'items_total_cost' => $total * 100,
                     'shipping_total_cost' => $request->send_value,
                 ],
                 'url' => route('home.home')
             ];
         } else {
-            $responseData = $this->payment($request, $order_cart);
+            $responseData = $this->payment($request, $cartOrders, $ip_order);
+            return response()->json($responseData);
         }
-        // return response()->json($responseData);
-
         if (isset($responseData)) {
-            $payment = $this->registerOrder($request, $responseData);
+            $this->registerOrder($request, $responseData, $n_order);
             if ($testMode) {
                 return redirect()->route('ecomm');
             }
-            return redirect()->route("payment_render.ecomm", ["id" => $payment->number_order]);
+            return redirect()->route("payment_render.ecomm", ["id" => $n_order]);
         } else {
             return redirect()->back();
         }
@@ -911,11 +962,6 @@ class EcommController extends Controller
         if (count($order_cart) < 1) {
             return redirect()->route('ecomm');
         }
-
-        // if (!$session_user) {
-        //     return redirect()->route('page.login.ecomm');
-        // }
-
 
         $user = session()->get('buyer');
         $countryIp = ["country" => $user->country];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\CartOrder;
+use App\Models\OrderEcomm;
 use App\Models\OrderPackage;
 use App\Models\User;
 use App\Traits\OrderBonusTrait;
@@ -93,7 +94,7 @@ class PaymentController extends Controller
         return $response;
     }
 
-    public function createPaymentMP(Request $request, $user_id)
+    public function createPaymentMP(Request $request, $user_id, $externo = false)
     {
         try {
             // Configura a chave de acesso do Mercado Pago
@@ -102,8 +103,11 @@ class PaymentController extends Controller
             // Criar um cliente de preferências
             $client = new PreferenceClient();
 
-            $cartItems = CartOrder::with('product')->where('id_user', $user_id)->get();
-            // return $cartItems;
+            if ($externo) {
+                $cartItems = OrderEcomm::with('product')->where('ip_order', $user_id)->get();
+            } else {
+                $cartItems = CartOrder::with('product')->where('id_user', $user_id)->get();
+            }
 
             $items = [];
             foreach ($cartItems as $item) {
