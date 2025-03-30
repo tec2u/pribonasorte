@@ -301,9 +301,6 @@ class EcommController extends Controller
 
             if ($verific_register) {
 
-
-                $numb_order = $this->genNumberOrder();
-
                 $newPayment = new PaymentOrderEcomm;
                 $newPayment->id_user = $verific_register->id;
                 if ($request->payment_method == 'paypal') {
@@ -331,7 +328,7 @@ class EcommController extends Controller
 
                     $orders = new EcommOrders;
 
-                    $orders->number_order = $numb_order;
+                    $orders->number_order = $orderID;
                     $orders->id_user = $verific_register->id;
                     $orders->id_product = $order->id_product;
                     $orders->amount = $order->amount;
@@ -364,12 +361,6 @@ class EcommController extends Controller
         } else {
             $user_new = $this->RegisterUser($request);
 
-            if (isset($data['order'])) {
-                $numb_order = $data['order'];
-            } else {
-                $numb_order = $this->genNumberOrder();
-            }
-
             $newPayment = new PaymentOrderEcomm;
             $newPayment->id_user = $user_new->id;
             if ($request->payment_method == 'paypal') {
@@ -395,7 +386,7 @@ class EcommController extends Controller
             foreach ($order_cart as $order) {
                 $orders = new EcommOrders;
 
-                $orders->number_order = $numb_order;
+                $orders->number_order = $orderID;
                 $orders->id_user = $user_new->id;
                 $orders->id_product = $order->id_product;
                 $orders->amount = $order->amount;
