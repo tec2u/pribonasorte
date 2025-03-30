@@ -158,7 +158,7 @@
                       <td scope="col">{{ $item->payment }}</td>
                       <td scope="col">R$ {{ $item->total }}</td>
                       <td scope="col">
-                        @if($item->status_order == 'order placed')
+                        @if($item->status_order == 'order placed' && $item->payment == 'paid')
                             <a class="btn btn-success btn-sm m-0" href="{{ route('ecomm.documents.download', ['id' => $item->product->documentAdditional->id, 'product_id' => $item->product->id]) }}">Download</a>
                         @else
                             Produto disponivel somente após confirmação de pagamento
