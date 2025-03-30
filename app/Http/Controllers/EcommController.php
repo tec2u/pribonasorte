@@ -461,7 +461,7 @@ class EcommController extends Controller
             ];
         } else {
             $responseData = $this->payment($request, $cartOrders, $ip_order);
-            return response()->json($responseData);
+            // return response()->json($responseData);
         }
         if (isset($responseData)) {
             $this->registerOrder($request, $responseData, $n_order);
