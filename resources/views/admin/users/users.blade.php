@@ -13,13 +13,6 @@
       <div class="alignPackage">
         <h3>@lang('admin.members.title_2')</h3>
 
-        <form action="{{ route('admin.users.sendBrevo') }}" method="post" style="width: fit-content;display: flex;">
-          @csrf
-          <button class="btn btn-success btn-sm" type="submit">
-            Send all emails to Brevo
-          </button>
-        </form>
-
       </div>
 
     </div>

@@ -12,17 +12,6 @@
     <div class="card-header">
       <div class="alignPackage">
         <h3>Customers</h3>
-        <a href="{{ route('admin.users.index') }}">
-          <button class="btn btn-warning btn-sm" type="button">
-            See Distributors
-          </button>
-        </a>
-
-        <a href="{{ route('admin.users.corporates') }}">
-          <button class="btn btn-warning btn-sm" type="button">
-            See Corporates
-          </button>
-        </a>
       </div>
     </div>
     <div class="card-body table-responsive">

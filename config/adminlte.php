@@ -329,7 +329,7 @@ return [
 
       // Sidebar items:
       [
-         'text' => 'dashboard',
+         'text' => 'Painel',
          'url' => 'admin/home',
          'icon' => 'fas fa-fw fa-home',
          'label_color' => 'success',
@@ -342,13 +342,17 @@ return [
       //    'icon' => 'fas fa-fw fa-desktop',
       // ],
       [
-         'text' => 'members',
+         'text' => 'Membros',
          'icon' => 'fas fa-fw fa-users',
          'can' => 'admin',
          'submenu' => [
             [
-               'text' => 'members_list',
+               'text' => 'Internos',
                'url' => 'admin/users',
+            ],
+            [
+               'text' => 'Externos',
+               'url' => 'admin/users/customers',
             ],
             // [
             //    'text' => 'Career',
@@ -378,7 +382,7 @@ return [
       ],
 
       [
-         'text' => 'Products',
+         'text' => 'Produtos',
          'icon' => 'fas fa-fw fa-box',
          'can' => 'is_admin',
          'submenu' => [
@@ -388,13 +392,13 @@ return [
             // ],
 
             [
-               'text' => 'Create product',
+               'text' => 'Criar produto',
                'url' => 'admin/packages/products',
             ],
-            [
-               'text' => 'Pedidos de pacote',
-               'url' => 'admin/packages/orderPackages',
-            ],
+            // [
+            //    'text' => 'Pedidos de pacote',
+            //    'url' => 'admin/packages/orderPackages',
+            // ],
             [
                 'text' => 'Pedidos de produtos',
                 'url' => 'admin/packages/orderProducts',
@@ -491,7 +495,7 @@ return [
     //   ],
 
       [
-         'text' => 'support',
+         'text' => 'Suporte',
          'url' => 'admin/support',
          'icon' => 'fas fa-fw fa-headset',
       ],
@@ -505,7 +509,7 @@ return [
               'url' => 'admin/video-upload',
            ],
            [
-              'text' => 'Documents',
+              'text' => 'Documentos',
               'url' => 'admin/documents-upload',
            ],
         ],
@@ -596,7 +600,7 @@ return [
     //      ],
     //   ],
       [
-         'text' => 'Financial Reports',
+         'text' => 'Relatórios financeiro',
          'url' => 'admin/settings',
          'icon' => 'fas fa-fw fa-file',
          'can' => 'is_admin2',
@@ -607,7 +611,7 @@ return [
             //    'url' => 'admin/reports/transactions',
             // ],
             [
-               'text' => 'All Orders Payed',
+               'text' => 'Todos os pedidos pagos',
                'url' => 'admin/reports/orders/payed',
             ],
             // [
@@ -626,7 +630,7 @@ return [
          ],
       ],
       [
-         'text' => 'Logistics Reports',
+         'text' => 'Relatórios logísticos',
          'url' => 'admin/settings',
          'icon' => 'fas fa-fw fa-file',
          'can' => 'is_admin2',
@@ -637,7 +641,7 @@ return [
             //    'url' => 'admin/packages/paid/orderfilter/product',
             // ],
             [
-               'text' => 'Stocks',
+               'text' => 'Estoque',
                'url' => 'admin/packages/product/stock',
             ]
 
@@ -732,12 +736,12 @@ return [
       //    ],
       // ],
       [
-         'text' => 'change_password',
+         'text' => 'Alterar senha',
          'url' => 'admin/users/password',
          'icon' => 'fas fa-fw fa-lock',
       ],
       [
-         'text' => 'my_info',
+         'text' => 'Minhas informações',
          'url' => 'admin/users/myinfo',
          'icon' => 'fas fa-fw fa-lock',
          'can' => 'is_admin4',

@@ -14,11 +14,6 @@
       <div class="alignPackage">
         <h3>Orders Product</h3>
       </div>
-      <a href="{{ route('admin.packages.orderfilter.products.corporate') }}">
-        <button class="btn btn-warning btn-sm" type="button">
-          See Orders pending corporate
-        </button>
-      </a>
     </div>
     <div class="card-header">
       <div class="row">
@@ -92,8 +87,6 @@
               <th>@lang('admin.orders.order.col3')</th>
               <th>Date</th>
               <th>Payment</th>
-              <th>Shipping Label</th>
-              <th>track</th>
               <th>Cancell</th>
               <th>Edit</th>
             </tr>
@@ -172,18 +165,6 @@
                     @endif
                   </td>
                   @if (strtolower($orderpackage->status) == 'paid')
-                    <td>
-                      <a type="button" class="btn btn-primary btn-sm m-0"
-                        href="{{ route('admin.packages.order_products_label', $orderpackage->number_order) }}">
-                        shipping label
-                      </a>
-                    </td>
-                    <td>
-                      <a type="button" class="btn btn-primary btn-sm m-0"
-                        href="{{ route('admin.tracking') . "?order=$orderpackage->number_order" }}">
-                        Track
-                      </a>
-                    </td>
                     <td>
                       <div class="modal fade" id="staticBackdropcancel{{ $orderpackage->number_order }}"
                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -286,11 +267,6 @@
                       </div>
                     </td>
                   @else
-                    <td>
-                    </td>
-
-                    <td>
-                    </td>
 
                     <td>
                     </td>
