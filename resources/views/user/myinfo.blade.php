@@ -361,7 +361,19 @@
                       </span>
                     @enderror
                   </div>
-                  <div class="col-md-12">
+
+                  <div class="col-md-6">
+                    <label for="identification" >CPF<span
+                        style="color: brown">*</span></label>
+                    <input type="text" class="form-control" id="identification" required name="identification"
+                      value="@if (old('identification') !== null) {{ old('identification') }}@else{{ $user->identification }} @endif">
+                    @error('postcode')
+                      <span class="invalid-feedback " style="display:block" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                  <div class="col-md-6">
                     <label for="gender" class="form-label">@lang('user.gender')<span
                         style="color: brown">*</span></label>
                     <select id="gender" required name="gender" class="form-control">

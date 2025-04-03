@@ -145,6 +145,7 @@ class RegisterController extends Controller
       $user->number_residence = $data['number_residence'] ?? '';
       $user->complement = $data['complement'] ?? '';
       $user->area_residence = $data['area_residence'] ?? '';
+      $user->identification = $data['identification'] ?? '';
 
       //code...
 

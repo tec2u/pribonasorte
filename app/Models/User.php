@@ -61,7 +61,8 @@ class User extends Authenticatable
         'validate_code',
         'tax_id',
         'vat_reg_no',
-        'code_api'
+        'code_api',
+        'identification'
     ];
 
     /**

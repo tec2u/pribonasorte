@@ -277,7 +277,7 @@ autocomplete="postcode" tabindex="5">
               @enderror
             </div> --}}
 
-            <div class="col-lg-12">
+            <div class="col-lg-6">
               <label for="address" class="form-label teste1234">Endereço<span style="color: brown">*
                 </span></label>
               <input id="address" type="text"
@@ -290,6 +290,19 @@ autocomplete="postcode" tabindex="5">
                 </span>
               @enderror
             </div>
+            <div class="col-lg-6">
+                <label for="identification" class="form-label teste1234">CPF/International ID<span style="color: brown">*
+                  </span></label>
+                <input id="identification" type="text"
+                  class="form-control form-register @error('identification') is-invalid @enderror" placeholder="CPF/International ID"
+                  name="identification" value="{{ old('identification') }}">
+                <span for="identification" class="focus-input100"></span>
+                @error('identification')
+                  <span class="invalid-feedback " role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </div>
 
             {{-- <div class="col-lg-6">
               <label for="complement" class="form-label teste1234">Complement</label>
@@ -487,7 +500,7 @@ autocomplete="postcode" tabindex="5">
                 @enderror
               </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <label for="address" class="form-label teste1234">Endereço<span style="color: brown">*
                   </span></label>
                 <input id="faturing_address" type="text"
@@ -495,6 +508,20 @@ autocomplete="postcode" tabindex="5">
                   name="faturing_address" value="{{ old('address') }}" autocomplete="address" tabindex="8">
                 <span for="address" class="focus-input100"></span>
                 @error('address')
+                  <span class="invalid-feedback " role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </div>
+
+              <div class="col-lg-6">
+                <label for="identification" class="form-label teste1234">CPF/International ID<span style="color: brown">*
+                  </span></label>
+                <input id="identification" type="text"
+                  class="form-control form-register @error('identification') is-invalid @enderror" placeholder="CPF/International ID"
+                  name="identification" value="{{ old('identification') }}">
+                <span for="identification" class="focus-input100"></span>
+                @error('identification')
                   <span class="invalid-feedback " role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
