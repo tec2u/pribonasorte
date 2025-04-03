@@ -101,7 +101,8 @@ class UserController extends Controller
             'area_residence',
             'number_residence',
             'cell',
-            'country'
+            'country',
+            'identification'
         ]);
 
         $data['telephone'] = $request->get('countryCodePhone') . $data['telephone'];
