@@ -122,7 +122,7 @@ class EcommController extends Controller
         ])->withBasicAuth(env('API_PAGARME_KEY'), '')->withoutVerifying()->post($url, $data);
 
         $data = $response->json();
-        return $data;
+
         EcommRegister::where('id', $user->id)->update(['code_api' => $data['id']]);
         if ($response->successful()) {
             return $data['id'];
