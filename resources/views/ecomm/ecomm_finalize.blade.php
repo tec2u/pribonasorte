@@ -655,6 +655,7 @@
                   Metodo de pagamento
                 </label>
                 <select name="payment_method" id="" class="form-control">
+                    <option value="paypal">Paypal</option>
                     <option value="mp">Mercado Pago</option>
                 </select>
               </div>

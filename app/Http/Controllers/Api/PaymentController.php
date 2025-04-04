@@ -122,12 +122,18 @@ class PaymentController extends Controller
             }
             $data = [
                 "items" => $items,
+                "payment_methods" => [
+                    "installments" => 12, // Parcelamento em até 12x no crédito
+                    "default_payment_method_id" => null // Permite qualquer método de pagamento
+                ],
+                "binary_mode" => false, // Permite pagamentos pendentes (boleto e Pix)
                 "back_urls" => [
                     "success" => route('home.home'),
                     "failure" => route('home.home'),
                     "pending" => route('home.home')
                 ],
-                "auto_return" => "approved" // Retorno automático após aprovação
+                "auto_return" => "approved",
+                "notification_url" => route('notity') // URL para notificações de pagamento
             ];
 
             // Criar a preferência de pagamento
